@@ -1,4 +1,4 @@
-from api.models import Company
+from api.models import Company, Job
 from django.contrib.auth.models import User
 from tastypie import fields
 from tastypie.api import Api
@@ -31,7 +31,24 @@ class CompanyResource(ModelResource):
         )
 
 
+class JobResource(ModelResource):
+    user = fields.ForeignKey(UserResource, 'user')
+
+    class Meta:
+        queryset = Job.objects.all()
+        detail_uri_name = 'slug'
+        authentication = SessionAuthentication()
+        authorization = DjangoAuthorization()
+
+    def obj_create(self, bundle, **kwargs):
+        return super(JobResource, self).obj_create(
+            bundle,
+            user=bundle.request.user,
+        )
+
+
 api = Api(api_name='v1')
 api.register(UserResource())
 api.register(CompanyResource())
+api.register(JobResource())
 
