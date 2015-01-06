@@ -1,0 +1,20 @@
+db:
+  image: postgres:latest
+  environment:
+    POSTGRES_USER: jobs
+    POSTGRES_PASSWORD:
+
+web:
+  build: .
+  volumes:
+    - .:/usr/src/app
+  environment:
+    PYTHONUNBUFFERED: 1
+    POSTGRES_USER: jobs
+    POSTGRES_PASSWORD:
+    SECRET_KEY:
+  links:
+    - db:db
+  ports:
+    - 8000:8000
+  command: python manage.py runserver 0.0.0.0:8000

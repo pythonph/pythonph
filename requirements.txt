@@ -1,0 +1,4 @@
+django>=1.7,<1.8
+psycopg2
+django-taggit
+django-tastypie
