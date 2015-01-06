@@ -8,7 +8,7 @@ class Company(models.Model):
     class Meta:
         verbose_name_plural = "companies"
 
-    user = models.OneToOneField(User)
+    user = models.ForeignKey(User)
 
     name = models.CharField(max_length=255)
     slug = models.SlugField()
@@ -28,7 +28,7 @@ class Company(models.Model):
 
 
 class Job(models.Model):
-    user = models.OneToOneField(User)
+    user = models.ForeignKey(User)
     company = models.ForeignKey(Company)
     tags = TaggableManager()
 
@@ -47,4 +47,4 @@ class Job(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)[:50].rstrip("-")
-        return super(Company, self).save(*args, **kwargs)
+        return super(Job, self).save(*args, **kwargs)

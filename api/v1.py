@@ -12,6 +12,10 @@ class UserResource(ModelResource):
         fields = ['first_name', 'last_name']
         authentication = SessionAuthentication()
 
+    def dehydrate(self, bundle):
+        bundle.data['name'] = bundle.obj.get_full_name()
+        return bundle
+
 
 class CompanyResource(ModelResource):
     user = fields.ForeignKey(UserResource, 'user')
@@ -29,11 +33,14 @@ class CompanyResource(ModelResource):
 
 
 class JobResource(ModelResource):
-    user = fields.ForeignKey(UserResource, 'user')
+    user = fields.ForeignKey(UserResource, 'user', full=True)
+    company = fields.ForeignKey(CompanyResource, 'company', full=True)
+    # TODO: Include tags
 
     class Meta:
         queryset = Job.objects.all()
-        detail_uri_name = 'slug'
+        # TODO: /api/v1/company/insync/job/job-slug
+        # detail_uri_name = 'slug'
         authentication = SessionAuthentication()
 
     def obj_create(self, bundle, **kwargs):
