@@ -50,6 +50,16 @@ var Content = React.createClass({
     return data ? (
       <div className="details page" ref="page">
         <h2>{data.title}</h2>
+        <div className="row">
+          <div className="one-half column">
+            <h3>Company</h3>
+            <p>{data.company.name}</p>
+          </div>
+          <div className="one-half column">
+            <h3>Location</h3>
+            <p>{data.location}</p>
+          </div>
+        </div>
         <p className="description">
           {data.description}
         </p>

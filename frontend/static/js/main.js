@@ -51,6 +51,16 @@ var Content = React.createClass({displayName: "Content",
     return data ? (
       React.createElement("div", {className: "details page", ref: "page"}, 
         React.createElement("h2", null, data.title), 
+        React.createElement("div", {className: "row"}, 
+          React.createElement("div", {className: "one-half column"}, 
+            React.createElement("h3", null, "Company"), 
+            React.createElement("p", null, data.company.name)
+          ), 
+          React.createElement("div", {className: "one-half column"}, 
+            React.createElement("h3", null, "Location"), 
+            React.createElement("p", null, data.location)
+          )
+        ), 
         React.createElement("p", {className: "description"}, 
           data.description
         ), 
