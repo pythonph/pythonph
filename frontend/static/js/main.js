@@ -8,7 +8,8 @@ var Job = React.createClass({displayName: "Job",
       toggled: false
     };
   },
-  toggleDetails: function() {
+  toggleDetails: function(e) {
+    e.preventDefault();
     this.setState({toggled: !this.state.toggled});
   },
   renderDetails: function() {
