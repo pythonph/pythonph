@@ -16,7 +16,10 @@ var Job = React.createClass({displayName: "Job",
       React.createElement("div", {className: "details"}, 
         React.createElement("p", {className: "description"}, this.props.description), 
         React.createElement("p", null, 
-          React.createElement("a", {className: "button", href: this.props.application_url}, 
+          React.createElement("a", {
+            className: "apply button", 
+            href: this.props.application_url
+          }, 
             "Apply for this job"
           )
         )
@@ -25,12 +28,14 @@ var Job = React.createClass({displayName: "Job",
   },
   render: function() {
     return (
-      React.createElement("li", {
-        onClick: this.toggleDetails
-      }, 
+      React.createElement("li", null, 
         React.createElement("div", {className: "row"}, 
           React.createElement("div", {className: "two-thirds column"}, 
-            React.createElement("h2", null, React.createElement("a", {href: "#"}, this.props.title)), 
+            React.createElement("h2", null, 
+              React.createElement("a", {href: "#", onClick: this.toggleDetails}, 
+                this.props.title
+              )
+            ), 
             React.createElement("span", {className: "location"}, this.props.location), 
             this.renderDetails()
           ), 
@@ -50,7 +55,9 @@ module.exports = React.createClass({
   displayName: 'Jobs',
   getInitialState: function() {
     return {
-      jobs: null
+      jobs: null,
+      next: null,
+      prev: null
     };
   },
   apiUrl: function() {
@@ -65,7 +72,9 @@ module.exports = React.createClass({
   },
   parseJobs: function(res) {
     this.setState({
-      jobs: res.body.objects
+      jobs: res.body.objects,
+      next: res.body.meta.next,
+      prev: res.body.meta.previous
     });
   },
   renderJob: function(data) {
@@ -78,12 +87,46 @@ module.exports = React.createClass({
       React.createElement("li", null, "Loading jobs…")
     );
   },
+  prevJobs: function() {
+    if (this.state.prev) {
+      this.setState({jobs: null});
+      superagent
+        .get(this.state.prev)
+        .end(this.parseJobs);
+    }
+  },
+  nextJobs: function() {
+    if (this.state.next) {
+      this.setState({jobs: null});
+      superagent
+        .get(this.state.next)
+        .end(this.parseJobs);
+    }
+  },
   render: function() {
     return typeof this.state.jobs === null ? (
       React.createElement("p", null, "No jobs has been posted yet.")
     ) : (
-      React.createElement("ul", {className: "jobs"}, 
-        this.renderJobs()
+      React.createElement("div", null, 
+        React.createElement("ul", {className: "jobs"}, 
+          this.renderJobs()
+        ), 
+        React.createElement("div", {className: "pagination u-full-width u-cf"}, 
+          React.createElement("button", {
+            className: "u-pull-left", 
+            onClick: this.prevJobs, 
+            disabled: !this.state.prev
+          }, 
+            "Previous"
+          ), 
+          React.createElement("button", {
+            className: "u-pull-right", 
+            onClick: this.nextJobs, 
+            disabled: !this.state.next
+          }, 
+            "Next"
+          )
+        )
       )
     );
   }

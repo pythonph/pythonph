@@ -5,9 +5,13 @@ body {
   color: #666;
 }
 
-.button {
+button, .button {
   font-weight: normal;
-  background-color: #fff1c2;
+}
+
+button:disabled {
+  color: #eee;
+  border-color: #eee;
 }
 
 .container {
@@ -57,6 +61,14 @@ h1 a {
 .jobs .description {
   margin-top: 2rem;
   white-space: pre;
+}
+
+.jobs .apply {
+  background-color: #fff1c2;
+}
+
+.pagination {
+  padding: 2rem 2rem 0 2rem;
 }
 
 .footer {

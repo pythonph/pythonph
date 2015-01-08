@@ -15,7 +15,10 @@ var Job = React.createClass({
       <div className="details">
         <p className="description">{this.props.description}</p>
         <p>
-          <a className="button" href={this.props.application_url}>
+          <a
+            className="apply button"
+            href={this.props.application_url}
+          >
             Apply for this job
           </a>
         </p>
@@ -24,12 +27,14 @@ var Job = React.createClass({
   },
   render: function() {
     return (
-      <li
-        onClick={this.toggleDetails}
-      >
+      <li>
         <div className="row">
           <div className="two-thirds column">
-            <h2><a href="#">{this.props.title}</a></h2>
+            <h2>
+              <a href="#" onClick={this.toggleDetails}>
+                {this.props.title}
+              </a>
+            </h2>
             <span className="location">{this.props.location}</span>
             {this.renderDetails()}
           </div>
@@ -49,7 +54,9 @@ module.exports = React.createClass({
   displayName: 'Jobs',
   getInitialState: function() {
     return {
-      jobs: null
+      jobs: null,
+      next: null,
+      prev: null
     };
   },
   apiUrl: function() {
@@ -64,7 +71,9 @@ module.exports = React.createClass({
   },
   parseJobs: function(res) {
     this.setState({
-      jobs: res.body.objects
+      jobs: res.body.objects,
+      next: res.body.meta.next,
+      prev: res.body.meta.previous
     });
   },
   renderJob: function(data) {
@@ -77,13 +86,47 @@ module.exports = React.createClass({
       <li>Loading jobs&hellip;</li>
     );
   },
+  prevJobs: function() {
+    if (this.state.prev) {
+      this.setState({jobs: null});
+      superagent
+        .get(this.state.prev)
+        .end(this.parseJobs);
+    }
+  },
+  nextJobs: function() {
+    if (this.state.next) {
+      this.setState({jobs: null});
+      superagent
+        .get(this.state.next)
+        .end(this.parseJobs);
+    }
+  },
   render: function() {
     return typeof this.state.jobs === null ? (
       <p>No jobs has been posted yet.</p>
     ) : (
-      <ul className="jobs">
-        {this.renderJobs()}
-      </ul>
+      <div>
+        <ul className="jobs">
+          {this.renderJobs()}
+        </ul>
+        <div className="pagination u-full-width u-cf">
+          <button
+            className="u-pull-left"
+            onClick={this.prevJobs}
+            disabled={!this.state.prev}
+          >
+            Previous
+          </button>
+          <button
+            className="u-pull-right"
+            onClick={this.nextJobs}
+            disabled={!this.state.next}
+          >
+            Next
+          </button>
+        </div>
+      </div>
     );
   }
 });
