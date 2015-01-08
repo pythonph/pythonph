@@ -81,7 +81,11 @@ module.exports = React.createClass({
   },
   renderJobs: function() {
     return this.state.jobs ? (
-      this.state.jobs.map(this.renderJob)
+      this.state.jobs.length > 0 ? (
+        this.state.jobs.map(this.renderJob)
+      ) : (
+        <li>No jobs has been posted yet.</li>
+      )
     ) : (
       <li>Loading jobs&hellip;</li>
     );
@@ -103,9 +107,7 @@ module.exports = React.createClass({
     }
   },
   render: function() {
-    return typeof this.state.jobs === null ? (
-      <p>No jobs has been posted yet.</p>
-    ) : (
+    return (
       <div>
         <ul className="jobs">
           {this.renderJobs()}

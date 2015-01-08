@@ -82,7 +82,11 @@ module.exports = React.createClass({
   },
   renderJobs: function() {
     return this.state.jobs ? (
-      this.state.jobs.map(this.renderJob)
+      this.state.jobs.length > 0 ? (
+        this.state.jobs.map(this.renderJob)
+      ) : (
+        React.createElement("li", null, "No jobs has been posted yet.")
+      )
     ) : (
       React.createElement("li", null, "Loading jobs…")
     );
@@ -104,9 +108,7 @@ module.exports = React.createClass({
     }
   },
   render: function() {
-    return typeof this.state.jobs === null ? (
-      React.createElement("p", null, "No jobs has been posted yet.")
-    ) : (
+    return (
       React.createElement("div", null, 
         React.createElement("ul", {className: "jobs"}, 
           this.renderJobs()
