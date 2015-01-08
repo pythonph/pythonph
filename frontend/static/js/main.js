@@ -2,6 +2,50 @@
 var React = require('react/addons');
 var superagent = require('superagent');
 
+var Job = React.createClass({displayName: "Job",
+  getInitialState: function() {
+    return {
+      toggled: false
+    };
+  },
+  toggleDetails: function() {
+    this.setState({toggled: !this.state.toggled});
+  },
+  renderDetails: function() {
+    return this.state.toggled ? (
+      React.createElement("div", {className: "details"}, 
+        React.createElement("p", {className: "description"}, this.props.description), 
+        React.createElement("p", null, 
+          React.createElement("a", {className: "button", href: this.props.application_url}, 
+            "Apply for this job"
+          )
+        )
+      )
+    ) : null;
+  },
+  render: function() {
+    return (
+      React.createElement("li", {
+        onClick: this.toggleDetails
+      }, 
+        React.createElement("div", {className: "row"}, 
+          React.createElement("div", {className: "two-thirds column"}, 
+            React.createElement("h2", null, React.createElement("a", {href: "#"}, this.props.title)), 
+            React.createElement("span", {className: "location"}, this.props.location), 
+            this.renderDetails()
+          ), 
+          React.createElement("div", {className: "one-third column"}, 
+            React.createElement("h3", null, this.props.company.name), 
+            React.createElement("span", {className: "user"}, 
+              "Posted by ", this.props.user.name
+            )
+          )
+        )
+      )
+    );
+  }
+});
+
 module.exports = React.createClass({
   displayName: 'Jobs',
   getInitialState: function() {
@@ -25,22 +69,7 @@ module.exports = React.createClass({
     });
   },
   renderJob: function(data) {
-    return (
-      React.createElement("li", {key: data.id}, 
-        React.createElement("div", {className: "row"}, 
-          React.createElement("div", {className: "two-thirds column"}, 
-            React.createElement("h2", null, data.title), 
-            React.createElement("span", {className: "location"}, data.location)
-          ), 
-          React.createElement("div", {className: "one-third column"}, 
-            React.createElement("h3", null, data.company.name), 
-            React.createElement("span", {className: "user"}, 
-              "Posted by ", data.user.name
-            )
-          )
-        )
-      )
-    );
+    return React.createElement(Job, React.__spread({key: data.id},  data))
   },
   renderJobs: function() {
     return this.state.jobs ? (
