@@ -2,7 +2,6 @@ from api.models import Company, Job
 from django.contrib.auth.models import User
 from tastypie import fields
 from tastypie.api import Api
-from tastypie.authentication import SessionAuthentication
 from tastypie.resources import ModelResource
 
 
@@ -10,7 +9,6 @@ class UserResource(ModelResource):
     class Meta:
         queryset = User.objects.all()
         fields = ['first_name', 'last_name']
-        authentication = SessionAuthentication()
 
     def dehydrate(self, bundle):
         bundle.data['name'] = bundle.obj.get_full_name()
@@ -22,7 +20,6 @@ class CompanyResource(ModelResource):
 
     class Meta:
         queryset = Company.objects.all()
-        authentication = SessionAuthentication()
 
     def obj_create(self, bundle, **kwargs):
         return super(CompanyResource, self).obj_create(
@@ -38,7 +35,6 @@ class JobResource(ModelResource):
 
     class Meta:
         queryset = Job.objects.all()
-        authentication = SessionAuthentication()
 
     def apply_sorting(self, obj_list, options=None):
         return obj_list.order_by('-created_at')

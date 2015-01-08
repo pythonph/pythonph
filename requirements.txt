@@ -1,4 +1,5 @@
-django>=1.7,<1.8
-psycopg2
-django-taggit
-django-tastypie
+Django==1.7.2
+django-taggit==0.12.2
+django-tastypie==0.12.1
+gunicorn==19.1.1
+psycopg2==2.5.4
