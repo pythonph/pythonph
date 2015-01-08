@@ -1,17 +1,23 @@
-.app {
-  margin: 3rem 0;
+body {
+  background: #75a8d3;
+  font-family: PT Serif, serif;
+  padding: 3rem 0;
+  color: #666;
+}
+
+.container {
+  background: white;
 }
 
 .header {
-  border-bottom: 1px solid;
-  margin-bottom: 2rem;
+  background: #fff1c2;
+  padding: 2rem 2rem 0 2rem;
+  border-bottom: 0.5rem solid #ffda5c;
 }
 
-.footer {
-  border-top: 1px solid;
-  text-align: center;
-  line-height: 3;
-  color: silver;
+h1 {
+  font-family: Oswald;
+  text-transform: uppercase;
 }
 
 h1 a {
@@ -25,13 +31,21 @@ h1 a {
 
 .jobs {
   list-style: none;
+  margin: 0;
 }
 
 .jobs li {
-  padding: 1rem;
+  padding: 1rem 2rem;
+  margin: 0;
+  border-bottom: 1px dotted;
 }
 
 .jobs h2, .jobs h3 {
   margin: 0;
 }
 
+.footer {
+  padding: 2rem;
+  line-height: 1;
+  color: silver;
+}
