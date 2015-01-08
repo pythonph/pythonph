@@ -1,6 +1,9 @@
 var React = require('react/addons');
 var superagent = require('superagent');
 
+require('velocity-animate');
+require('velocity-animate/velocity.ui');
+
 var Job = React.createClass({
   getInitialState: function() {
     return {
@@ -70,6 +73,20 @@ module.exports = React.createClass({
       .get(this.apiUrl('job'))
       .end(this.parseJobs);
   },
+  componentDidUpdate: function(prevProps, prevState) {
+    if (prevState.jobs !== this.state.jobs) {
+      Velocity(
+        this.refs.jobsList
+          .getDOMNode()
+          .querySelectorAll('li'),
+        'transition.slideLeftIn',
+        {
+          duration: 500,
+          stagger: 250
+        }
+      );
+    }
+  },
   parseJobs: function(res) {
     this.setState({
       jobs: res.body.objects,
@@ -110,7 +127,7 @@ module.exports = React.createClass({
   render: function() {
     return (
       <div>
-        <ul className="jobs">
+        <ul ref="jobsList" className="jobs">
           {this.renderJobs()}
         </ul>
         <div className="pagination u-full-width u-cf">

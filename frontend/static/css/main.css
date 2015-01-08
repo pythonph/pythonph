@@ -39,6 +39,7 @@ h1 a {
 }
 
 .jobs {
+  overflow: hidden;
   list-style: none;
   margin: 0;
 }
@@ -46,7 +47,7 @@ h1 a {
 .jobs li {
   padding: 1rem 2rem;
   margin: 0;
-  border-bottom: 1px dotted;
+  border-bottom: 1px solid #eee;
 }
 
 .jobs h3, .jobs h4 {
