@@ -32,7 +32,7 @@ var Job = React.createClass({displayName: "Job",
       React.createElement("li", null, 
         React.createElement("div", {className: "row"}, 
           React.createElement("div", {className: "two-thirds column"}, 
-            React.createElement("h2", null, 
+            React.createElement("h3", null, 
               React.createElement("a", {href: "#", onClick: this.toggleDetails}, 
                 this.props.title
               )
@@ -41,7 +41,7 @@ var Job = React.createClass({displayName: "Job",
             this.renderDetails()
           ), 
           React.createElement("div", {className: "one-third column"}, 
-            React.createElement("h3", null, this.props.company.name), 
+            React.createElement("h4", null, this.props.company.name), 
             React.createElement("span", {className: "user"}, 
               "Posted by ", this.props.user.name
             )

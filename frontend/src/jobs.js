@@ -31,16 +31,16 @@ var Job = React.createClass({
       <li>
         <div className="row">
           <div className="two-thirds column">
-            <h2>
+            <h3>
               <a href="#" onClick={this.toggleDetails}>
                 {this.props.title}
               </a>
-            </h2>
+            </h3>
             <span className="location">{this.props.location}</span>
             {this.renderDetails()}
           </div>
           <div className="one-third column">
-            <h3>{this.props.company.name}</h3>
+            <h4>{this.props.company.name}</h4>
             <span className="user">
               Posted by {this.props.user.name}
             </span>
