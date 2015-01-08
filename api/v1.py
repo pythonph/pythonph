@@ -22,7 +22,6 @@ class CompanyResource(ModelResource):
 
     class Meta:
         queryset = Company.objects.all()
-        detail_uri_name = 'slug'
         authentication = SessionAuthentication()
 
     def obj_create(self, bundle, **kwargs):
@@ -39,8 +38,6 @@ class JobResource(ModelResource):
 
     class Meta:
         queryset = Job.objects.all()
-        # TODO: /api/v1/company/insync/job/job-slug
-        # detail_uri_name = 'slug'
         authentication = SessionAuthentication()
 
     def obj_create(self, bundle, **kwargs):
