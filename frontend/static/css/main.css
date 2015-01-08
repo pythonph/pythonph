@@ -54,18 +54,63 @@ h1 a {
   margin: 0;
 }
 
-.jobs h3 a {
+.jobs h3 a,
+.jobs h4 a {
   color: inherit;
   text-decoration: none;
 }
 
-.jobs .description {
-  margin-top: 2rem;
-  white-space: pre;
+.content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  overflow-y: auto;
 }
 
-.jobs .apply {
-  background-color: #fff1c2;
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.details .description,
+.company .profile {
+  margin-top: 2rem;
+  white-space: pre-wrap;
+}
+
+.details .apply,
+.company .homepage {
+  background: #fff1c2;
+}
+
+.page {
+  border: 1px solid #eee;
+  position: relative;
+  max-width: 60rem;
+  margin: 2rem auto;
+  padding: 2rem 4rem;
+  background: white;
+}
+
+.page h2 {
+  margin-right: 3rem;
+}
+
+.page .close {
+  position: absolute;
+  color: silver;
+  top: 1rem;
+  right: 3rem;
+  font-family: sans-serif;
+  font-size: 4rem;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
 }
 
 .pagination {

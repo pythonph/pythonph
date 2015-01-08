@@ -6,29 +6,13 @@ require('velocity-animate');
 require('velocity-animate/velocity.ui');
 
 var Job = React.createClass({displayName: "Job",
-  getInitialState: function() {
-    return {
-      toggled: false
-    };
-  },
   toggleDetails: function(e) {
     e.preventDefault();
-    this.setState({toggled: !this.state.toggled});
+    this.props.onToggleDetails(this.props);
   },
-  renderDetails: function() {
-    return this.state.toggled ? (
-      React.createElement("div", {className: "details"}, 
-        React.createElement("p", {className: "description"}, this.props.description), 
-        React.createElement("p", null, 
-          React.createElement("a", {
-            className: "apply button", 
-            href: this.props.application_url
-          }, 
-            "Apply for this job"
-          )
-        )
-      )
-    ) : null;
+  toggleCompany: function(e) {
+    e.preventDefault();
+    this.props.onToggleCompany(this.props.company);
   },
   render: function() {
     return (
@@ -40,11 +24,17 @@ var Job = React.createClass({displayName: "Job",
                 this.props.title
               )
             ), 
-            React.createElement("span", {className: "location"}, this.props.location), 
-            this.renderDetails()
+            React.createElement("span", {className: "location"}, this.props.location)
           ), 
           React.createElement("div", {className: "one-third column"}, 
-            React.createElement("h4", null, this.props.company.name), 
+            React.createElement("h4", null, 
+              React.createElement("a", {
+                href: "#", 
+                onClick: this.toggleCompany
+              }, 
+                this.props.company.name
+              )
+            ), 
             React.createElement("span", {className: "user"}, 
               "Posted by ", this.props.user.name
             )
@@ -55,13 +45,91 @@ var Job = React.createClass({displayName: "Job",
   }
 });
 
+var Content = React.createClass({displayName: "Content",
+  renderDetails: function() {
+    var data = this.props.details;
+    return data ? (
+      React.createElement("div", {className: "details page", ref: "page"}, 
+        React.createElement("h2", null, data.title), 
+        React.createElement("p", {className: "description"}, 
+          data.description
+        ), 
+        React.createElement("p", null, 
+          React.createElement("a", {
+            className: "apply button", 
+            href: data.application_url
+          }, 
+            "Apply for this job"
+          )
+        ), 
+        React.createElement("div", {
+          className: "close", 
+          ref: "close", 
+          onClick: this.close
+        }, 
+          "×"
+        )
+      )
+    ) : null;
+  },
+  renderCompany: function() {
+    var data = this.props.company;
+    return data ? (
+      React.createElement("div", {className: "company page", ref: "page"}, 
+        React.createElement("h2", null, data.name), 
+        React.createElement("p", {className: "profile"}, 
+          data.profile
+        ), 
+        React.createElement("p", null, 
+          React.createElement("a", {
+            className: "homepage button", 
+            href: data.homepage
+          }, 
+            "Homepage"
+          )
+        ), 
+        React.createElement("div", {
+          className: "close", 
+          ref: "close", 
+          onClick: this.close
+        }, 
+          "×"
+        )
+      )
+    ) : null;
+  },
+  close: function() {
+    if (this.props.details) {
+      this.props.toggleContent('details')(null);
+    } else {
+      this.props.toggleContent('company')(null);
+    };
+  },
+  render: function() {
+    return this.props.toggled ? (
+      React.createElement("div", {className: "content"}, 
+        React.createElement("div", {
+          className: "overlay", 
+          ref: "overlay", 
+          onClick: this.close}
+        ), 
+        this.renderDetails(), 
+        this.renderCompany()
+      )
+    ) : null;
+  }
+});
+
 module.exports = React.createClass({
   displayName: 'Jobs',
   getInitialState: function() {
     return {
       jobs: null,
       next: null,
-      prev: null
+      prev: null,
+      details: null,
+      company: null,
+      toggled: false
     };
   },
   apiUrl: function() {
@@ -87,6 +155,24 @@ module.exports = React.createClass({
         }
       );
     }
+    if (this.state.toggled) {
+      var content = this.refs.content;
+      Velocity(
+        content.refs.overlay.getDOMNode(),
+        'transition.fadeIn',
+        {duration: 500}
+      );
+      Velocity(
+        content.refs.close.getDOMNode(),
+        'transition.slideUpBigIn',
+        {duration: 500}
+      );
+      Velocity(
+        content.refs.page.getDOMNode(),
+        'transition.slideDownIn',
+        {duration: 500}
+      );
+    }
   },
   parseJobs: function(res) {
     this.setState({
@@ -96,7 +182,14 @@ module.exports = React.createClass({
     });
   },
   renderJob: function(data) {
-    return React.createElement(Job, React.__spread({key: data.id},  data))
+    return (
+      React.createElement(Job, React.__spread({
+        key: data.id, 
+        onToggleDetails: this.toggle('details'), 
+        onToggleCompany: this.toggle('company')}, 
+        data)
+      )
+    );
   },
   renderJobs: function() {
     return this.state.jobs ? (
@@ -125,10 +218,48 @@ module.exports = React.createClass({
         .end(this.parseJobs);
     }
   },
+  toggle: function(type) {
+    return (function(data) {
+      var nextToggled = !this.state.toggled;
+      var update = (function() {
+        var nextState = {toggled: nextToggled};
+        nextState[type] = nextToggled ? data : null;
+        this.setState(nextState);
+      }).bind(this);
+      if (nextToggled) {
+        update();
+      } else {
+        var content = this.refs.content;
+        Velocity(
+          content.refs.overlay.getDOMNode(),
+          'transition.fadeOut',
+          {duration: 500}
+        );
+        Velocity(
+          content.refs.close.getDOMNode(),
+          'transition.slideUpBigOut',
+          {duration: 500}
+        );
+        Velocity(
+          content.refs.page.getDOMNode(),
+          'transition.slideDownOut',
+          {duration: 500, complete: update}
+        );
+      }
+    }).bind(this);
+  },
   render: function() {
     return (
       React.createElement("div", null, 
-        React.createElement("ul", {ref: "jobsList", className: "jobs"}, 
+        React.createElement(Content, React.__spread({
+          ref: "content", 
+          toggleContent: this.toggle}, 
+          this.state)
+        ), 
+        React.createElement("ul", {
+          ref: "jobsList", 
+          className: "jobs"
+        }, 
           this.renderJobs()
         ), 
         React.createElement("div", {className: "pagination u-full-width u-cf"}, 
