@@ -2,6 +2,8 @@ var React = require('react/addons');
 var superagent = require('superagent');
 var marked = require('marked');
 
+var classSet = React.addons.classSet;
+
 require('velocity-animate');
 require('velocity-animate/velocity.ui');
 
@@ -261,8 +263,7 @@ module.exports = React.createClass({
     }).bind(this);
   },
   render: function() {
-    var cx = React.addons.classSet;
-    var paginationClasses = cx({
+    var paginationClassName = classSet({
       'pagination u-full-width u-cf': true,
       'pagination-hidden': !this.state.prev && !this.state.next
     });
@@ -279,7 +280,7 @@ module.exports = React.createClass({
         >
           {this.renderJobs()}
         </ul>
-        <div className={paginationClasses}>
+        <div className={paginationClassName}>
           <button
             className="u-pull-left"
             onClick={this.prevJobs}
