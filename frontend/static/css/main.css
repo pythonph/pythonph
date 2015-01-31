@@ -127,3 +127,7 @@ h1 a {
   line-height: 1;
   color: silver;
 }
+
+.pagination-hidden {
+  display: none;
+}
