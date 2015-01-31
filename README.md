@@ -1,12 +1,17 @@
 # PythonPH Jobs
 
-## Setup
+## Development Setup
+
+```bash
+export DEBUG=True
+export SECRET_KEY=secret
+export POSTGRES_USER=jobs
+export POSTGRES_PASSWORD=password
+```
 
 ### PostgreSQL
 
 ```bash
-export POSTGRES_USER=jobs
-export POSTGRES_PASSWORD=password
 createuser -P jobs
 # You will be prompted to enter a password
 # Enter what you set in POSTGRES_PASSWORD
