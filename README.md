@@ -36,6 +36,6 @@ npm run build
 ### Django
 
 ```
-python manage.py migrate
+python manage.py syncdb # to ask for the creation of first superuser after migration
 python manage.py runserver
 ```
