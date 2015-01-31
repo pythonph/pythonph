@@ -63,7 +63,7 @@ var Content = React.createClass({
             <p>{data.location}</p>
           </div>
         </div>
-        <p
+        <div
           className="description"
           dangerouslySetInnerHTML={{__html: marked(data.description)}}
         />
@@ -90,7 +90,7 @@ var Content = React.createClass({
     return data ? (
       <div className="company page" ref="page">
         <h2>{data.name}</h2>
-        <p
+        <div
           className="profile"
           dangerouslySetInnerHTML={{__html: marked(data.profile)}}
         />

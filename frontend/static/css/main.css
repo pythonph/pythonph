@@ -77,11 +77,6 @@ h1 a {
   background: rgba(255, 255, 255, 0.9);
 }
 
-.details .description,
-.company .profile {
-  white-space: pre-wrap;
-}
-
 .details .apply,
 .company .homepage {
   background: #fff1c2;

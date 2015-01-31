@@ -64,7 +64,7 @@ var Content = React.createClass({displayName: "Content",
             React.createElement("p", null, data.location)
           )
         ), 
-        React.createElement("p", {
+        React.createElement("div", {
           className: "description", 
           dangerouslySetInnerHTML: {__html: marked(data.description)}}
         ), 
@@ -91,7 +91,7 @@ var Content = React.createClass({displayName: "Content",
     return data ? (
       React.createElement("div", {className: "company page", ref: "page"}, 
         React.createElement("h2", null, data.name), 
-        React.createElement("p", {
+        React.createElement("div", {
           className: "profile", 
           dangerouslySetInnerHTML: {__html: marked(data.profile)}}
         ), 
