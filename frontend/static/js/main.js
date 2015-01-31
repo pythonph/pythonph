@@ -259,7 +259,11 @@ module.exports = React.createClass({
     }).bind(this);
   },
   render: function() {
-    var noPagination = !this.state.prev && !this.state.next;
+    var cx = React.addons.classSet;
+    var paginationClasses = cx({
+      'pagination u-full-width u-cf': true,
+      'pagination-hidden': !this.state.prev && !this.state.next
+    });
     return (
       React.createElement("div", null, 
         React.createElement(Content, React.__spread({
@@ -273,8 +277,7 @@ module.exports = React.createClass({
         }, 
           this.renderJobs()
         ), 
-        React.createElement("div", {className: "pagination u-full-width u-cf " +
-            (noPagination? "pagination-hidden" : "")}, 
+        React.createElement("div", {className: paginationClasses}, 
           React.createElement("button", {
             className: "u-pull-left", 
             onClick: this.prevJobs, 
