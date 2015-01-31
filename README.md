@@ -13,11 +13,22 @@ createuser -P jobs
 createdb -O jobs jobs
 ```
 
-### Django
+### Virtualenv
 
 ```bash
 mkvirtualenv jobs
 pip install -r requirements.txt
+```
+
+### Bower
+
+```bash
+bower install
+```
+
+### Django
+
+```
 python manage.py migrate
 python manage.py runserver
 ```
