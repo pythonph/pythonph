@@ -10,5 +10,6 @@ urlpatterns = patterns(
     url(r'^api/', include(api.urls)),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^user/$', 'jobs.views.profile'),
+    url('^markdown/', include('django_markdown.urls')),
 )
 

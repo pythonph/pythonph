@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django_markdown.models import MarkdownField
 from taggit.managers import TaggableManager
 
 
@@ -10,7 +11,7 @@ class Company(models.Model):
     user = models.ForeignKey(User)
 
     name = models.CharField(max_length=255)
-    profile = models.TextField()
+    profile = MarkdownField()
     homepage = models.URLField()
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -26,7 +27,7 @@ class Job(models.Model):
     tags = TaggableManager()
 
     title = models.CharField(max_length=255)
-    description = models.TextField()
+    description = MarkdownField()
     location = models.CharField(max_length=255)
     application_url = models.URLField()
 

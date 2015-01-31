@@ -1,5 +1,6 @@
 var React = require('react/addons');
 var superagent = require('superagent');
+var marked = require('marked');
 
 require('velocity-animate');
 require('velocity-animate/velocity.ui');
@@ -60,9 +61,10 @@ var Content = React.createClass({
             <p>{data.location}</p>
           </div>
         </div>
-        <p className="description">
-          {data.description}
-        </p>
+        <p
+          className="description"
+          dangerouslySetInnerHTML={{__html: marked(data.description)}}
+        />
         <p>
           <a
             className="apply button"
@@ -86,9 +88,10 @@ var Content = React.createClass({
     return data ? (
       <div className="company page" ref="page">
         <h2>{data.name}</h2>
-        <p className="profile">
-          {data.profile}
-        </p>
+        <p
+          className="profile"
+          dangerouslySetInnerHTML={{__html: marked(data.profile)}}
+        />
         <p>
           <a
             className="homepage button"

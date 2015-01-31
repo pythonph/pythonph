@@ -16,6 +16,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'taggit',
     'tastypie',
+    'django_markdown',
     'api',
     'frontend',
     'registration',
