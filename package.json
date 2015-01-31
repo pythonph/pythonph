@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "build": "watchify -t reactify -o frontend/static/js/main.js frontend/src/main.js -v"
+    "watch": "watchify frontend/src/main.js -o frontend/static/js/main.js -v",
+    "build": "browserify frontend/src/main.js -o frontend/static/js/main.js"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,8 @@
     "react": "^0.12.2",
     "superagent": "^0.21.0",
     "velocity-animate": "^1.2.1"
+  },
+  "browserify": {
+    "transform": ["reactify"]
   }
 }
