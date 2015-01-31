@@ -258,6 +258,7 @@ module.exports = React.createClass({
     }).bind(this);
   },
   render: function() {
+    var noPagination = !this.state.prev && !this.state.next;
     return (
       <div>
         <Content
@@ -271,7 +272,8 @@ module.exports = React.createClass({
         >
           {this.renderJobs()}
         </ul>
-        <div className="pagination u-full-width u-cf">
+        <div className={"pagination u-full-width u-cf " +
+            (noPagination? "pagination-hidden" : "")}>
           <button
             className="u-pull-left"
             onClick={this.prevJobs}
