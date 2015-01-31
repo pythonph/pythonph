@@ -33,7 +33,7 @@ WSGI_APPLICATION = 'jobs.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': 'db',
+        'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
         'NAME': os.environ['POSTGRES_USER'],
         'USER': os.environ['POSTGRES_USER'],
         'PASSWORD': os.environ['POSTGRES_PASSWORD'],

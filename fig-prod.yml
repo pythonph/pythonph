@@ -9,6 +9,7 @@ web:
   volumes:
     - .:/usr/src/app
   environment:
+    POSTGRES_HOST: db
     POSTGRES_USER: jobs
     POSTGRES_PASSWORD:
     SECRET_KEY:
