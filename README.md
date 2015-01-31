@@ -20,10 +20,12 @@ mkvirtualenv jobs
 pip install -r requirements.txt
 ```
 
-### Bower
+### Frontend
 
 ```bash
+npm install
 bower install
+npm run build
 ```
 
 ### Django
