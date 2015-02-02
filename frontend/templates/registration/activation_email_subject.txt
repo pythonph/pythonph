@@ -1,0 +1,1 @@
+Account Activation Details For {{ site }}

@@ -3,6 +3,7 @@ django-taggit==0.12.2
 django-tastypie==0.12.1
 gunicorn==19.1.1
 psycopg2==2.5.4
+django-registration-redux==1.1
 django-markdown==0.8.4
 ## The following requirements were added by pip freeze:
 Markdown==2.5.2
