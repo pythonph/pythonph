@@ -1,0 +1,7 @@
+DEBUG = True
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+
+# Show emails in the console during development.
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
