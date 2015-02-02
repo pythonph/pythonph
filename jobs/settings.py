@@ -18,6 +18,7 @@ INSTALLED_APPS = (
     'tastypie',
     'api',
     'frontend',
+    'registration',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -50,3 +51,13 @@ STATICFILES_DIRS = (
     ('lib', safe_join(BASE_DIR, 'bower_components')),
 )
 TASTYPIE_DEFAULT_FORMATS = ['json']
+# django-registration-redux
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = False
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/user/'
+
+try:
+    import local_settings
+except ImportError:
+    pass
