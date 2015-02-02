@@ -11,6 +11,7 @@ web:
   environment:
     PYTHONUNBUFFERED: 1
     DEBUG: 1
+    POSTGRES_HOST: db
     POSTGRES_USER: jobs
     POSTGRES_PASSWORD:
     SECRET_KEY:
