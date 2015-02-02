@@ -58,6 +58,6 @@ LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/user/'
 
 try:
-    import local_settings
+    from local_settings import *
 except ImportError:
     pass
