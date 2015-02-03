@@ -1,1 +1,0 @@
-You had signed up to {{ site }}. To activate your account, pls click this link: http://{{ site }}/accounts/activate/{{ activation_key }}/ or paste it in your browser.
