@@ -41,6 +41,13 @@ DATABASES = {
         'PASSWORD': os.environ['POSTGRES_PASSWORD'],
     }
 }
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+)
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
+)
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Asia/Manila'
 USE_I18N = True
