@@ -1,0 +1,19 @@
+{
+  "name": "pythonph.jobs",
+  "version": "0.0.0",
+  "homepage": "https://github.com/pythonph/pythonph",
+  "authors": [
+    "Mark Steve Samson <hello@marksteve.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "skeleton": "~2.0.4"
+  }
+}

@@ -1,0 +1,47 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Python.PH Jobs Board</title>
+  <meta name="description" content="Python.PH Jobs Board">
+  <meta name="author" content="Python.PH">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic|Oswald:400">
+  <link rel="stylesheet" href="{% static "lib/skeleton/css/normalize.css" %}">
+  <link rel="stylesheet" href="{% static "lib/skeleton/css/skeleton.css" %}">
+  <link rel="stylesheet" href="{% static "css/main.css" %}">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="row">
+        <div class="eight columns">
+          <h1><a href="{% url "index" %}">Python.PH Jobs Board</a></h1>
+        </div>
+        <div class="four columns">
+          <div class="ghbtns">
+            <iframe
+              src="http://ghbtns.com/github-btn.html?user=pythonph&repo=pythonph&type=watch&count=true"
+              allowtransparency="true" frameborder="0" scrolling="0" width="95"
+              height="20"></iframe>
+            <iframe
+              src="http://ghbtns.com/github-btn.html?user=pythonph&repo=pythonph&type=fork&count=true"
+              allowtransparency="true" frameborder="0" scrolling="0" width="95"
+              height="20"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="jobs"></div>
+    <div class="footer">
+      Made by the volunteers of <a href="http://python.ph/">Python.PH</a>
+    </div>
+  </div>
+  <script>
+    window.apiVersion = "{{ api_version|escapejs }}";
+  </script>
+  <script src="{% static "js/main.js" %}"></script>
+</body>
+</html>

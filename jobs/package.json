@@ -1,0 +1,33 @@
+{
+  "name": "pythonph.jobs",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "watch": "watchify src/main.js -o static/js/main.js -v",
+    "build": "browserify src/main.js -o static/js/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pythonph/pythonph.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pythonph/pythonph/issues"
+  },
+  "homepage": "https://github.com/pythonph/pythonph",
+  "devDependencies": {
+    "browserify": "^8.0.3",
+    "reactify": "^0.17.1",
+    "watchify": "^2.2.1"
+  },
+  "dependencies": {
+    "marked": "^0.3.3",
+    "react": "^0.12.2",
+    "superagent": "^0.21.0",
+    "velocity-animate": "^1.2.1"
+  },
+  "browserify": {
+    "transform": ["reactify"]
+  }
+}

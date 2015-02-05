@@ -1,16 +1,7 @@
-import frontend
-from api.v1 import api
-from django.conf.urls import include, patterns, url
-from django.contrib import admin
+from django.conf.urls import patterns, url
 
 urlpatterns = patterns(
-    '',
-    url(r'^$', include(frontend.urls)),
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/', include(api.urls)),
-    url(r'^accounts/', include('registration.backends.default.urls')),
-    url(r'^accounts/', include('django.contrib.auth.urls')),
-    url(r'^user/$', 'jobs.views.profile'),
-    url('^markdown/', include('django_markdown.urls')),
+    'jobs.views',
+    url(r'^$', 'index', name='index'),
 )
 
