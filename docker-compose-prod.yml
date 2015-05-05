@@ -16,4 +16,4 @@ web:
   environment:
     ENV: PROD
   env_file: prod.env
-  command: gunicorn -k gevent -b 0.0.0.0:8000 pythonph.wsgi
+  command: gunicorn -b 0.0.0.0:8000 pythonph.wsgi
