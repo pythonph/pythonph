@@ -1,0 +1,19 @@
+.git
+
+# python
+__pycache__
+*.pyc
+*.egg-info
+
+# npm
+npm-debug.log
+
+# django
+local_settings.py
+
+# volumes
+venv
+static
+bower_components
+node_modules
+

@@ -1,12 +1,19 @@
+# python
 __pycache__/
 *.pyc
+*.egg-info
 
-bower_components/
-node_modules/
+# npm
 npm-debug.log
 
+# django
 local_settings.py
 
-/static/*
+# volumes
 /venv/*
 /static/*
+/bower_components/*
+/node_modules/*
+
+# docker-compose
+*.env
