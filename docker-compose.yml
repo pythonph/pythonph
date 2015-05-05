@@ -2,22 +2,20 @@ db:
   image: postgres:latest
   environment:
     POSTGRES_USER: pythonph
-    POSTGRES_PASSWORD:
+  env_file: dev.env
 
 web:
   build: .
   volumes:
     - .:/usr/src/app
-  environment:
-    PYTHONUNBUFFERED: 1
-    DEBUG: 1
-    POSTGRES_HOST: db
-    POSTGRES_USER: pythonph
-    POSTGRES_PASSWORD:
-    SECRET_KEY:
-  env_file: dev.env
   links:
     - db:db
+  environment:
+    - PYTHONUNBUFFERED=1
+    - ENV=DEV
+    - POSTGRES_HOST=db
+    - POSTGRES_USER=pythonph
+  env_file: dev.env
   ports:
     - 8000:8000
   command: python manage.py runserver 0.0.0.0:8000

@@ -1,29 +1,19 @@
-db:
-  image: postgres:latest
-  environment:
-    POSTGRES_USER: pythonph
-    POSTGRES_PASSWORD:
+nginx:
+  build: nginx
+  ports:
+    - 80:80
+    - 443:443
+  links:
+    - web:web
 
 web:
   build: .
   volumes:
-    - .:/usr/src/app
+    - /usr/src/app/venv
+    - /usr/src/app/node_modules
+    - /usr/src/app/bower_components
+    - /usr/src/app/static
   environment:
-    POSTGRES_HOST: db
-    POSTGRES_USER: pythonph
-    POSTGRES_PASSWORD:
-    SECRET_KEY:
+    ENV: PROD
   env_file: prod.env
-  links:
-    - db:db
-  command: gunicorn -b 0.0.0.0:8000 pythonph.wsgi
-
-nginx:
-  image: nginx:latest
-  ports:
-    - 80:80
-  links:
-    - web:web
-  volumes:
-    - nginx.conf:/etc/nginx/nginx.conf:ro
-    - static:/var/www/static
+  command: gunicorn -k gevent -b 0.0.0.0:8000 pythonph.wsgi

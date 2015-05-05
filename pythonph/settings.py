@@ -3,10 +3,12 @@ import os
 from django.utils._os import safe_join
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
 SECRET_KEY = os.environ['SECRET_KEY']
-DEBUG = os.environ.get('DEBUG', False)
+DEBUG = os.environ['ENV'] == 'DEV'
 TEMPLATE_DEBUG = DEBUG
 ALLOWED_HOSTS = ['python.ph', 'localhost']
+
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -14,12 +16,13 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    # Third-party
     'taggit',
     'tastypie',
     'django_markdown',
-    'registration',
-
+    'compressor',
+    'storages',
+    # pythonph
     'jobs',
 )
 MIDDLEWARE_CLASSES = (
@@ -31,8 +34,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
 ROOT_URLCONF = 'pythonph.urls'
 WSGI_APPLICATION = 'pythonph.wsgi.application'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -42,31 +47,56 @@ DATABASES = {
         'PASSWORD': os.environ['POSTGRES_PASSWORD'],
     }
 }
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-)
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates'),
-)
+
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Asia/Manila'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-STATIC_URL = '/static/'
-STATIC_ROOT = safe_join(BASE_DIR, 'static')
+
 STATICFILES_DIRS = (
-    ('lib', safe_join(BASE_DIR, 'bower_components')),
+    (
+        'skeleton',
+        safe_join(BASE_DIR, 'bower_components/skeleton'),
+    ),
 )
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = not DEBUG
+COMPRESS_OUTPUT_DIR = 'cache'
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
+
+STATIC_ROOT = safe_join(BASE_DIR, 'static')
+MEDIA_ROOT = safe_join(BASE_DIR, 'media')
+
+if DEBUG:
+    STATIC_URL = '/static/'
+    MEDIA_URL = '/media/'
+else:
+    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+    AWS_STORAGE_BUCKET_NAME = 'pythonph'
+    AWS_QUERYSTRING_AUTH = False
+    STATICFILES_STORAGE = 'pythonph.s3.StaticStorage'
+    COMPRESS_STORAGE = 'pythonph.s3.StaticStorage'
+    DEFAULT_FILE_STORAGE = 'pythonph.s3.MediaStorage'
+    THUMBNAIL_DEFAULT_STORAGE = 'pythonph.s3.MediaStorage'
+    STATIC_URL = 'https://pythonph.s3.amazonaws.com/static/'
+    MEDIA_URL = 'https://pythonph.s3.amazonaws.com/media/'
+
 TASTYPIE_DEFAULT_FORMATS = ['json']
-# django-registration-redux
-ACCOUNT_ACTIVATION_DAYS = 7
-REGISTRATION_AUTO_LOGIN = False
-LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/user/'
 
 try:
     from local_settings import *
 except ImportError:
     pass
+
+if DEBUG:
+    INSTALLED_APPS += ('debug_toolbar',)
