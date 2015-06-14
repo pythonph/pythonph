@@ -8,8 +8,6 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 mkdir -p static/{js,css}
-npm install -g bower
-bower install --allow-root
 npm install
 npm run build-jobs
 python manage.py compress

@@ -58,12 +58,6 @@ USE_TZ = True
 STATIC_ROOT = safe_join(BASE_DIR, 'static')
 MEDIA_ROOT = safe_join(BASE_DIR, 'media')
 
-STATICFILES_DIRS = (
-    (
-        'skeleton',
-        safe_join(BASE_DIR, 'bower_components/skeleton'),
-    ),
-)
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',

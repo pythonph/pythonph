@@ -8,10 +8,9 @@
   <meta name="description" content="Python.PH Jobs Board">
   <meta name="author" content="Python.PH">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic|Oswald:400">
   {% compress css %}
-  <link rel="stylesheet" href="{% static "skeleton/css/normalize.css" %}">
-  <link rel="stylesheet" href="{% static "skeleton/css/skeleton.css" %}">
   <link rel="stylesheet" type="text/x-scss" href="{% static "scss/main.scss" %}">
   {% endcompress %}
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -19,23 +18,16 @@
 <body>
   <div class="container">
     <div class="header">
-      <div class="row">
-        <div class="eight columns">
-          <h1><a href="{% url "jobs" %}">Python.PH Jobs Board</a></h1>
-          <div style="font-size:2rem">Looking for candidates? Shoot us a line at jobs@python.ph</div>
-        </div>
-        <div class="four columns">
-          <div class="ghbtns">
-            <iframe
-              src="http://ghbtns.com/github-btn.html?user=pythonph&repo=pythonph&type=watch&count=true"
-              allowtransparency="true" frameborder="0" scrolling="0" width="95"
-              height="20"></iframe>
-            <iframe
-              src="http://ghbtns.com/github-btn.html?user=pythonph&repo=pythonph&type=fork&count=true"
-              allowtransparency="true" frameborder="0" scrolling="0" width="95"
-              height="20"></iframe>
-          </div>
-        </div>
+      <h1><a href="{% url "jobs" %}">Python.PH Jobs Board</a></h1>
+      <div class="ghbtns">
+        <iframe
+          src="http://ghbtns.com/github-btn.html?user=pythonph&repo=pythonph&type=watch&count=true"
+          allowtransparency="true" frameborder="0" scrolling="0" width="95"
+          height="20"></iframe>
+        <iframe
+          src="http://ghbtns.com/github-btn.html?user=pythonph&repo=pythonph&type=fork&count=true"
+          allowtransparency="true" frameborder="0" scrolling="0" width="95"
+          height="20"></iframe>
       </div>
     </div>
     <div id="jobs"></div>
