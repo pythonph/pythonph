@@ -43,10 +43,10 @@
       Made by the volunteers of <a href="http://python.ph/">Python.PH</a>
     </div>
   </div>
-  {% compress js %}
   <script>
     window.apiVersion = "{{ api_version|escapejs }}";
   </script>
+  {% compress js %}
   <script src="{% static "js/main.js" %}"></script>
   {% endcompress %}
 </body>

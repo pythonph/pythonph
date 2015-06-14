@@ -6,10 +6,7 @@ urlpatterns = patterns(
     '',
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
-
-    url(r'^user/$', 'pythonph.views.profile'),
 
     url(r'^jobs/', include(jobs.urls)),
     url(r'^jobs/api/', include(jobs.api.v1.urls)),

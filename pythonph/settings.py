@@ -21,7 +21,7 @@ INSTALLED_APPS = (
     'tastypie',
     'django_markdown',
     'compressor',
-    'storages',
+    'raven.contrib.django.raven_compat',
     # pythonph
     'jobs',
 )
@@ -54,6 +54,9 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+STATIC_ROOT = safe_join(BASE_DIR, 'static')
+MEDIA_ROOT = safe_join(BASE_DIR, 'media')
+
 STATICFILES_DIRS = (
     (
         'skeleton',
@@ -66,6 +69,9 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = not DEBUG
 COMPRESS_OUTPUT_DIR = 'cache'
@@ -73,30 +79,18 @@ COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
 )
 
-STATIC_ROOT = safe_join(BASE_DIR, 'static')
-MEDIA_ROOT = safe_join(BASE_DIR, 'media')
-
-if DEBUG:
-    STATIC_URL = '/static/'
-    MEDIA_URL = '/media/'
-else:
-    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-    AWS_STORAGE_BUCKET_NAME = 'pythonph'
-    AWS_QUERYSTRING_AUTH = False
-    STATICFILES_STORAGE = 'pythonph.s3.StaticStorage'
-    COMPRESS_STORAGE = 'pythonph.s3.StaticStorage'
-    DEFAULT_FILE_STORAGE = 'pythonph.s3.MediaStorage'
-    THUMBNAIL_DEFAULT_STORAGE = 'pythonph.s3.MediaStorage'
-    STATIC_URL = 'https://pythonph.s3.amazonaws.com/static/'
-    MEDIA_URL = 'https://pythonph.s3.amazonaws.com/media/'
-
 TASTYPIE_DEFAULT_FORMATS = ['json']
 
 try:
     from local_settings import *
 except ImportError:
     pass
+
+
+if 'SENTRY_DSN' in os.environ:
+    RAVEN_CONFIG = {
+        'dsn': os.environ['SENTRY_DSN'],
+    }
 
 if DEBUG:
     INSTALLED_APPS += ('debug_toolbar',)

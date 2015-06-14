@@ -17,7 +17,7 @@ web:
   environment:
     - ENV=PROD
   env_file: prod.env
-  command: gunicorn -b 0.0.0.0:8000 pythonph.wsgi
+  command: gunicorn -b 0.0.0.0:8000 --access-logfile - --error-logfile - pythonph.wsgi
 
 nginx:
   build: nginx
