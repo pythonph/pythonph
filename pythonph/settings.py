@@ -23,6 +23,7 @@ INSTALLED_APPS = (
     'compressor',
     'raven.contrib.django.raven_compat',
     # pythonph
+    'landing',
     'jobs',
 )
 MIDDLEWARE_CLASSES = (
