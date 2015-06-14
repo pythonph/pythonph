@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+
+if [ ! -e venv/bin/activate ]; then
+  virtualenv venv
+fi
+source venv/bin/activate
+pip install -r requirements.txt
+
+mkdir -p static/{js,css}
+npm install -g bower
+bower install --allow-root
+npm install
+npm run build-jobs
+python manage.py compress
+python manage.py collectstatic --noinput

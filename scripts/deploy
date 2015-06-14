@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+
+COMPOSE="docker-compose -f docker-compose-prod.yml"
+$COMPOSE up -d --no-deps web nginx
