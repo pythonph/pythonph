@@ -24,6 +24,7 @@ INSTALLED_APPS = (
     'raven.contrib.django.raven_compat',
     # pythonph
     'landing',
+    'registration',
     'jobs',
 )
 MIDDLEWARE_CLASSES = (
@@ -66,6 +67,8 @@ STATICFILES_FINDERS = (
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
+
+LOGIN_REDIRECT_URL = "/"
 
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = not DEBUG
