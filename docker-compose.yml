@@ -1,7 +1,7 @@
 db:
   image: postgres:latest
   environment:
-    POSTGRES_USER: pythonph
+    - POSTGRES_USER=pythonph
   env_file: dev.env
 
 web:
