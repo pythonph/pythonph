@@ -65,7 +65,11 @@ var Content = React.createClass({
         <p>
           <a
             className="apply button"
-            href={data.application_url}
+            href={
+              data.application_url ?
+              data.application_url :
+              `mailto:${data.application_email}`
+            }
           >
             Apply for this job
           </a>
