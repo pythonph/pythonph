@@ -79,8 +79,6 @@ COMPRESS_PRECOMPILERS = (
 
 TASTYPIE_DEFAULT_FORMATS = ['json']
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
 if 'SENTRY_DSN' in os.environ:
     RAVEN_CONFIG = {
         'dsn': os.environ['SENTRY_DSN'],

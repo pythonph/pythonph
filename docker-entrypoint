@@ -1,5 +1,8 @@
 #!/bin/bash
 set -e
 
+if [ ! -e venv/bin/activate ]; then
+  virtualenv venv
+fi
 source venv/bin/activate
 exec "$@"
