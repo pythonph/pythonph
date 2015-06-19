@@ -1,23 +1,40 @@
 $primary-color: #fff1c2;
+$secondary-color: #75a8d3;
+$text-color: darken($primary-color, 80);
 
-a {
-  color: #75a8d3;
-  text-decoration: none;
-  border-bottom: 1px solid;
-}
-
-h1 {
-  a {
-    border: none;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: white;
-  font-family: PT Serif, serif;
+  background: $text-color;
   padding: 0;
   margin: 0;
-  color: #666;
+  font-family: Roboto, serif;
+  color: $text-color;
+}
+
+h1 {
+  & {
+    font-family: Raleway;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  a {
+    border: none;
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+h2, h3, h4 {
+  margin: 0 0 1.5rem;
+}
+
+a {
+  color: $secondary-color;
+  text-decoration: none;
+  border-bottom: 1px solid;
 }
 
 button, .button {
@@ -27,43 +44,62 @@ button, .button {
     font-weight: normal;
     line-height: 3;
     padding: 0 1rem;
-    border: 1px solid darken($primary-color, 10);
-    color: darken($primary-color, 50);
+    border: 0;
+    color: darken($primary-color, 60);
     text-decoration: none;
   }
   &:hover {
-    background-color: darken($primary-color, 10);
+    background-color: darken($primary-color, 20);
   }
   &:disabled {
-    background-color: white;
-    color: #eee;
-    border-color: #eee;
+    background-color: #f9f9f9;
+    color: silver;
   }
 }
 
 .container {
+  max-width: 80em;
+  margin: 3rem auto;
   background: white;
 }
 
 .header {
-  background: $primary-color;
-  padding: 1rem 1rem 0;
-  border-bottom: 0.5rem solid #ffda5c;
-}
-
-h1 {
-  font-family: Oswald;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-h1 a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.ghbtns {
-  line-height: 2rem;
+  & {
+    background: $primary-color;
+    padding: 1rem 2rem;
+    display: flex;
+  }
+  .title {
+    flex: 1;
+  }
+  .ghbtns {
+    line-height: 1.5rem;
+  }
+  .links {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-end;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  .links li {
+    width: 25%;
+    margin: 0 0.5rem;
+  }
+  .links li a {
+    border: 0;
+    width: 100%;
+    display: inline-block;
+    background: lighten($primary-color, 10);
+    color: inherit;
+    line-height: 3;
+  }
+  .links li a:hover {
+    background: lighten($primary-color, 20);
+  }
 }
 
 .jobs {
@@ -108,7 +144,7 @@ h1 a {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .page {
@@ -117,29 +153,31 @@ h1 a {
     position: relative;
     max-width: 60rem;
     margin: 2rem auto;
-    padding: 2rem 4rem;
+    padding: 1rem 2rem;
     background: white;
     display: flex;
     flex-wrap: wrap;
   }
   h2 {
-    margin-right: 3rem;
+    width: 100%;
+    border-bottom: 1px solid;
+    padding-right: 3rem;
+    line-height: 3rem;
+  }
+  .close {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    font-family: sans-serif;
+    font-size: 2rem;
+    line-height: 3rem;
+    text-align: center;
+    cursor: pointer;
   }
   h3 {
     font-weight: bold;
     font-size: 1.2em;
     margin: 0;
-  }
-  .close {
-    position: absolute;
-    color: silver;
-    top: 1rem;
-    right: 3rem;
-    font-family: sans-serif;
-    font-size: 2rem;
-    line-height: 1;
-    text-align: center;
-    cursor: pointer;
   }
 }
 
@@ -168,7 +206,7 @@ h1 a {
     justify-content: space-between;
   }
   button {
-    width: 5rem;
+    width: 10rem;
     font-size: 80%;
   }
 }

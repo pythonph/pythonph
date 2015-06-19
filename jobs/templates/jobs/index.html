@@ -9,7 +9,7 @@
   <meta name="author" content="Python.PH">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic|Oswald:400">
+  <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Raleway:100,400,700,900/Roboto:400,700,400i,700i">
   {% compress css %}
   <link rel="stylesheet" type="text/x-scss" href="{% static "scss/main.scss" %}">
   {% endcompress %}
@@ -18,17 +18,28 @@
 <body>
   <div class="container">
     <div class="header">
-      <h1><a href="{% url "jobs" %}">Python.PH Jobs Board</a></h1>
-      <div class="ghbtns">
-        <iframe
-          src="http://ghbtns.com/github-btn.html?user=pythonph&repo=pythonph&type=watch&count=true"
-          allowtransparency="true" frameborder="0" scrolling="0" width="95"
-          height="20"></iframe>
-        <iframe
-          src="http://ghbtns.com/github-btn.html?user=pythonph&repo=pythonph&type=fork&count=true"
-          allowtransparency="true" frameborder="0" scrolling="0" width="95"
-          height="20"></iframe>
+      <div class="title">
+        <h1><a href="{% url "jobs" %}">Python.PH Jobs Board</a></h1>
+        <div class="ghbtns">
+          <iframe
+            src="http://ghbtns.com/github-btn.html?user=pythonph&repo=pythonph&type=watch&count=true"
+            allowtransparency="true" frameborder="0" scrolling="0" width="95"
+            height="20"></iframe>
+          <iframe
+            src="http://ghbtns.com/github-btn.html?user=pythonph&repo=pythonph&type=fork&count=true"
+            allowtransparency="true" frameborder="0" scrolling="0" width="95"
+            height="20"></iframe>
+        </div>
       </div>
+      <ul class="links">
+        {% if user.is_authenticated %}
+        <li><a href="{% url "logout" %}?next=/jobs/">Logout</a></li>
+        {% else %}
+        <li><a href="{% url "login" %}?next=/jobs/">Login</a></li>
+        <li><a href="{% url "register" %}?next=/jobs/">Register</a></li>
+        {% endif %}
+      </ul>
+      </ul>
     </div>
     <div id="jobs"></div>
     <div class="footer">

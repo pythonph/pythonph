@@ -2,17 +2,17 @@
 {% load compress %}
 <!DOCTYPE html>
 <html lang="eng">
-  <head>
-    <meta charset="utf-8">
-    <title>Python.PH</title>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
-    <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Raleway:400,700,900/Open+Sans:400,700,400i,700i">
-    {% compress css %}
-    <link rel="stylesheet" type="text/x-scss" href="{% static "registration/scss/main.scss" %}">
-    {% endcompress %}
-  </head>
-  <body>
-    <h1>Python.PH</h1>
-    {% block content %}{% endblock %}
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Python.PH</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+  <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Raleway:100,400,700,900/Roboto:400,700,400i,700i">
+  {% compress css %}
+  <link rel="stylesheet" type="text/x-scss" href="{% static "registration/scss/main.scss" %}">
+  {% endcompress %}
+</head>
+<body>
+  <h1>Python.PH</h1>
+  {% block content %}{% endblock %}
+</body>
 </html>
