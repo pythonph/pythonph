@@ -144,13 +144,36 @@
 
 .pagination {
   & {
-    padding: 2rem 2rem 0 2rem;
+    padding: 2rem 2rem 0;
     display: flex;
     justify-content: space-between;
   }
   button {
     width: 10rem;
     font-size: 80%;
+  }
+}
+
+.post {
+  & {
+    padding: 2rem 2rem 0;
+  }
+  form {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  h2 {
+    width: 100%;
+  }
+  .company-form {
+    width: 40%;
+  }
+  .job-form {
+    width: 60%;
+  }
+  .submit {
+    width: 100%;
+    text-align: right;
   }
 }
 

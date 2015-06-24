@@ -43,13 +43,3 @@
   Made by the volunteers of <a href="http://python.ph/">Python.PH</a>
 </div>
 {% endblock %}
-
-{% block js %}
-{{ block.super }}
-<script>
-  window.apiVersion = "{{ api_version|escapejs }}";
-</script>
-{% compress js %}
-<script src="{% static "jobs/js/main.js" %}"></script>
-{% endcompress %}
-{% endblock %}

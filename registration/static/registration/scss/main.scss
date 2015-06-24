@@ -12,7 +12,6 @@ h1 {
 }
 
 h2 {
-  text-transform: uppercase;
   margin-bottom: 0 0 1.5rem;
 }
 
@@ -31,26 +30,18 @@ form {
     max-width: 20rem;
     margin: 0 auto 3rem;
     padding: 1rem 2rem;
-    position: relative;
-  }
-  .helptext {
-    font-size: 80%;
-    color: #ccc;
-    line-height: 1.5;
-    display: inline-block;
-    margin-top: 0.5rem;
+    display: relative;
   }
   .errorlist {
     left: 100%;
     position: absolute;
-    font-size: 80%;
-    list-style: none;
     padding-left: 1rem;
     width: 20rem;
   }
-  .errorlist li {
-    color: crimson;
-  }
+}
+
+input {
+  width: 100%;
 }
 
 button {

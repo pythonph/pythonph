@@ -1,5 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect, render
 
 
 def register(request):
@@ -11,4 +11,4 @@ def register(request):
     else:
         form = UserCreationForm()
     context = dict(form=form)
-    return render(request, "registration/register.html", context)
+    return render(request, 'registration/register.html', context)

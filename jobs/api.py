@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from jobs.models import Company, Job
+from tastypie.constants import ALL
 from tastypie import fields
 from tastypie.api import Api
 from tastypie.resources import ModelResource
@@ -35,6 +36,14 @@ class JobResource(ModelResource):
 
     class Meta:
         queryset = Job.objects.all()
+        filtering = {
+            'is_approved': ALL,
+        }
+
+    def build_filters(self, filters=None):
+        filters = {} if filters is None else filters
+        filters.setdefault('is_approved', True)
+        return super(JobResource, self).build_filters(filters)
 
     def apply_sorting(self, obj_list, options=None):
         return obj_list.order_by('-created_at')

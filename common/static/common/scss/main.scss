@@ -35,13 +35,9 @@ a {
   border-bottom: 1px solid;
 }
 
-input[type=text], input[type=password] {
-  border: 1px solid darken($primary-color, 60);
+input, textarea, select {
+  border: 1px solid $input-border-color;
   background: white;
-  width: 100%;
-}
-
-input[type=text], input[type=password] {
   line-height: 1;
   padding: 0.5rem;
 }
@@ -54,7 +50,7 @@ button, .button {
     line-height: 3;
     padding: 0 1rem;
     border: 0;
-    color: darken($primary-color, 60);
+    color: $input-border-color;
     text-decoration: none;
   }
   &:hover {
@@ -66,3 +62,27 @@ button, .button {
   }
 }
 
+form {
+  label {
+    display: block;
+    font-size: 80%;
+    margin: 0 0 0.5em;
+    text-transform: uppercase;
+    color: $input-border-color;
+  }
+  .helptext {
+    font-size: 80%;
+    color: #ccc;
+    line-height: 1.5;
+    display: inline-block;
+    margin-top: 0.5rem;
+  }
+  .errorlist {
+    font-size: 80%;
+    list-style: none;
+    padding-left: 0;
+  }
+  .errorlist li {
+    color: crimson;
+  }
+}

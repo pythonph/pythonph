@@ -1,0 +1,33 @@
+{% extends "jobs/base.html" %}
+
+{% block jobs_content %}
+<div class="post">
+
+{% if job_posted %}
+<h2>Job has been submitted for review</h2>
+<p>
+  We require approval before a job is listed.
+  Check in after a day or two.
+</p>
+{% else %}
+<form action="{% url "jobs_post" %}" method="post">
+  <h2>Post a Job</h2>
+  {% csrf_token %}
+  <div class="company-form">
+  <h3>Company</h3>
+  {{ company_form.as_p }}
+  </div>
+  <div class="job-form">
+  <h3>Job</h3>
+  {{ job_form.as_p }}
+  </div>
+  <p class="submit">
+    <button type="submit">
+      Submit
+    </button>
+  </p>
+</form>
+{% endif %}
+
+</div>
+{% endblock %}
