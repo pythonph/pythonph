@@ -1,18 +1,4 @@
-$primary-color: #fff1c2;
-$secondary-color: #75a8d3;
-$text-color: darken($primary-color, 80);
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  background: $text-color;
-  padding: 0;
-  margin: 0;
-  font-family: Roboto, serif;
-  color: $text-color;
-}
+@import "common/scss/variables";
 
 h1 {
   background: url(../images/logo.png) no-repeat center top;
@@ -67,23 +53,7 @@ form {
   }
 }
 
-input[type=text], input[type=password], button {
-  border: 1px solid;
-  background: white;
-  width: 100%;
-}
-
-input[type=text], input[type=password] {
-  line-height: 1;
-  padding: 0.5rem;
-}
-
 button {
-  & {
-    line-height: 2;
-  }
-  &:hover {
-    background-color: $text-color;
-    color: white;
-  }
+  line-height: 3;
+  width: 100%;
 }

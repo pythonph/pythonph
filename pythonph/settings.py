@@ -26,6 +26,7 @@ INSTALLED_APPS = (
     'landing',
     'registration',
     'jobs',
+    'common',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

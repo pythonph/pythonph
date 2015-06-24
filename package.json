@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "watch-jobs": "watchify --extension .jsx jobs/static/jsx/main.jsx -o static/js/main.js -v",
-    "build-jobs": "browserify --extension .jsx jobs/static/jsx/main.jsx -o static/js/main.js"
+    "watch-jobs": "watchify --extension .jsx jobs/static/jobs/jsx/main.jsx -o static/jobs/js/main.js -v",
+    "build-jobs": "browserify --extension .jsx jobs/static/jobs/jsx/main.jsx -o static/jobs/js/main.js"
   },
   "repository": {
     "type": "git",

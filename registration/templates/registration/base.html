@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load compress %}
+
+{% block css %}
+{{ block.super }}
+{% compress css %}
+<link rel="stylesheet" type="text/x-scss" href="{% static "registration/scss/main.scss" %}">
+{% endcompress %}
+{% endblock %}
+
+{% block content %}
+<h1>Python.PH</h1>
+{% block registration_content %}{% endblock %}
+{% endblock %}
