@@ -58,6 +58,10 @@ var Content = React.createClass({
           <h3>Location</h3>
           <p>{data.location}</p>
         </div>
+        <div className="details-user">
+          <h3>Posted by</h3>
+          <p>{data.user.name}</p>
+        </div>
         <div
           className="details-description"
           dangerouslySetInnerHTML={{__html: marked(data.description)}}

@@ -126,9 +126,12 @@
 
 .details {
   &-company {
-    width: 80%;
+    width: 50%;
   }
   &-location {
+    width: 30%;
+  }
+  &-user {
     width: 20%;
   }
   &-description {
