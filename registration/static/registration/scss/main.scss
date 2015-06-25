@@ -1,20 +1,4 @@
-body {
-  background: darken(#75a8d3, 50);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font: 16px/1.5 Open Sans, sans-serif;
-  color: #666;
-}
-
-h1, h2 {
-  font-family: Raleway, sans-serif;
-  text-transform: uppercase;
-}
+@import "common/scss/variables";
 
 h1 {
   background: url(../images/logo.png) no-repeat center top;
@@ -23,6 +7,8 @@ h1 {
   text-align: center;
   margin: 3rem 0 1.5rem;
   color: #ffd43c;
+  font-family: Raleway, sans-serif;
+  text-transform: uppercase;
 }
 
 h2 {
@@ -44,30 +30,21 @@ form {
     max-width: 20rem;
     margin: 0 auto 3rem;
     padding: 1rem 2rem;
-    position: relative;
-  }
-  .helptext {
-    font-size: 80%;
-    color: #ccc;
-    line-height: 1.5;
-    display: inline-block;
-    margin-top: 0.5rem;
+    display: relative;
   }
   .errorlist {
     left: 100%;
     position: absolute;
-    font-size: 80%;
-    list-style: none;
     padding-left: 1rem;
     width: 20rem;
   }
-  .errorlist li {
-    color: crimson;
-  }
 }
 
-input[type=text], input[type=password], button {
-  border: 1px solid;
-  background: white;
+input {
+  width: 100%;
+}
+
+button {
+  line-height: 3;
   width: 100%;
 }

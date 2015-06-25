@@ -26,6 +26,7 @@ INSTALLED_APPS = (
     'landing',
     'registration',
     'jobs',
+    'common',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -68,6 +69,7 @@ STATICFILES_FINDERS = (
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
+LOGIN_URL = "login"
 LOGIN_REDIRECT_URL = "landing"
 
 COMPRESS_ENABLED = True

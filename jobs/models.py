@@ -8,7 +8,7 @@ class Company(models.Model):
     class Meta:
         verbose_name_plural = "companies"
 
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, related_name="companies")
 
     name = models.CharField(max_length=255)
     profile = MarkdownField()
@@ -24,6 +24,7 @@ class Company(models.Model):
 class Job(models.Model):
     user = models.ForeignKey(User)
     company = models.ForeignKey(Company)
+    is_approved = models.BooleanField(default=False)
     tags = TaggableManager()
 
     title = models.CharField(max_length=255)

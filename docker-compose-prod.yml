@@ -8,7 +8,7 @@ source:
   environment:
     - ENV=PROD
   env_file: prod.env
-  command: scripts/install
+  command: bin/install
 
 web:
   image: pythonph/pythonph
