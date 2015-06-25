@@ -15,14 +15,6 @@ h2 {
   margin-bottom: 0 0 1.5rem;
 }
 
-p {
-  margin: 0 0 1.5rem;
-}
-
-label {
-  display: block;
-}
-
 form {
   & {
     background-color: white;
@@ -47,4 +39,8 @@ input {
 button {
   line-height: 3;
   width: 100%;
+}
+
+.note {
+  font-size: 80%;
 }

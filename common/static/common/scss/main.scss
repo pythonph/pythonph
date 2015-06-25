@@ -63,18 +63,27 @@ button, .button {
 }
 
 form {
+  p {
+    margin: 0 0 1.5em;
+    position: relative;
+  }
   label {
     display: block;
     font-size: 80%;
     margin: 0 0 0.5em;
     text-transform: uppercase;
     color: $input-border-color;
+    padding: 0.625em;
+    position: absolute;
+  }
+  input, textarea {
+    padding-top: 2em;
   }
   .helptext {
     font-size: 80%;
     color: #ccc;
     line-height: 1.5;
-    display: inline-block;
+    display: block;
     margin-top: 0.5rem;
   }
   .errorlist {
@@ -84,5 +93,11 @@ form {
   }
   .errorlist li {
     color: crimson;
+  }
+  .submit {
+    padding-top: 1rem;
+    border-top: 1px solid $input-border-color;
+    width: 100%;
+    text-align: right;
   }
 }
