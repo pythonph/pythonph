@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from .forms import CompanyForm, JobForm
@@ -8,6 +9,7 @@ def index(request):
     return render(request, 'jobs/index.html', context)
 
 
+@login_required
 def post(request):
     job_posted = False
     company = request.user.companies.first()

@@ -3,7 +3,7 @@ set -e
 
 pip install -r requirements.txt
 
-mkdir -p static/{js,css}
+mkdir -p static/jobs/js
 npm install
 npm run build-jobs
 python manage.py compress
