@@ -25,6 +25,7 @@ class Job(models.Model):
     user = models.ForeignKey(User)
     company = models.ForeignKey(Company)
     is_approved = models.BooleanField(default=False)
+    is_sponsored = models.BooleanField(default=False)
     tags = TaggableManager()
 
     title = models.CharField(max_length=255)
