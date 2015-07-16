@@ -12,4 +12,4 @@ class CompanyForm(ModelForm):
 class JobForm(ModelForm):
     class Meta:
         model = Job
-        exclude = ['user', 'company', 'is_approved']
+        exclude = ['user', 'company', 'is_approved', 'is_sponsored']

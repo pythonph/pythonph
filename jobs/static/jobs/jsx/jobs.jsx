@@ -17,7 +17,7 @@ var Job = React.createClass({
   },
   render: function() {
     return (
-      <li>
+      <li className={this.props.is_sponsored ? 'sponsored' : null}>
         <div className="job-title">
           <h3>
             <a href="#" onClick={this.toggleDetails}>
