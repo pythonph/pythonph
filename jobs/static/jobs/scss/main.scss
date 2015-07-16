@@ -58,6 +58,7 @@
     border-bottom: 1px solid #eee;
     display: flex;
     &.sponsored {
+      background: lighten($primary-color, 10);
       font-size: 125%;
     }
     > .job-title {
