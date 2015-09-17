@@ -1,0 +1,72 @@
+body {
+  font-family: Cabin, sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: Raleway, sans-serif;
+}
+
+address {
+  font-style: normal;
+  white-space: pre-line;
+}
+
+h1 {
+  & {
+    line-height: 1;
+    font-weight: 900;
+    text-transform: uppercase;
+    background: url(../images/logo.svg) no-repeat left center;
+    background-size: 200px;
+    padding: 60px 0 50px 180px;
+    margin: 0;
+  }
+  .py {
+    font-size: 150%;
+    display: block;
+  }
+  .ph {
+    font-weight: 300;
+  }
+}
+
+.screen {
+  background: url(../images/svi.jpg) no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  align-content: space-between;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.meetup-date {
+  line-height: 1;
+  font-size: 6rem;
+  font-weight: 300;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.python-yellow {
+  color: #fdd649;
+}
+
+.bg-python-yellow {
+  background: #fdd649;
+}
+
+.python-blue {
+  color: rgba(0, 16, 64, 0.9);
+}
+
+.bg-python-blue {
+  background: rgba(0, 16, 64, 0.9);
+}
