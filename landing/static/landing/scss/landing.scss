@@ -1,4 +1,5 @@
 body {
+  background: rgb(0, 16, 64);
   font-family: Cabin, sans-serif;
 }
 
@@ -30,10 +31,10 @@ h1 {
   }
 }
 
-.screen {
+.landing {
   background: url(../images/svi.jpg) no-repeat center center;
   background-size: cover;
-  height: 100vh;
+  height: 70rem;
   align-content: space-between;
 }
 
