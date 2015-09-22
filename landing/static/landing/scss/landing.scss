@@ -73,5 +73,10 @@ h1 {
 }
 
 .bio {
-  width: 25em;
+  & {
+    width: 25em;
+  }
+  small {
+    line-height: 1;
+  }
 }
