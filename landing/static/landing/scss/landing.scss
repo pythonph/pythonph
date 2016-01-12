@@ -17,9 +17,9 @@ h1 {
     line-height: 1;
     font-weight: 900;
     text-transform: uppercase;
-    background: url(../images/logo.svg) no-repeat left center;
+    background: url(../images/logo.svg) no-repeat -32px center;
     background-size: 200px;
-    padding: 60px 0 50px 180px;
+    padding: 60px 0 50px 160px;
     margin: 0;
   }
   .py {
@@ -31,11 +31,15 @@ h1 {
   }
 }
 
+.container {
+  width: 40rem;
+}
+
 .landing {
   background: url(../images/svi.jpg) no-repeat center center;
   background-size: cover;
-  height: 100rem;
-  align-content: space-between;
+  min-height: 100vh;
+  align-content: center;
 }
 
 .overlay {
@@ -44,16 +48,6 @@ h1 {
   left: 0;
   right: 0;
   bottom: 0;
-}
-
-.meetup-date {
-  line-height: 1;
-  font-size: 6rem;
-  font-weight: 300;
-}
-
-.full-width {
-  width: 100%;
 }
 
 .python-yellow {
@@ -72,11 +66,3 @@ h1 {
   background: rgba(0, 16, 64, 0.9);
 }
 
-.bio {
-  & {
-    width: 25em;
-  }
-  small {
-    line-height: 1;
-  }
-}

@@ -17,10 +17,10 @@
 </head>
 
 <body>
-  <div class="landing relative border-box p3 flex flex-wrap">
+  <div class="landing relative border-box p3 flex flex-wrap white">
     <div class="overlay bg-python-blue"></div>
-    <div class="full-width relative white">
-      <div class="flex flex-center container">
+    <div class="relative container">
+      <div class="flex flex-center">
         <div class="flex-auto">
           <h1>
             <span class="py">Python</span>
@@ -30,108 +30,31 @@
         <div class="flex-auto right-align">
           <ul class="list-reset">
             <li><a class="python-yellow bold" href="https://python.ph/jobs">Jobs Board</a></li>
-            <li><a class="white" href="http://slack.python.ph">Slack</a></li>
+            <li><a class="white" href="https://pythonph-slackin.herokuapp.com">Slack</a></li>
             <li><a class="white" href="https://www.facebook.com/groups/pythonph/">Facebook</a></li>
             <li><a class="white" href="https://github.com/pythonph">GitHub</a></li>
-            <li><a class="white" href="http://ph.pycon.org">PyCon Philippines</a></li>
+            <li><a class="white" href="https://pycon.python.ph">PyCon Philippines</a></li>
           </ul>
         </div>
       </div>
-    </div>
-    <div class="full-width relative white">
-      <div class="container right-align">
-        <h2 class="mt0 caps python-yellow">Next meetup</h2>
-        <div class="meetup-date">
-          September 24<br>
-          <small>Thursday, 7:00 PM</small>
-        </div>
-      </div>
-    </div>
-    <div class="full-width relative">
-      <div class="flex flex-start container p3 bg-python-yellow python-blue">
-        <div class="flex-auto p2 mb4">
-          <h2 class="mt0">Speakers</h2>
-          <ul class="list-reset">
-            <li class="flex flex-start mb2">
-              <img width="50" class="circle mr2" src="{% static "landing/images/clarke.jpg" %}">
-              <div class="bio">
-                <p>
-                  <strong>Clarke Benedict Plumo</strong><br>
-                  <small>Research and Development Engineer at CoreProc Inc.</small>
-                </p>
-                <p>
-                  Clarke is going to talk about the new features in
-                  Python's latest version: 3.5
-                </p>
-              </p>
-            </li>
-            <li class="flex flex-start mb2">
-              <img width="50" class="circle mr2" src="{% static "landing/images/josef.jpg" %}">
-              <div class="bio">
-                <p>
-                  <strong>Josef Monje</strong><br>
-                  <small>Builds things with Python and web technologies</small>
-                </p>
-                <p>
-                  He'll talk about Wagtail, a new CMS built using Django that
-                  focuses on providing a great experience for editors. He'll share
-                  some of the things he thought was interesting about Wagtail and
-                  show us how easy it is to create a website using it. This is
-                  talk mostly for beginners.
-                </p>
-              </p>
-            </li>
-            <li class="flex flex-start mb2">
-              <img width="50" class="circle mr2" src="{% static "landing/images/stef.jpg" %}">
-              <div class="bio">
-                <p>
-                  <strong>Stephanie Sy</strong><br>
-                  <small>Founder of Thinking Machines, a data science
-                    consultancy and a partner at Silicon Valley
-                    Insight</small>
-                </p>
-                <p>
-                  In a previous life, she worked on data products at Bay Area
-                  tech startup Wildfire Interactive and at Google Mountain View.
-                  She graduated from Stanford in 2011 with a degree in
-                  Management Science and Engineering.
-                </p>
-                <p>
-                  She will be talking about
-                  <em>Building Beautiful Charts with Matplotlib and Pandas</em>.
-                  A workshop on what makes for good charts with live demos
-                  building several different types of charts.
-                </p>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="flex-auto p2 mb4">
-          <h2 class="mt0">Venue</h2>
-          <img width="100" src="{% static "landing/images/svi.png" %}">
-          <h3 class="mb0">Silicon Valley Insight</h3>
-          <address class="pre-line">
-            15th floor, Twenty-Four Seven McKinley
-            24th St cor. 7th ave cor. McKinley Parkway
-            BGC, Taguig
-          </address>
-          <h3>Venue Reminders</h4>
-          <ul>
-            <li>No shorts</li>
-            <li>No sandals</li>
-            <li>Check in at lobby (bring an ID)</li>
-          </ul>
-        </div>
-        <div class="flex-auto p2 mb4">
-          <h2 class="mt0">Join us</h2>
-          <a href="http://www.meetup.com/pythonph/events/225417469/" data-event="225417469" class="mu-rsvp-btn">RSVP</a>
-        </div>
+      <div class="p4">
+        <p>We are PythonPH, a community in the Philippines for enthusiasts and users
+        of the Python programming language. Our aim is to show that Python has
+        something for everyone: from hobbyists, to educators, to
+        professionals.</p>
+        <p>The group started back in 2007 when Jun Auza of Tech Source blogged about
+        forming a local Python User's Group. JM Maranan stumbled upon the post and
+        created a Google group. In June 31-July 1 2012, we held the first ever
+        PyCon Philippines.</p>
+        <p>Today, we hold monthly meet-ups for knowledge sharing
+        and some pizza. Whether you're new to programming, an experienced
+        practitioner, or just plain curious what this Python programming language
+        is about and you're in the Philippines or a Filipino, you're much welcome
+        to join this community!</p>
+        <p>Contact us at <a class="python-yellow" href="mailto:info@python.ph">info@python.ph</a>.</p>
       </div>
     </div>
   </div>
-  <script>!function(d,s,id){var
-  js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);
-  js.id=id;js.async=true;js.src="https://a248.e.akamai.net/secure.meetupstatic.com/s/script/541522619002077648/api/mu.btns.js?id=27q0nf25sh6cgpvsrhb2cs2561";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","mu-bootjs");</script>
 </body>
 
 </html>
