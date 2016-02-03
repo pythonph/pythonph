@@ -38,6 +38,7 @@ class JobResource(ModelResource):
         queryset = Job.objects.all()
         filtering = {
             'is_approved': ALL,
+            'is_sponsored': ALL,
         }
 
     def build_filters(self, filters=None):
@@ -46,9 +47,7 @@ class JobResource(ModelResource):
         return super(JobResource, self).build_filters(filters)
 
     def apply_sorting(self, obj_list, options=None):
-        return (obj_list
-                .order_by('-is_sponsored')
-                .order_by('-created_at'))
+        return obj_list.order_by('-updated_at')
 
     def obj_create(self, bundle, **kwargs):
         return super(JobResource, self).obj_create(
