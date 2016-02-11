@@ -156,7 +156,7 @@ module.exports = React.createClass({
   },
   componentDidMount: function() {
     superagent
-      .get(this.apiUrl('job'))
+      .get(this.apiUrl('job/'))
       .end(this.parseJobs)
   },
   componentDidUpdate: function(prevProps, prevState) {
