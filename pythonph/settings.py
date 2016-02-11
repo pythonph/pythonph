@@ -1,6 +1,5 @@
 import os
 
-import raven
 from django.utils._os import safe_join
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -85,7 +84,6 @@ TASTYPIE_DEFAULT_FORMATS = ['json']
 if 'SENTRY_DSN' in os.environ:
     RAVEN_CONFIG = {
         'dsn': os.environ['SENTRY_DSN'],
-        'release': raven.fetch_git_sha(os.path.dirname(__file__)),
     }
 
 if DEBUG:
