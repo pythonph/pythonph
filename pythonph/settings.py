@@ -1,5 +1,6 @@
 import os
 
+import raven
 from django.utils._os import safe_join
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
