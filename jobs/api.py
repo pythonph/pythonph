@@ -47,7 +47,7 @@ class JobResource(ModelResource):
         return super(JobResource, self).build_filters(filters)
 
     def apply_sorting(self, obj_list, options=None):
-        return obj_list.order_by('-is_sponsored', '-updated_at')
+        return obj_list.order_by('-is_sponsored', '-created_at')
 
     def obj_create(self, bundle, **kwargs):
         return super(JobResource, self).obj_create(
