@@ -8,12 +8,10 @@ __pycache__
 # npm
 ./npm-debug.log
 
-# django
-./local_settings.py
-
 # volumes
 ./venv
 ./static
+./media
 ./bower_components
 ./node_modules
 

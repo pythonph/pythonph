@@ -9,7 +9,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A community in the Philippines for enthusiasts and users of the Python programming language.">
   <title>Python Philippines</title>
-  <link href="//d2v52k3cl9vedd.cloudfront.net/basscss/7.0.4/basscss.min.css" rel="stylesheet">
+  <link href="//npmcdn.com/basscss@8.0.1/css/basscss.min.css" rel="stylesheet">
+  <link href="//npmcdn.com/basscss-colors@2.2.0/css/colors.css" rel="stylesheet">
+  <link href="//npmcdn.com/basscss-background-colors@2.1.0/css/background-colors.css" rel="stylesheet">
+  <link href="//npmcdn.com/basscss-border-colors@2.1.0/css/border-colors.css" rel="stylesheet">
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,700,800|Cabin:400,400italic,700,700italic" rel="stylesheet" type="text/css">
   {% compress css %}
   <link rel="stylesheet" type="text/x-scss" href="{% static "landing/scss/landing.scss" %}">
@@ -17,27 +20,27 @@
 </head>
 
 <body>
-  <div class="landing relative border-box p3 flex flex-wrap white">
-    <div class="overlay bg-python-blue"></div>
-    <div class="relative container">
-      <div class="flex flex-center">
-        <div class="flex-auto">
-          <h1>
+  <div class="landing relative border-box p3 flex flex-wrap items-center justify-center white">
+    <div class="absolute overlay bg-python-blue"></div>
+    <div class="relative max-width-3">
+      <header class="flex flex-wrap items-center p2">
+        <div class="md-col-8 col-12">
+          <h1 class="inline-block">
             <span class="py">Python</span>
             <span class="ph">Philippines</span>
           </h1>
         </div>
-        <div class="flex-auto right-align">
+        <div class="md-col-4 col-12">
           <ul class="list-reset">
-            <li><a class="python-yellow bold" href="https://python.ph/jobs">Jobs Board</a></li>
+            <li><a class="python-yellow" href="https://pycon.python.ph">PyCon Philippines</a></li>
+            <li><a class="python-yellow" href="https://python.ph/jobs">Jobs Board</a></li>
             <li><a class="white" href="https://pythonph-slackin.herokuapp.com">Slack</a></li>
             <li><a class="white" href="https://www.facebook.com/groups/pythonph/">Facebook</a></li>
             <li><a class="white" href="https://github.com/pythonph">GitHub</a></li>
-            <li><a class="white" href="https://pycon.python.ph">PyCon Philippines</a></li>
           </ul>
         </div>
-      </div>
-      <div class="p4">
+      </header>
+      <section class="justify p4">
         <p>We are PythonPH, a community in the Philippines for enthusiasts and users
         of the Python programming language. Our aim is to show that Python has
         something for everyone: from hobbyists, to educators, to
@@ -52,7 +55,7 @@
         is about and you're in the Philippines or a Filipino, you're much welcome
         to join this community!</p>
         <p>Contact us at <a class="python-yellow" href="mailto:info@python.ph">info@python.ph</a>.</p>
-      </div>
+      </section>
     </div>
   </div>
 </body>

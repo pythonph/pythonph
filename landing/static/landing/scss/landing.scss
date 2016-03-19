@@ -1,6 +1,6 @@
 body {
   background: rgb(0, 16, 64);
-  font-family: Cabin, sans-serif;
+  font: 20px/1.5 Cabin, sans-serif;
 }
 
 h1, h2, h3, h4, h5 {
@@ -10,6 +10,10 @@ h1, h2, h3, h4, h5 {
 address {
   font-style: normal;
   white-space: pre-line;
+}
+
+a {
+  text-decoration: none;
 }
 
 h1 {
@@ -31,19 +35,13 @@ h1 {
   }
 }
 
-.container {
-  width: 40rem;
-}
-
 .landing {
   background: url(../images/svi.jpg) no-repeat center center;
   background-size: cover;
   min-height: 100vh;
-  align-content: center;
 }
 
 .overlay {
-  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -64,5 +62,25 @@ h1 {
 
 .bg-python-blue {
   background: rgba(0, 16, 64, 0.9);
+}
+
+/* Mobile */
+
+@media (max-width: 52em) {
+  header {
+    text-align: center;
+  }
+  header ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 64em) {
+  header ul {
+    text-align: right;
+  }
 }
 
