@@ -1,22 +1,20 @@
 @import "common/scss/variables";
 
-.container {
-  max-width: 80em;
-  margin: 3rem auto;
-  background: white;
-}
-
 .header {
   & {
     background: $primary-color;
     padding: 1rem 2rem;
     display: flex;
   }
-  .title {
-    flex: 1;
+  .title h1, .ghbtns {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .title h1 {
+    margin-right: 1em;
   }
   .ghbtns {
-    line-height: 1.5rem;
+    line-height: 1;
   }
   .links {
     display: flex;
@@ -29,12 +27,12 @@
     text-align: center;
   }
   .links li {
-    width: 25%;
     margin: 0 0.5rem;
   }
   .links li a {
     border: 0;
     width: 100%;
+    padding: 0 1rem;
     display: inline-block;
     background: lighten($primary-color, 10);
     color: inherit;
