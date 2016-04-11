@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load compress %}
+
+{% block css %}
+{{ block.super }}
+{% compress css %}
+<link rel="stylesheet" type="text/x-scss" href="{% static "slack/scss/main.scss" %}">
+{% endcompress %}
+{% endblock %}
+
+{% block content %}
+<div class="slack">
+  <h1>
+    Python.PH<br>
+    <small>Slack Invite</small>
+  </h1>
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><button type="submit">Send invite</button></p>
+  </form>
+</div>
+{% endblock %}
