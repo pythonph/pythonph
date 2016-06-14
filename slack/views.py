@@ -22,7 +22,7 @@ def slack_invite(request):
                 ),
                 data={
                     'email': form.cleaned_data['email'],
-                    'token': settings.SLACK_API_KEY,
+                    'token': settings.SLACK_API_TOKEN,
                 },
             )
             body = res.json()

@@ -91,5 +91,6 @@ if DEBUG:
     INSTALLED_APPS += ('debug_toolbar',)
 
 SLACK_ORG = os.environ['SLACK_ORG']
-SLACK_API_KEY = os.environ['SLACK_API_KEY']
+SLACK_API_TOKEN = os.environ['SLACK_API_TOKEN']
+SLACK_BOARD_CHANNEL = os.environ['SLACK_BOARD_CHANNEL']
 

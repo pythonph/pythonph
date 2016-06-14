@@ -1,1 +1,1 @@
-from . import urls
+from landing import urls

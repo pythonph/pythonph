@@ -1,1 +1,1 @@
-from . import api, urls
+from jobs import api, urls

@@ -1,1 +1,1 @@
-from . import urls
+from slack import urls

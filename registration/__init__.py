@@ -1,1 +1,1 @@
-from . import urls
+from registration import urls

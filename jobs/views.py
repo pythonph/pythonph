@@ -1,7 +1,8 @@
+from common.utils import notify_slack
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-
-from .forms import CompanyForm, JobForm
+from jobs.forms import CompanyForm, JobForm
 
 
 def index(request):
@@ -28,7 +29,13 @@ def post(request):
     else:
         company_form = CompanyForm(instance=company)
         job_form = JobForm()
+
+    if job_posted:
+        notify_slack("New job posting: {}".format(job.title),
+                     settings.SLACK_BOARD_CHANNEL)
+
     context = dict(job_posted=job_posted,
                    company_form=company_form,
                    job_form=job_form)
     return render(request, 'jobs/post.html', context)
+

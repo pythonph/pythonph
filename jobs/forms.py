@@ -1,6 +1,5 @@
 from django.forms import ModelForm
-
-from .models import Company, Job
+from jobs.models import Company, Job
 
 
 class CompanyForm(ModelForm):
@@ -13,3 +12,4 @@ class JobForm(ModelForm):
     class Meta:
         model = Job
         exclude = ['user', 'company', 'is_approved', 'is_sponsored']
+
