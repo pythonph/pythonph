@@ -2,32 +2,49 @@
 
 ## Development Setup
 
-```bash
-export DEBUG=True
-export SECRET_KEY=secret
-export POSTGRES_USER=pythonph
-export POSTGRES_PASSWORD=password
-```
+1. Setup db
 
-### PostgreSQL
+  ```bash
+  createuser -P pythonph
+  # You will be prompted to enter a password
+  # Enter what you set in POSTGRES_PASSWORD
+  createdb -O pythonph pythonph
+  ```
 
-```bash
-createuser -P pythonph
-# You will be prompted to enter a password
-# Enter what you set in POSTGRES_PASSWORD
-createdb -O pythonph pythonph
-```
+2. Setup virtualenv
 
-### Virtualenv
+  ```bash
+  mkvirtualenv venv
+  venv/bin/pip install -r requirements.txt
+  ```
 
-```bash
-mkvirtualenv pythonph
-pip install -r requirements.txt
-```
+3. Setup npm
 
-### Django
+  ```bash
+  npm install
+  ```
 
-```
-python manage.py migrate
-python manage.py runserver
-```
+4. Create `dev.env`
+
+  ```bash
+  SECRET_KEY=secret
+  ENV=DEV
+  POSTGRES_USER=pythonph
+  POSTGRES_PASSWORD=password
+  SLACK_ORG=pythonph
+  SLACK_API_KEY=xxxx-xxxxxxxxxx-xxxxxxxxxx-xxxxxxxxxxx-xxxxxxxxxx
+  ```
+
+5. Setup Django
+
+  ```bash
+  bin/localmanage migrate
+  bin/localmanage createsuperuser
+  ```
+
+6. Run server
+
+  ```bash
+  npm start
+  ```
+
