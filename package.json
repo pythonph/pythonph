@@ -1,16 +1,17 @@
 {
   "name": "pythonph",
   "version": "0.0.0",
-  "description": "",
+  "description": "python.ph site",
   "scripts": {
-    "watch-jobs": "watchify --extension .jsx jobs/static/jobs/js/src/main.jsx -o jobs/static/jobs/js/dist/main.js -v",
-    "build-jobs": "browserify --extension .jsx jobs/static/jobs/js/src/main.jsx -o jobs/static/jobs/js/dist/main.js"
+    "watch-jobs": "watchify jobs/static/jobs/js/src/main.js -o jobs/static/jobs/js/dist/main.js -v",
+    "build-jobs": "browserify jobs/static/jobs/js/src/main.js -o jobs/static/jobs/js/dist/main.js",
+    "start": "npm run watch-jobs & bin/localmanage runserver $PORT"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/pythonph/pythonph.git"
   },
-  "author": "",
+  "author": "pythonph",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/pythonph/pythonph/issues"
