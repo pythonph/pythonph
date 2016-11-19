@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils.encoding import force_unicode
 from django_markdown.models import MarkdownField
 from taggit.managers import TaggableManager
 
@@ -17,8 +18,8 @@ class Company(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.name
+    def __unicode__(self):
+        return force_unicode(self.name)
 
 
 class Job(models.Model):
@@ -37,6 +38,7 @@ class Job(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return "{} - {}".format(self.company.name, self.title)
+    def __unicode__(self):
+        return u"{} - {}".format(force_unicode(self.company.name),
+                                 force_unicode(self.title))
 
