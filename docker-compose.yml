@@ -15,6 +15,7 @@ web:
     - ENV=DEV
     - POSTGRES_HOST=db
     - POSTGRES_USER=pythonph
+    - SLACK_BOARD_CHANNEL=test
   env_file: dev.env
   ports:
     - 8000:8000
