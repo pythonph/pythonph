@@ -37,6 +37,7 @@ class Job(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    is_active = models.BooleanField(default=True)
 
     def __unicode__(self):
         return u"{} - {}".format(force_unicode(self.company.name),
