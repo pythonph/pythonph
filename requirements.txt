@@ -10,5 +10,5 @@ django-tastypie==0.12.1
 gunicorn==19.3.0
 psycopg2
 raven==5.20.0
-requests==2.9.1
+requests==2.20.0
 whitenoise==1.0.6
