@@ -27,7 +27,7 @@
     "classnames": "^2.1.2",
     "marked": "^0.3.3",
     "react": "^0.12.2",
-    "superagent": "^0.21.0",
+    "superagent": "^5.2.2",
     "velocity-animate": "^1.2.1",
     "watchify": "^3.2.1"
   },
