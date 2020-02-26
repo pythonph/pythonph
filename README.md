@@ -33,6 +33,7 @@
   POSTGRES_PASSWORD=password
   SLACK_ORG=pythonph
   SLACK_API_TOKEN=xxxx-xxxxxxxxxx-xxxxxxxxxx-xxxxxxxxxxx-xxxxxxxxxx
+  SLACK_BOARD_CHANNEL=pythonph
   ```
 
 5. Setup Django

@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static from staticfiles %}
 {% load compress %}
 
 <!DOCTYPE html>
@@ -7,12 +7,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A community in the Philippines for enthusiasts and users of the Python programming language.">
+  <meta name="description"
+    content="A community in the Philippines for enthusiasts and users of the Python programming language.">
   <title>Python Philippines</title>
+  <link rel="shortcut icon" href="{% static 'landing/images/logo.svg' %}" />
   <link href="//npmcdn.com/basscss@8.0.1/css/basscss.min.css" rel="stylesheet">
   <link href="//npmcdn.com/basscss-colors@2.2.0/css/colors.css" rel="stylesheet">
   <link href="//npmcdn.com/basscss-background-colors@2.1.0/css/background-colors.css" rel="stylesheet">
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,700,800|Cabin:400,400italic,700,700italic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,700,800|Cabin:400,400italic,700,700italic"
+    rel="stylesheet" type="text/css">
   {% compress css %}
   <link rel="stylesheet" type="text/x-scss" href="{% static "landing/scss/landing.scss" %}">
   {% endcompress %}
@@ -23,6 +26,7 @@
     <div class="absolute overlay bg-python-blue"></div>
     <div class="relative max-width-3">
       <header class="flex flex-wrap items-center p2">
+
         <div class="md-col-8 col-12">
           <h1 class="inline-block">
             <span class="py">Python</span>
@@ -39,78 +43,158 @@
           </ul>
         </div>
       </header>
-      <section class="justify p2">
-        <p>We are PythonPH, a community in the Philippines for enthusiasts and users
-        of the Python programming language. Our aim is to show that Python has
-        something for everyone: from hobbyists, to educators, to
-        professionals.</p>
-        <p>The group started back in 2007 when Jun Auza of Tech Source blogged about
-        forming a local Python User's Group. JM Maranan stumbled upon the post and
-        created a Google group. In June 31-July 1 2012, we held the first ever
-        PyCon Philippines.</p>
-        <p>Today, we hold monthly meet-ups for knowledge sharing
-        and some pizza. Whether you're new to programming, an experienced
-        practitioner, or just plain curious what this Python programming language
-        is about, you're much welcome
-        to join this community!</p>
-        <p>Contact us at <a class="python-yellow" href="mailto:info@python.ph">info@python.ph</a>.</p>
+
+      <section class="p2 mb2">
+        <h2 class="center caps python-yellow">Who We Are / About Us</h2>
+        <p>PythonPH is a non-stock, non-profit, volunteer-run organization dedicated to
+          support and facilitate the growth of the community of Python programmers in the
+          Philippines.</p>
+        <p>Our aim is to show that Python has something for everyone: from hobbyists,
+          to educators, to professionals.</p>
+        <p>We also aim to upgrade the Philippine tech talent pool through the events and
+          trainings we organize.</p>
+        <p>We believe that we create small dents of improvement in the PH Tech industry
+          when we foster environments that inspire/motivate technically competent professionals.</p>
+        <p>Contact us at: <a class="python-yellow" href="mailto:info@python.ph">info@python.ph</a>
       </section>
-      <section class="center p2 mb4">
+
+      <section class="p2 mb2">
+        <h2 class="center caps python-yellow">What We Do / Events</h2>
+        <p>In June 31-July 1 2012, we held the first ever PyCon Philippines.</p>
+        <p>Today, we organize the yearly PyCon and also hold regular meet-ups,
+          public python trainings and kaizend throughout the year.</p>
+        <p>Whether you're new to programming, an experienced practitioner, or just
+          plain curious what this Python programming language is about, you're much
+          welcome to join this community!</p>
+        <p>We organize the following events:</p>
+        <ul>
+          <li>PyCon Philippines - The goal of the conference is to provide a venue where
+            the Python programming language and surrounding technologies can be explored,
+            discussed and exercised.
+            <p>We gather software engineers,
+              programming enthusiasts, startup founders, corporate IT decision makers,
+              students and IT educators in a 2-day event where we can collaborate and
+              learn from each other.
+            </p>
+          </li>
+          <li>Meetups - Regular meetups where professionals and enthusiasts share and
+            talk about Python.</li>
+          <li>Public Python Trainings - Low-cost Python Trainings covering various topics.</li>
+          <li>Kaizend - A mastermind group and exclusive training program for
+            core volunteers. This program is aimed to develop technically competent
+            leaders and systematize succession plans for PythonPH.</li>
+        </ul>
+      </section>
+      <section class="center p2 mb2">
+        <h2 class="caps python-yellow">Public Trainings</h2>
+        <div class="flex flex-wrap justify-center">
+          {% for event in events %}
+          <a href="{{ event.link }}" style="color: white">
+
+            <div class="">
+              <img src="{{ event.cover_image }}" width="100%" />
+              <h4 class="mt1 mb0">{{ event.schedule }}</h4>
+              <h2 class="mt0 mb0">{{ event.name }}</h2>
+              <h5 class="mt0">{{ event.location }}</h5>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </section>
+      <div class="center p2 mb4">
         <h2 class="caps python-yellow">Our Team</h2>
+        <h3 class="caps python-yellow">Officers and Directors</h3>
         <div class="flex flex-wrap justify-center">
           <div class="md-col-4 col-6">
-            <h3 class="mb0">Allan Barredo</h3>
-            <span class="h3">Member</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Rodolfo Duldulao</h3>
-            <span class="h3">Member</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Clarke Plumo</h3>
-            <span class="h3">Member</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Clau Yagyagan</h3>
-            <span class="h3">Member</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Ray Di&ntilde;o</h3>
-            <span class="h3">Trustee</span>
+            <h3 class="mb0">Micaela Reyes</h3>
+            <span class="h3">Director of Operations</span>
           </div>
           <div class="md-col-4 col-6">
             <h3 class="mb0">Matt Lebrun</h3>
-            <span class="h3">Trustee</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Josef Monje</h3>
-            <span class="h3">Trustee</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Micaela Reyes</h3>
-            <span class="h3">Trustee</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Jerry Tieng</h3>
-            <span class="h3">Trustee</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Sony Valdez</h3>
-            <span class="h3">Trustee</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Mark Steve Samson</h3>
             <span class="h3">President</span>
           </div>
           <div class="md-col-4 col-6">
-            <h3 class="mb0">Dian Leithon Isidro</h3>
-            <span class="h3">Secretary</span>
+            <h3 class="mb0">Sony Valdez</h3>
+            <span class="h4">Director of Community Relations</span>
           </div>
           <div class="md-col-4 col-6">
-            <h3 class="mb0">Nadine Jamila</h3>
+            <h3 class="mb0">Angelica Lapastora</h3>
+            <span class="h3">Director of Marketing</span>
+          </div>
+          <div class="md-col-4 col-6">
+            <h3 class="mb0">Alysson Alvaran</h3>
             <span class="h3">Treasurer</span>
           </div>
+          <div class="md-col-4 col-6">
+            <h3 class="mb0">Vanessa Bermudez</h3>
+            <span class="h3">Committee Head - Meetups</span>
+          </div>
+          <div class="md-col-4 col-6">
+            <h3 class="mb0">Ryan Ermita</h3>
+            <span class="h3">Director of Public Training</span>
+          </div>
+          <div class="md-col-4 col-6">
+            <h3 class="mb0">Zorex Salvo</h3>
+            <span class="h3">Director of Engineering</span>
+          </div>
+          <div class="md-col-4 col-6">
+            <h3 class="mb0">Jonathan Doydora</h3>
+            <span class="h3">Committee Head - Meetups</span>
+</div>
         </div>
+        <h3 class="caps mt3 python-yellow">Core Volunteers</h3>
+        <div class="flex flex-wrap justify-center">
+
+          <div class="md-col-12 col-12">
+            <h5 class="mt0 caps python-yellow">Meetup</h5>
+          </div>
+          <div class="md-col-4 col-6">
+            <div class="h3">Vanessa Bermudez</div>
+            <div class="h3">Jonathan Doydora</div>
+            <div class="h3">Khim Shae Delos Reyes</div>
+            <div class="h3">Von Louie Cruto</div>
+            <div class="h3">Jay Tero</div>
+            <div class="h3">Mark Anthony Yabis</div>
+            <div class="h3">Janine Bagares</div>
+          </div>
+          <div class="md-col-4 col-6">
+            <div class="h3">Laurence Rebadulla</div>
+            <div class="h3">Rommel Philip Afurong</div>
+            <div class="h3">Ciara Bautista</div>
+            <div class="h3">Jay Mendez</div>
+            <div class="h3">First Val Babon</div>
+            <div class="h3">Rhea Baguion</div>
+            <div class="h3">Renz Jeremy Albandia</div>
+          </div>
+          <div class="md-col-4 col-6">
+            <div class="h3">Ariel Conde</div>
+            <div class="h3">Crispin Sarmiento</div>
+            <div class="h3">Jessica Apostol</div>
+            <div class="h3">Freilla Mae Espinola</div>
+            <div class="h3">Lionel Amarado</div>
+          </div>
+
+          <div class="md-col-4 col-6">
+            <h5 class="mt3 caps python-yellow">Admin</h5>
+            <div class="h3">Matt Lebrun</div>
+            <div class="h3">Micaela Reyes</div>
+            <div class="h3">Sony Valdez</div>
+            <div class="h3">Angelica Lapastora</div>
+            <div class="h3">Alysson Alvaran</div>
+          </div>
+          <div class="md-col-4 col-6">
+            <h5 class="mt3 caps python-yellow">Public Training</h5>
+            <div class="h3">Ryan Ermita</div>
+            <div class="h3">Zorex Salvo</div>
+            <div class="h3">Dan Belza</div>
+            <div class="h3">Albert Yumol</div>
+          </div>
+
+          <div class="md-col-4 col-6">
+          </div>
+
+        </div>
+      </div>
       </section>
     </div>
   </div>
