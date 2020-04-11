@@ -6,6 +6,7 @@ from django.db import models
 
 
 class Company(models.Model):
+
     class Meta:
         verbose_name_plural = "companies"
 
@@ -23,14 +24,14 @@ class Company(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
 class Job(models.Model):
     user = models.ForeignKey(
         User,
-        related_name="companies",
+        related_name='jobs',
         null=True,
         on_delete=models.SET_NULL,
     )
@@ -38,6 +39,7 @@ class Job(models.Model):
         Company,
         null=True,
         on_delete=models.SET_NULL,
+        related_name='jobs',
     )
     is_approved = models.BooleanField(default=False)
     is_sponsored = models.BooleanField(default=False)
@@ -53,6 +55,6 @@ class Job(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return "{} - {}".format(self.company.name, self.title)
 
