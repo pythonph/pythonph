@@ -44,17 +44,13 @@ ROOT_URLCONF = 'pythonph.urls'
 WSGI_APPLICATION = 'pythonph.wsgi.application'
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
-    #     'NAME': os.environ['POSTGRES_USER'],
-    #     'USER': os.environ['POSTGRES_USER'],
-    #     'PASSWORD': os.environ['POSTGRES_PASSWORD'],
-    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
+        'NAME': os.environ['POSTGRES_USER'],
+        'USER': os.environ['POSTGRES_USER'],
+        'PASSWORD': os.environ['POSTGRES_PASSWORD'],
+    },
 }
 
 LANGUAGE_CODE = 'en-us'
