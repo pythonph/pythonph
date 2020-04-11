@@ -7,8 +7,7 @@ urlpatterns = (
     path('', include('registration.urls', namespace='registration')),
     path('', include('slack.urls', namespace='slack')),
     path('jobs/', include('jobs.urls', namespace='jobs')),
-    path('jobs/api/', include('jobs.api.v1.urls', namespace='jobs_api')),
-    path('admin/', include(admin.site.urls)),
+    path('admin/', admin.site.urls, name='admin'),
     path('markdown/', include('markdownx.urls')),
 )
 
