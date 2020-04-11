@@ -9,6 +9,6 @@ app_name = 'jobs'
 
 urlpatterns = (
     path('', index, name='index'),
-    path('api', include(api_v1.urls)),
+    path('api/', include(api_v1.urls)),
     path('post', post, name='post'),
 )
