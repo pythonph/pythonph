@@ -16,7 +16,7 @@ class UserCreationForm(UserCreationForm):
 
 def register(request):
     if request.method == 'POST':
-        print request.POST
+        # print(request.POST)
         form = UserCreationForm(data=request.POST)
         if form.is_valid():
             form.save()

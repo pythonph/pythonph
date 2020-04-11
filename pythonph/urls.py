@@ -1,13 +1,14 @@
-from django.conf.urls import include, url
+from django.conf.urls import include
+from django.urls import path
 from django.contrib import admin
 
 urlpatterns = (
-    url(r'', include('landing.urls', namespace='landing')),
-    url(r'', include('registration.urls', namespace='registration')),
-    url(r'', include('slack.urls', namespace='slack')),
-    url(r'^jobs/', include('jobs.urls', namespace='jobs')),
-    url(r'^jobs/api/', include('jobs.api.v1.urls', namespace='jobs_api')),
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^markdown/', include('markdownx.urls')),
+    path('', include('landing.urls', namespace='landing')),
+    path('', include('registration.urls', namespace='registration')),
+    path('', include('slack.urls', namespace='slack')),
+    path('jobs/', include('jobs.urls', namespace='jobs')),
+    path('jobs/api/', include('jobs.api.v1.urls', namespace='jobs_api')),
+    path('admin/', include(admin.site.urls)),
+    path('markdown/', include('markdownx.urls')),
 )
 

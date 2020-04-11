@@ -1,9 +1,12 @@
-from django.conf.urls import url
+from django.urls import path
 
 from .views import index, post
 
+
+app_name = 'jobs'
+
 urlpatterns = (
-    url(r'^$', index, name='jobs'),
-    url(r'^post$', post, name='jobs_post'),
+    path('', index, name='jobs'),
+    path('post', post, name='jobs_post'),
 )
 
