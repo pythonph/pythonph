@@ -32,13 +32,11 @@ class Job(models.Model):
     user = models.ForeignKey(
         User,
         related_name='jobs',
-        null=True,
-        on_delete=models.SET_NULL,
+        on_delete=models.CASCADE,
     )
     company = models.ForeignKey(
         Company,
-        null=True,
-        on_delete=models.SET_NULL,
+        on_delete=models.CASCADE,
         related_name='jobs',
     )
     is_approved = models.BooleanField(default=False)
