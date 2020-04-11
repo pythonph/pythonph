@@ -19,9 +19,9 @@ INSTALLED_APPS = (
     # Third-party
     'taggit',
     'tastypie',
-    'django_markdown',
     'compressor',
     'raven.contrib.django.raven_compat',
+    'markdownx',
     # pythonph
     'landing',
     'registration',
