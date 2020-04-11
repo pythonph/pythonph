@@ -6,6 +6,7 @@ from django.utils.translation import ugettext as _
 
 from .forms import SlackInviteForm
 
+
 MISSING_SCOPE_ERROR_TEXT = """Missing admin scope: The token you provided is for
 an account that is not an admin. You must provide a token from an admin account
 in order to invite users through the Slack API."""
@@ -19,16 +20,14 @@ def slack_invite(request):
         form = SlackInviteForm(request.POST)
 
         if form.is_valid():
-            res = requests.post(
-                "https://{}.slack.com/api/users.admin.invite".format(
-                    settings.SLACK_ORG,
-                ),
+            response = requests.post(
+                "https://{}.slack.com/api/users.admin.invite".format(settings.SLACK_ORG),
                 data={
                     'email': form.cleaned_data['email'],
                     'token': settings.SLACK_API_TOKEN,
                 },
             )
-            body = res.json()
+            body = response.json()
             ok = body['ok']
             if ok:
                 pass
