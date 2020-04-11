@@ -1,7 +1,8 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
-urlpatterns = patterns(
-    'landing.views',
-    url(r'^$', 'index', name='landing'),
+from .views import index
+
+urlpatterns = (
+    url(r'^$', index, name='landing'),
 )
 
