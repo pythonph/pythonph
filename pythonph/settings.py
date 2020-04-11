@@ -29,7 +29,7 @@ INSTALLED_APPS = (
     'slack',
     'common',
 )
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -94,3 +94,17 @@ SLACK_ORG = os.environ['SLACK_ORG']
 SLACK_API_TOKEN = os.environ['SLACK_API_TOKEN']
 SLACK_BOARD_CHANNEL = os.environ['SLACK_BOARD_CHANNEL']
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+        'OPTIONS': {
+              'context_processors': [
+                  'django.template.context_processors.debug',
+                  'django.template.context_processors.request',
+                  'django.contrib.auth.context_processors.auth',
+                  'django.contrib.messages.context_processors.messages',
+              ],
+         },
+    },
+]
