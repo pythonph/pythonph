@@ -1,5 +1,7 @@
-from django.conf.urls import include, url
+from django.conf.urls import url
+
+from .views import slack_invite
 
 urlpatterns = [
-    url('^slack', 'slack.views.slack_invite', name='invite'),
+    url('^slack', slack_invite, name='invite'),
 ]

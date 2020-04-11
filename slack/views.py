@@ -1,8 +1,10 @@
 import requests
+
 from django.conf import settings
 from django.shortcuts import redirect, render
 from django.utils.translation import ugettext as _
-from slack.forms import SlackInviteForm
+
+from .forms import SlackInviteForm
 
 MISSING_SCOPE_ERROR_TEXT = """Missing admin scope: The token you provided is for
 an account that is not an admin. You must provide a token from an admin account
@@ -15,6 +17,7 @@ for an email from feedback@slack.com."""
 def slack_invite(request):
     if request.method == 'POST':
         form = SlackInviteForm(request.POST)
+
         if form.is_valid():
             res = requests.post(
                 "https://{}.slack.com/api/users.admin.invite".format(
@@ -44,4 +47,5 @@ def slack_invite(request):
                 form.add_error(None, _(error_text))
     else:
         form = SlackInviteForm()
+
     return render(request, 'slack/invite.html', {'form': form})
