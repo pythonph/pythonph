@@ -1,9 +1,11 @@
-from django.contrib.auth.models import User
-from jobs.models import Company, Job
 from tastypie.constants import ALL
 from tastypie import fields
 from tastypie.api import Api
 from tastypie.resources import ModelResource
+
+from django.contrib.auth.models import User
+
+from .models import Company, Job
 
 
 class UserResource(ModelResource):
@@ -60,4 +62,3 @@ v1 = Api(api_name='v1')
 v1.register(UserResource())
 v1.register(CompanyResource())
 v1.register(JobResource())
-

@@ -1,8 +1,9 @@
-from common.utils import notify_slack
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from jobs.forms import CompanyForm, JobForm
+
+from .forms import CompanyForm, JobForm
+from common.utils import notify_slack
 
 
 def index(request):
