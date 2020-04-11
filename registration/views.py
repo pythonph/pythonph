@@ -24,4 +24,5 @@ def register(request):
     else:
         form = UserCreationForm()
     context = dict(form=form)
+
     return render(request, 'registration/register.html', context)
