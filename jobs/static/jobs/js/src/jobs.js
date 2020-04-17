@@ -7,15 +7,15 @@ require('velocity-animate')
 require('velocity-animate/velocity.ui')
 
 var Job = React.createClass({
-  toggleDetails: function(e) {
+  toggleDetails: function (e) {
     e.preventDefault()
     this.props.onToggleDetails(this.props)
   },
-  toggleCompany: function(e) {
+  toggleCompany: function (e) {
     e.preventDefault()
     this.props.onToggleCompany(this.props.company)
   },
-  render: function() {
+  render: function () {
     return (
       <li className={this.props.is_sponsored ? 'sponsored' : null}>
         <div className="job-title">
@@ -45,7 +45,7 @@ var Job = React.createClass({
 })
 
 var Content = React.createClass({
-  renderDetails: function() {
+  renderDetails: function () {
     var data = this.props.details
     return data ? (
       <div className="details page" ref="page">
@@ -64,15 +64,15 @@ var Content = React.createClass({
         </div>
         <div
           className="details-description"
-          dangerouslySetInnerHTML={{__html: marked(data.description)}}
+          dangerouslySetInnerHTML={{ __html: marked(data.description) }}
         />
         <p>
           <a
             className="apply button"
             href={
               data.application_url ?
-              data.application_url :
-              `mailto:${data.application_email}`
+                data.application_url :
+                `mailto:${data.application_email}`
             }
           >
             Apply for this job
@@ -88,14 +88,14 @@ var Content = React.createClass({
       </div>
     ) : null
   },
-  renderCompany: function() {
+  renderCompany: function () {
     var data = this.props.company
     return data ? (
       <div className="company page" ref="page">
         <h2>{data.name}</h2>
         <div
           className="company-profile"
-          dangerouslySetInnerHTML={{__html: marked(data.profile)}}
+          dangerouslySetInnerHTML={{ __html: marked(data.profile) }}
         />
         <p>
           <a
@@ -115,14 +115,14 @@ var Content = React.createClass({
       </div>
     ) : null
   },
-  close: function() {
+  close: function () {
     if (this.props.details) {
       this.props.toggleContent('details')(null)
     } else {
       this.props.toggleContent('company')(null)
     }
   },
-  render: function() {
+  render: function () {
     return this.props.toggled ? (
       <div className="content">
         <div
@@ -139,7 +139,7 @@ var Content = React.createClass({
 
 module.exports = React.createClass({
   displayName: 'Jobs',
-  getInitialState: function() {
+  getInitialState: function () {
     return {
       jobs: null,
       next: null,
@@ -149,17 +149,17 @@ module.exports = React.createClass({
       toggled: false
     }
   },
-  apiUrl: function() {
+  apiUrl: function () {
     return ['/jobs/api', this.props.apiVersion].concat(
       Array.prototype.slice.call(arguments)
     ).join('/')
   },
-  componentDidMount: function() {
+  componentDidMount: function () {
     superagent
       .get(this.apiUrl('job/'))
       .end(this.parseJobs)
   },
-  componentDidUpdate: function(prevProps, prevState) {
+  componentDidUpdate: function (prevProps, prevState) {
     if (prevState.jobs !== this.state.jobs) {
       Velocity(
         this.refs.jobsList
@@ -178,28 +178,29 @@ module.exports = React.createClass({
       Velocity(
         content.refs.overlay.getDOMNode(),
         'transition.fadeIn',
-        {duration: 500}
+        { duration: 500 }
       )
       Velocity(
         content.refs.close.getDOMNode(),
         'transition.slideUpBigIn',
-        {duration: 500}
+        { duration: 500 }
       )
       Velocity(
         content.refs.page.getDOMNode(),
         'transition.slideDownIn',
-        {display: 'flex', duration: 500}
+        { display: 'flex', duration: 500 }
       )
     }
   },
-  parseJobs: function(res) {
+  parseJobs: function (res) {
+    console.log(res);
     this.setState({
       jobs: res.body.objects,
       next: res.body.meta.next,
       prev: res.body.meta.previous
     })
   },
-  renderJob: function(data) {
+  renderJob: function (data) {
     return (
       <Job
         key={data.id}
@@ -209,38 +210,38 @@ module.exports = React.createClass({
       />
     )
   },
-  renderJobs: function() {
+  renderJobs: function () {
     return this.state.jobs ? (
       this.state.jobs.length > 0 ? (
         this.state.jobs.map(this.renderJob)
       ) : (
-        <li>No jobs has been posted yet.</li>
-      )
+          <li>No jobs has been posted yet.</li>
+        )
     ) : (
-      <li>Loading jobs...</li>
-    )
+        <li>Loading jobs...</li>
+      )
   },
-  prevJobs: function() {
+  prevJobs: function () {
     if (this.state.prev) {
-      this.setState({jobs: null})
+      this.setState({ jobs: null })
       superagent
-        .get(this.state.prev)
+        .get(this.apiUrl('job/' + this.state.prev))
         .end(this.parseJobs)
     }
   },
-  nextJobs: function() {
+  nextJobs: function () {
     if (this.state.next) {
-      this.setState({jobs: null})
+      this.setState({ jobs: null })
       superagent
-        .get(this.state.next)
+        .get(this.apiUrl('job/' + this.state.next))
         .end(this.parseJobs)
     }
   },
-  toggle: function(type) {
-    return (function(data) {
+  toggle: function (type) {
+    return (function (data) {
       var nextToggled = !this.state.toggled
-      var update = (function() {
-        var nextState = {toggled: nextToggled}
+      var update = (function () {
+        var nextState = { toggled: nextToggled }
         nextState[type] = nextToggled ? data : null
         this.setState(nextState)
       }).bind(this)
@@ -251,22 +252,22 @@ module.exports = React.createClass({
         Velocity(
           content.refs.overlay.getDOMNode(),
           'transition.fadeOut',
-          {duration: 500}
+          { duration: 500 }
         )
         Velocity(
           content.refs.close.getDOMNode(),
           'transition.slideUpBigOut',
-          {duration: 500}
+          { duration: 500 }
         )
         Velocity(
           content.refs.page.getDOMNode(),
           'transition.slideDownOut',
-          {display: 'flex', duration: 500, complete: update}
+          { display: 'flex', duration: 500, complete: update }
         )
       }
     }).bind(this)
   },
-  render: function() {
+  render: function () {
     return (
       <div>
         <Content
