@@ -19,7 +19,7 @@ def register(request):
         form = UserCreationForm(data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect('landing')
+            return redirect('landing:landing')
     else:
         form = UserCreationForm()
 
