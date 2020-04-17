@@ -1,7 +1,8 @@
 from django.contrib import admin
-from django_markdown.admin import MarkdownModelAdmin
-from jobs.models import Company, Job
+from markdownx.admin import MarkdownxModelAdmin
 
-admin.site.register(Company, MarkdownModelAdmin)
-admin.site.register(Job, MarkdownModelAdmin)
+from .models import Company, Job
 
+
+admin.site.register(Company, MarkdownxModelAdmin)
+admin.site.register(Job, MarkdownxModelAdmin)

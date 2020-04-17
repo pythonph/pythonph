@@ -1,6 +1,12 @@
-from django.conf.urls import include, url
+from django.conf.urls import include
+from django.urls import path
+
+from .views import register
+
+
+app_name = 'registration'
 
 urlpatterns = [
-    url('^', include('django.contrib.auth.urls')),
-    url('^register', 'registration.views.register', name='register'),
+    path('', include('django.contrib.auth.urls')),
+    path('register', register, name='register'),
 ]

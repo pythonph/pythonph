@@ -1,7 +1,7 @@
 {% extends "registration/base.html" %}
 
 {% block registration_content %}
-<form action="{% url "register" %}" method="post">
+<form action="{% url "registration:register" %}" method="post">
   <h2>Register</h2>
   {% csrf_token %}
   {{ form.as_p }}
@@ -10,8 +10,9 @@
       Register
     </button>
   </p>
+
   <p class="note">
-    Already have an account? <a href="{% url "login" %}">Login</a>
+    Already have an account? <a href="{% url "registration:login" %}">Login</a>
   </p>
 </form>
 {% endblock %}
