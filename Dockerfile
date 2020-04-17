@@ -1,4 +1,4 @@
-FROM python:2.7.17
+FROM python:3.8.1
 
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get -y install nodejs
