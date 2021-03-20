@@ -1,0 +1,36 @@
+source:
+  image: pythonph/pythonph
+  volumes:
+    - /usr/src/app/venv
+    - /usr/src/app/node_modules
+    - /usr/src/app/bower_components
+    - /usr/src/app/static
+  environment:
+    - ENV=DEV
+  env_file: dev.env
+  command: bin/install
+
+db:
+  image: postgres:latest
+  environment:
+    - ENV=DEV
+  env_file: dev.env
+
+web:
+  image: pythonph/pythonph
+  volumes_from:
+    - source
+  environment:
+    - ENV=DEV
+  env_file: dev.env
+  links:
+    - db:db
+  command: gunicorn -b 0.0.0.0:8000 --access-logfile - --error-logfile - pythonph.wsgi
+
+nginx:
+  build: nginx
+  ports:
+    - 8080:80
+    - 443:443
+  links:
+    - web:web
