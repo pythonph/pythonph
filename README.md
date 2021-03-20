@@ -34,6 +34,7 @@
   SLACK_ORG=pythonph
   SLACK_API_TOKEN=xxxx-xxxxxxxxxx-xxxxxxxxxx-xxxxxxxxxxx-xxxxxxxxxx
   SLACK_BOARD_CHANNEL=pythonph
+  SLACK_JOBS_CHANNEL=jobs
   ```
 
 5. Setup Django
@@ -48,4 +49,14 @@
   ```bash
   npm start
   ```
+
+## Development Setup via docker-compose
+1. `./bin/build-dev`
+2. `./bin/deploy-dev`
+
+Note: For this setup, you have to run `./bin/build-dev && ./bin/deploy-dev` for changes to reflect.
+
+
+## Todo
+1. Improve dockerized development setup
 
