@@ -6,7 +6,7 @@ from .models import Event, Section
 
 
 class IsArchivedListFilter(admin.SimpleListFilter):
-    title = 'Is Archived?'
+    title = 'Archived?'
     parameter_name = 'is_removed'
 
     def lookups(self, request, model_admin):
@@ -43,7 +43,11 @@ class EventAdmin(admin.ModelAdmin):
 
 @admin.register(Section)
 class SectionAdmin(SortableAdminMixin, admin.ModelAdmin):
-    pass
+    search_fields = ('name',)
+    list_filter = (IsArchivedListFilter,)
+
+    def get_queryset(self, request):
+        return Section.all_objects.all()
 
 
 admin.site.register(Event, EventAdmin)
