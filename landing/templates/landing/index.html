@@ -44,47 +44,14 @@
         </div>
       </header>
 
-      <section class="p2 mb2">
-        <h2 class="center caps python-yellow">Who We Are / About Us</h2>
-        <p>PythonPH is a non-stock, non-profit, volunteer-run organization dedicated to
-          support and facilitate the growth of the community of Python programmers in the
-          Philippines.</p>
-        <p>Our aim is to show that Python has something for everyone: from hobbyists,
-          to educators, to professionals.</p>
-        <p>We also aim to upgrade the Philippine tech talent pool through the events and
-          trainings we organize.</p>
-        <p>We believe that we create small dents of improvement in the PH Tech industry
-          when we foster environments that inspire/motivate technically competent professionals.</p>
-        <p>Contact us at: <a class="python-yellow" href="mailto:info@python.ph">info@python.ph</a>
-      </section>
-
-      <section class="p2 mb2">
-        <h2 class="center caps python-yellow">What We Do / Events</h2>
-        <p>In June 31-July 1 2012, we held the first ever PyCon Philippines.</p>
-        <p>Today, we organize the yearly PyCon and also hold regular meet-ups,
-          public python trainings and kaizend throughout the year.</p>
-        <p>Whether you're new to programming, an experienced practitioner, or just
-          plain curious what this Python programming language is about, you're much
-          welcome to join this community!</p>
-        <p>We organize the following events:</p>
-        <ul>
-          <li>PyCon Philippines - The goal of the conference is to provide a venue where
-            the Python programming language and surrounding technologies can be explored,
-            discussed and exercised.
-            <p>We gather software engineers,
-              programming enthusiasts, startup founders, corporate IT decision makers,
-              students and IT educators in a 2-day event where we can collaborate and
-              learn from each other.
-            </p>
-          </li>
-          <li>Meetups - Regular meetups where professionals and enthusiasts share and
-            talk about Python.</li>
-          <li>Public Python Trainings - Low-cost Python Trainings covering various topics.</li>
-          <li>Kaizend - A mastermind group and exclusive training program for
-            core volunteers. This program is aimed to develop technically competent
-            leaders and systematize succession plans for PythonPH.</li>
-        </ul>
-      </section>
+      {% if sections %}
+        {% for section in sections %}
+        <section class="p2 mb2">
+          <h2 class="center caps python-yellow">{{ section.name }}</h2>
+          {{ section.content|safe }}
+        </section>
+        {% endfor %}
+      {% endif %}
 
       {% if events %}
       <section class="center p2 mb2">

@@ -1,7 +1,8 @@
+from adminsortable2.admin import SortableAdminMixin
 from django.contrib import admin
 from django.utils.encoding import force_text
 
-from .models import Event
+from .models import Event, Section
 
 
 class IsArchivedListFilter(admin.SimpleListFilter):
@@ -38,6 +39,11 @@ class EventAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request):
         return Event.all_objects.all()
+
+
+@admin.register(Section)
+class SectionAdmin(SortableAdminMixin, admin.ModelAdmin):
+    pass
 
 
 admin.site.register(Event, EventAdmin)

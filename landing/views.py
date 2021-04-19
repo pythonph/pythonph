@@ -1,8 +1,12 @@
 from django.shortcuts import render
 
-from .models import Event
+from .models import Event, Section
 
 
 def index(request):
     events = Event.objects.all()
-    return render(request, 'landing/index.html', {'events': events})
+    sections = Section.objects.all()
+    return render(request, 'landing/index.html', {
+        'events': events,
+        'sections': sections
+    })

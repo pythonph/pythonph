@@ -23,6 +23,8 @@ web:
   environment:
     - ENV=DEV
   env_file: dev.env
+  ports:
+    - 8000:8000
   links:
     - db:db
   command: gunicorn -b 0.0.0.0:8000 --access-logfile - --error-logfile - pythonph.wsgi
