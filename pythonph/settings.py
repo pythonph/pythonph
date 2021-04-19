@@ -22,6 +22,8 @@ INSTALLED_APPS = (
     'compressor',
     'raven.contrib.django.raven_compat',
     'markdownx',
+    'adminsortable2',
+    'ckeditor',
     # pythonph
     'landing',
     'registration',
@@ -112,3 +114,4 @@ TEMPLATES = [
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
