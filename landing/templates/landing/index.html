@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static from staticfiles %}
 {% load compress %}
 
 <!DOCTYPE html>
@@ -7,12 +7,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A community in the Philippines for enthusiasts and users of the Python programming language.">
+  <meta name="description"
+    content="A community in the Philippines for enthusiasts and users of the Python programming language.">
   <title>Python Philippines</title>
+  <link rel="shortcut icon" href="{% static 'landing/images/logo.svg' %}" />
   <link href="//npmcdn.com/basscss@8.0.1/css/basscss.min.css" rel="stylesheet">
   <link href="//npmcdn.com/basscss-colors@2.2.0/css/colors.css" rel="stylesheet">
   <link href="//npmcdn.com/basscss-background-colors@2.1.0/css/background-colors.css" rel="stylesheet">
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,700,800|Cabin:400,400italic,700,700italic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,700,800|Cabin:400,400italic,700,700italic"
+    rel="stylesheet" type="text/css">
   {% compress css %}
   <link rel="stylesheet" type="text/x-scss" href="{% static "landing/scss/landing.scss" %}">
   {% endcompress %}
@@ -23,6 +26,7 @@
     <div class="absolute overlay bg-python-blue"></div>
     <div class="relative max-width-3">
       <header class="flex flex-wrap items-center p2">
+
         <div class="md-col-8 col-12">
           <h1 class="inline-block">
             <span class="py">Python</span>
@@ -35,84 +39,42 @@
             <li><a class="python-yellow" href="https://python.ph/jobs">Jobs Board</a></li>
             <li><a class="white" href="https://python.ph/slack/">Slack</a></li>
             <li><a class="white" href="https://www.facebook.com/groups/pythonph/">Facebook</a></li>
-            <li><a class="white" href="https://twitter.com/pythonph">Twitter</a></li>            
+            <li><a class="white" href="https://twitter.com/pythonph">Twitter</a></li>
             <li><a class="white" href="https://github.com/pythonph">GitHub</a></li>
           </ul>
         </div>
       </header>
-      <section class="justify p2">
-        <p>We are PythonPH, a community in the Philippines for enthusiasts and users
-        of the Python programming language. Our aim is to show that Python has
-        something for everyone: from hobbyists, to educators, to
-        professionals.</p>
-        <p>The group started back in 2007 when Jun Auza of Tech Source blogged about
-        forming a local Python User's Group. JM Maranan stumbled upon the post and
-        created a Google group. In June 31-July 1 2012, we held the first ever
-        PyCon Philippines.</p>
-        <p>Today, we hold monthly meet-ups for knowledge sharing
-        and some pizza. Whether you're new to programming, an experienced
-        practitioner, or just plain curious what this Python programming language
-        is about, you're much welcome
-        to join this community!</p>
-        <p>Contact us at <a class="python-yellow" href="mailto:info@python.ph">info@python.ph</a>.</p>
-      </section>
-      <section class="center p2 mb4">
-        <h2 class="caps python-yellow">Our Team</h2>
+
+      {% if sections %}
+        {% for section in sections %}
+        <section class="p2 mb2">
+          <h2 class="center caps python-yellow">{{ section.name }}</h2>
+          {{ section.content|safe }}
+        </section>
+        {% endfor %}
+      {% endif %}
+
+      {% if events %}
+      <section class="center p2 mb2">
+        <h2 class="caps python-yellow">Public Trainings</h2>
         <div class="flex flex-wrap justify-center">
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Allan Barredo</h3>
-            <span class="h3">Member</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Rodolfo Duldulao</h3>
-            <span class="h3">Member</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Clarke Plumo</h3>
-            <span class="h3">Member</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Clau Yagyagan</h3>
-            <span class="h3">Member</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Ray Di&ntilde;o</h3>
-            <span class="h3">Trustee</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Matt Lebrun</h3>
-            <span class="h3">Trustee</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Josef Monje</h3>
-            <span class="h3">Trustee</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Micaela Reyes</h3>
-            <span class="h3">Trustee</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Jerry Tieng</h3>
-            <span class="h3">Trustee</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Sony Valdez</h3>
-            <span class="h3">Trustee</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Mark Steve Samson</h3>
-            <span class="h3">President</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Dian Leithon Isidro</h3>
-            <span class="h3">Secretary</span>
-          </div>
-          <div class="md-col-4 col-6">
-            <h3 class="mb0">Nadine Jamila</h3>
-            <span class="h3">Treasurer</span>
-          </div>
+          {% for event in events %}
+          <a href="{{ event.link }}" style="color: white">
+
+            <div class="">
+              <img src="{{ event.cover_image }}" width="100%" />
+              <h4 class="mt1 mb0">{{ event.schedule }}</h4>
+              <h2 class="mt0 mb0">{{ event.name }}</h2>
+              <h5 class="mt0">{{ event.location }}</h5>
+            </div>
+          </a>
+          {% endfor %}
         </div>
       </section>
+      {% endif %}
+
+      {% include "landing/team.html" %}
+
     </div>
   </div>
 </body>

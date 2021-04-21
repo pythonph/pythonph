@@ -10,7 +10,7 @@
   Check in after a day or two.
 </p>
 {% else %}
-<form action="{% url "jobs_post" %}" method="post">
+<form action="{% url "jobs:post" %}" method="post">
   <h2>Post a Job</h2>
   {% csrf_token %}
   <div class="company-form">

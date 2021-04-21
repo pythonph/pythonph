@@ -1,18 +1,12 @@
-import jobs
-import landing
-import registration
-import slack
-from django.conf.urls import include, patterns, url
+from django.conf.urls import include
+from django.urls import path
 from django.contrib import admin
 
-urlpatterns = patterns(
-    '',
-    url(r'', include(landing.urls)),
-    url(r'', include(registration.urls)),
-    url(r'', include(slack.urls)),
-    url(r'^jobs/', include(jobs.urls)),
-    url(r'^jobs/api/', include(jobs.api.v1.urls)),
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^markdown/', include('django_markdown.urls')),
+urlpatterns = (
+    path('', include('landing.urls', namespace='landing')),
+    path('', include('registration.urls', namespace='registration')),
+    path('slack/', include('slack.urls', namespace='slack')),
+    path('jobs/', include('jobs.urls', namespace='jobs')),
+    path('admin/', admin.site.urls, name='admin'),
+    path('markdownx/', include('markdownx.urls')),
 )
-

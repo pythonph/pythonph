@@ -1,14 +1,19 @@
-FROM python:2.7.7
+FROM python:3.8.1
 
-RUN curl -sL https://deb.nodesource.com/setup | bash -
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get -y install nodejs
 RUN apt-get -y install libcairo-dev
 
-RUN pip install virtualenv
-
 RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+
+COPY package.json /usr/src/app/
+RUN npm install --prefix /usr/src/app/
+
+COPY requirements.txt /usr/src/app
+RUN pip install -r /usr/src/app/requirements.txt
+
 COPY . /usr/src/app
+WORKDIR /usr/src/app
+RUN npm run-script build-jobs
 
-ENTRYPOINT ["./docker-entrypoint"]
-
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

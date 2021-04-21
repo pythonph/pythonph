@@ -19,9 +19,11 @@ INSTALLED_APPS = (
     # Third-party
     'taggit',
     'tastypie',
-    'django_markdown',
     'compressor',
     'raven.contrib.django.raven_compat',
+    'markdownx',
+    'adminsortable2',
+    'ckeditor',
     # pythonph
     'landing',
     'registration',
@@ -29,12 +31,13 @@ INSTALLED_APPS = (
     'slack',
     'common',
 )
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Keep this here as stated on docs
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -49,7 +52,7 @@ DATABASES = {
         'NAME': os.environ['POSTGRES_USER'],
         'USER': os.environ['POSTGRES_USER'],
         'PASSWORD': os.environ['POSTGRES_PASSWORD'],
-    }
+    },
 }
 
 LANGUAGE_CODE = 'en-us'
@@ -93,4 +96,22 @@ if DEBUG:
 SLACK_ORG = os.environ['SLACK_ORG']
 SLACK_API_TOKEN = os.environ['SLACK_API_TOKEN']
 SLACK_BOARD_CHANNEL = os.environ['SLACK_BOARD_CHANNEL']
+SLACK_JOBS_CHANNEL = os.environ['SLACK_JOBS_CHANNEL']
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+        'OPTIONS': {
+              'context_processors': [
+                  'django.template.context_processors.debug',
+                  'django.template.context_processors.request',
+                  'django.contrib.auth.context_processors.auth',
+                  'django.contrib.messages.context_processors.messages',
+              ],
+         },
+    },
+]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'

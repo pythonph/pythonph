@@ -15,7 +15,7 @@
 {% block content %}
 <div class="header">
   <div class="title">
-    <h1><a href="{% url "jobs" %}">
+    <h1><a href="{% url "jobs:index" %}">
       Python.PH<br>
       <small>Jobs Board</small>
     </a></h1>
@@ -32,11 +32,11 @@
   </div>
   <ul class="links">
     {% if user.is_authenticated %}
-    <li><a href="{% url "jobs_post" %}">Post a Job</a></li>
-    <li><a href="{% url "logout" %}?next=/jobs/">Logout</a></li>
+    <li><a href="{% url "jobs:post" %}">Post a Job</a></li>
+    <li><a href="{% url "registration:logout" %}?next=/jobs/">Logout</a></li>
     {% else %}
-    <li><a href="{% url "login" %}?next=/jobs/">Login</a></li>
-    <li><a href="{% url "register" %}?next=/jobs/">Register</a></li>
+    <li><a href="{% url "registration:login" %}?next=/jobs/">Login</a></li>
+    <li><a href="{% url "registration:register" %}?next=/jobs/">Register</a></li>
     {% endif %}
   </ul>
   </ul>

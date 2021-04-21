@@ -11,17 +11,18 @@ class UserCreationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ["first_name", "last_name", "email", "username"]
+        fields = ['first_name', 'last_name', 'email', 'username']
 
 
 def register(request):
     if request.method == 'POST':
-        print request.POST
         form = UserCreationForm(data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect('landing')
+            return redirect('landing:landing')
     else:
         form = UserCreationForm()
+
     context = dict(form=form)
+
     return render(request, 'registration/register.html', context)
