@@ -9,7 +9,7 @@ class Section(SoftDeletableModel):
     content = RichTextField()
     order = models.PositiveIntegerField(default=0)
 
-    def __unicode(self):
+    def __unicode__(self):
         return self.name
 
     def __str__(self):
