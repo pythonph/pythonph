@@ -3,43 +3,14 @@
     <h2 class="caps python-yellow">Our Team</h2>
     <h3 class="caps python-yellow">Officers and Directors</h3>
     <div class="flex flex-wrap justify-center">
+      {% for member in board_members %}
       <div class="md-col-4 col-6">
-        <h3 class="mb0">Micaela Reyes</h3>
-        <span class="h3">Director of Operations</span>
+        <h3 class="mb0">{{ member.display_name }}</h3>
+        <span class="h3">{{ member.title }}</span>
       </div>
-      <div class="md-col-4 col-6">
-        <h3 class="mb0">Matt Lebrun</h3>
-        <span class="h3">President</span>
-      </div>
-      <div class="md-col-4 col-6">
-        <h3 class="mb0">Sony Valdez</h3>
-        <span class="h4">Director of Community Relations</span>
-      </div>
-      <div class="md-col-4 col-6">
-        <h3 class="mb0">Angelica Lapastora</h3>
-        <span class="h3">Director of Marketing</span>
-      </div>
-      <div class="md-col-4 col-6">
-        <h3 class="mb0">Alysson Alvaran</h3>
-        <span class="h3">Treasurer</span>
-      </div>
-      <div class="md-col-4 col-6">
-        <h3 class="mb0">Vanessa Bermudez</h3>
-        <span class="h3">Committee Head - Meetups</span>
-      </div>
-      <div class="md-col-4 col-6">
-        <h3 class="mb0">Ryan Ermita</h3>
-        <span class="h3">Director of Public Training</span>
-      </div>
-      <div class="md-col-4 col-6">
-        <h3 class="mb0">Zorex Salvo</h3>
-        <span class="h3">Director of Engineering</span>
-      </div>
-      <div class="md-col-4 col-6">
-        <h3 class="mb0">Jonathan Doydora</h3>
-        <span class="h3">Committee Head - Meetups</span>
-      </div>
+      {% endfor %}
     </div>
+
     <h3 class="caps mt3 python-yellow">Core Volunteers</h3>
     <div class="flex flex-wrap justify-center">
       <div class="md-col-12 col-12">
