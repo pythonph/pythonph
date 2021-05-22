@@ -1,6 +1,7 @@
 from ckeditor.fields import RichTextField
-from django.db import models
 from model_utils.models import SoftDeletableModel
+
+from django.db import models
 
 
 class Section(SoftDeletableModel):
