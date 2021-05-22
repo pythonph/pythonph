@@ -6,6 +6,9 @@ from django.db import models
 class Commitee(SoftDeletableModel):
     name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.name
+
 
 class Volunteer(SoftDeletableModel):
     display_name = models.CharField(max_length=255)
@@ -20,3 +23,6 @@ class Volunteer(SoftDeletableModel):
         on_delete=models.SET_NULL,
         related_name='volunteers',
     )
+
+    def __str__(self):
+        return self.display_name
