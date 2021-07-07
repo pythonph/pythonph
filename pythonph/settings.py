@@ -7,7 +7,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = os.environ['ENV'] == 'DEV'
 TEMPLATE_DEBUG = DEBUG
-ALLOWED_HOSTS = ['python.ph', 'localhost']
+ALLOWED_HOSTS = ['python.ph', 'localhost', '*']
 
 INSTALLED_APPS = (
     'django.contrib.admin',
