@@ -1,0 +1,159 @@
+{% load static from staticfiles %}
+
+<div
+  class="swiper-container carousel-swiper bg-blue-2 w-full h-full rounded-10"
+>
+  <div class="swiper-wrapper">
+    <div class="swiper-slide w-full h-320x relative flex items-center">
+      <div class="relative border-r-slant h-full z-1 md:w-1/2 bg-blue-2">
+        <div
+          class="relative h-full bg-blue-2 h-full px-20 md:pl-30 pt-22 pb-35"
+        >
+          <div class="mb-5">
+            <span
+              class="
+                font-bold
+                text-10 text-blue
+                bg-yellow-2
+                rounded-md
+                uppercase
+                px-6
+                md:px-16
+                py-1
+              "
+            >
+              Beginners
+            </span>
+          </div>
+          <h3
+            class="
+              text-24 text-white
+              font-montserrat font-semibold
+              leading-29
+              mb-10
+            "
+          >
+            Intro to Python
+          </h3>
+          <div class="text-16 leading-24 mb-20">
+            a 2-day course designed to introduce programming concepts,
+            establish your fundamental knowledge and skills in Python,
+            and prepare you for specialized courses.
+          </div>
+          <div class="flex flex-wrap mb-6 md:mb-0">
+            <span class="text-16 flex items-center leading-20 mb-12 w-1/2">
+              <img src="{% static "landing/assets/img/icon/icon-calendar.svg" %}" class="mr-10" /> July 24 and July 31, 2021
+            </span>
+            <span
+              class="
+                text-16
+                flex
+                items-center
+                leading-20
+                mb-12
+                w-1/2
+                pl-30
+                md:pl-30
+              "
+            >
+              <img src="{% static "landing/assets/img/icon/icon-clock.svg" %}"
+              class="mr-10" /> 9AM - 6PM
+            </span>
+            <span class="text-16 flex items-center leading-20 mb-12 w-1/2">
+              <img src="{% static "landing/assets/img/icon/icon-marker.svg" %}"
+              class="mr-10" /> Online via PythonPH Zoom
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="absolute hidden md:block md:w-2/5x lg:w-1/2x ml-auto h-full">
+        <img src="{% static "landing/assets/img/people/image-25.png" %}"
+        class="h-full w-full object-fill xl:object-contain object-right" /> <img
+        src="{% static "landing/assets/img/icon/icon-logo.svg" %}"
+        class="absolute w-90 right-0 bottom-0 mb-8 mr-4" />
+      </div>
+    </div>
+    <div class="swiper-slide w-full h-320x relative flex items-center">
+      <div class="relative border-r-slant h-full z-1 md:w-1/2 bg-blue-2">
+        <div
+          class="relative h-full bg-blue-2 h-full px-20 md:pl-30 pt-22 pb-35"
+        >
+          <div class="mb-5">
+            <span
+              class="
+                font-bold
+                text-10 text-blue
+                bg-yellow-2
+                rounded-md
+                uppercase
+                px-6
+                md:px-16
+                py-1
+              "
+            >
+              Professionals
+            </span>
+          </div>
+          <h3
+            class="
+              text-24 text-white
+              font-montserrat font-semibold
+              leading-29
+              mb-10
+            "
+          >
+            Intro to Python for Professionals
+          </h3>
+          <div class="text-16 leading-24 mb-20">
+            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+            nibh, ut fermentum massa justo sit amet risus. Sed posuere
+            consectetur est at lobortis.
+          </div>
+          <div class="flex flex-wrap mb-6 md:mb-0">
+            <span class="text-16 flex items-center leading-20 mb-12 w-1/2">
+              <img src="{% static "landing/assets/img/icon/icon-calendar.svg"
+              %}" class="mr-10" /> March 28 - 29, 2020
+            </span>
+            <span
+              class="
+                text-16
+                flex
+                items-center
+                leading-20
+                mb-12
+                w-1/2
+                pl-30
+                md:pl-30
+              "
+            >
+              <img src="{% static "landing/assets/img/icon/icon-clock.svg" %}"
+              class="mr-10" /> 8:00 AM PHT
+            </span>
+            <span class="text-16 flex items-center leading-20 mb-12 w-1/2">
+              <img src="{% static "landing/assets/img/icon/icon-marker.svg" %}"
+              class="mr-10" /> Manila Philippines
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="absolute hidden md:block md:w-2/5x lg:w-1/2x ml-auto h-full">
+        <img src="{% static "landing/assets/img/people/image-25.png" %}"
+        class="h-full w-full object-fill xl:object-contain object-right" /> <img
+        src="{% static "landing/assets/img/icon/icon-logo.svg" %}"
+        class="absolute w-90 right-0 bottom-0 mb-8 mr-4" />
+      </div>
+    </div>
+  </div>
+  <div
+    class="
+      pagination
+      carousel-pagination
+      absolute
+      bottom-28
+      z-1
+      swiper-pagination-bullets
+      px-20
+      md:px-30
+    "
+  ></div>
+</div>
