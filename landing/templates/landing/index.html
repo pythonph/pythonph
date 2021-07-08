@@ -40,7 +40,7 @@
 					<ul class="list-none m-0 h-full pt-112 md:py-0 md:flex">
 						<li class="mb-21 md:mb-0">
 							<a
-								href="/"
+								href="https://pycon.python.ph/"
 								class="text-24 md:text-16 text-yellow no-underline hover:text-yellow"
 								>PyCon Philippines</a
 							>
@@ -88,17 +88,17 @@
 					<p
 						class="text-white text-18 text-center px-25 md:text-left md:px-0 mb-23 md:mb-36"
 					>
-						PythonPH is a non-stock, non-profit, volunteer-run
+						PythonPH is a non-stock, non-profit, <strong>volunteer-run</strong>
 						organization dedicated to support and facilitate the
 						growth of the community of Python programmers in the
 						Philippines.
 					</p>
 
-					<button
+					<!-- <button
 						class="capitalize bg-yellow text-blue text-18 rounded-md border-none px-38 md:px-46 py-11 font-montserrat mb-50 md:mb-0 font-semibold"
 					>
 						Learn More
-					</button>
+					</button> -->
 				</div>
 
 				{% include "landing/gallery1.html" %}
@@ -200,8 +200,8 @@
 									data-aos="py-slide"
 									data-aos-delay="200"
 								>
-									To show that Python has something for
-									everyone: from hobbyists, to educators, to
+									To show that <strong>Python has something for
+									everyone</strong>: from hobbyists, to educators, to
 									professionals.
 								</li>
 								<li
@@ -209,7 +209,7 @@
 									data-aos="py-slide"
 									data-aos-delay="250"
 								>
-									To inspire Filipinos to excel in their craft
+									To <strong>inspire Filipinos to excel in their craft</strong>
 									through Python and Open Source.
 								</li>
 								<li
@@ -217,7 +217,7 @@
 									data-aos="py-slide"
 									data-aos-delay="300"
 								>
-									To provide a safe space where the Python
+									To <strong>provide a safe space</strong> where the Python
 									programming language and surrounding
 									technologies can be explored, discussed and
 									exercised.
@@ -231,18 +231,48 @@
 							data-aos-offset="100"
 							data-aos-delay="150"
 						>
-							We believe that we create small dents of improvement
-							in the PH Tech industry when we foster environments
+							We believe that we <strong>create small dents of improvement</strong>
+							in the <strong>PH Tech industry</strong> when we foster environments
 							that inspire/motivate technically competent
 							professionals.
 						</p>
-						<button
+						<a
 							class="bg-yellow text-blue text-18 rounded-md border-none px-42 md:px-46 py-11 font-montserrat font-semibold"
 							data-aos="py-slide"
 							data-aos-delay="200"
+							href="mailto:info@python.ph"
 						>
 							Get to know us
-						</button>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div
+			class="bg-blue md:bg-image-3 bg-top md:bg-left-top bg-no-repeat 2xl:bg-repeat xl:bg-contain overflow-hidden"
+		>
+			<div
+				class="w-full px-15 lg:px-0 max-w-855 mx-auto text-white py-24 md:py-88"
+			>
+				<div class="text-center mb-30">
+					<h2
+						class="capitalize font-montserrat text-40 mb-30"
+						data-aos="py-slide"
+						data-aos-delay="150"
+					>
+						Why Python?
+					</h2>
+					<div>
+						<p data-aos="py-slide" data-aos-delay="200">
+							We <strong>truly believe and support</strong> the <strong>impact and innovation</strong> that <strong>Python</strong> has
+							<strong>brought in the whole technology industry</strong> as it continues to power systems, products, and services of companies such
+							as Google, YouTube, NASA, Disney, Instagram, Disqus, Pinterest and Bitbucket.
+						</p>
+						<p data-aos="py-slide" data-aos-delay="250">
+							Python is also used as a business solution for Web Development, Automation, Monitoring,
+							Artificial Intelligence, Data Science, Cloud Computing, and more.
+						</p>
 					</div>
 				</div>
 			</div>
@@ -577,53 +607,7 @@
 		<!-- Sponsorship section -->
 
 		<!-- 6th -->
-		<div
-			class="bg-blue-3 md:bg-image-6 bg-cover bg-no-repeat overflow-hidden lg:h-448"
-		>
-			<div
-				class="w-full h-full top-0 text-white pt-52 md:px-0 md:py-70 max-w-855 mx-auto"
-				data-aos="py-slide"
-			>
-				<h2
-					class="text-center mb-28 capitalize font-montserrat text-40"
-				>
-					Code of Conduct
-				</h2>
-				<div>
-					<div class="text-center md:mb-30 px-15">
-						<p>
-							PyCon PH is a community conference intended for
-							collaboration in the developer community.
-						</p>
-						<p>
-							We value the participation of each member of the
-							Python community and want all attendees to have an
-							enjoyable and fulfilling experience. Accordingly,
-							all attendees are expected to show respect and
-							courtesy to other attendees throughout the
-							conference and at all conference events, whether
-							officially sponsored by Python.PH or not.
-						</p>
-
-						<p>
-							To make clear what is expected, all
-							delegates/attendees, speakers, exhibitors,
-							organizers and volunteers at any PyCon event are
-							required to conform to the following Code of
-							Conduct. Organizers will enforce this code
-							throughout the event.
-						</p>
-					</div>
-					<div class="text-center pb-50 md:pb-0">
-						<a
-							href="#"
-							class="text-yellow text-16 no-underline hover:opacity-70"
-							>Read the long version ›</a
-						>
-					</div>
-				</div>
-			</div>
-		</div>
+		{% include "landing/code_of_conduct.html" %}
 
 		<footer class="flex items-center text-14 bg-blue-3 px-15 xl:px-0">
 			<div
