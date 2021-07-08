@@ -2,81 +2,679 @@
 {% load compress %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta
+			name="description"
+			content="A community in the Philippines for enthusiasts and users of the Python programming language."
+		/>
+		<title>Python Philippines</title>
+		<link rel="shortcut icon" href="{% static "landing/assets/img/icon/icon-logo.svg" %}" />
+		<link rel="stylesheet" href="{% static "landing/assets/css/styles.css" %}"" />
+	</head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="A community in the Philippines for enthusiasts and users of the Python programming language.">
-  <title>Python Philippines</title>
-  <link rel="shortcut icon" href="{% static 'landing/images/logo.svg' %}" />
-  <link href="//npmcdn.com/basscss@8.0.1/css/basscss.min.css" rel="stylesheet">
-  <link href="//npmcdn.com/basscss-colors@2.2.0/css/colors.css" rel="stylesheet">
-  <link href="//npmcdn.com/basscss-background-colors@2.1.0/css/background-colors.css" rel="stylesheet">
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,700,800|Cabin:400,400italic,700,700italic"
-    rel="stylesheet" type="text/css">
-  {% compress css %}
-  <link rel="stylesheet" type="text/x-scss" href="{% static "landing/scss/landing.scss" %}">
-  {% endcompress %}
-</head>
+	<body
+		class="m-0 bg-blue font-sourcesanspro leading-normal relative preload"
+	>
+		<!-- 1st section -->
+		<header
+			class="bg-image-1 bg-top md:bg-left-top bg-no-repeat 2xl:bg-repeat xl:bg-contain md:pb-40 relativex overflow-hidden"
+		>
+			<nav
+				class="w-full flex items-center justify-end md:py-30 md:px-30 lg:px-0 pt-28 px-16 lg:max-w-920 xl:max-w-1110 md:mx-auto md:mb-24"
+			>
+				<button
+					class="border-none focus:border-none focus:outline-none bg-transparent md:hidden z-20 btn-toggle"
+				>
+					&nbsp;
+				</button>
+				<div
+					class="slider-pane absolute md:relative z-10 bg-blue md:bg-transparent overflow-hidden m-0 px-15 md:px-0"
+				>
+					<img
+						src="{% static "landing/assets/img/icon/icon-logo.svg" &}"
+						class="w-42 absolute absolute top-12 left-16 z-20 md:hidden"
+					/>
+					<ul class="list-none m-0 h-full pt-112 md:py-0 md:flex">
+						<li class="mb-21 md:mb-0">
+							<a
+								href="https://pycon.python.ph/"
+								class="text-24 md:text-16 text-yellow no-underline hover:text-yellow"
+								>PyCon Philippines</a
+							>
+						</li>
+						<li class="mb-21 md:mb-0 md:ml-30">
+							<a
+								href="https://python.ph/jobs/   "
+								class="text-24 md:text-16 text-white no-underline hover:text-yellow"
+								>Job Board</a
+							>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<div
+				class="w-full md:flex items-center lg:max-w-920 xl:max-w-1110 md:mx-auto"
+			>
+				<div
+					class="text-center md:text-left mt-50 md:mt-0 md:mr-auto px-30 lg:px-0 max-w-480"
+				>
+					<div
+						class="flex flex-col md:flex-row items-center justify-center md:justify-start mb-8 md:mb-33"
+					>
+						<div
+							class="flex justify-center h-168 md:h-150 md:w-126 mb-20 md:mr-22 md:mb-0 relative"
+						>
+							<img
+								src="{% static "landing/assets/img/icon/icon-logo.svg" %}"
+								class="md:absolute h-full"
+							/>
+						</div>
+						<h1
+							class="flex flex-col md:block font-raleway uppercase text-white leading-42 mb-13 leading-20 leading-none"
+						>
+							<span
+								class="text-47 md:text-63 font-black flex justify-center md:justify-start mb-4"
+								>Python</span
+							>
+							<span
+								class="text-31 md:text-48 font-light flex justify-center md:justify-start"
+								>Philippines</span
+							>
+						</h1>
+					</div>
+					<p
+						class="text-white text-18 text-center px-25 md:text-left md:px-0 mb-23 md:mb-36"
+					>
+						PythonPH is a non-stock, non-profit, <strong>volunteer-run</strong>
+						organization dedicated to support and facilitate the
+						growth of the community of Python programmers in the
+						Philippines.
+					</p>
 
-<body>
-  <div class="landing relative border-box p3 flex flex-wrap items-center justify-center white">
-    <div class="absolute overlay bg-python-blue"></div>
-    <div class="relative max-width-3">
-      <header class="flex flex-wrap items-center p2">
+					<!-- <button
+						class="capitalize bg-yellow text-blue text-18 rounded-md border-none px-38 md:px-46 py-11 font-montserrat mb-50 md:mb-0 font-semibold"
+					>
+						Learn More
+					</button> -->
+				</div>
 
-        <div class="md-col-8 col-12">
-          <h1 class="inline-block">
-            <span class="py">Python</span>
-            <span class="ph">Philippines</span>
-          </h1>
-        </div>
-        <div class="md-col-4 col-12">
-          <ul class="list-reset">
-            <li><a class="python-yellow" href="https://pycon.python.ph">PyCon Philippines</a></li>
-            <li><a class="python-yellow" href="https://python.ph/jobs">Jobs Board</a></li>
-            <li><a class="white" href="https://python.ph/slack/">Slack</a></li>
-            <li><a class="white" href="https://www.facebook.com/groups/pythonph/">Facebook</a></li>
-            <li><a class="white" href="https://twitter.com/pythonph">Twitter</a></li>
-            <li><a class="white" href="https://github.com/pythonph">GitHub</a></li>
-          </ul>
-        </div>
-      </header>
+				{% include "landing/gallery1.html" %}
+			</div>
+		</header>
 
-      {% if sections %}
-        {% for section in sections %}
-        <section class="p2 mb2">
-          <h2 class="center caps python-yellow">{{ section.name }}</h2>
-          {{ section.content|safe }}
-        </section>
-        {% endfor %}
-      {% endif %}
+		<!-- 2nd section -->
+		<div
+			class="bg-blue md:bg-image-2 bg-top md:bg-left-top bg-no-repeat 2xl:bg-repeat xl:bg-contain our-aim overflow-hidden"
+		>
+			<div
+				class="w-full h-full flex px-15 py-36 lg:px-0 xl:pt-43 lg:max-w-920 xl:max-w-1204 md:mx-auto"
+			>
+				<div
+					class="hidden md:flex md:flex-col list-none w-1/2 md:pr-30 lg:pr-14 lg:pt-7 lg:pl-46"
+				>
+					<div class="flex w-full md:mb-20 xl:mb-36">
+						<div
+							class="w-full max-w-160 mr-30 lg:mr-40 xl:mr-51"
+							data-aos="py-slide"
+							data-aos-delay="450"
+						>
+							<img
+								src="{% static "landing/assets/img/people/image-19.png" %}"
+								class="w-full rounded-20 object-cover max-h-160"
+							/>
+						</div>
+						<div
+							class="w-full max-w-130 mr-30 lg:mr-40 xl:mr-51 pt-70 lg:pt-100"
+							data-aos="py-slide"
+							data-aos-delay="400"
+						>
+							<img
+								src="{% static "landing/assets/img/people/image-20.png" %}"
+								class="w-full rounded-20 object-cover max-h-130"
+							/>
+						</div>
+						<div
+							class="w-full mt-25 lg:mt-44 max-w-150"
+							data-aos="py-slide"
+							data-aos-delay="500"
+						>
+							<img
+								src="{% static "landing/assets/img/people/image-21.png" %}"
+								class="w-full rounded-20 object-cover max-h-150"
+							/>
+						</div>
+					</div>
+					<div class="flex w-full md:px-30 xl:pl-94 xl:pr-85">
+						<div
+							class="max-w-87 mt-5 mr-30 lg:mr-40 xl:mr-51"
+							data-aos="py-slide"
+							data-aos-delay="550"
+						>
+							<img
+								src="{% static "landing/assets/img/people/image-22.png" %}"
+								class="w-full max-h-87 rounded-20 object-cover"
+							/>
+						</div>
+						<div
+							class="max-w-90 md:mr-25 md:mt-30 xl:mt-47 xl:mr-62"
+							data-aos="py-slide"
+							data-aos-offset="0"
+							data-aos-delay="600"
+						>
+							<img
+								src="{% static "landing/assets/img/people/image-23.png" %}"
+								class="w-full max-h-90 rounded-20 object-cover"
+							/>
+						</div>
 
-      {% if events %}
-      <section class="center p2 mb2">
-        <h2 class="caps python-yellow">Public Trainings</h2>
-        <div class="flex flex-wrap justify-center">
-          {% for event in events %}
-          <a href="{{ event.link }}" style="color: white">
+						<div
+							class="max-w-75-px"
+							data-aos="py-slide"
+							data-aos-delay="650"
+						>
+							<img
+								src="{% static "landing/assets/img/people/image-24.png" %}"
+								class="w-full max-h-75-px rounded-20 object-cover"
+							/>
+						</div>
+					</div>
+				</div>
+				<div class="md:w-1/2 md:ml-auto lg:pl-79">
+					<div class="mb-14 text-center md:text-left">
+						<div>
+							<h2
+								class="capitalize text-white mb-30 text-24 font-montserrat"
+								data-aos="py-slide"
+								data-aos-delay="150"
+							>
+								Our Aim
+							</h2>
+							<ul
+								class="text-left text-white leading-26 p-0 mb-26"
+							>
+								<li
+									class="mb-20"
+									data-aos="py-slide"
+									data-aos-delay="200"
+								>
+									To show that <strong>Python has something for
+									everyone</strong>: from hobbyists, to educators, to
+									professionals.
+								</li>
+								<li
+									class="mb-20"
+									data-aos="py-slide"
+									data-aos-delay="250"
+								>
+									To <strong>inspire Filipinos to excel in their craft</strong>
+									through Python and Open Source.
+								</li>
+								<li
+									class="mb-20"
+									data-aos="py-slide"
+									data-aos-delay="300"
+								>
+									To <strong>provide a safe space</strong> where the Python
+									programming language and surrounding
+									technologies can be explored, discussed and
+									exercised.
+								</li>
+							</ul>
+						</div>
 
-            <div class="">
-              <img src="{{ event.cover_image }}" width="100%" />
-              <h4 class="mt1 mb0">{{ event.schedule }}</h4>
-              <h2 class="mt0 mb0">{{ event.name }}</h2>
-              <h5 class="mt0">{{ event.location }}</h5>
-            </div>
-          </a>
-          {% endfor %}
-        </div>
-      </section>
-      {% endif %}
+						<p
+							class="mb-21 text-white text-18 leading-26"
+							data-aos="py-slide"
+							data-aos-offset="100"
+							data-aos-delay="150"
+						>
+							We believe that we <strong>create small dents of improvement</strong>
+							in the <strong>PH Tech industry</strong> when we foster environments
+							that inspire/motivate technically competent
+							professionals.
+						</p>
+						<a
+							class="bg-yellow text-blue text-18 rounded-md border-none px-42 md:px-46 py-11 font-montserrat font-semibold"
+							data-aos="py-slide"
+							data-aos-delay="200"
+							href="mailto:info@python.ph"
+						>
+							Get to know us
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
 
-      {% include "landing/team.html" %}
+		<div
+			class="bg-blue md:bg-image-3 bg-top md:bg-left-top bg-no-repeat 2xl:bg-repeat xl:bg-contain overflow-hidden"
+		>
+			<div
+				class="w-full px-15 lg:px-0 max-w-855 mx-auto text-white py-24 md:py-88"
+			>
+				<div class="text-center mb-30">
+					<h2
+						class="capitalize font-montserrat text-40 mb-30"
+						data-aos="py-slide"
+						data-aos-delay="150"
+					>
+						Why Python?
+					</h2>
+					<div>
+						<p data-aos="py-slide" data-aos-delay="200">
+							We <strong>truly believe and support</strong> the <strong>impact and innovation</strong> that <strong>Python</strong> has
+							<strong>brought in the whole technology industry</strong> as it continues to power systems, products, and services of companies such
+							as Google, YouTube, NASA, Disney, Instagram, Disqus, Pinterest and Bitbucket.
+						</p>
+						<p data-aos="py-slide" data-aos-delay="250">
+							Python is also used as a business solution for Web Development, Automation, Monitoring,
+							Artificial Intelligence, Data Science, Cloud Computing, and more.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
-    </div>
-  </div>
-</body>
+		<!-- 3rd -->
+		<div
+			class="bg-blue md:bg-image-3 bg-top md:bg-left-top bg-no-repeat 2xl:bg-repeat xl:bg-contain overflow-hidden"
+		>
+			<div
+				class="w-full px-15 lg:px-0 max-w-855 mx-auto text-white py-24 md:py-88"
+			>
+				<div class="text-center mb-82 md:mb-162">
+					<h2
+						class="capitalize font-montserrat text-40 mb-30"
+						data-aos="py-slide"
+						data-aos-delay="150"
+					>
+						What We Do
+					</h2>
+					<div>
+						<p data-aos="py-slide" data-aos-delay="200">
+							<u>In June 31-July 1 2012</u>, we held the first
+							ever PyCon Philippines.
+						</p>
+						<p data-aos="py-slide" data-aos-delay="250">
+							<u>Today</u>, we organize the yearly PyCon and also
+							hold regular meet-ups, public python trainings and
+							kaizend throughout the year.
+						</p>
+						<p data-aos="py-slide" data-aos-delay="300">
+							Whether you're new to programming, an experienced
+							practitioner, or just plain curious what this Python
+							programming language is about, you're much welcome
+							to join this community!
+						</p>
+					</div>
+				</div>
+				<div class="mb-73 md:mb-100">
+					<div class="text-center mb-28">
+						<p
+							class="text-capita lize text-16 text-white-70 mb-10"
+							data-aos="py-slide"
+							data-aos-delay="300"
+						>
+							What We Do
+						</p>
+						<h2
+							class="capitalize font-montserrat text-40"
+							data-aos="py-slide"
+							data-aos-delay="350"
+						>
+							Our Events
+						</h2>
+					</div>
 
+					<div class="accordion md:hidden" id="accordionOurEvents">
+						<div
+							class="card bg-transparent rounded-10 border-2 border-yellow-1 px-18 md:px-30 mb-15 py-11"
+							data-aos="py-slide"
+							data-aos-offset="200"
+							data-aos-delay="0"
+						>
+							<div
+								class="card-header p-0 border-b-0"
+								id="headingPyCon"
+							>
+								<h3 class="font-montserrat text-20 m-0">
+									<button
+										class="text-left block w-full border-none focus:border-none focus:outline-none font-montserrat text-20 py-12"
+										type="button"
+										data-bs-toggle="collapse"
+										data-bs-target="#collapsePyCon"
+										aria-expanded="false"
+										aria-controls="collapsePyCon"
+									>
+										PyCon Philippines
+									</button>
+								</h3>
+							</div>
+
+							<div
+								id="collapsePyCon"
+								class="collapse"
+								aria-labelledby="headingPyCon"
+								data-bs-parent="#accordionOurEvents"
+							>
+								<div class="card-body pb-11 pt-0 px-0">
+									<p>
+										The goal of the conference is to provide
+										a venue where the Python programming
+										language and surrounding technologies
+										can be explored, discussed and
+										exercised.
+									</p>
+									<p>
+										We gather software engineers,
+										programming enthusiasts, startup
+										founders, corporate IT decision makers,
+										students and IT educators in a 2-day
+										event where we can collaborate and learn
+										from each other.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div
+							class="card bg-transparent rounded-10 border-2 border-pink px-18 md:px-30 mb-15 py-11"
+							data-aos="py-slide"
+							data-aos-offset="200"
+							data-aos-delay="400"
+						>
+							<div
+								class="card-header p-0 border-b-0"
+								id="headingMeetups"
+							>
+								<h3 class="font-montserrat text-20 m-0">
+									<button
+										class="text-left block w-full border-none focus:border-none focus:outline-none font-montserrat text-20 py-12"
+										type="button"
+										data-bs-toggle="collapse"
+										data-bs-target="#collapseMeetups"
+										aria-expanded="false"
+										aria-controls="collapseMeetups"
+									>
+										Meetups
+									</button>
+								</h3>
+							</div>
+
+							<div
+								id="collapseMeetups"
+								class="collapse"
+								aria-labelledby="headingMeetups"
+								data-bs-parent="#accordionOurEvents"
+							>
+								<div class="card-body pb-11 pt-0 px-0">
+									<p>
+										Regular meetups where professionals and
+										enthusiasts share and talk about Python.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div
+							class="card bg-transparent rounded-10 border-2 border-blue-1 px-18 md:px-30 mb-15 py-11"
+							data-aos="py-slide"
+							data-aos-offset="200"
+							data-aos-delay="500"
+						>
+							<div
+								class="card-header p-0 border-b-0"
+								id="headingTrainings"
+							>
+								<h3 class="font-montserrat text-20 m-0">
+									<button
+										class="text-left block w-full border-none focus:border-none focus:outline-none font-montserrat text-20 py-12"
+										type="button"
+										data-bs-toggle="collapse"
+										data-bs-target="#collapseTrainings"
+										aria-expanded="false"
+										aria-controls="collapseTrainings"
+									>
+										Public Python Trainings
+									</button>
+								</h3>
+							</div>
+
+							<div
+								id="collapseTrainings"
+								class="collapse"
+								aria-labelledby="headingTrainings"
+								data-bs-parent="#accordionOurEvents"
+							>
+								<div class="card-body pb-11 pt-0 px-0">
+									<p>
+										Low-cost Python Trainings covering
+										various topics.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div
+							class="card bg-transparent rounded-10 border-2 border-green px-18 md:px-30 mb-15 py-11"
+							data-aos="py-slide"
+							data-aos-delay="600"
+						>
+							<div
+								class="card-header p-0 border-b-0"
+								id="headingKaizend"
+							>
+								<h3 class="font-montserrat text-20 m-0">
+									<button
+										class="text-left block w-full border-none focus:border-none focus:outline-none font-montserrat text-20 py-12"
+										type="button"
+										data-bs-toggle="collapse"
+										data-bs-target="#collapseKaizend"
+										aria-expanded="false"
+										aria-controls="collapseKaizend"
+									>
+										Kaizend
+									</button>
+								</h3>
+							</div>
+							<div
+								id="collapseKaizend"
+								class="collapse"
+								aria-labelledby="headingKaizend"
+								data-bs-parent="#accordionOurEvents"
+							>
+								<div class="card-body pb-11 pt-0 px-0">
+									<p>
+										A mastermind group and exclusive
+										training program for core volunteers.
+										This program is aimed to develop
+										technically competent leaders and
+										systematize succession plans for
+										PythonPH.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="hidden md:block accordion">
+						<div
+							class="bg-transparent rounded-10 border-2 border-yellow-1 px-18 md:px-30 mb-15 py-11"
+							data-aos="py-slide"
+							data-aos-delay="400"
+						>
+							<h3
+								class="font-montserrat text-20 m-0 text-left block w-full border-none focus:border-none focus:outline-none font-montserrat text-20 py-12"
+							>
+								PyCon Philippines
+							</h3>
+
+							<div class="pb-11 pt-0 px-0">
+								<p>
+									The goal of the conference is to provide a
+									venue where the Python programming language
+									and surrounding technologies can be
+									explored, discussed and exercised.
+								</p>
+								<p>
+									We gather software engineers, programming
+									enthusiasts, startup founders, corporate IT
+									decision makers, students and IT educators
+									in a 2-day event where we can collaborate
+									and learn from each other.
+								</p>
+							</div>
+						</div>
+						<div
+							class="bg-transparent rounded-10 border-2 border-pink px-18 md:px-30 mb-15 py-11"
+							data-aos="py-slide"
+							data-aos-delay="100"
+						>
+							<h3
+								class="font-montserrat text-20 m-0 text-left block w-full border-none focus:border-none focus:outline-none font-montserrat text-20 py-12"
+							>
+								Meetups
+							</h3>
+
+							<div class="pb-11 pt-0 px-0">
+								<p>
+									Regular meetups where professionals and
+									enthusiasts share and talk about Python.
+								</p>
+							</div>
+						</div>
+						<div
+							class="bg-transparent rounded-10 border-2 border-blue-1 px-18 md:px-30 mb-15 py-11"
+							data-aos="py-slide"
+							data-aos-delay="150"
+						>
+							<h3
+								class="font-montserrat text-20 m-0 text-left block w-full border-none focus:border-none focus:outline-none font-montserrat text-20 py-12"
+							>
+								Public Python Trainings
+							</h3>
+
+							<div class="pb-11 pt-0 px-0">
+								<p>
+									Low-cost Python Trainings covering various
+									topics.
+								</p>
+							</div>
+						</div>
+						<div
+							class="bg-transparent rounded-10 border-2 border-green px-18 md:px-30 mb-15 py-11"
+							data-aos="py-slide"
+							data-aos-delay="200"
+						>
+							<h3
+								class="font-montserrat text-20 m-0 text-left block w-full border-none focus:border-none focus:outline-none font-montserrat text-20 py-12"
+							>
+								Kaizend
+							</h3>
+
+							<div class="pb-11 pt-0 px-0">
+								<p>
+									A mastermind group and exclusive training
+									program for core volunteers. This program is
+									aimed to develop technically competent
+									leaders and systematize succession plans for
+									PythonPH.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div
+					data-aos="fade-left"
+					data-aos-duration="1000"
+					data-aos-offset="300"
+				>
+					<h2
+						class="text-center mb-25 md:mb-28 capitalize font-montserrat text-40 leading-none"
+					>
+						Upcoming Event
+					</h2>
+
+                    {% include "landing/public_trainings.html" %}
+					
+				</div>
+			</div>
+		</div>
+
+		<!-- 4th -->
+		{% include "landing/our_team.html" %}	
+
+		<!-- Sponsorship section -->
+
+		<!-- 6th -->
+		{% include "landing/code_of_conduct.html" %}
+
+		<footer class="flex items-center text-14 bg-blue-3 px-15 xl:px-0">
+			<div
+				class="w-full h-full border-t border-gray-30 flex flex-col md:flex-row-reverse items-center py-21 md:py-12 xl:px-0 lg:max-w-920 xl:max-w-1110 mx-auto"
+			>
+				<div class="md:flex items-center">
+					<div class="flex items-center justify-center mb-21 md:mb-0">
+						<a
+							href="https://pycon.python.ph/"
+							class="text-white no-underline opacity-70 hover:opacity-100"
+							>PyCon Philippines</a
+						>
+						<a
+							href="https://python.ph/jobs/"
+							class="text-white no-underline opacity-70 hover:opacity-100 ml-24 md:ml-20"
+							>Job Boards</a
+						>
+					</div>
+					<div class="flex items-center justify-center mb-30 md:mb-0">
+						<a
+							href="https://python.ph/slack/"
+							class="text-white no-underline opacity-70 hover:opacity-100 md:ml-20"
+						>
+							<img src="{% static "landing/assets/img/icon/icon-slack.svg" %}" /> 
+						</a>
+						<a
+							href="https://www.facebook.com/groups/pythonph/"
+							class="text-white no-underline opacity-70 hover:opacity-100 ml-20"
+						>
+							<img src="{% static "landing/assets/img/icon/icon-facebook.svg" %}" />
+						</a>
+						<a
+							href="https://github.com/pythonph"
+							class="text-white no-underline opacity-70 hover:opacity-100 ml-20"
+						>
+							<img src="{% static "landing/assets/img/icon/icon-github.svg" %}" />
+						</a>
+						<a
+							href="https://twitter.com/pythonph"
+							class="text-white no-underline opacity-70 hover:opacity-100 ml-20"
+						>
+							<img src="{% static "landing/assets/img/icon/icon-twitter.svg" %}" />
+						</a>
+						<a
+							href="https://www.instagram.com/pythonph/"
+							class="text-white no-underline opacity-70 hover:opacity-100 ml-20"
+						>
+							<img src="{% static "landing/assets/img/icon/icon-instagram.svg" %}" />
+						</a>
+						<a
+							href="https://www.linkedin.com/company/pythonph"
+							class="text-white no-underline opacity-70 hover:opacity-100 ml-20"
+						>
+							<img src="{% static "landing/assets/img/icon/icon-linkedin.svg" %}" />
+						</a>
+						<a
+							href="https://www.youtube.com/c/PythonPH"
+							class="text-white no-underline opacity-70 hover:opacity-100 ml-20"
+						>
+							<img src="{% static "landing/assets/img/icon/icon-youtube.svg" %}" />
+						</a>
+					</div>
+				</div>
+				<div class="md:mr-auto text-white">© 2021 PythonPH</div>
+			</div>
+		</footer>
+
+			<script src="{% static "landing/assets/js/app.js" %}"></script>
+	</body>
 </html>

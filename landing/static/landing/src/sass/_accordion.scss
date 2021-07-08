@@ -1,0 +1,64 @@
+.accordion-button {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	text-align: left; // Reset button style
+	border: 0;
+	overflow-anchor: none;
+	@include transition($accordion-transition);
+
+	&:not(.collapsed) {
+		&::after {
+			transform: $accordion-icon-transform;
+		}
+	}
+
+	// Accordion icon
+	&::after {
+		flex-shrink: 0;
+		margin-left: auto;
+		content: '';
+		@include transition($accordion-icon-transition);
+	}
+
+	&:hover {
+		z-index: 2;
+	}
+
+	&:focus {
+		z-index: 3;
+		outline: 0;
+	}
+}
+
+.accordion-header {
+	margin-bottom: 0;
+}
+
+.accordion-item {
+	&:not(:first-of-type) {
+		border-top: 0;
+	}
+}
+
+// Flush accordion items
+//
+// Remove borders and border-radius to keep accordion items edge-to-edge.
+.accordion-flush {
+	.accordion-collapse {
+		border-width: 0;
+	}
+
+	.accordion-item {
+		border-right: 0;
+		border-left: 0;
+
+		&:first-child {
+			border-top: 0;
+		}
+		&:last-child {
+			border-bottom: 0;
+		}
+	}
+}

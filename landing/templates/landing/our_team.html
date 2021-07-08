@@ -1,0 +1,307 @@
+{% load static from staticfiles %}
+
+<div
+  class="bg-blue md:bg-image-4 lg:h-750 bg-top md:bg-left-top bg-no-repeat 2xl:bg-repeat xl:bg-contain bg-our-team xl:pt-40 overflow-hidden"
+>
+  <div
+    class="w-full px:15 text-white pt-56 md:pt-90 md:pb-90 h-full max-w-1025 mx-auto"
+  >
+    <div>
+      <h2
+        class="text-center mb-18 md:mb-26 xl:mb-18 capitalize font-montserrat text-40"
+        data-aos="py-slide"
+      >
+        Our Team
+      </h2>
+      <div class="w-full h-full leading-33 px-23 md:px-0">
+        <ul
+          class="hidden md:flex nav nav-tabs border-none mb-56 xl:mb-28 items-center justify-center"
+          id="ourTeamTab"
+          role="tablist"
+          data-aos="py-slide"
+          data-aos-offset="50"
+        >
+          <li class="nav-item relative" role="nav-officers">
+            <button
+              class="nav-link active text-18 font-montserrat bg-transparent border-none focus:border-none focus:outline-none"
+              id="officers-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#officers"
+              type="button"
+              role="tab"
+              aria-controls="officers"
+              aria-selected="false"
+            >
+              Officers and Directors
+            </button>
+          </li>
+          <li class="mx-14">
+            <img src="{% static "landing/assets/img/icon/icon-star.svg" %}" />
+          </li>
+          <li class="nav-item relative" role="nav-volunteers">
+            <button
+              class="nav-link text-18 font-montserrat bg-transparent border-none focus:border-none focus:outline-none"
+              id="volunteers-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#volunteers"
+              type="button"
+              role="tab"
+              aria-controls="volunteers"
+              aria-selected="false"
+            >
+              Core Volunteers
+            </button>
+          </li>
+        </ul>
+        <div
+          class="tab-content relative"
+          id="ourTeamTabContent"
+        >
+          <h3
+            class="md:hidden text-18 text-white text-center mb-14 font-semibold font-montserrat"
+            data-aos="py-slide"
+          >
+            Officers and Directors
+          </h3>
+          <div
+            class="tab-pane fade show active flex-wrap justify-between md:justify-center w-full mb-24 md:mb-0"
+            id="officers"
+            role="tabpanel"
+            aria-labelledby="officers-tab"
+          >
+            <div
+              class="w-1/3 flex-basis-1/3 md:w-1/5 md:flex-basis-1/5 lg:w-1/5 lg:flex-basis-19 md:mb-12 flex justify-center h-full"
+            >
+              <div class="p-14 md:p-24 xl:p-15">
+                <img
+                  class="w-full h-full object-cover rounded-13 md:rounded-24 cursor-pointer max-w-144 max-h-144"
+                  data-bs-toggle="tooltip"
+                  data-bs-html="true"
+                  title="<h5 class='text-16 text-blue font-semibold font-montserrat mb-6'>Micaela Reyes</h5><h6 class='text-14 text-blue m-0'>Director of Operations</h6>"
+                  src="{% static "landing/assets/img/people/micaela.jpg" %}"
+                  data-aos="py-slide"
+                />
+              </div>
+            </div>
+            <div
+              class="w-1/3 flex-basis-1/3 md:w-1/5 md:flex-basis-1/5 lg:w-1/5 lg:flex-basis-19 md:mb-12 flex justify-center h-full"
+            >
+              <div class="p-14 md:p-24 xl:p-15">
+                <img
+                  class="w-full h-full object-cover rounded-13 md:rounded-24 cursor-pointer max-w-144 max-h-144"
+                  data-bs-toggle="tooltip"
+                  data-bs-html="true"
+                  title="<h5 class='text-16 text-blue font-semibold font-montserrat mb-6'>Matt Lebrun</h5><h6 class='text-14 text-blue m-0'>President</h6>"
+                  src="{% static "landing/assets/img/people/matt.jpg" %}"
+                  data-aos="py-slide"
+                  data-aos-delay="400"
+                />
+              </div>
+            </div>
+            <div
+              class="w-1/3 flex-basis-1/3 md:w-1/5 md:flex-basis-1/5 lg:w-1/5 lg:flex-basis-19 md:mb-12 flex justify-center h-full"
+            >
+              <div class="p-14 md:p-24 xl:p-15">
+                <img
+                  class="w-full h-full object-cover rounded-13 md:rounded-24 cursor-pointer max-w-144 max-h-144"
+                  data-bs-toggle="tooltip"
+                  data-bs-html="true"
+                  title="<h5 class='text-16 text-blue font-semibold font-montserrat mb-6'>Sony Valdez</h5><h6 class='text-14 text-blue m-0'>Director of Community Relations</h6>"
+                  src="{% static "landing/assets/img/people/shuny.jpg" %}"
+                  data-aos="py-slide"
+                  data-aos-delay="500"
+                />
+              </div>
+            </div>
+            <div
+              class="w-1/3 flex-basis-1/3 md:w-1/5 md:flex-basis-1/5 lg:w-1/5 lg:flex-basis-19 md:mb-12 flex justify-center h-full"
+            >
+              <div class="p-14 md:p-24 xl:p-15">
+                <img
+                  class="w-full h-full object-cover rounded-13 md:rounded-24 cursor-pointer max-w-144 max-h-144"
+                  data-bs-toggle="tooltip"
+                  data-bs-html="true"
+                  title="<h5 class='text-16 text-blue font-semibold font-montserrat mb-6'>Angelica Lapastora</h5><h6 class='text-14 text-blue m-0'>Director of Marketing</h6>"
+                  src="{% static "landing/assets/img/people/anj.jpg" %}"
+                  data-aos="py-slide"
+                  data-aos-delay="600"
+                />
+              </div>
+            </div>
+            <div
+              class="w-1/3 flex-basis-1/3 md:w-1/5 md:flex-basis-1/5 lg:w-1/5 lg:flex-basis-19 md:mb-12 flex justify-center h-full"
+            >
+              <div class="p-14 md:p-24 xl:p-15">
+                <img
+                  class="w-full h-full object-cover rounded-13 md:rounded-24 cursor-pointer max-w-144 max-h-144"
+                  data-bs-toggle="tooltip"
+                  data-bs-html="true"
+                  title="<h5 class='text-16 text-blue font-semibold font-montserrat mb-6'>Alysson Alvaran</h5><h6 class='text-14 text-blue m-0'>Treasurer</h6>"
+                  src="{% static "landing/assets/img/people/alysson.jpg" %}"
+                  data-aos="py-slide"
+                  data-aos-delay="700"
+                />
+              </div>
+            </div>
+            <div
+              class="w-1/3 flex-basis-1/3 md:w-1/5 md:flex-basis-1/5 lg:w-1/5 lg:flex-basis-19 md:mb-12 flex justify-center h-full"
+            >
+              <div class="p-14 md:p-24 xl:p-15">
+                <img
+                  class="w-full h-full object-cover rounded-13 md:rounded-24 cursor-pointer max-w-144 max-h-144"
+                  data-bs-toggle="tooltip"
+                  data-bs-html="true"
+                  title="<h5 class='text-16 text-blue font-semibold font-montserrat mb-6'>Vanessa Bermudez</h5><h6 class='text-14 text-blue m-0'>Committee Head - Meetups</h6>"
+                  src="{% static "landing/assets/img/people/vanie.jpg" %}"
+                  data-aos="py-slide"
+                  data-aos-delay="300"
+                />
+              </div>
+            </div>
+            <div
+              class="w-1/3 flex-basis-1/3 md:w-1/5 md:flex-basis-1/5 lg:w-1/5 lg:flex-basis-19 md:mb-12 flex justify-center h-full"
+            >
+              <div class="p-14 md:p-24 xl:p-15">
+                <img
+                  class="w-full h-full object-cover rounded-13 md:rounded-24 cursor-pointer max-w-144 max-h-144"
+                  data-bs-toggle="tooltip"
+                  data-bs-html="true"
+                  title="<h5 class='text-16 text-blue font-semibold font-montserrat mb-6'>Ryan Ermita</h5><h6 class='text-14 text-blue m-0'>Director of Public Training</h6>"
+                  src="{% static "landing/assets/img/people/ryan.jpg" %}"
+                  data-aos="py-slide"
+                  data-aos-delay="400"
+                />
+              </div>
+            </div>
+            <div
+              class="w-1/3 flex-basis-1/3 md:w-1/5 md:flex-basis-1/5 lg:w-1/5 lg:flex-basis-19 md:mb-12 flex justify-center h-full"
+            >
+              <div class="p-14 md:p-24 xl:p-15">
+                <img
+                  class="w-full h-full object-cover rounded-13 md:rounded-24 cursor-pointer max-w-144 max-h-144"
+                  data-bs-toggle="tooltip"
+                  data-bs-html="true"
+                  title="<h5 class='text-16 text-blue font-semibold font-montserrat mb-6'>Zorex Salvo</h5><h6 class='text-14 text-blue m-0'>Director of Engineering</h6>"
+                  src="{% static "landing/assets/img/people/zorex.jpg" %}"
+                  data-aos="py-slide"
+                  data-aos-delay="500"
+                />
+              </div>
+            </div>
+          </div>
+          <h3
+            class="md:hidden text-18 text-white text-center mb-20 font-semibold font-montserrat"
+            data-aos="py-slide"
+          >
+            Core Volunteers
+          </h3>
+          <div
+            class="tab-pane fade flex-wrap justify-center w-full"
+            id="volunteers"
+            role="tabpanel"
+            aria-labelledby="volunteers-tab"
+          >
+            <div class="w-full mb-27 md:mb-0 text-center">
+              <h3
+                class="text-yellow text-20 font-montserrat text-center mb-15 md:mb-16"
+                data-aos="py-slide"
+                data-aos-delay="400"
+              >
+                Meetup
+              </h3>
+              <div
+                data-aos="py-slide"
+                data-aos-delay="500"
+                data-aos-offset="0"
+              >
+                <div
+                  class="md:flex md:mb-60 justify-between text-18 font-normal md:px-85 lg:px-165"
+                  id="view-list"
+                >
+                  <ul
+                    class="list-none leading-33 text-center"
+                  >
+                    <li>Vanessa Bermudez</li>
+                    <li>Jonathan Doydora</li>
+                    <li>Khim Shae Delos Reyes</li>
+                    <li>Von Louie Cruto</li>
+                    <li>Jay Tero</li>
+                    <li>Mark Anthony Yabis</li>
+                    <li>Janine Bagares</li>
+                  </ul>
+                  <ul
+                    class="list-none leading-33 text-center"
+                  >
+                    <li>Laurence Rebadulla</li>
+                    <li>Rommel Philip Afurong</li>
+                    <li>Ciara Bautista</li>
+                    <li>Jay Mendez</li>
+                    <li>First Val Babon</li>
+                    <li>Rhea Baguion</li>
+                    <li>Renz Jeremy Albandia</li>
+                  </ul>
+                  <ul
+                    class="list-none leading-33 text-center"
+                  >
+                    <li>Ariel Conde</li>
+                    <li>Crispin Sarmiento</li>
+                    <li>Jessica Apostol</li>
+                    <li>Freilla Mae Espinola</li>
+                    <li>Lionel Amarado</li>
+                  </ul>
+                </div>
+                <button
+                  class="underline border-none focus:border-none focus:outline-none hover:no-underline md:hidden text-18"
+                  id="view-more"
+                >
+                  Show More
+                </button>
+              </div>
+            </div>
+            <div class="w-full md:flex justify-center">
+              <div class="text-center md:w-1/3">
+                <h3
+                  class="text-yellow text-20 font-montserrat mb-9 md:mb-16"
+                  data-aos="py-slide"
+                  data-aos-delay="600"
+                >
+                  Admin
+                </h3>
+                <ul
+                  class="text-18 mb-26 md:mb-60 list-none"
+                  data-aos="py-slide"
+                  data-aos-delay="700"
+                >
+                  <li>Matt Lebbrun</li>
+                  <li>Micaela Reyes</li>
+                  <li>Sony Valdez</li>
+                  <li>Angelica Lapastora</li>
+                  <li>Alysson Alvaran</li>
+                </ul>
+              </div>
+              <div class="text-center md:w-1/3">
+                <h3
+                  class="text-yellow text-20 font-montserrat text-center mb-9 md:mb-16"
+                  data-aos="py-slide"
+                  data-aos-delay="800"
+                >
+                  Public Training
+                </h3>
+                <ul
+                  class="mb-60 list-none text-18"
+                  data-aos="py-slide"
+                  data-aos-delay="900"
+                >
+                  <li>Ryan Ermita</li>
+                  <li>Zorex Salvo</li>
+                  <li>Dan Belza</li>
+                  <li>Albert Yumol</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

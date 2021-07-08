@@ -1,0 +1,29 @@
+{
+	"name": "pythonph",
+	"version": "1.0.0",
+	"description": "PythonPH site",
+	"main": "gulpfile.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"gulp": "gulp"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@fullhuman/postcss-purgecss": "^4.0.3",
+		"autoprefixer": "^10.2.5",
+		"gulp": "^4.0.2",
+		"gulp-clean-css": "^4.3.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-htmlmin": "^5.0.1",
+		"gulp-postcss": "^9.0.0",
+		"gulp-purgecss": "^4.0.3",
+		"gulp-sass": "^4.1.0",
+		"gulp-sourcemaps": "^3.0.0",
+		"gulp-uglify": "^3.0.2",
+		"postcss-import": "^14.0.2",
+		"precss": "^4.0.0",
+		"tailwindcss": "^2.1.2"
+	},
+	"dependencies": {}
+}
