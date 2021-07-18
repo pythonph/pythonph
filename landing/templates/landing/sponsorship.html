@@ -1,8 +1,10 @@
+{% load static from staticfiles %}
+
 <div
   class="
     bg-blue
     lg:bg-image-5
-    xl:h-968
+    xl:h-800
     bg-top
     md:bg-left-top
     bg-no-repeat
@@ -35,7 +37,7 @@
       >
         Our Sponsors
       </h2>
-      <p
+      <!-- <p
         class="
           text-center
           md-21 md:mb-30
@@ -52,7 +54,7 @@
         vestibulum at eros. Nullam id dolor id nibh ultricies vehicula ut id
         elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
         quis risus eget urna mollis ornare vel eu leo.
-      </p>
+      </p> -->
       <div class="w-full h-full">
         <ul
           class="
@@ -91,7 +93,7 @@
               Industry Partners
             </button>
           </li>
-          <li class="w-38 md:ml-14 md:mr-6">
+          <!-- <li class="w-38 md:ml-14 md:mr-6">
             <img src="{% static "landing/assets/img/icon/icon-star.svg" %}" />
           </li>
           <li class="nav-item relative" role="nav-academic-partners">
@@ -114,7 +116,7 @@
             >
               Academic Partners
             </button>
-          </li>
+          </li> -->
         </ul>
         <div
           class="tab-content relative px-15 md:px-0"
@@ -127,9 +129,9 @@
               show
               active
               flex-wrap
-              justify-between
+              justify-center
               md:justify-center
-              lg:justify-between
+              lg:justify-center
               w-full
             "
             id="industry-partners"
@@ -147,7 +149,7 @@
                 md-4 md:mb-20
                 lg:mb-60
                 flex
-                justify-start
+                justify-center
                 max-w-255
                 md:pr-15
                 xl:pr-0
@@ -157,19 +159,15 @@
               data-aos-offset="0"
             >
               <div>
-                <div class="h-60 mb-25 w-full flex justify-start items-center">
-                  <img class="cursor-pointer max-h-50 opacity-60
-                  hover:opacity-100 w-136 md:w-180" src="{% static
-                  "landing/assets/img/logo/logo-python.svg" %}" />
+                <div class="h-60 mb-25 w-full flex justify-start">
+                  <img class="max-h-50 w-136 md:w-180"
+                    src="{% static "landing/assets/img/logo/factset-logo.png" %}" />
                 </div>
                 <p class="text-16 leading-24 hidden md:block">
-                  Fusce dapibus, tellus ac cursus, tortor mauris condimentum
-                  nibh, ut fermentum massa justo sit amet risus. Vestibulum id
-                  ligula porta felis euismod semper.
                 </p>
               </div>
             </div>
-            <div
+            <!-- <div
               class="
                 w-1/2
                 md:w/1-3
@@ -395,9 +393,9 @@
                   nibh.
                 </p>
               </div>
-            </div>
+            </div> -->
           </div>
-          <div
+          <!-- <div
             class="
               tab-pane
               fade
@@ -651,7 +649,7 @@
                 </p>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
