@@ -1,7 +1,6 @@
 {% load static from staticfiles %}
 
-<div
-  class="
+<div class="
     bg-blue
     lg:bg-image-5
     xl:h-800
@@ -11,10 +10,8 @@
     2xl:bg-repeat
     xl:bg-contain
     overflow-hidden
-  "
->
-  <div
-    class="
+">
+  <div class="
       w-full
       h-full
       top-0
@@ -23,39 +20,26 @@
       md:pr-0
       lg:px-0
       md:pt-88 md:pb-9
-      lg:max-w-920
-      xl:max-w-1110
+      max-w-855
       mx-auto
       pb-52
       md:pb-0
-    "
-  >
+    ">
     <div>
-      <h2
-        class="text-center mb-28 capitalize font-montserrat text-40"
-        data-aos="py-slide"
-      >
+      <h2 class="text-center mb-28 capitalize font-montserrat text-40" data-aos="py-slide">
         Our Sponsors
       </h2>
       <div class="w-full h-full">
-        <ul
-          class="
+        <ul class="
             nav nav-tabs
             border-none
             mb-24
-            md:mb-56
             items-center
             justify-center
             flex-nowrap
-          "
-          id="ourSponsorsTab"
-          role="tablist"
-          data-aos="py-slide"
-          data-aos-delay="600"
-        >
+          " id="ourSponsorsTab" role="tablist" data-aos="py-slide" data-aos-delay="600">
           <li class="nav-item relative" role="nav-industry-partners">
-            <button
-              class="
+            <button class="
                 nav-link
                 active
                 text-18
@@ -63,105 +47,63 @@
                 bg-transparent
                 border-none
                 focus:border-none focus:outline-none
-              "
-              id="industry-partners-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#industry-partners"
-              type="button"
-              role="tab"
-              aria-controls="industry-partners"
-              aria-selected="false"
-            >
+              " id="industry-partners-tab" data-bs-toggle="tab" data-bs-target="#industry-partners" type="button"
+              role="tab" aria-controls="industry-partners" aria-selected="false">
               Industry Partners
             </button>
           </li>
-          <!-- <li class="w-38 md:ml-14 md:mr-6">
-            <img src="{% static "landing/assets/img/icon/icon-star.svg" %}" />
-          </li>
-          <li class="nav-item relative" role="nav-academic-partners">
-            <button
-              class="
-                nav-link
-                text-18
-                font-montserrat
-                bg-transparent
-                border-none
-                focus:border-none focus:outline-none
-              "
-              id="academic-partners-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#academic-partners"
-              type="button"
-              role="tab"
-              aria-controls="academic-partners"
-              aria-selected="false"
-            >
-              Academic Partners
-            </button>
-          </li> -->
         </ul>
-        <div
-          class="tab-content relative px-15 md:px-0"
-          id="ourSponsorsTabContent"
-        >
-          <div
-            class="
+        <div class="tab-content relative px-15 md:px-0" id="ourSponsorsTabContent">
+          <div class="
               tab-pane
               fade
               show
               active
-              flex-wrap
-              justify-center
+              md:flex-wrap
+              md:justity-between
               md:justify-center
               lg:justify-center
               w-full
-            "
-            id="industry-partners"
-            role="tabpanel"
-            aria-labelledby="industry-partners-tab"
-          >
-            <div
-              class="
-                w-1/2
-                flex-basis-1/2
-                md-4 md:mb-20
-                lg:mb-60
-                flex
-                max-w-255
-                xl:pr-0
-              "
-              data-aos="py-slide"
-              data-aos-delay="400"
-              data-aos-offset="0"
-            >
-              <div>
-                <div class="h-60 mb-25 w-full flex justify-start">
-                  <img class="max-h-60 w-full"
-                    src="{% static "landing/assets/img/logo/factset.png" %}" />
+            " id="industry-partners" role="tabpanel" aria-labelledby="industry-partners-tab">
+            <div class="lg:w-full">
+              <h2 class="text-center mb-12 capitalize font-montserrat text-18 hidden md:block" data-aos="py-slide">
+                <u>Main Supporter of the Year (for Premium)</u>
+              </h2>
+              <div
+                class="md-4 md:mb-20 lg:mb-40 flex justify-start md:pr-15 xl:pr-0">
+                <div>
+                  <div class="h-60 mb-12 w-full flex justify-center">
+                    <img class="cursor-pointer max-h-50 opacity-60 hover:opacity-100 md:w-180" src="{% static 'landing/assets/img/logo/swarmlogo-white.png' %}" />
+                  </div>
+                  <div>
+                    <p class="text-16 leading-24 hidden md:block text-center">
+                      Swarm is an invite-only platform that helps builders connect, ideate, and team up to form projects
+                      that make an impact. Join the waitlist via <strong><a href="https://www.swarm.work/">https://www.swarm.work/</a></strong> to get exclusive access to Swarm's
+                      builder and founder network, community events, projects marketplace, and more coming soon!
+                    </p>
+                  </div>
                 </div>
-                <p class="text-16 leading-24 hidden md:block">
-                </p>
               </div>
             </div>
-            <div
-              class="
-                w-1/2
-                flex-basis-1/2
-                md-4 md:mb-20
-                lg:mb-60
-                flex
-                max-w-255
-                xl:pr-0
-              "
-              data-aos="py-slide"
-              data-aos-delay="400"
-              data-aos-offset="0"
-            >
-                <div class="h-60 mb-25 w-full flex justify-start">
-                  <img class="max-h-50 w-full md:w-180"
-                    src="{% static "landing/assets/img/logo/swarmlogo-white.png" %}" />
+            <div class="lg:w-full">
+              <h2 class="text-center mb-8 capitalize font-montserrat text-18 hidden md:block" data-aos="py-slide">
+                <u>Silver</u>
+              </h2>
+              <div
+                class="md-4 md:mb-20 lg:mb-40 flex justify-start md:pr-15 xl:pr-0"
+                data-aos="py-slide" data-aos-delay="400" data-aos-offset="0">
+                <div>
+                  <div class="h-60 mb-12 w-full flex justify-center">
+                    <img class="cursor-pointer max-h-50 opacity-60 hover:opacity-100 md:w-180" src="{% static 'landing/assets/img/logo/factset.png' %}" />
+                  </div>
+                  <p class="text-16 leading-24 hidden md:block text-center">
+                    FactSet is a leading provider of integrated online financial and economic information to the global
+                    financial community. FactSet offers mission critical investment research and work flow solutions to
+                    analysts, portfolio managers, investment bankers and other financial professionals. Our services are
+                    used by the top 10 global investments banks and 95 of the top 100 asset managers.
+                  </p>
                 </div>
-                <p class="text-16 leading-24 hidden md:block"></p>
+              </div>
             </div>
           </div>
         </div>
