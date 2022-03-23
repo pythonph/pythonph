@@ -1,8 +1,7 @@
 #!/bin/bash
 set -e
 
-docker build --rm -t pythonph/pythonph .
-COMPOSE="docker-compose -f docker-compose-dev.yml"
-$COMPOSE build nginx
-$COMPOSE up -d source
-$COMPOSE logs source
+COMPOSE="docker-compose -f docker-compose.yml"
+$COMPOSE build
+$COMPOSE up -d
+$COMPOSE logs web

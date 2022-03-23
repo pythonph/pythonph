@@ -1,21 +1,23 @@
-db:
-  image: postgres:latest
-  environment:
-    - POSTGRES_USER=pythonph
-  env_file: dev.env
+services:
+  web:
+    build: .
+    image: pythonph/pythonph
+    container_name: pythonph_web
+    command: rundev
+    ports:
+      - 8000:8000
+    volumes:
+      - ./:/usr/src/app/
 
-web:
-  build: .
-  volumes:
-    - .:/usr/src/app
-  links:
-    - db:db
-  environment:
-    - PYTHONUNBUFFERED=1
-    - ENV=DEV
-    - POSTGRES_HOST=db
-    - POSTGRES_USER=pythonph
-  env_file: dev.env
-  ports:
-    - 8000:8000
-  command: python manage.py runserver 0.0.0.0:8000
+  db:
+    image: postgres:14.2-alpine
+    container_name: pythonph_db
+    environment:
+      - POSTGRES_DB=pythonph
+      - POSTGRES_USER=pythonph
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - pg-volume:/var/lib/postgresql/data/
+
+volumes:
+  pg-volume:

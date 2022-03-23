@@ -1,5 +1,5 @@
 #!/bin/bash
 set -e
 
-COMPOSE="docker-compose -f docker-compose-dev.yml"
-$COMPOSE up -d --force-recreate web nginx db
+COMPOSE="docker-compose -f docker-compose.yml"
+$COMPOSE up -d --force-recreate web

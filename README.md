@@ -1,62 +1,68 @@
 # PythonPH
 
-## Development Setup
+## Development Setup via virtualenv
 
-1. Setup db
+1. Make a copy of `.env.virtualenv` as `.env`.
 
-  ```bash
-  createuser -P pythonph
-  # You will be prompted to enter a password
-  # Enter what you set in POSTGRES_PASSWORD
-  createdb -O pythonph pythonph
-  ```
+```bash
+$ cp .env.virtualenv .env
+```
 
-2. Setup virtualenv
+2. Create and activate your virtualenv.
 
-  ```bash
-  mkvirtualenv venv
-  venv/bin/pip install -r requirements.txt
-  ```
+```bash
+$ virtualenv venv
+$ source venv/bin/activate
+```
 
-3. Setup npm
+3. Install python packages.
 
-  ```bash
-  npm install
-  ```
+```bash
+$ pip install -r requirements/virtualenv.txt
+```
 
-4. Create `dev.env`
+4. Run Django migrations.
 
-  ```bash
-  SECRET_KEY=secret
-  ENV=DEV
-  POSTGRES_USER=pythonph
-  POSTGRES_PASSWORD=password
-  SLACK_ORG=pythonph
-  SLACK_API_TOKEN=xxxx-xxxxxxxxxx-xxxxxxxxxx-xxxxxxxxxxx-xxxxxxxxxx
-  SLACK_BOARD_CHANNEL=pythonph
-  SLACK_JOBS_CHANNEL=jobs
-  ```
+```bash
+$ python manage.py migrate
+```
 
-5. Setup Django
+5. Run Django server.
 
-  ```bash
-  bin/localmanage migrate
-  bin/localmanage createsuperuser
-  ```
+```bash
+$ python manage.py runserver
+```
 
-6. Run server
+6. Install npm packages and run build watcher (Optional, only run if you need to work on JS).
 
-  ```bash
-  npm start
-  ```
+```bash
+$ npm install
+$ npm run dev
+```
 
 ## Development Setup via docker-compose
-1. `./bin/build-dev`
-2. `./bin/deploy-dev`
 
-Note: For this setup, you have to run `./bin/build-dev && ./bin/deploy-dev` for changes to reflect.
+1. Make a copy of `.env.docker` as `.env`.
 
+```bash
+$ cp .env.docker .env
+```
 
-## Todo
-1. Improve dockerized development setup
+2. Build images and run containers.
 
+```bash
+$ docker-compose build
+$ docker-compose up -d
+```
+
+3. Run migrations
+
+```bash
+$ docker-compose run --rm web migrate
+```
+
+4. Running Django's manage.py to run other commands
+
+```bash
+$ docker-compose run --rm web python manage.py <command>
+```
