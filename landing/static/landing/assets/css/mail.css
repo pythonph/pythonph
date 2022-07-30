@@ -1,0 +1,20 @@
+#mc_embed_signup {
+  background: transparent;
+  color: white;
+  clear: left;
+  width: 50%;
+  margin: auto;
+}
+
+#mce-EMAIL {
+  color: black;
+}
+
+div.mce_inline_error {
+  margin-left: 20px;
+  background-color: transparent !important;
+}
+
+#mce-success-response, #mce-error-response {
+  color: white !important;
+}
