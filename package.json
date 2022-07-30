@@ -5,7 +5,8 @@
   "scripts": {
     "watch-jobs": "watchify jobs/static/jobs/js/src/main.js -o jobs/static/jobs/js/dist/main.js -v",
     "build-jobs": "browserify jobs/static/jobs/js/src/main.js -o jobs/static/jobs/js/dist/main.js",
-    "start": "npm run watch-jobs & bin/localmanage runserver $PORT"
+    "start": "npm run watch-jobs & bin/localmanage runserver $PORT",
+    "dev": "npm run watch-jobs"
   },
   "repository": {
     "type": "git",

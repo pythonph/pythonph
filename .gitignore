@@ -15,3 +15,4 @@ npm-debug.log
 
 # docker-compose
 *.env
+db.sqlite3

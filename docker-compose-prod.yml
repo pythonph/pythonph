@@ -1,28 +1,15 @@
-source:
-  image: pythonph/pythonph
-  volumes:
-    - /usr/src/app/venv
-    - /usr/src/app/node_modules
-    - /usr/src/app/bower_components
-    - /usr/src/app/static
-  environment:
-    - ENV=PROD
-  env_file: prod.env
-  command: bin/install
+services:
+  web:
+    build: .
+    image: pythonph/pythonph
+    container_name: pythonph_web
+    command: runprod
 
-web:
-  image: pythonph/pythonph
-  volumes_from:
-    - source
-  environment:
-    - ENV=PROD
-  env_file: prod.env
-  command: gunicorn -b 0.0.0.0:8000 --access-logfile - --error-logfile - pythonph.wsgi
-
-nginx:
-  build: nginx
-  ports:
-    - 80:80
-    - 443:443
-  links:
-    - web:web
+  nginx:
+    image: nginx:latest
+    container_name: pythonph_nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf

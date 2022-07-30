@@ -1,19 +1,16 @@
-FROM python:3.8.1
+FROM nikolaik/python-nodejs:python3.8-nodejs12
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
-RUN apt-get -y install nodejs
-RUN apt-get -y install libcairo-dev
-
-RUN mkdir -p /usr/src/app
-
-COPY package.json /usr/src/app/
-RUN npm install --prefix /usr/src/app/
-
-COPY requirements.txt /usr/src/app
-RUN pip install -r /usr/src/app/requirements.txt
-
-COPY . /usr/src/app
 WORKDIR /usr/src/app
-RUN npm run-script build-jobs
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+COPY . /usr/src/app/
+RUN pip install -r requirements/docker.txt \
+    && npm install \
+    && npm run build-jobs \
+    && python manage.py compress --force \
+    && python manage.py collectstatic --noinput
+
+COPY docker-entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["docker-entrypoint.sh"]
+
+EXPOSE 8000
+CMD ["runprod"]

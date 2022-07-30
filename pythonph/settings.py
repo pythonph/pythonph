@@ -2,10 +2,19 @@ import os
 
 from django.utils._os import safe_join
 
+import dj_database_url
+import environ
+
+env = environ.Env(
+    SECRET_KEY=(str, 'devkey'),
+    ENV=(str, 'DEV'),
+    DATABASE_URL=(str, 'sqlite:///db.sqlite3'),
+)
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-SECRET_KEY = os.environ['SECRET_KEY']
-DEBUG = os.environ['ENV'] == 'DEV'
+SECRET_KEY = env('SECRET_KEY')
+DEBUG = env('ENV') == 'DEV'
 TEMPLATE_DEBUG = DEBUG
 ALLOWED_HOSTS = ['python.ph', 'localhost', '*']
 
@@ -46,13 +55,7 @@ ROOT_URLCONF = 'pythonph.urls'
 WSGI_APPLICATION = 'pythonph.wsgi.application'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
-        'NAME': os.environ['POSTGRES_USER'],
-        'USER': os.environ['POSTGRES_USER'],
-        'PASSWORD': os.environ['POSTGRES_PASSWORD'],
-    },
+    'default': dj_database_url.parse(env('DATABASE_URL')),
 }
 
 LANGUAGE_CODE = 'en-us'
@@ -85,18 +88,21 @@ COMPRESS_PRECOMPILERS = (
 
 TASTYPIE_DEFAULT_FORMATS = ['json']
 
-if 'SENTRY_DSN' in os.environ:
+SENTRY_DSN = env('SENTRY_DSN', default=None)
+
+if SENTRY_DSN:
     RAVEN_CONFIG = {
-        'dsn': os.environ['SENTRY_DSN'],
+        'dsn': SENTRY_DSN,
     }
 
 if DEBUG:
     INSTALLED_APPS += ('debug_toolbar',)
+    MIDDLEWARE += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
 
-SLACK_ORG = os.environ['SLACK_ORG']
-SLACK_API_TOKEN = os.environ['SLACK_API_TOKEN']
-SLACK_BOARD_CHANNEL = os.environ['SLACK_BOARD_CHANNEL']
-SLACK_JOBS_CHANNEL = os.environ['SLACK_JOBS_CHANNEL']
+SLACK_ORG = env('SLACK_ORG', default=None)
+SLACK_API_TOKEN = env('SLACK_API_TOKEN', default=None)
+SLACK_BOARD_CHANNEL = env('SLACK_BOARD_CHANNEL', default=None)
+SLACK_JOBS_CHANNEL = env('SLACK_JOBS_CHANNEL', default=None)
 
 TEMPLATES = [
     {
