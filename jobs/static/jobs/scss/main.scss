@@ -2,16 +2,24 @@
 
 .header {
   & {
-    background: $primary-color;
+    background: rgb(0, 16, 64);
     padding: 1rem 2rem;
     display: flex;
+    font: Cabin, sans-serif;
   }
-  .title h1, .ghbtns {
+  .title h1, .ghbtns { 
     display: inline-block;
     vertical-align: middle;
   }
   .title h1 {
     margin-right: 1em;
+    color: white;
+  }
+  .button {
+    background-color: #fdd649 !important;
+    color: rgba(16,28,66,1) !important;
+    border-radius: .375rem !important;
+    font-weight: 600 !important;
   }
   .ghbtns {
     line-height: 1;
@@ -139,11 +147,23 @@
   &-description {
     width: 100%;
   }
+  .button {
+    background-color: #fdd649 !important;
+    color: rgba(16,28,66,1) !important;
+    border-radius: .375rem !important;
+    font-weight: 600 !important;
+  }
 }
 
 .company {
   &-profile {
     width: 100%;
+  }
+  .button {
+    background-color: #fdd649 !important;
+    color: rgba(16,28,66,1) !important;
+    border-radius: .375rem !important;
+    font-weight: 600 !important;
   }
 }
 
@@ -156,6 +176,12 @@
   button {
     width: 10rem;
     font-size: 80%;
+  }
+  .button {
+    background-color: #fdd649 !important;
+    color: rgba(16,28,66,1) !important;
+    border-radius: .375rem !important;
+    font-weight: 600 !important;
   }
 }
 

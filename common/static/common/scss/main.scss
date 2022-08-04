@@ -102,5 +102,12 @@ form {
     border-top: 1px solid $input-border-color;
     width: 100%;
     text-align: right;
+
+    .button {
+      background-color: #fdd649 !important;
+      color: rgba(16,28,66,1) !important;
+      border-radius: .375rem !important;
+      font-weight: 600 !important;
+    }
   }
 }
