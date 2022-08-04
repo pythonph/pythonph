@@ -30,6 +30,7 @@ INSTALLED_APPS = (
     'jobs',
     'slack',
     'common',
+    'organisation',
 )
 MIDDLEWARE = (
     'django.middleware.security.SecurityMiddleware',

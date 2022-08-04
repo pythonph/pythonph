@@ -1,6 +1,7 @@
 from ckeditor.fields import RichTextField
-from django.db import models
 from model_utils.models import SoftDeletableModel
+
+from django.db import models
 
 
 class Section(SoftDeletableModel):
@@ -8,7 +9,7 @@ class Section(SoftDeletableModel):
     content = RichTextField()
     order = models.PositiveIntegerField(default=0)
 
-    def __unicode(self):
+    def __unicode__(self):
         return self.name
 
     def __str__(self):
