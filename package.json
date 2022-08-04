@@ -26,6 +26,7 @@
     "browserify": "^10.1.0",
     "classnames": "^2.1.2",
     "marked": "^0.3.3",
+    "moment": "^2.29.4",
     "react": "^0.12.2",
     "superagent": "^0.21.0",
     "velocity-animate": "^1.2.1",

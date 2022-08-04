@@ -2,9 +2,29 @@ var React = require('react/addons')
 var superagent = require('superagent')
 var marked = require('marked')
 var cn = require('classnames')
+var moment = require('moment')
 
 require('velocity-animate')
 require('velocity-animate/velocity.ui')
+
+moment.locale('en', {
+  relativeTime: {
+    future: 'in %s',
+    past: '%s',
+    s:  '1s',
+    ss: '%ss',
+    m:  '1m',
+    mm: '%dm',
+    h:  '1h',
+    hh: '%dh',
+    d:  '1d',
+    dd: '%dd',
+    M:  '1M',
+    MM: '%dM',
+    y:  '1Y',
+    yy: '%dY'
+  }
+})
 
 var Job = React.createClass({
   toggleDetails: function (e) {
@@ -38,6 +58,9 @@ var Job = React.createClass({
           <span className="user">
             Posted by {this.props.user.name}
           </span>
+        </div>
+        <div class="date-posted">
+          <sub>📌 {moment(this.props.created_at).fromNow()}</sub>
         </div>
       </li>
     )
