@@ -193,7 +193,6 @@ module.exports = React.createClass({
     }
   },
   parseJobs: function (res) {
-    console.log(res);
     this.setState({
       jobs: res.body.objects,
       next: res.body.meta.next,
