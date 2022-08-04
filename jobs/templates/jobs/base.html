@@ -32,11 +32,11 @@
   </div>
   <ul class="links">
     {% if user.is_authenticated %}
-    <li><a href="{% url "jobs:post" %}">Post a Job</a></li>
-    <li><a href="{% url "registration:logout" %}?next=/jobs/">Logout</a></li>
+    <li><a class="button" href="{% url "jobs:post" %}">Post a Job</a></li>
+    <li><a class="button" href="{% url "registration:logout" %}?next=/jobs/">Logout</a></li>
     {% else %}
-    <li><a href="{% url "registration:login" %}?next=/jobs/">Login</a></li>
-    <li><a href="{% url "registration:register" %}?next=/jobs/">Register</a></li>
+    <li><a class="button" href="{% url "registration:login" %}?next=/jobs/">Login</a></li>
+    <li><a class="button" href="{% url "registration:register" %}?next=/jobs/">Register</a></li>
     {% endif %}
   </ul>
   </ul>

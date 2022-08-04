@@ -5,11 +5,17 @@ from jobs.models import Company, Job
 class CompanyForm(ModelForm):
     class Meta:
         model = Company
-        exclude = ['user']
+        exclude = ["user"]
 
 
 class JobForm(ModelForm):
     class Meta:
         model = Job
-        exclude = ['user', 'company', 'is_approved', 'is_sponsored']
-
+        exclude = [
+            "tags",
+            "user",
+            "company",
+            "is_approved",
+            "is_sponsored",
+            "is_active",
+        ]

@@ -68,7 +68,7 @@ var Content = React.createClass({
         />
         <p>
           <a
-            className="apply button"
+            className="button"
             href={
               data.application_url ?
                 data.application_url :
@@ -283,12 +283,14 @@ module.exports = React.createClass({
         </ul>
         <div className="pagination">
           <button
+            className="button"
             onClick={this.prevJobs}
             disabled={!this.state.prev}
           >
             Previous
           </button>
           <button
+            className="button"
             onClick={this.nextJobs}
             disabled={!this.state.next}
           >
