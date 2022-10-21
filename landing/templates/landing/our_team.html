@@ -217,101 +217,26 @@
             aria-labelledby="volunteers-tab"
           >
             <div class="w-full md:flex justify-center">
+              {% for commitee in commitees %}
               <div class="text-center md:w-1/3">
                 <h3
                   class="text-yellow text-20 font-montserrat mb-9 md:mb-16"
                   data-aos="py-slide"
                   data-aos-delay="600"
                 >
-                  Meetup / Events
+                  {{ commitee.name }}
                 </h3>
                 <ul
                   class="text-18 mb-26 md:mb-60 list-none"
                   data-aos="py-slide"
                   data-aos-delay="700"
                 >
-                <li>Vanessa Bermudez</li>
-                <li>Freilla Mae Espinola</li>
-                <li>Janine Bagares</li>
-                <li>Jay Mendez</li>
+                {% for volunteer in commitee.volunteers.all %}
+                <li>{{ volunteer.display_name }}</li>
+                {% endfor %}
                 </ul>
               </div>
-              <div class="text-center md:w-1/3">
-                <h3
-                  class="text-yellow text-20 font-montserrat mb-9 md:mb-16"
-                  data-aos="py-slide"
-                  data-aos-delay="600"
-                >
-                  Marketing
-                </h3>
-                <ul
-                  class="text-18 mb-26 md:mb-60 list-none"
-                  data-aos="py-slide"
-                  data-aos-delay="700"
-                >
-                <li>Angelica Lapastora</li>
-                <li>Carl John Viñas</li>
-                <li>Aira Joan Alonzo</li>
-                </ul>
-              </div>
-              <div class="text-center md:w-1/3">
-                <h3
-                  class="text-yellow text-20 font-montserrat text-center mb-9 md:mb-16"
-                  data-aos="py-slide"
-                  data-aos-delay="800"
-                >
-                  Public Training
-                </h3>
-                <ul
-                  class="mb-60 list-none text-18"
-                  data-aos="py-slide"
-                  data-aos-delay="900"
-                >
-                  <li>Ryan Ermita</li>
-                  <li>Sony Valdez</li>
-                  <li>Ariel Conde</li>
-                  <li>Jeff Paredes</li>
-                </ul>
-              </div>
-              <div class="text-center md:w-1/3">
-                <h3
-                  class="text-yellow text-20 font-montserrat text-center mb-9 md:mb-16"
-                  data-aos="py-slide"
-                  data-aos-delay="800"
-                >
-                  Engineering
-                </h3>
-                <ul
-                  class="mb-60 list-none text-18"
-                  data-aos="py-slide"
-                  data-aos-delay="900"
-                >
-                  <li>Zorex Salvo</li>
-                  <li>Rommel Philip Afurong</li>
-                  <li>Von Louie Cruto</li>
-                  <li>Dan Belza</li>
-                  <li>Laurence Rebadulla</li>
-                </ul>
-              </div>
-              <div class="text-center md:w-1/3">
-                <h3
-                  class="text-yellow text-20 font-montserrat text-center mb-9 md:mb-16"
-                  data-aos="py-slide"
-                  data-aos-delay="800"
-                >
-                  Content Creation
-                </h3>
-                <ul
-                  class="mb-60 list-none text-18"
-                  data-aos="py-slide"
-                  data-aos-delay="900"
-                >
-                  <li>Albert Yumol</li>
-                  <li>Alysson Alvaran</li>
-                  <li>Jeff Paredes</li>
-                  <li>Von Louie Cruto</li>
-                </ul>
-              </div>
+              {% endfor %}
             </div>
           </div>
         </div>
