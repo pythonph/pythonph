@@ -1,5 +1,7 @@
 FROM python:3.8.1
 
+RUN apt-get -y update
+RUN apt-get -y upgrade
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get -y install nodejs
 RUN apt-get -y install libcairo-dev
