@@ -80,9 +80,6 @@ LOGIN_REDIRECT_URL = "landing"
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = not DEBUG
 COMPRESS_OUTPUT_DIR = 'cache'
-COMPRESS_PRECOMPILERS = (
-    ('text/x-scss', 'django_libsass.SassCompiler'),
-)
 
 TASTYPIE_DEFAULT_FORMATS = ['json']
 
