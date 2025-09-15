@@ -1,0 +1,155 @@
+{% load static %}
+<div class="bg-blue md:bg-image-3 bg-top md:bg-left-top bg-no-repeat 2xl:bg-repeat xl:bg-contain overflow-hidden">
+  <div class="w-full px-15 lg:px-0 max-w-855 mx-auto text-white py-24 md:py-88">
+    <div class="text-center mb-82 md:mb-162">
+      <h2 class="capitalize font-montserrat text-40 mb-30" data-aos="py-slide" data-aos-delay="150">
+        What We Do
+      </h2>
+      <div>
+        <p data-aos="py-slide" data-aos-delay="200">
+        <u>In June 31-July 1 2012</u>, we held the first ever PyCon Philippines.
+        </p>
+        <p data-aos="py-slide" data-aos-delay="250">
+        <u>Today</u>, we organize the yearly PyCon and also hold regular meet-ups, public python trainings and kaizend throughout the year.
+        </p>
+        <p data-aos="py-slide" data-aos-delay="300">
+        Whether you're new to programming, an experienced practitioner, or just plain curious what this Python programming language is about, you're much welcome to join this community!
+        </p>
+      </div>
+    </div>
+
+    <!-- OUR EVENTS SECTION -->
+    <div class="mb-73 md:mb-100">
+      <div class="text-center mb-28">
+        <h2 class="capitalize font-montserrat text-40" data-aos="py-slide" data-aos-delay="350">
+          Our Events
+        </h2>
+      </div>
+
+      <!-- Mobile accordion for events -->
+      <div class="accordion md:hidden" id="accordionOurEvents">
+        <div class="card bg-transparent rounded-10 border-2 border-yellow-1 px-18 md:px-30 mb-15 py-11" data-aos="py-slide" data-aos-offset="200" data-aos-delay="0">
+          <div class="card-header p-0 border-b-0" id="headingPyCon">
+            <h3 class="font-montserrat text-20 m-0">
+              <button class="text-left block w-full border-none focus:border-none focus:outline-none font-montserrat text-20 py-12" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePyCon" aria-expanded="false" aria-controls="collapsePyCon">
+                PyCon Philippines
+              </button>
+            </h3>
+          </div>
+          <div id="collapsePyCon" class="collapse" aria-labelledby="headingPyCon" data-bs-parent="#accordionOurEvents">
+            <div class="card-body pb-11 pt-0 px-0">
+              <p>
+              The goal of the conference is to provide a venue where the Python programming language and surrounding technologies can be explored, discussed and exercised.
+              </p>
+              <p>
+              We gather software engineers, programming enthusiasts, startup founders, corporate IT decision makers, students and IT educators in a 2-day event where we can collaborate and learn from each other.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card bg-transparent rounded-10 border-2 border-pink px-18 md:px-30 mb-15 py-11" data-aos="py-slide" data-aos-offset="200" data-aos-delay="400">
+          <div class="card-header p-0 border-b-0" id="headingMeetups">
+            <h3 class="font-montserrat text-20 m-0">
+              <button class="text-left block w-full border-none focus:border-none focus:outline-none font-montserrat text-20 py-12" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMeetups" aria-expanded="false" aria-controls="collapseMeetups">
+                Meetups
+              </button>
+            </h3>
+          </div>
+          <div id="collapseMeetups" class="collapse" aria-labelledby="headingMeetups" data-bs-parent="#accordionOurEvents">
+            <div class="card-body pb-11 pt-0 px-0">
+              <p>
+              Regular meetups where professionals and enthusiasts share and talk about Python.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card bg-transparent rounded-10 border-2 border-blue-1 px-18 md:px-30 mb-15 py-11" data-aos="py-slide" data-aos-offset="200" data-aos-delay="500">
+          <div class="card-header p-0 border-b-0" id="headingTrainings">
+            <h3 class="font-montserrat text-20 m-0">
+              <button class="text-left block w-full border-none focus:border-none focus:outline-none font-montserrat text-20 py-12" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTrainings" aria-expanded="false" aria-controls="collapseTrainings">
+                Public Python Trainings
+              </button>
+            </h3>
+          </div>
+          <div id="collapseTrainings" class="collapse" aria-labelledby="headingTrainings" data-bs-parent="#accordionOurEvents">
+            <div class="card-body pb-11 pt-0 px-0">
+              <p>
+              Low-cost Python Trainings covering various topics.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card bg-transparent rounded-10 border-2 border-green px-18 md:px-30 mb-15 py-11" data-aos="py-slide" data-aos-delay="600">
+          <div class="card-header p-0 border-b-0" id="headingKaizend">
+            <h3 class="font-montserrat text-20 m-0">
+              <button class="text-left block w-full border-none focus:border-none focus:outline-none font-montserrat text-20 py-12" type="button" data-bs-toggle="collapse" data-bs-target="#collapseKaizend" aria-expanded="false" aria-controls="collapseKaizend">
+                Kaizend
+              </button>
+            </h3>
+          </div>
+          <div id="collapseKaizend" class="collapse" aria-labelledby="headingKaizend" data-bs-parent="#accordionOurEvents">
+            <div class="card-body pb-11 pt-0 px-0">
+              <p>
+              A mastermind group and exclusive training program for core volunteers. This program is aimed to develop technically competent leaders and systematize succession plans for PythonPH.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop events display -->
+      <div class="hidden md:block accordion">
+        <div class="bg-transparent rounded-10 border-2 border-yellow-1 px-18 md:px-30 mb-15 py-11" data-aos="py-slide" data-aos-delay="400">
+          <h3 class="font-montserrat text-20 m-0 text-left block w-full border-none focus:border-none focus:outline-none font-montserrat text-20 py-12">
+            <a href="https://pycon.python.ph/">PyCon Philippines</a>
+          </h3>
+          <div class="pb-11 pt-0 px-0">
+            <p>
+            The goal of the conference is to provide a venue where the Python programming language and surrounding technologies can be explored, discussed and exercised.
+            </p>
+            <p>
+            We gather software engineers, programming enthusiasts, startup founders, corporate IT decision makers, students and IT educators in a 2-day event where we can collaborate and learn from each other.
+            </p>
+          </div>
+        </div>
+        <div class="bg-transparent rounded-10 border-2 border-pink px-18 md:px-30 mb-15 py-11" data-aos="py-slide" data-aos-delay="100">
+          <h3 class="font-montserrat text-20 m-0 text-left block w-full border-none focus:border-none focus:outline-none font-montserrat text-20 py-12">
+            <a href="https://www.meetup.com/pythonph/">Meetups</a>
+          </h3>
+          <div class="pb-11 pt-0 px-0">
+            <p>
+            Regular meetups where professionals and enthusiasts share and talk about Python.
+            </p>
+          </div>
+        </div>
+        <div class="bg-transparent rounded-10 border-2 border-blue-1 px-18 md:px-30 mb-15 py-11" data-aos="py-slide" data-aos-delay="150">
+          <h3 class="font-montserrat text-20 m-0 text-left block w-full border-none focus:border-none focus:outline-none font-montserrat text-20 py-12">
+            <a href="https://ti.to/pythonph/">Public Python Trainings</a>
+          </h3>
+          <div class="pb-11 pt-0 px-0">
+            <p>
+            Low-cost Python Trainings covering various topics.
+            </p>
+          </div>
+        </div>
+        <div class="bg-transparent rounded-10 border-2 border-green px-18 md:px-30 mb-15 py-11" data-aos="py-slide" data-aos-delay="200">
+          <h3 class="font-montserrat text-20 m-0 text-left block w-full border-none focus:border-none focus:outline-none font-montserrat text-20 py-12">
+            <a href="https://drive.google.com/file/d/1KwVVqDj61mVgk3gxwh9isqu5GYDJMtrF/view">Kaizend</a>
+          </h3>
+          <div class="pb-11 pt-0 px-0">
+            <p>
+            A mastermind group and exclusive training program for core volunteers. This program is aimed to develop technically competent leaders and systematize succession plans for PythonPH.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WFH PYTHONISTA SECTION -->
+    <div data-aos="fade-left" data-aos-duration="1000" data-aos-offset="300">
+      <img src="{% static "landing/assets/img/WFH_Pythonista.png" %}" class="w-full rounded-10 object-cover" />
+      <br/>
+      <iframe class="youtube-embed rounded-10" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLCBCxsuKTqkDXxXKWnWzldHUvdYbpCLij" title="WFH Pythonista" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
