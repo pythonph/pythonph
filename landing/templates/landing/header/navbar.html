@@ -1,0 +1,20 @@
+{% load static %}
+
+<nav class="w-full flex items-center justify-end md:py-30 md:px-30 lg:px-0 pt-28 px-16 lg:max-w-920 xl:max-w-1110 md:mx-auto md:mb-24">
+  <button class="border-none focus:border-none focus:outline-none bg-transparent md:hidden z-20 btn-toggle">&nbsp;</button>
+  <div class="slider-pane absolute md:relative z-10 bg-blue md:bg-transparent overflow-hidden m-0 px-15 md:px-0">
+    <img src="{% static 'landing/assets/img/icon/icon-logo.svg' %}" class="w-42 absolute absolute top-12 left-16 z-20 md:hidden"/>
+    <ul class="list-none m-0 h-full pt-112 md:py-0 md:flex">
+      <li class="mb-21 md:mb-0">
+        <a href="https://pycon.python.ph/" class="text-24 md:text-16 text-yellow no-underline hover:text-yellow">
+          PyCon Philippines
+        </a>
+      </li>
+      <li class="mb-21 md:mb-0 md:ml-30">
+        <a href="https://python.ph/jobs/" class="text-24 md:text-16 text-white no-underline hover:text-yellow">
+          Job Board
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

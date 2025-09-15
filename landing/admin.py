@@ -1,4 +1,3 @@
-from adminsortable2.admin import SortableAdminMixin
 from django.contrib import admin
 from django.utils.encoding import force_text
 
@@ -42,7 +41,7 @@ class EventAdmin(admin.ModelAdmin):
 
 
 @admin.register(Section)
-class SectionAdmin(SortableAdminMixin, admin.ModelAdmin):
+class SectionAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     list_filter = (IsArchivedListFilter,)
 
