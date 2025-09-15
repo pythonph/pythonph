@@ -94,6 +94,7 @@
           >
             Core Volunteers
           </h3>
+
           <div
             class="tab-pane fade flex-wrap justify-center w-full"
             id="volunteers"
@@ -102,27 +103,32 @@
           >
             <div class="w-full md:flex justify-center">
               {% for committee in committees %}
-                <div class="text-center md:w-1/3">
-                  <h3
-                    class="text-yellow text-20 font-montserrat mb-9 md:mb-16"
-                    data-aos="py-slide"
-                    data-aos-delay="600"
-                  >
-                    {{ committee.name }}
-                  </h3>
-                  <ul
-                    class="text-18 mb-26 md:mb-60 list-none"
-                    data-aos="py-slide"
-                    data-aos-delay="700"
-                  >
-                    {% for volunteer in commitee.volunteers.all %}
-                      <li>{{ volunteer.display_name }}</li>
-                    {% endfor %}
-                  </ul>
-                </div>
+              {% if forloop.counter0|divisibleby:3 %}
+            </div>
+            <div class="w-full md:flex justify-center">
+              {% endif %}
+              <div class="text-center md:w-1/3">
+                <h3
+                  class="text-yellow text-20 font-montserrat mb-9 md:mb-16"
+                  data-aos="py-slide"
+                  data-aos-delay="600"
+                >
+                  {{ committee.name }}
+                </h3>
+                <ul
+                  class="text-18 mb-26 md:mb-60 list-none"
+                  data-aos="py-slide"
+                  data-aos-delay="700"
+                >
+                {% for volunteer in committee.volunteers.all %}
+                <li>{{ volunteer }}</li>
+                {% endfor %}
+                </ul>
+              </div>
               {% endfor %}
             </div>
           </div>
+
         </div>
       </div>
     </div>
