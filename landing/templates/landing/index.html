@@ -3,110 +3,23 @@
 
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta
-			name="description"
-			content="A community in the Philippines for enthusiasts and users of the Python programming language."
-		/>
-		<title>Python Philippines</title>
-		<link rel="shortcut icon" href="{% static "landing/assets/img/icon/icon-logo.svg" %}" />
-		<link rel="stylesheet" href="{% static "landing/assets/css/styles.css" %}"" />
-		<link rel="stylesheet" href="{% static "landing/assets/css/custom.css" %}"" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A community in the Philippines for enthusiasts and users of the Python programming language."
+    />
+    <title>Python Philippines</title>
+    <link rel="shortcut icon" href="{% static 'landing/assets/img/icon/icon-logo.svg' %}" />
+    <link rel="stylesheet" href="{% static 'landing/assets/css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'landing/assets/css/custom.css' %}" />
     <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7_dtp.css" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="{% static "landing/assets/css/mail.css" %}"" />
-	</head>
+    <link rel="stylesheet" href="{% static 'landing/assets/css/mail.css' %}" />
+  </head>
 
-	<body
-		class="m-0 bg-blue font-sourcesanspro leading-normal relative preload"
-	>
-		<!-- 1st section -->
-		<header
-			class="bg-image-1 bg-top md:bg-left-top bg-no-repeat 2xl:bg-repeat xl:bg-contain md:pb-40 relativex overflow-hidden"
-		>
-			<nav
-				class="w-full flex items-center justify-end md:py-30 md:px-30 lg:px-0 pt-28 px-16 lg:max-w-920 xl:max-w-1110 md:mx-auto md:mb-24"
-			>
-				<button
-					class="border-none focus:border-none focus:outline-none bg-transparent md:hidden z-20 btn-toggle"
-				>
-					&nbsp;
-				</button>
-				<div
-					class="slider-pane absolute md:relative z-10 bg-blue md:bg-transparent overflow-hidden m-0 px-15 md:px-0"
-				>
-					<img
-						src="{% static "landing/assets/img/icon/icon-logo.svg" %}"
-						class="w-42 absolute absolute top-12 left-16 z-20 md:hidden"
-					/>
-					<ul class="list-none m-0 h-full pt-112 md:py-0 md:flex">
-						<li class="mb-21 md:mb-0">
-							<a
-								href="https://pycon.python.ph/"
-								class="text-24 md:text-16 text-yellow no-underline hover:text-yellow"
-								>PyCon Philippines</a
-							>
-						</li>
-						<li class="mb-21 md:mb-0 md:ml-30">
-							<a
-								href="https://python.ph/jobs/   "
-								class="text-24 md:text-16 text-white no-underline hover:text-yellow"
-								>Job Board</a
-							>
-						</li>
-					</ul>
-				</div>
-			</nav>
-			<div
-				class="w-full md:flex items-center lg:max-w-920 xl:max-w-1110 md:mx-auto"
-			>
-				<div
-					class="text-center md:text-left mt-50 md:mt-0 md:mr-auto px-30 lg:px-0 max-w-480"
-				>
-					<div
-						class="flex flex-col md:flex-row items-center justify-center md:justify-start mb-8 md:mb-33"
-					>
-						<div
-							class="flex justify-center h-168 md:h-150 md:w-126 mb-20 md:mr-22 md:mb-0 relative"
-						>
-							<img
-								src="{% static "landing/assets/img/icon/icon-logo.svg" %}"
-								class="md:absolute h-full"
-							/>
-						</div>
-						<h1
-							class="flex flex-col md:block font-raleway uppercase text-white leading-42 mb-13 leading-20 leading-none"
-						>
-							<span
-								class="text-47 md:text-63 font-black flex justify-center md:justify-start mb-4"
-								>Python</span
-							>
-							<span
-								class="text-31 md:text-48 font-light flex justify-center md:justify-start"
-								>Philippines</span
-							>
-						</h1>
-					</div>
-					<p
-						class="text-white text-18 text-center px-25 md:text-left md:px-0 mb-23 md:mb-36"
-					>
-						PythonPH is a non-stock, non-profit, <strong>volunteer-run</strong>
-						organization dedicated to support and facilitate the
-						growth of the community of Python programmers in the
-						Philippines.
-					</p>
-
-					<!-- <button
-						class="capitalize bg-yellow text-blue text-18 rounded-md border-none px-38 md:px-46 py-11 font-montserrat mb-50 md:mb-0 font-semibold"
-					>
-						Learn More
-					</button> -->
-				</div>
-
-				{% include "landing/gallery1.html" %}
-			</div>
-		</header>
+	<body class="m-0 bg-blue font-sourcesanspro leading-normal relative preload">
+    {% include "landing/header.html" %}
 
 		<!-- 2nd section -->
 		<div

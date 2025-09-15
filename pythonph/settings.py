@@ -22,7 +22,6 @@ INSTALLED_APPS = (
     'compressor',
     'raven.contrib.django.raven_compat',
     'markdownx',
-    'adminsortable2',
     'ckeditor',
     # pythonph
     'landing',
