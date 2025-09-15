@@ -1,4 +1,4 @@
-{% load static from staticfiles %}
+ {% load static %}
 
 <div
   class="bg-blue md:bg-image-4 lg:h-750 bg-top md:bg-left-top bg-no-repeat 2xl:bg-repeat xl:bg-contain bg-our-team xl:pt-40 overflow-hidden"
@@ -69,6 +69,8 @@
             role="tabpanel"
             aria-labelledby="officers-tab"
           >
+
+          {% for member in board_members %}
             <div
               class="w-1/3 flex-basis-1/3 md:w-1/5 md:flex-basis-1/5 lg:w-1/5 lg:flex-basis-19 md:mb-12 flex justify-center h-full"
             >
@@ -77,148 +79,15 @@
                   class="w-full h-full object-cover rounded-13 md:rounded-24 cursor-pointer max-w-144 max-h-144"
                   data-bs-toggle="tooltip"
                   data-bs-html="true"
-                  title="<h5 class='text-16 text-blue font-semibold font-montserrat mb-6'>Micaela Reyes</h5><h6 class='text-14 text-blue m-0'>Director of Operations</h6>"
-                  src="{% static "landing/assets/img/people/micaela.jpg" %}"
+                  title="<h5 class='text-16 text-blue font-semibold font-montserrat mb-6'>{{ member.name }}</h5><h6 class='text-14 text-blue m-0'>{{ member.position }}</h6>"
+                  src="{% static member.image %}"
                   data-aos="py-slide"
                 />
               </div>
             </div>
-            <div
-              class="w-1/3 flex-basis-1/3 md:w-1/5 md:flex-basis-1/5 lg:w-1/5 lg:flex-basis-19 md:mb-12 flex justify-center h-full"
-            >
-              <div class="p-14 md:p-24 xl:p-15">
-                <img
-                  class="w-full h-full object-cover rounded-13 md:rounded-24 cursor-pointer max-w-144 max-h-144"
-                  data-bs-toggle="tooltip"
-                  data-bs-html="true"
-                  title="<h5 class='text-16 text-blue font-semibold font-montserrat mb-6'>Matt Lebrun</h5><h6 class='text-14 text-blue m-0'>President</h6>"
-                  src="{% static "landing/assets/img/people/matt.jpg" %}"
-                  data-aos="py-slide"
-                  data-aos-delay="400"
-                />
-              </div>
-            </div>
-            <div
-              class="w-1/3 flex-basis-1/3 md:w-1/5 md:flex-basis-1/5 lg:w-1/5 lg:flex-basis-19 md:mb-12 flex justify-center h-full"
-            >
-              <div class="p-14 md:p-24 xl:p-15">
-                <img
-                  class="w-full h-full object-cover rounded-13 md:rounded-24 cursor-pointer max-w-144 max-h-144"
-                  data-bs-toggle="tooltip"
-                  data-bs-html="true"
-                  title="<h5 class='text-16 text-blue font-semibold font-montserrat mb-6'>Sony Valdez</h5><h6 class='text-14 text-blue m-0'>Director of Community Relations</h6>"
-                  src="{% static "landing/assets/img/people/shuny.jpg" %}"
-                  data-aos="py-slide"
-                  data-aos-delay="500"
-                />
-              </div>
-            </div>
-            <div
-              class="w-1/3 flex-basis-1/3 md:w-1/5 md:flex-basis-1/5 lg:w-1/5 lg:flex-basis-19 md:mb-12 flex justify-center h-full"
-            >
-              <div class="p-14 md:p-24 xl:p-15">
-                <img
-                  class="w-full h-full object-cover rounded-13 md:rounded-24 cursor-pointer max-w-144 max-h-144"
-                  data-bs-toggle="tooltip"
-                  data-bs-html="true"
-                  title="<h5 class='text-16 text-blue font-semibold font-montserrat mb-6'>Angelica Lapastora</h5><h6 class='text-14 text-blue m-0'>Director of Sponsorship</h6>"
-                  src="{% static "landing/assets/img/people/anj.jpg" %}"
-                  data-aos="py-slide"
-                  data-aos-delay="600"
-                />
-              </div>
-            </div>
-            <div
-              class="w-1/3 flex-basis-1/3 md:w-1/5 md:flex-basis-1/5 lg:w-1/5 lg:flex-basis-19 md:mb-12 flex justify-center h-full"
-            >
-              <div class="p-14 md:p-24 xl:p-15">
-                <img
-                  class="w-full h-full object-cover rounded-13 md:rounded-24 cursor-pointer max-w-144 max-h-144"
-                  data-bs-toggle="tooltip"
-                  data-bs-html="true"
-                  title="<h5 class='text-16 text-blue font-semibold font-montserrat mb-6'>Zorex Salvo</h5><h6 class='text-14 text-blue m-0'>Director of Engineering</h6>"
-                  src="{% static "landing/assets/img/people/zorex.jpg" %}"
-                  data-aos="py-slide"
-                  data-aos-delay="500"
-                />
-              </div>
-            </div>
-            <div
-              class="w-1/3 flex-basis-1/3 md:w-1/5 md:flex-basis-1/5 lg:w-1/5 lg:flex-basis-19 md:mb-12 flex justify-center h-full"
-            >
-              <div class="p-14 md:p-24 xl:p-15">
-                <img
-                  class="w-full h-full object-cover rounded-13 md:rounded-24 cursor-pointer max-w-144 max-h-144"
-                  data-bs-toggle="tooltip"
-                  data-bs-html="true"
-                  title="<h5 class='text-16 text-blue font-semibold font-montserrat mb-6'>Ciara Bautista</h5><h6 class='text-14 text-blue m-0'>Treasurer</h6>"
-                  src="{% static "landing/assets/img/people/ciara.jpg" %}"
-                  data-aos="py-slide"
-                  data-aos-delay="500"
-                />
-              </div>
-            </div>
-            <div
-              class="w-1/3 flex-basis-1/3 md:w-1/5 md:flex-basis-1/5 lg:w-1/5 lg:flex-basis-19 md:mb-12 flex justify-center h-full"
-            >
-              <div class="p-14 md:p-24 xl:p-15">
-                <img
-                  class="w-full h-full object-cover rounded-13 md:rounded-24 cursor-pointer max-w-144 max-h-144"
-                  data-bs-toggle="tooltip"
-                  data-bs-html="true"
-                  title="<h5 class='text-16 text-blue font-semibold font-montserrat mb-6'>Freilla Mae Espinola</h5><h6 class='text-14 text-blue m-0'>Director of Diversity and Outreach</h6>"
-                  src="{% static "landing/assets/img/people/freilla.png" %}"
-                  data-aos="py-slide"
-                  data-aos-delay="300"
-                />
-              </div>
-            </div>
-            <div
-              class="w-1/3 flex-basis-1/3 md:w-1/5 md:flex-basis-1/5 lg:w-1/5 lg:flex-basis-19 md:mb-12 flex justify-center h-full"
-            >
-              <div class="p-14 md:p-24 xl:p-15">
-                <img
-                  class="w-full h-full object-cover rounded-13 md:rounded-24 cursor-pointer max-w-144 max-h-144"
-                  data-bs-toggle="tooltip"
-                  data-bs-html="true"
-                  title="<h5 class='text-16 text-blue font-semibold font-montserrat mb-6'>Rodney Lei Estrada</h5><h6 class='text-14 text-blue m-0'>Board of Trustee and Corporate Secretary</h6>"
-                  src="{% static "landing/assets/img/people/rodney.jpg" %}"
-                  data-aos="py-slide"
-                  data-aos-delay="400"
-                />
-              </div>
-            </div>
-            <div
-              class="w-1/3 flex-basis-1/3 md:w-1/5 md:flex-basis-1/5 lg:w-1/5 lg:flex-basis-19 md:mb-12 flex justify-center h-full"
-            >
-              <div class="p-14 md:p-24 xl:p-15">
-                <img
-                  class="w-full h-full object-cover rounded-13 md:rounded-24 cursor-pointer max-w-144 max-h-144"
-                  data-bs-toggle="tooltip"
-                  data-bs-html="true"
-                  title="<h5 class='text-16 text-blue font-semibold font-montserrat mb-6'>Lalaine Diok</h5><h6 class='text-14 text-blue m-0'>Director of Marketing</h6>"
-                  src="{% static "landing/assets/img/people/lalaine.jpg" %}"
-                  data-aos="py-slide"
-                  data-aos-delay="400"
-                />
-              </div>
-            </div>
-            <div
-              class="w-1/3 flex-basis-1/3 md:w-1/5 md:flex-basis-1/5 lg:w-1/5 lg:flex-basis-19 md:mb-12 flex justify-center h-full"
-            >
-              <div class="p-14 md:p-24 xl:p-15">
-                <img
-                  class="w-full h-full object-cover rounded-13 md:rounded-24 cursor-pointer max-w-144 max-h-144"
-                  data-bs-toggle="tooltip"
-                  data-bs-html="true"
-                  title="<h5 class='text-16 text-blue font-semibold font-montserrat mb-6'>Alex Reyes</h5><h6 class='text-14 text-blue m-0'>Director of Design</h6>"
-                  src="{% static "landing/assets/img/people/alex.jpg" %}"
-                  data-aos="py-slide"
-                  data-aos-delay="400"
-                />
-              </div>
-            </div>
+          {% endfor %}
           </div>
+
           <h3
             class="md:hidden text-18 text-white text-center mb-20 font-semibold font-montserrat"
             data-aos="py-slide"
@@ -232,25 +101,25 @@
             aria-labelledby="volunteers-tab"
           >
             <div class="w-full md:flex justify-center">
-              {% for commitee in commitees %}
-              <div class="text-center md:w-1/3">
-                <h3
-                  class="text-yellow text-20 font-montserrat mb-9 md:mb-16"
-                  data-aos="py-slide"
-                  data-aos-delay="600"
-                >
-                  {{ commitee.name }}
-                </h3>
-                <ul
-                  class="text-18 mb-26 md:mb-60 list-none"
-                  data-aos="py-slide"
-                  data-aos-delay="700"
-                >
-                {% for volunteer in commitee.volunteers.all %}
-                <li>{{ volunteer.display_name }}</li>
-                {% endfor %}
-                </ul>
-              </div>
+              {% for committee in committees %}
+                <div class="text-center md:w-1/3">
+                  <h3
+                    class="text-yellow text-20 font-montserrat mb-9 md:mb-16"
+                    data-aos="py-slide"
+                    data-aos-delay="600"
+                  >
+                    {{ committee.name }}
+                  </h3>
+                  <ul
+                    class="text-18 mb-26 md:mb-60 list-none"
+                    data-aos="py-slide"
+                    data-aos-delay="700"
+                  >
+                    {% for volunteer in commitee.volunteers.all %}
+                      <li>{{ volunteer.display_name }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
               {% endfor %}
             </div>
           </div>
