@@ -51,11 +51,6 @@ def index(request):
             "image": "landing/assets/img/people/shuny.jpg",
         },
         {
-            "name": "Angelica Lapastora",
-            "position": "Director of Sponsorship",
-            "image": "landing/assets/img/people/anj.jpg",
-        },
-        {
             "name": "Zorex Salvo",
             "position": "Director of Engineering",
             "image": "landing/assets/img/people/zorex.jpg",
@@ -66,15 +61,16 @@ def index(request):
             "image": "landing/assets/img/people/ciara.jpg",
         },
         {
-            "name": "Freilla Mae Espinola",
-            "position": "Director of Diversity and Outreach",
-            "image": "landing/assets/img/people/freilla.png",
-        },
-        {
             "name": "Rodney Lei Estrada",
             "position": "Board of Trustee and Corporate Secretary",
             "image": "landing/assets/img/people/rodney.jpg",
         },
+        {
+            "name": "Cyrus Mante",
+            "position": "Board of Trustee",
+            "image": "landing/assets/img/people/cyrus.jpg",
+        },
+
         {
             "name": "Lalaine Diok",
             "position": "Director of Marketing",
