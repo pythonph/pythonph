@@ -61,6 +61,11 @@ def index(request):
             "image": "landing/assets/img/people/ciara.jpg",
         },
         {
+            "name": "Freilla Mae Espinola",
+            "position": "Director of Diversity and Outreach",
+            "image": "landing/assets/img/people/freilla.png",
+        },
+        {
             "name": "Rodney Lei Estrada",
             "position": "Board of Trustee and Corporate Secretary",
             "image": "landing/assets/img/people/rodney.jpg",
