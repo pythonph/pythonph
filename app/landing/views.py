@@ -35,16 +35,16 @@ def index(request):
         },
     ]
 
-    board_members = [
+    board_of_trustees = [
         {
-            "name": "Matt Lebrun",
+            "name": "Zorex Salvo",
             "position": "President",
-            "image": "landing/assets/img/people/matt.jpg",
+            "image": "landing/assets/img/people/zorex.jpg",
         },
         {
-            "name": "Micaela Reyes",
+            "name": "Freilla Mae Espinola",
             "position": "Director of Operations",
-            "image": "landing/assets/img/people/micaela.jpg",
+            "image": "landing/assets/img/people/freilla.png",
         },
         {
             "name": "Sony Valdez",
@@ -52,19 +52,9 @@ def index(request):
             "image": "landing/assets/img/people/shuny.jpg",
         },
         {
-            "name": "Zorex Salvo",
-            "position": "Director of Engineering",
-            "image": "landing/assets/img/people/zorex.jpg",
-        },
-        {
             "name": "Ciara Bautista",
             "position": "Treasurer",
             "image": "landing/assets/img/people/ciara.jpg",
-        },
-        {
-            "name": "Freilla Mae Espinola",
-            "position": "Director of Diversity and Outreach",
-            "image": "landing/assets/img/people/freilla.png",
         },
         {
             "name": "Rodney Lei Estrada",
@@ -77,6 +67,19 @@ def index(request):
             "image": "landing/assets/img/people/cyrus.jpg",
         },
         {
+            "name": "Matt Lebrun",
+            "position": "Director of Volunteer Training & Engagement",
+            "image": "landing/assets/img/people/matt.jpg",
+        },
+        {
+            "name": "Micaela Reyes",
+            "position": "Board of Trustee",
+            "image": "landing/assets/img/people/micaela.jpg",
+        },
+    ]
+
+    directors = [
+        {
             "name": "Lalaine Diok",
             "position": "Director of Marketing",
             "image": "landing/assets/img/people/lalaine.jpg",
@@ -86,10 +89,25 @@ def index(request):
             "position": "Director of Design",
             "image": "landing/assets/img/people/alex.jpg",
         },
+        {
+            "name": "Kyle Shaun Aquino",
+            "position": "Director of Engineering",
+            "image": "landing/assets/img/people/kyle.jpg",
+        },
+        {
+            "name": "Romar Mayer Micabalo",
+            "position": "Director of Outreach & Diversity",
+            "image": "landing/assets/img/people/romar.jpg",
+        },
     ]
 
     return render(
         request,
         "landing/index.html",
-        {"committees": committees, "python_hour": python_hour, "board_members": board_members},
+        {
+            "committees": committees,
+            "python_hour": python_hour,
+            "board_of_trustees": board_of_trustees,
+            "directors": directors,
+        },
     )

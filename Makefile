@@ -4,6 +4,18 @@ MANAGE=manage.py
 run:
 	$(PYTHON) $(MANAGE) runserver
 
+run-tailwind-setup:
+	$(PYTHON) $(MANAGE) tailwind setup
+
+run-server-tailwind:
+	$(PYTHON) $(MANAGE) tailwind runserver
+
+run-tailwind-watch:
+	$(PYTHON) $(MANAGE) tailwind watch
+
+run-tailwind-build:
+	$(PYTHON) $(MANAGE) tailwind build
+
 run-gunicorn:
 	uv run gunicorn config.wsgi:application -b 0.0.0.0:8000
 

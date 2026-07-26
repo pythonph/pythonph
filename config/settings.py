@@ -50,7 +50,7 @@ if settings.APP_ENV == "development":
 
 THIRD_PARTY_APPS = [
     "corsheaders",
-    "compressor",
+    "django_tailwind_cli",
     "taggit",
     "tinymce",
     "ckeditor",
@@ -187,8 +187,8 @@ USE_TZ = True
 
 # ── Authentication ─────────────────────────────────────────────────
 
-LOGIN_URL = "login"
-LOGIN_REDIRECT_URL = "landing"
+LOGIN_URL = "registration:login"
+LOGIN_REDIRECT_URL = "landing:landing"
 
 # ── Static files ───────────────────────────────────────────────────
 
@@ -199,7 +199,6 @@ STATICFILES_DIRS = [
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-    "compressor.finders.CompressorFinder",
 ]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
@@ -211,11 +210,11 @@ STATIC_URL = "/static/"
 MEDIA_ROOT = BASE_DIR / "mediafiles"
 MEDIA_URL = "/media/"
 
-# ── Django Compressor ──────────────────────────────────────────────
+# ── Tailwind CLI ───────────────────────────────────────────────────
 
-COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = not DEBUG
-COMPRESS_OUTPUT_DIR = "cache"
+TAILWIND_CLI_SRC_CSS = "src/styles/main.css"
+TAILWIND_CLI_DIST_CSS = "css/app.css"
+TAILWIND_CLI_USE_DAISY_UI = True
 
 # ── CKEditor ───────────────────────────────────────────────────────
 

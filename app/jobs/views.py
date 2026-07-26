@@ -1,14 +1,26 @@
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.shortcuts import render
 
 from services.slack_service import SlackService
 
 from .forms import CompanyForm, JobForm
+from .models import Job
+
+JOBS_PER_PAGE = 20
 
 
 def index(request):
-    context = dict(api_version="v1")
+    jobs = (
+        Job.objects.filter(is_approved=True, is_active=True)
+        .select_related("company")
+        .prefetch_related("tags")
+        .order_by("-is_sponsored", "-created_at")
+    )
+    paginator = Paginator(jobs, JOBS_PER_PAGE)
+    page_obj = paginator.get_page(request.GET.get("page"))
+    context = {"page_obj": page_obj}
     return render(request, "jobs/index.html", context)
 
 

@@ -14,7 +14,7 @@ RUN uv sync --frozen --no-dev
 # Copy application
 COPY . .
 
-# Collect static files
-RUN uv run manage.py collectstatic --noinput
+# Build Tailwind CSS and collect static files
+RUN uv run manage.py tailwind build && uv run manage.py collectstatic --noinput
 
 CMD ["gunicorn", "config.wsgi:application", "-b", "0.0.0.0:8000"]

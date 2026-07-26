@@ -1,33 +1,76 @@
-{% extends "jobs/base.html" %}
+{% extends "base.html" %}
 
-{% block jobs_content %}
-<div class="post">
+{% block title %}Post a Job — Python.PH Jobs Board{% endblock %}
 
-{% if job_posted %}
-<h2>Job has been submitted for review</h2>
-<p>
-  We require approval before a job is listed.
-  Check in after a day or two.
-</p>
-{% else %}
-<form action="{% url "jobs:post" %}" method="post">
-  <h2>Post a Job</h2>
-  {% csrf_token %}
-  <div class="company-form">
-  <h3>Company</h3>
-  {{ company_form.as_p }}
-  </div>
-  <div class="job-form">
-  <h3>Job</h3>
-  {{ job_form.as_p }}
-  </div>
-  <p class="submit">
-    <button class="button" type="submit">
-      Submit
-    </button>
-  </p>
-</form>
-{% endif %}
+{% block content %}
+<div class="mx-auto max-w-2xl px-4 py-10">
+  {% if job_posted %}
+    <div class="rounded-box border border-green bg-white p-10 text-center">
+      <h1 class="m-0 text-2xl font-bold text-blue">Job submitted for review</h1>
+      <p class="mt-3 text-blue-2">
+        We require approval before a job is listed. Check in after a day or two.
+      </p>
+      <a href="{% url 'jobs:index' %}" class="btn btn-primary mt-6">Back to Jobs Board</a>
+    </div>
+  {% else %}
+    <h1 class="mb-2 text-3xl font-bold text-blue">Post a Job</h1>
+    <p class="mb-8 text-sm text-blue-2">
+      Submissions are reviewed before appearing on the board.
+    </p>
+    <form action="{% url 'jobs:post' %}" method="post" class="flex flex-col gap-8">
+      {% csrf_token %}
 
+      <fieldset class="rounded-box border border-base-300 bg-white p-6">
+        <legend class="rounded-box bg-blue px-3 py-1 text-sm font-semibold text-white">Company</legend>
+        {% for field in company_form %}
+          <div class="mb-4">
+            <label for="{{ field.id_for_label }}" class="mb-1 block text-sm font-semibold text-blue">
+              {{ field.label }}
+              {% if field.field.required %}<span class="text-pink">*</span>{% endif %}
+            </label>
+            {{ field }}
+            {% if field.help_text %}<p class="mt-1 text-xs opacity-70">{{ field.help_text }}</p>{% endif %}
+            {% for error in field.errors %}<p class="mt-1 text-xs text-pink">{{ error }}</p>{% endfor %}
+          </div>
+        {% endfor %}
+      </fieldset>
+
+      <fieldset class="rounded-box border border-base-300 bg-white p-6">
+        <legend class="rounded-box bg-blue px-3 py-1 text-sm font-semibold text-white">Job</legend>
+        {% for field in job_form %}
+          <div class="mb-4">
+            <label for="{{ field.id_for_label }}" class="mb-1 block text-sm font-semibold text-blue">
+              {{ field.label }}
+              {% if field.field.required %}<span class="text-pink">*</span>{% endif %}
+            </label>
+            {{ field }}
+            {% if field.help_text %}<p class="mt-1 text-xs opacity-70">{{ field.help_text }}</p>{% endif %}
+            {% for error in field.errors %}<p class="mt-1 text-xs text-pink">{{ error }}</p>{% endfor %}
+          </div>
+        {% endfor %}
+        <p class="text-xs opacity-70">Description and profile fields support Markdown.</p>
+      </fieldset>
+
+      {% if company_form.non_field_errors or job_form.non_field_errors %}
+        <div class="alert alert-error text-sm">
+          {{ company_form.non_field_errors }}{{ job_form.non_field_errors }}
+        </div>
+      {% endif %}
+
+      <button type="submit" class="btn btn-primary btn-lg self-start">Submit for Review</button>
+    </form>
+  {% endif %}
 </div>
+
+<script>
+  // Apply DaisyUI styles to Django-rendered form widgets.
+  (function () {
+    document.querySelectorAll("form input:not([type=checkbox]):not([type=radio]):not([type=file]), form select").forEach(function (el) {
+      el.classList.add("input", "input-bordered", "w-full");
+    });
+    document.querySelectorAll("form textarea").forEach(function (el) {
+      el.classList.add("textarea", "textarea-bordered", "w-full");
+    });
+  })();
+</script>
 {% endblock %}

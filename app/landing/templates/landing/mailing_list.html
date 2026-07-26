@@ -1,44 +1,32 @@
-<div class="flex bg-blue-3 items-center text-14 bg-blue-3 px-15 xl:pt-30">
-  <div id="mc_embed_signup" class="sm:w-full md:py-30">
+<div class="flex bg-blue-3 items-center text-sm text-white px-4 py-10">
+  <div class="w-full max-w-[855px] mx-auto text-center">
     <form
       action="https://python.us3.list-manage.com/subscribe/post?u=ff8bbdf3900c2c0f4dca97052&amp;id=f1bffc39a1"
       method="post"
       id="mc-embedded-subscribe-form"
       name="mc-embedded-subscribe-form"
-      class="validate"
       target="_blank"
       novalidate
     >
-      <h2
-        class="text-center mb-18 md:mb-26 xl:mb-18 capitalize font-montserrat text-40"
-        data-aos="py-slide"
-      >
+      <h2 class="text-center mb-5 capitalize font-montserrat text-4xl" data-aos="py-slide">
         Subscribe
       </h2>
-      <div>
-        <div class="text-center md:mb-30 px-15">
-          <p>
-            Subscribe to our mailing list and get interesting stuff and updates
-            to your email inbox.
-          </p>
-        </div>
+      <div class="text-center md:mb-8 px-4">
+        <p>
+          Subscribe to our mailing list and get interesting stuff and updates
+          to your email inbox.
+        </p>
       </div>
-      <div id="mc_embed_signup_scroll">
-        <div class="indicates-required">
-          <span class="asterisk">*</span> indicates required
-        </div>
-        <div class="mc-field-group">
-          <label for="mce-EMAIL"
-            >Email Address <span class="asterisk">*</span>
-          </label>
-          <input
-            type="email"
-            value=""
-            name="EMAIL"
-            class="required email"
-            id="mce-EMAIL"
-          />
-        </div>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 px-4">
+        <label class="sr-only" for="mce-EMAIL">Email Address</label>
+        <input
+          type="email"
+          name="EMAIL"
+          id="mce-EMAIL"
+          placeholder="Email Address"
+          required
+          class="input input-bordered w-full max-w-sm bg-white text-blue"
+        />
         <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
         <div style="position: absolute; left: -5000px" aria-hidden="true">
           <input
@@ -48,20 +36,15 @@
             value=""
           />
         </div>
-        <input
+        <button
           type="submit"
-          value="Subscribe"
           name="subscribe"
-          class="bg-yellow text-blue text-14 rounded-md border-none px-42 md:px-46 py-11 font-montserrat font-semibold"
+          class="btn btn-primary font-montserrat font-semibold px-11 border-none"
           data-aos="py-slide"
           data-aos-delay="200"
-        />
-        <span
-          class="response"
-          id="mce-success-response"
-          style="display: none"
-        />
-        <span class="response" id="mce-error-response" style="display: none" />
+        >
+          Subscribe
+        </button>
       </div>
     </form>
   </div>

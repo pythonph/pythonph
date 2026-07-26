@@ -1,17 +1,92 @@
-{% extends "jobs/base.html" %}
-{% load static %}
-{% load compress %}
+{% extends "base.html" %}
+{% load jobs_extras %}
 
-{% block jobs_content %}
-<div id="jobs"></div>
-{% endblock %}
+{% block title %}Python.PH Jobs Board{% endblock %}
+{% block description %}Python.PH Jobs Board — Python jobs in the Philippines and remote.{% endblock %}
 
-{% block js %}
-{{ block.super }}
-<script>
-  window.apiVersion = "{{ api_version|escapejs }}";
-</script>
-{% compress js %}
-<script src="{% static "jobs/js/dist/main.js" %}"></script>
-{% endcompress %}
+{% block content %}
+<div class="mx-auto max-w-4xl px-4 py-10">
+  <div class="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+    <div>
+      <h1 class="m-0 text-3xl font-bold text-blue">Jobs Board</h1>
+      <p class="m-0 mt-1 text-sm text-blue-2">Python jobs from the community, for the community.</p>
+    </div>
+    {% if user.is_authenticated %}
+      <a href="{% url 'jobs:post' %}" class="btn btn-primary">Post a Job</a>
+    {% else %}
+      <a href="{% url 'registration:login' %}?next={% url 'jobs:post' %}" class="btn btn-primary">Login to Post a Job</a>
+    {% endif %}
+  </div>
+
+  {% if page_obj.object_list %}
+    <div class="flex flex-col gap-4">
+      {% for job in page_obj.object_list %}
+        <article class="card border border-base-300 {% if job.is_sponsored %}border-yellow-1 bg-blue text-white{% else %}bg-white{% endif %}">
+          <div class="card-body p-6">
+            <div class="flex flex-wrap items-start justify-between gap-2">
+              <div>
+                <h2 class="card-title m-0 text-xl">
+                  {% if job.application_url %}
+                    <a href="{{ job.application_url }}" class="{% if job.is_sponsored %}text-yellow{% else %}text-blue{% endif %} no-underline hover:opacity-70">{{ job.title }}</a>
+                  {% else %}
+                    {{ job.title }}
+                  {% endif %}
+                </h2>
+                <p class="m-0 mt-1 text-sm opacity-80">
+                  {{ job.company.name }} · {{ job.location }}
+                </p>
+              </div>
+              {% if job.is_sponsored %}
+                <span class="badge bg-yellow text-blue border-none">Sponsored</span>
+              {% endif %}
+            </div>
+
+            {% if job.tags.all %}
+              <div class="mt-3 flex flex-wrap gap-2">
+                {% for tag in job.tags.all %}
+                  <span class="badge badge-outline {% if job.is_sponsored %}text-white border-white{% endif %}">{{ tag.name }}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+
+            <details class="mt-3">
+              <summary class="cursor-pointer text-sm font-semibold {% if job.is_sponsored %}text-yellow{% else %}text-blue-1{% endif %}">
+                View description
+              </summary>
+              <div class="markdown-content mt-3 text-sm {% if job.is_sponsored %}markdown-content-dark{% endif %}">
+                {{ job.description|render_markdown }}
+              </div>
+            </details>
+
+            <div class="mt-4 flex flex-wrap items-center gap-3">
+              {% if job.application_url %}
+                <a href="{{ job.application_url }}" class="btn btn-primary btn-sm">Apply</a>
+              {% endif %}
+              {% if job.application_email %}
+                <a href="mailto:{{ job.application_email }}" class="btn btn-secondary btn-sm">Apply by Email</a>
+              {% endif %}
+              <span class="text-xs opacity-60">Posted {{ job.created_at|date:"M d, Y" }}</span>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    {% if page_obj.paginator.num_pages > 1 %}
+      <div class="join mt-8 flex justify-center">
+        {% if page_obj.has_previous %}
+          <a href="?page={{ page_obj.previous_page_number }}" class="join-item btn btn-secondary btn-sm">« Prev</a>
+        {% endif %}
+        <span class="join-item btn btn-secondary btn-sm btn-disabled">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+        {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}" class="join-item btn btn-secondary btn-sm">Next »</a>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% else %}
+    <div class="rounded-box border border-base-300 bg-white p-10 text-center">
+      <p class="m-0 text-blue-2">No approved job postings yet. Check back soon!</p>
+    </div>
+  {% endif %}
+</div>
 {% endblock %}

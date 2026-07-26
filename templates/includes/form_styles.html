@@ -1,0 +1,11 @@
+<script>
+  // Apply DaisyUI styles to Django-rendered form widgets.
+  (function () {
+    document.querySelectorAll("form input:not([type=checkbox]):not([type=radio]):not([type=file]):not([type=hidden]):not([type=submit]), form select").forEach(function (el) {
+      el.classList.add("input", "input-bordered", "w-full");
+    });
+    document.querySelectorAll("form textarea").forEach(function (el) {
+      el.classList.add("textarea", "textarea-bordered", "w-full");
+    });
+  })();
+</script>

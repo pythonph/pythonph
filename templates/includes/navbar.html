@@ -1,0 +1,40 @@
+{% load static %}
+
+<nav class="bg-blue text-white">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+    <a href="{% url 'landing:landing' %}" class="flex items-center gap-3 no-underline">
+      <img src="{% static 'landing/assets/img/icon/icon-logo.svg' %}" alt="Python.PH" class="h-9 w-9">
+      <span class="text-lg font-bold text-yellow">Python.PH</span>
+    </a>
+    <button id="nav-toggle" type="button" aria-label="Toggle navigation"
+            class="btn btn-ghost btn-sm text-white md:hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+    <ul class="hidden items-center gap-6 md:flex">
+      <li><a href="https://pycon.python.ph/" class="text-sm text-white no-underline hover:text-yellow">PyCon Philippines</a></li>
+      <li><a href="{% url 'jobs:index' %}" class="text-sm text-white no-underline hover:text-yellow">Job Board</a></li>
+      <li><a href="{% url 'slack:invite' %}" class="text-sm text-white no-underline hover:text-yellow">Slack</a></li>
+      {% if user.is_authenticated %}
+        <li><a href="{% url 'jobs:post' %}" class="btn btn-primary btn-sm">Post a Job</a></li>
+        <li><a href="{% url 'registration:logout' %}" class="text-sm text-white no-underline hover:text-yellow">Logout</a></li>
+      {% else %}
+        <li><a href="{% url 'registration:login' %}" class="text-sm text-white no-underline hover:text-yellow">Login</a></li>
+        <li><a href="{% url 'registration:register' %}" class="btn btn-primary btn-sm">Register</a></li>
+      {% endif %}
+    </ul>
+  </div>
+  <ul id="nav-menu" class="hidden flex-col gap-4 px-4 pb-4 md:hidden">
+    <li><a href="https://pycon.python.ph/" class="block text-white no-underline hover:text-yellow">PyCon Philippines</a></li>
+    <li><a href="{% url 'jobs:index' %}" class="block text-white no-underline hover:text-yellow">Job Board</a></li>
+    <li><a href="{% url 'slack:invite' %}" class="block text-white no-underline hover:text-yellow">Slack</a></li>
+    {% if user.is_authenticated %}
+      <li><a href="{% url 'jobs:post' %}" class="btn btn-primary btn-sm">Post a Job</a></li>
+      <li><a href="{% url 'registration:logout' %}" class="block text-white no-underline hover:text-yellow">Logout</a></li>
+    {% else %}
+      <li><a href="{% url 'registration:login' %}" class="block text-white no-underline hover:text-yellow">Login</a></li>
+      <li><a href="{% url 'registration:register' %}" class="btn btn-primary btn-sm">Register</a></li>
+    {% endif %}
+  </ul>
+</nav>

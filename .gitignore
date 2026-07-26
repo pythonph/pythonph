@@ -19,3 +19,9 @@ npm-debug.log
 # docker-compose
 *.env
 db.sqlite3
+
+# tailwind cli binary (downloaded by django-tailwind-cli)
+.django_tailwind_cli/
+
+# Static files
+/staticfiles/
