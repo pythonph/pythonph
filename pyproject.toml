@@ -1,0 +1,72 @@
+[project]
+name = "pythonph"
+version = "0.1.0"
+description = "Python Philippines website"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "django>=5.2.7",
+    "django-ckeditor>=6.7.3",
+    "django-compressor>=4.5",
+    "django-cors-headers>=4.9.0",
+    "django-filter>=24.0",
+    "django-markdownx>=4.0.11",
+    "django-model-utils>=5.0",
+    "django-taggit>=5.0",
+    "django-tinymce>=5.0.0",
+    "djangorestframework>=3.15",
+    "gunicorn>=23.0.0",
+    "Pillow>=10.0",
+    "psycopg2-binary>=2.9.10",
+    "pydantic-settings>=2.11.0",
+    "requests>=2.32.5",
+    "sentry-sdk[django]>=2.39.0",
+    "setuptools<81",
+    "whitenoise[brotli]>=6.11.0",
+]
+
+[dependency-groups]
+dev = [
+    "django-browser-reload>=1.21.0",
+    "django-debug-toolbar>=4.0",
+    "pre-commit>=4.3.0",
+    "ruff>=0.13.3",
+]
+
+[tool.ruff]
+exclude = [
+    ".direnv",
+    ".git",
+    ".git-rewrite",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+    ".vscode",
+    "node_modules",
+    "migrations",
+]
+line-length = 120
+indent-width = 4
+target-version = "py312"
+
+[tool.ruff.lint]
+ignore = [
+    "E401",
+    "E501",
+    "F401",
+    "ISC001",
+    "D203",
+    "D213",
+    "TRY003",
+    "RUF012",
+    "PT011",
+]
+select = ["F", "E", "W", "C", "N", "R", "I"]
+fixable = ["ALL"]
+extend-select = ["I"]
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D", "ANN"]
+"__init__.py" = ["D"]

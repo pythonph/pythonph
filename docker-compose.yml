@@ -1,21 +1,21 @@
-db:
-  image: postgres:latest
-  environment:
-    - POSTGRES_USER=pythonph
-  env_file: dev.env
+services:
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=pythonph
+    env_file: dev.env
 
-web:
-  build: .
-  volumes:
-    - .:/usr/src/app
-  links:
-    - db:db
-  environment:
-    - PYTHONUNBUFFERED=1
-    - ENV=DEV
-    - POSTGRES_HOST=db
-    - POSTGRES_USER=pythonph
-  env_file: dev.env
-  ports:
-    - 8000:8000
-  command: python manage.py runserver 0.0.0.0:8000
+  web:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+      - db
+    environment:
+      - PYTHONUNBUFFERED=1
+      - APP_ENV=development
+      - DATABASE_URL=postgres://pythonph:pythonph@db:5432/pythonph
+    env_file: dev.env
+    ports:
+      - 8000:8000
+    command: python manage.py runserver 0.0.0.0:8000

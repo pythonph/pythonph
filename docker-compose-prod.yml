@@ -1,32 +1,27 @@
-version: "3"
-
 services:
   source:
     image: pythonph/pythonph
     volumes:
-      - /usr/src/app/venv
-      - /usr/src/app/node_modules
-      - /usr/src/app/bower_components
-      - /usr/src/app/static
+      - /usr/src/app/.venv
+      - /usr/src/app/staticfiles
     environment:
-      - ENV=PROD
+      - APP_ENV=production
     env_file: prod.env
     command: bin/install
-  
+
   web:
     image: pythonph/pythonph
     volumes_from:
       - source
     environment:
-      - ENV=PROD
+      - APP_ENV=production
     env_file: prod.env
-    command: gunicorn -b 0.0.0.0:8000 --access-logfile - --error-logfile - pythonph.wsgi
-  
+    command: gunicorn -b 0.0.0.0:8000 --access-logfile - --error-logfile - config.wsgi:application
+
   nginx:
     build: nginx
     ports:
       - 80:80
       - 443:443
-    links:
-      - web:web
-  
+    depends_on:
+      - web

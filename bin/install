@@ -1,10 +1,10 @@
 #!/bin/bash
 set -e
 
-pip install -r requirements.txt
+pip install --upgrade pip
+pip install uv
 
-mkdir -p static/jobs/js
-npm install
-npm run build-jobs
+uv sync
+
 python manage.py compress
 python manage.py collectstatic --noinput

@@ -1,0 +1,17 @@
+{% extends "jobs/base.html" %}
+{% load static %}
+{% load compress %}
+
+{% block jobs_content %}
+<div id="jobs"></div>
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+<script>
+  window.apiVersion = "{{ api_version|escapejs }}";
+</script>
+{% compress js %}
+<script src="{% static "jobs/js/dist/main.js" %}"></script>
+{% endcompress %}
+{% endblock %}
