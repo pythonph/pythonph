@@ -1,9 +1,6 @@
-from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.shortcuts import render
-
-from services.slack_service import SlackService
 
 from .forms import CompanyForm, JobForm
 from .models import Job
@@ -46,9 +43,6 @@ def post(request):
     else:
         company_form = CompanyForm(instance=company)
         job_form = JobForm()
-
-    if job_posted:
-        SlackService.notify("New job posting: {}".format(job.title), settings.SLACK_BOARD_CHANNEL)
 
     context = {
         "job_posted": job_posted,

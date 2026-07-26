@@ -27,11 +27,3 @@ services:
         value: production
       - key: SECRET_KEY
         generateValue: true
-      - key: SLACK_ORG
-        sync: false
-      - key: SLACK_API_TOKEN
-        sync: false
-      - key: SLACK_BOARD_CHANNEL
-        sync: false
-      - key: SLACK_JOBS_CHANNEL
-        sync: false

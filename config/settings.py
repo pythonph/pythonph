@@ -52,7 +52,6 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "django_tailwind_cli",
     "taggit",
-    "tinymce",
     "ckeditor",
     "markdownx",
     "rest_framework",
@@ -65,8 +64,6 @@ LOCAL_APPS = [
     "app.landing",
     "app.registration",
     "app.jobs",
-    "app.slack",
-    "app.common",
     "app.organisation",
 ]
 
@@ -232,13 +229,6 @@ REST_FRAMEWORK = {
     ],
 }
 
-# ── Slack ──────────────────────────────────────────────────────────
-
-SLACK_ORG = settings.SLACK_ORG
-SLACK_API_TOKEN = settings.SLACK_API_TOKEN
-SLACK_BOARD_CHANNEL = settings.SLACK_BOARD_CHANNEL
-SLACK_JOBS_CHANNEL = settings.SLACK_JOBS_CHANNEL
-
 # ── Debug Toolbar ──────────────────────────────────────────────────
 
 if settings.DEBUG:
@@ -247,5 +237,5 @@ if settings.DEBUG:
 # ── Silenced checks ───────────────────────────────────────────────
 
 SILENCED_SYSTEM_CHECKS = [
-    "ckeditor.W001",  # CKEditor 4 EOL — planned migration to TinyMCE
+    "ckeditor.W001",  # CKEditor 4 EOL — plan to migrate away eventually
 ]

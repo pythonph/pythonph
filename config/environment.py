@@ -1,10 +1,7 @@
 import re
-from pathlib import Path
 
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
-
-BASE_DIR = Path(__file__).resolve().parents[1]
 
 LOCAL_POSTGRES_URL = "postgres://postgres:postgres@localhost"
 
@@ -18,12 +15,6 @@ class Settings(BaseSettings):
     DATABASE_URL: str = Field(default=LOCAL_POSTGRES_URL)
     TRUSTED_ORIGINS: list[str] = Field(default=[])
     SENTRY_DSN: str = Field(default="")
-
-    # Slack integration
-    SLACK_ORG: str = Field(default="")
-    SLACK_API_TOKEN: str = Field(default="")
-    SLACK_BOARD_CHANNEL: str = Field(default="")
-    SLACK_JOBS_CHANNEL: str = Field(default="")
 
     model_config = SettingsConfigDict(
         env_file=".env",
