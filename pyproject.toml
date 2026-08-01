@@ -6,7 +6,6 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "django>=5.2.7",
-    "django-ckeditor>=6.7.3",
     "django-cors-headers>=4.9.0",
     "django-filter>=24.0",
     "django-import-export>=4.2",
@@ -25,6 +24,7 @@ dependencies = [
     "whitenoise[brotli]>=6.11.0",
     "django-debug-toolbar>=4.0",
     "django-browser-reload>=1.21.0",
+    "django-tinymce>=5.0.0",
 ]
 
 [dependency-groups]

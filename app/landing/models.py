@@ -1,11 +1,11 @@
-from ckeditor.fields import RichTextField
 from django.db import models
 from model_utils.models import SoftDeletableModel
+from tinymce.models import HTMLField
 
 
 class Section(SoftDeletableModel):
     name = models.CharField(max_length=255)
-    content = RichTextField()
+    content = HTMLField()
     order = models.PositiveIntegerField(default=0)
 
     def __str__(self):

@@ -9,6 +9,7 @@ urlpatterns = [
     path("", include("app.registration.urls", namespace="registration")),
     path("jobs/", include("app.jobs.urls", namespace="jobs")),
     path("markdownx/", include("markdownx.urls")),
+    path("tinymce/", include("tinymce.urls")),
 ]
 
 urlpatterns.append(path("__reload__/", include("django_browser_reload.urls")))

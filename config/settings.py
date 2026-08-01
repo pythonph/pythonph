@@ -52,7 +52,7 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "django_tailwind_cli",
     "taggit",
-    "ckeditor",
+    "tinymce",
     "markdownx",
     "import_export",
     "rest_framework",
@@ -215,9 +215,27 @@ TAILWIND_CLI_SRC_CSS = "src/styles/main.css"
 TAILWIND_CLI_DIST_CSS = "css/app.css"
 TAILWIND_CLI_USE_DAISY_UI = True
 
-# ── CKEditor ───────────────────────────────────────────────────────
+# ── TinyMCE ───────────────────────────────────────────────────────
 
-CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+TINYMCE_DEFAULT_CONFIG = {
+    "height": 500,
+    # Hide the "Build with TinyMCE" status bar branding and the
+    # "💝 Get all features" promotion link.
+    "branding": False,
+    "promotion": False,
+    "menubar": "file edit view insert format tools table help",
+    "plugins": (
+        "advlist autolink lists link image charmap preview anchor "
+        "searchreplace visualblocks code fullscreen insertdatetime media "
+        "table help wordcount"
+    ),
+    "toolbar": (
+        "undo redo | blocks | bold italic underline | "
+        "alignleft aligncenter alignright alignjustify | "
+        "bullist numlist outdent indent | link image media table | "
+        "removeformat | code fullscreen"
+    ),
+}
 
 # ── REST Framework ─────────────────────────────────────────────────
 
@@ -235,9 +253,3 @@ REST_FRAMEWORK = {
 
 if settings.DEBUG:
     INTERNAL_IPS = ["127.0.0.1"]
-
-# ── Silenced checks ───────────────────────────────────────────────
-
-SILENCED_SYSTEM_CHECKS = [
-    "ckeditor.W001",  # CKEditor 4 EOL — plan to migrate away eventually
-]
