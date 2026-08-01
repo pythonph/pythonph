@@ -54,6 +54,7 @@ THIRD_PARTY_APPS = [
     "taggit",
     "ckeditor",
     "markdownx",
+    "import_export",
     "rest_framework",
 ]
 

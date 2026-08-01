@@ -1,7 +1,9 @@
 from django.contrib import admin
 from django.utils.encoding import force_str
+from import_export.admin import ImportExportMixin
 
 from .models import Event, Section
+from .resources import EventResource, SectionResource
 
 
 class IsArchivedListFilter(admin.SimpleListFilter):
@@ -30,7 +32,8 @@ class IsArchivedListFilter(admin.SimpleListFilter):
         return queryset.filter(is_removed=False)
 
 
-class EventAdmin(admin.ModelAdmin):
+class EventAdmin(ImportExportMixin, admin.ModelAdmin):
+    resource_class = EventResource
     search_fields = (
         "name",
         "location",
@@ -47,7 +50,8 @@ class EventAdmin(admin.ModelAdmin):
 
 
 @admin.register(Section)
-class SectionAdmin(admin.ModelAdmin):
+class SectionAdmin(ImportExportMixin, admin.ModelAdmin):
+    resource_class = SectionResource
     search_fields = ("name",)
     list_filter = (IsArchivedListFilter,)
 
