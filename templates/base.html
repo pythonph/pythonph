@@ -14,7 +14,7 @@
   <link href="{% static 'css/app.css' %}" rel="stylesheet">
   {% block extra_css %}{% endblock %}
 </head>
-<body class="bg-white font-sans text-blue leading-normal">
+<body class="flex min-h-screen flex-col bg-white font-sans text-blue leading-normal">
   {% include "includes/navbar.html" %}
   {% block content %}{% endblock %}
   {% include "includes/footer.html" %}
