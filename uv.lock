@@ -272,6 +272,18 @@ wheels = [
 ]
 
 [[package]]
+name = "django-unfold"
+version = "0.102.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "django" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/6f/97/55babd6f07f510bb94adb95998fc302d28eaa33c4ef8a1e8015645b5c0ab/django_unfold-0.102.0.tar.gz", hash = "sha256:85162f48e402588863d9ae3c963d589535499f7326965899108c705f6b2586cf", size = 1125669, upload-time = "2026-07-27T08:49:55.239Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b6/a4/005e13a319d04eeba442f7923a63ce6a438939e209644671598ddcfb0f8f/django_unfold-0.102.0-py3-none-any.whl", hash = "sha256:08ac9f05331a8923b62f26fe7c82758cfd15cebc5c686e262127dab2553b43ab", size = 1252897, upload-time = "2026-07-27T08:49:53.501Z" },
+]
+
+[[package]]
 name = "djangorestframework"
 version = "3.17.1"
 source = { registry = "https://pypi.org/simple" }
@@ -631,6 +643,7 @@ dependencies = [
     { name = "django-taggit" },
     { name = "django-tailwind-cli" },
     { name = "django-tinymce" },
+    { name = "django-unfold" },
     { name = "djangorestframework" },
     { name = "gunicorn" },
     { name = "openpyxl" },
@@ -661,6 +674,7 @@ requires-dist = [
     { name = "django-taggit", specifier = ">=5.0" },
     { name = "django-tailwind-cli", specifier = ">=4.4.2" },
     { name = "django-tinymce", specifier = ">=5.0.0" },
+    { name = "django-unfold", specifier = ">=0.102.0" },
     { name = "djangorestframework", specifier = ">=3.15" },
     { name = "gunicorn", specifier = ">=23.0.0" },
     { name = "openpyxl", specifier = ">=3.1" },

@@ -23,6 +23,9 @@ setup-db:
 	$(PYTHON) $(MANAGE) makemigrations
 	$(PYTHON) $(MANAGE) migrate
 
+migrate:
+	$(PYTHON) $(MANAGE) migrate
+
 check:
 	$(PYTHON) $(MANAGE) check
 
@@ -54,6 +57,9 @@ install:
 
 install-dev:
 	uv sync --dev
+
+clear-data:
+	$(PYTHON) $(MANAGE) flush --noinput
 
 clean:
 	find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true

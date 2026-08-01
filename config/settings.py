@@ -3,6 +3,9 @@ from pathlib import Path
 
 import django.db.models.signals
 import sentry_sdk
+from django.templatetags.static import static
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
 from sentry_sdk.integrations.django import DjangoIntegration
 
 from config.environment import settings
@@ -68,7 +71,16 @@ LOCAL_APPS = [
     "app.organisation",
 ]
 
+UNFOLD_APPS = [
+    "unfold",
+    "unfold.contrib.filters",
+    "unfold.contrib.forms",
+    "unfold.contrib.inlines",
+    "unfold.contrib.import_export",
+]
+
 INSTALLED_APPS = [
+    *UNFOLD_APPS,
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -253,3 +265,148 @@ REST_FRAMEWORK = {
 
 if settings.DEBUG:
     INTERNAL_IPS = ["127.0.0.1"]
+
+# ── Django Unfold (Admin) ──────────────────────────────────────────
+
+
+def unfold_environment_callback(request):
+    """Return a label and variant for the environment shown in the admin header."""
+    if APP_ENV == "production":
+        return ["Production", "danger"]
+    if APP_ENV == "staging":
+        return ["Staging", "warning"]
+    return ["Development", "info"]
+
+
+UNFOLD = {
+    "SITE_TITLE": "PythonPH Admin",
+    "SITE_HEADER": "PythonPH",
+    "SITE_SUBHEADER": "Admin",
+    "SITE_SYMBOL": "rocket_launch",
+    "ENVIRONMENT": unfold_environment_callback,
+    "BORDER_RADIUS": "6px",
+    "COLORS": {
+        "base": {
+            "50": "#f2f4fb",
+            "100": "#e6e9f7",
+            "200": "#c9d0ee",
+            "300": "#a2b0e0",
+            "400": "#6f83c9",
+            "500": "#4a5dab",
+            "600": "#35467f",
+            "700": "#273460",
+            "800": "#1b254a",
+            "900": "#101c42",
+            "950": "#0a122b",
+        },
+        "primary": {
+            "50": "#fffdf0",
+            "100": "#fef9d8",
+            "200": "#fdf1a8",
+            "300": "#fde876",
+            "400": "#fdde50",
+            "500": "#fdd649",
+            "600": "#e0b41f",
+            "700": "#b88e14",
+            "800": "#8f6a0e",
+            "900": "#6b4d09",
+            "950": "#453005",
+        },
+        "font": {
+            "subtle-light": "var(--color-base-500)",
+            "subtle-dark": "var(--color-base-400)",
+            "default-light": "var(--color-base-600)",
+            "default-dark": "var(--color-base-300)",
+            "important-light": "var(--color-base-900)",
+            "important-dark": "var(--color-base-100)",
+        },
+    },
+    "LOGIN": {
+        "image": lambda request: static("img/login-bg.svg"),
+    },
+    "SIDEBAR": {
+        "show_search": True,
+        "show_all_applications": False,
+        "navigation": [
+            {
+                "title": _("Navigation"),
+                "separator": True,
+                "items": [
+                    {
+                        "title": _("Dashboard"),
+                        "icon": "dashboard",
+                        "link": reverse_lazy("admin:index"),
+                    },
+                ],
+            },
+            {
+                "title": _("Users"),
+                "separator": True,
+                "collapsible": True,
+                "items": [
+                    {
+                        "title": _("Users"),
+                        "icon": "group",
+                        "link": reverse_lazy("admin:auth_user_changelist"),
+                    },
+                    {
+                        "title": _("Groups"),
+                        "icon": "groups",
+                        "link": reverse_lazy("admin:auth_group_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Jobs"),
+                "separator": True,
+                "collapsible": True,
+                "items": [
+                    {
+                        "title": _("Companies"),
+                        "icon": "business",
+                        "link": reverse_lazy("admin:jobs_company_changelist"),
+                    },
+                    {
+                        "title": _("Job posts"),
+                        "icon": "work",
+                        "link": reverse_lazy("admin:jobs_job_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Events"),
+                "separator": True,
+                "collapsible": True,
+                "items": [
+                    {
+                        "title": _("Events"),
+                        "icon": "event",
+                        "link": reverse_lazy("admin:landing_event_changelist"),
+                    },
+                    {
+                        "title": _("Sections"),
+                        "icon": "category",
+                        "link": reverse_lazy("admin:landing_section_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("People"),
+                "separator": True,
+                "collapsible": True,
+                "items": [
+                    {
+                        "title": _("Committees"),
+                        "icon": "groups",
+                        "link": reverse_lazy("admin:organisation_commitee_changelist"),
+                    },
+                    {
+                        "title": _("Volunteers"),
+                        "icon": "volunteer_activism",
+                        "link": reverse_lazy("admin:organisation_volunteer_changelist"),
+                    },
+                ],
+            },
+        ],
+    },
+}

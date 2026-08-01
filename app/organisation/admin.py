@@ -1,16 +1,22 @@
 from django.contrib import admin
-from import_export.admin import ImportExportMixin, ImportExportModelAdmin
+from import_export.admin import ImportExportModelAdmin
+from unfold.admin import ModelAdmin as UnfoldModelAdmin
+from unfold.contrib.import_export.forms import ExportForm, ImportForm
 
 from .models import Commitee, Volunteer
 from .resources import CommiteeResource, VolunteerResource
 
 
-class CommiteeAdmin(ImportExportModelAdmin):
+class CommiteeAdmin(UnfoldModelAdmin, ImportExportModelAdmin):
     resource_class = CommiteeResource
+    import_form_class = ImportForm
+    export_form_class = ExportForm
 
 
-class VolunteerAdmin(ImportExportMixin, admin.ModelAdmin):
+class VolunteerAdmin(UnfoldModelAdmin, ImportExportModelAdmin):
     resource_class = VolunteerResource
+    import_form_class = ImportForm
+    export_form_class = ExportForm
     list_display = (
         "display_name",
         "commitee",

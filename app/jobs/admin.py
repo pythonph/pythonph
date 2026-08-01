@@ -1,13 +1,23 @@
 from django.contrib import admin
-from import_export.admin import ImportExportMixin
-from markdownx.admin import MarkdownxModelAdmin
+from import_export.admin import ImportExportModelAdmin
+from markdownx.models import MarkdownxField
+from markdownx.widgets import AdminMarkdownxWidget
+from unfold.admin import ModelAdmin as UnfoldModelAdmin
+from unfold.contrib.import_export.forms import ExportForm, ImportForm
 
 from .models import Company, Job
 from .resources import CompanyResource, JobResource
 
 
-class ImportExportMarkdownxModelAdmin(ImportExportMixin, MarkdownxModelAdmin):
-    """Django admin with import/export and the markdownx form widget."""
+class ImportExportMarkdownxModelAdmin(UnfoldModelAdmin, ImportExportModelAdmin):
+    """Unfold admin with import/export and the markdownx form widget."""
+
+    import_form_class = ImportForm
+    export_form_class = ExportForm
+
+    formfield_overrides = {
+        MarkdownxField: {"widget": AdminMarkdownxWidget},
+    }
 
 
 class CompanyAdmin(ImportExportMarkdownxModelAdmin):
