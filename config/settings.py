@@ -57,7 +57,7 @@ THIRD_PARTY_APPS = [
     "rest_framework",
 ]
 
-if settings.APP_ENV == "development":
+if settings.DEBUG:
     THIRD_PARTY_APPS.append("django_browser_reload")
 
 LOCAL_APPS = [
@@ -78,7 +78,7 @@ INSTALLED_APPS = [
     *LOCAL_APPS,
 ]
 
-if settings.APP_ENV == "development":
+if settings.DEBUG:
     INSTALLED_APPS.insert(0, "whitenoise.runserver_nostatic")
     INSTALLED_APPS.append("debug_toolbar")
 
@@ -103,14 +103,12 @@ MIDDLEWARE = (
     + (
         [
             "debug_toolbar.middleware.DebugToolbarMiddleware",
+            "django_browser_reload.middleware.BrowserReloadMiddleware",
         ]
         if settings.DEBUG
         else []
     )
-    + [
-        "django_browser_reload.middleware.BrowserReloadMiddleware",
-        *LOCAL_MIDDLEWARE,
-    ]
+    + [*LOCAL_MIDDLEWARE]
 )
 
 # ── URL / WSGI / ASGI ─────────────────────────────────────────────

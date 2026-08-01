@@ -22,11 +22,11 @@ dependencies = [
     "setuptools<81",
     "whitenoise[brotli]>=6.11.0",
     "django-debug-toolbar>=4.0",
+    "django-browser-reload>=1.21.0",
 ]
 
 [dependency-groups]
 dev = [
-    "django-browser-reload>=1.21.0",
     "pre-commit>=4.3.0",
     "ruff>=0.13.3",
 ]
