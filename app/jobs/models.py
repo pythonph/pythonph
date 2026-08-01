@@ -1,12 +1,10 @@
+from django.contrib.auth.models import User
+from django.db import models
 from markdownx.models import MarkdownxField
 from taggit.managers import TaggableManager
 
-from django.contrib.auth.models import User
-from django.db import models
-
 
 class Company(models.Model):
-
     class Meta:
         verbose_name_plural = "companies"
 
@@ -31,21 +29,24 @@ class Company(models.Model):
 class Job(models.Model):
     user = models.ForeignKey(
         User,
-        related_name='jobs',
+        related_name="jobs",
         on_delete=models.CASCADE,
     )
     company = models.ForeignKey(
         Company,
         on_delete=models.CASCADE,
-        related_name='jobs',
+        related_name="jobs",
     )
     is_approved = models.BooleanField(default=False)
     is_sponsored = models.BooleanField(default=False)
     tags = TaggableManager()
 
     title = models.CharField(max_length=255)
+    salary_range = models.CharField(max_length=100, blank=True, null=True)
+    short_description = models.CharField(max_length=100, blank=True, null=True)
     description = MarkdownxField()
     location = models.CharField(max_length=255)
+    is_remote = models.BooleanField(default=False)
     application_url = models.URLField(blank=True, null=True)
     application_email = models.EmailField(blank=True, null=True)
 
@@ -54,4 +55,4 @@ class Job(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return "{} - {}".format(self.company.name, self.title)
+        return f"{self.title} at {self.company.name}"

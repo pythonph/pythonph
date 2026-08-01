@@ -30,6 +30,9 @@ class JobAdmin(ImportExportMarkdownxModelAdmin):
     list_display = (
         "title",
         "company",
+        "location",
+        "salary_range",
+        "is_remote",
         "user",
         "is_active",
         "is_approved",
@@ -37,11 +40,12 @@ class JobAdmin(ImportExportMarkdownxModelAdmin):
         "created_at",
         "updated_at",
     )
-    search_fields = ("title",)
+    search_fields = ("title", "company__name", "location")
     list_filter = (
         "is_approved",
         "is_active",
         "is_sponsored",
+        "is_remote",
     )
 
     def save_model(self, request, obj, form, change):

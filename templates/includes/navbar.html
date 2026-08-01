@@ -15,6 +15,7 @@
     <ul class="hidden items-center gap-6 md:flex">
       <li><a href="https://pycon.python.ph/" class="text-sm text-white no-underline hover:text-yellow">PyCon Philippines</a></li>
       <li><a href="{% url 'jobs:index' %}" class="text-sm text-white no-underline hover:text-yellow">Job Board</a></li>
+      <li><a href="{% url 'jobs:companies' %}" class="text-sm text-white no-underline hover:text-yellow">Companies</a></li>
       {% if user.is_authenticated %}
         <li><a href="{% url 'jobs:post' %}" class="btn btn-primary btn-sm">Post a Job</a></li>
         <li><a href="{% url 'registration:logout' %}" class="text-sm text-white no-underline hover:text-yellow">Logout</a></li>
@@ -27,6 +28,7 @@
   <ul id="nav-menu" class="hidden flex-col gap-4 px-4 pb-4 md:hidden">
     <li><a href="https://pycon.python.ph/" class="block text-white no-underline hover:text-yellow">PyCon Philippines</a></li>
     <li><a href="{% url 'jobs:index' %}" class="block text-white no-underline hover:text-yellow">Job Board</a></li>
+    <li><a href="{% url 'jobs:companies' %}" class="block text-white no-underline hover:text-yellow">Companies</a></li>
     {% if user.is_authenticated %}
       <li><a href="{% url 'jobs:post' %}" class="btn btn-primary btn-sm">Post a Job</a></li>
       <li><a href="{% url 'registration:logout' %}" class="block text-white no-underline hover:text-yellow">Logout</a></li>

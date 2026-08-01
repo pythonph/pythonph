@@ -30,6 +30,7 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "faker>=22.0.0",
     "pre-commit>=4.3.0",
     "ruff>=0.13.3",
 ]

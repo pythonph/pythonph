@@ -1,4 +1,4 @@
-"""DRF router wiring for the Jobs API — replaces Tastypie Api()."""
+"""DRF router wiring for the Jobs API."""
 
 from rest_framework.routers import DefaultRouter
 

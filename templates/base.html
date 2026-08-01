@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="{% static 'css/app.css' %}" rel="stylesheet">
   {% block extra_css %}{% endblock %}
+  {% block extra_head %}{% endblock %}
 </head>
 <body class="flex min-h-screen flex-col bg-white font-sans text-blue leading-normal">
   {% include "includes/navbar.html" %}

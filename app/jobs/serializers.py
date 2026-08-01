@@ -1,4 +1,4 @@
-"""DRF serializers for the Jobs API — replaces Tastypie resources."""
+"""DRF serializers for the Jobs API."""
 
 from django.contrib.auth.models import User
 from rest_framework import serializers
@@ -36,8 +36,11 @@ class JobSerializer(serializers.ModelSerializer):
             "user",
             "company",
             "title",
+            "salary_range",
+            "short_description",
             "description",
             "location",
+            "is_remote",
             "application_url",
             "application_email",
             "is_approved",
