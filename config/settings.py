@@ -187,8 +187,11 @@ LOGIN_REDIRECT_URL = "landing:landing"
 
 # ── Static files ───────────────────────────────────────────────────
 
+STATIC_DIR = BASE_DIR / "static"
+STATIC_DIR.mkdir(parents=True, exist_ok=True)
+
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    STATIC_DIR,
 ]
 
 STATICFILES_FINDERS = [
