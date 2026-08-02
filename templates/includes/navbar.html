@@ -18,7 +18,12 @@
       <li><a href="{% url 'jobs:companies' %}" class="text-sm text-white no-underline hover:text-yellow">Companies</a></li>
       {% if user.is_authenticated %}
         <li><a href="{% url 'jobs:post' %}" class="btn btn-primary btn-sm">Post a Job</a></li>
-        <li><a href="{% url 'registration:logout' %}" class="text-sm text-white no-underline hover:text-yellow">Logout</a></li>
+        <li>
+          <form action="{% url 'registration:logout' %}" method="post" class="inline">
+            {% csrf_token %}
+            <button type="submit" class="text-sm text-white no-underline hover:text-yellow">Logout</button>
+          </form>
+        </li>
       {% else %}
         <li><a href="{% url 'registration:login' %}" class="text-sm text-white no-underline hover:text-yellow">Login</a></li>
         <li><a href="{% url 'registration:register' %}" class="btn btn-primary btn-sm">Register</a></li>
@@ -31,7 +36,12 @@
     <li><a href="{% url 'jobs:companies' %}" class="block text-white no-underline hover:text-yellow">Companies</a></li>
     {% if user.is_authenticated %}
       <li><a href="{% url 'jobs:post' %}" class="btn btn-primary btn-sm">Post a Job</a></li>
-      <li><a href="{% url 'registration:logout' %}" class="block text-white no-underline hover:text-yellow">Logout</a></li>
+      <li>
+        <form action="{% url 'registration:logout' %}" method="post" class="block">
+          {% csrf_token %}
+          <button type="submit" class="text-white no-underline hover:text-yellow">Logout</button>
+        </form>
+      </li>
     {% else %}
       <li><a href="{% url 'registration:login' %}" class="block text-white no-underline hover:text-yellow">Login</a></li>
       <li><a href="{% url 'registration:register' %}" class="btn btn-primary btn-sm">Register</a></li>

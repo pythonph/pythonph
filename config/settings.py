@@ -197,6 +197,11 @@ USE_TZ = True
 
 LOGIN_URL = "registration:login"
 LOGIN_REDIRECT_URL = "landing:landing"
+LOGOUT_REDIRECT_URL = "landing:landing"
+
+AUTHENTICATION_BACKENDS = [
+    "app.registration.backends.EmailBackend",
+]
 
 # ── Static files ───────────────────────────────────────────────────
 
