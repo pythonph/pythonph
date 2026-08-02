@@ -32,6 +32,4 @@ class Command(BaseCommand):
             self.stdout.write(self.style.SUCCESS("All PostgreSQL tables dropped."))
 
         else:
-            self.stdout.write(
-                self.style.ERROR(f"Unsupported database vendor: {vendor}")
-            )
+            self.stdout.write(self.style.ERROR(f"Unsupported database vendor: {vendor}"))
