@@ -61,6 +61,17 @@ install-dev:
 clear-data:
 	$(PYTHON) $(MANAGE) flush --noinput
 
+db-reset:
+	rm -f db.sqlite3
+	$(PYTHON) $(MANAGE) makemigrations
+	$(PYTHON) $(MANAGE) migrate
+	$(PYTHON) $(MANAGE) populate_content
+	$(PYTHON) $(MANAGE) populate_jobs
+	DJANGO_SUPERUSER_USERNAME=admin \
+	DJANGO_SUPERUSER_EMAIL=admin@example.com \
+	DJANGO_SUPERUSER_PASSWORD=admin123 \
+	$(PYTHON) $(MANAGE) createsuperuser --noinput
+
 clean:
 	find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
 	find . -type f -name "*.pyc" -delete

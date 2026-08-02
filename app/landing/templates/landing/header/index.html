@@ -12,12 +12,9 @@
           <span class="text-3xl md:text-5xl font-light flex justify-center md:justify-start">Philippines</span>
         </h1>
       </div>
-      <p class="text-white text-lg text-center px-6 md:text-left md:px-0 mb-6 md:mb-9">
-      PythonPH is a non-stock, non-profit, <strong>volunteer-run</strong>
-      organization dedicated to support and facilitate the
-      growth of the community of Python programmers in the
-      Philippines.
-      </p>
+      <div class="text-white text-lg text-center px-6 md:text-left md:px-0 mb-6 md:mb-9">
+      {{ header_intro.content|safe }}
+      </div>
     </div>
 
     {% include "landing/header/gallery1.html" %}

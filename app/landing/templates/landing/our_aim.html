@@ -32,21 +32,8 @@
           <h2 class="capitalize text-white mb-8 text-2xl font-montserrat" data-aos="py-slide" data-aos-delay="150">
             Our Aim
           </h2>
-          <ul class="text-left text-white leading-[26px] p-0 mb-7">
-            <li class="mb-5" data-aos="py-slide" data-aos-delay="200">
-              To show that <strong>Python has something for everyone</strong>: from hobbyists, to educators, to students, to professionals.
-            </li>
-            <li class="mb-5" data-aos="py-slide" data-aos-delay="250">
-              To <strong>inspire Filipinos to excel in their craft</strong> through Python and Open Source.
-            </li>
-            <li class="mb-5" data-aos="py-slide" data-aos-delay="300">
-              To <strong>provide a safe space</strong> where the Python programming language and surrounding technologies can be explored, discussed and exercised.
-            </li>
-          </ul>
+          {{ our_aim.content|safe }}
         </div>
-        <p class="mb-5 text-white text-lg leading-[26px]" data-aos="py-slide" data-aos-delay="150">
-        We believe that we <strong>create small dents of improvement</strong> in the <strong>PH Tech industry</strong> when we foster environments that <strong>inspire</strong> and <strong>motivate</strong> individuals to be <strong>technically competent</strong> and <strong>passionate</strong> about their <strong>craft</strong>.
-        </p>
         <a class="btn btn-primary text-lg font-montserrat font-semibold px-11 border-none" data-aos="py-slide" data-aos-delay="200" href="mailto:info@python.ph">
           Get to know us
         </a>

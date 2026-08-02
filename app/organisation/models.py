@@ -14,7 +14,9 @@ class Volunteer(SoftDeletableModel):
     first_name = models.CharField(max_length=128)
     last_name = models.CharField(max_length=128)
     title = models.CharField(max_length=255, blank=True, default="")
+    image = models.CharField(max_length=255, blank=True, default="")
     is_staff = models.BooleanField(default=False)
+    order = models.PositiveIntegerField(default=0)
     commitee = models.ForeignKey(
         Commitee,
         blank=True,
@@ -25,3 +27,6 @@ class Volunteer(SoftDeletableModel):
 
     def __str__(self):
         return self.display_name
+
+    class Meta(object):
+        ordering = ["order"]

@@ -1,0 +1,148 @@
+Board of Trustees:
+  - display_name: Zorex Salvo
+    first_name: Zorex
+    last_name: Salvo
+    title: President
+    image: landing/assets/img/people/zorex.jpg
+    order: 1
+  - display_name: Freilla Mae Espinola
+    first_name: Freilla Mae
+    last_name: Espinola
+    title: Director of Operations
+    image: landing/assets/img/people/freilla.png
+    order: 2
+  - display_name: Sony Valdez
+    first_name: Sony
+    last_name: Valdez
+    title: Director of Community Relations
+    image: landing/assets/img/people/shuny.jpg
+    order: 3
+  - display_name: Ciara Bautista
+    first_name: Ciara
+    last_name: Bautista
+    title: Treasurer
+    image: landing/assets/img/people/ciara.jpg
+    order: 4
+  - display_name: Rodney Lei Estrada
+    first_name: Rodney Lei
+    last_name: Estrada
+    title: Board of Trustee and Corporate Secretary
+    image: landing/assets/img/people/rodney.jpg
+    order: 5
+  - display_name: Cyrus Mante
+    first_name: Cyrus
+    last_name: Mante
+    title: Board of Trustee
+    image: landing/assets/img/people/cyrus.jpg
+    order: 6
+  - display_name: Matt Lebrun
+    first_name: Matt
+    last_name: Lebrun
+    title: Director of Volunteer Training & Engagement
+    image: landing/assets/img/people/matt.jpg
+    order: 7
+  - display_name: Micaela Reyes
+    first_name: Micaela
+    last_name: Reyes
+    title: Board of Trustee
+    image: landing/assets/img/people/micaela.jpg
+    order: 8
+
+Directors:
+  - display_name: Lalaine Diok
+    first_name: Lalaine
+    last_name: Diok
+    title: Director of Marketing
+    image: landing/assets/img/people/lalaine.jpg
+    order: 1
+  - display_name: Alex Reyes
+    first_name: Alex
+    last_name: Reyes
+    title: Director of Design
+    image: landing/assets/img/people/alex.jpg
+    order: 2
+  - display_name: Kyle Shaun Aquino
+    first_name: Kyle Shaun
+    last_name: Aquino
+    title: Director of Engineering
+    image: landing/assets/img/people/kyle.jpg
+    order: 3
+  - display_name: Romar Mayer Micabalo
+    first_name: Romar Mayer
+    last_name: Micabalo
+    title: Director of Outreach & Diversity
+    image: landing/assets/img/people/romar.jpg
+    order: 4
+
+Engineering:
+  - display_name: Kyle Shaun Aquino
+    first_name: Kyle
+    last_name: Aquino
+  - display_name: Renan Matthew Fajardo
+    first_name: Renan Matthew
+    last_name: Fajardo
+  - display_name: Zorex Salvo
+    first_name: Zorex
+    last_name: Salvo
+    image: landing/assets/img/people/zorex.jpg
+  - display_name: Will Vincent Parrone
+    first_name: Will Vincent
+    last_name: Parrone
+
+Finance:
+  - display_name: Ciara Bautista
+    first_name: Ciara
+    last_name: Bautista
+    image: landing/assets/img/people/ciara.jpg
+  - display_name: Angelo Joe Delos Santos
+    first_name: Angelo Joe
+    last_name: Delos Santos
+
+Volunteer Engagement (Kaizend):
+  - display_name: Matt Lebrun
+    first_name: Matt
+    last_name: Lebrun
+    image: landing/assets/img/people/matt.jpg
+  - display_name: Micaela Reyes
+    first_name: Micaela
+    last_name: Reyes
+    image: landing/assets/img/people/micaela.jpg
+
+Meetup Programs:
+  - display_name: Jim Aerol Barcos
+    first_name: Jim Aerol
+    last_name: Barcos
+  - display_name: Christian Joseph Zamora
+    first_name: Christian Joseph
+    last_name: Zamora
+  - display_name: Rodney Lei Estrada
+    first_name: Rodney Lei
+    last_name: Estrada
+    image: landing/assets/img/people/rodney.jpg
+  - display_name: Novelle Lyn Estrella
+    first_name: Novelle Lyn
+    last_name: Estrella
+  - display_name: Janine Bagares
+    first_name: Janine
+    last_name: Bagares
+  - display_name: Muriell Emmanuel July Maza
+    first_name: Muriell Emmanuel July
+    last_name: Maza
+
+Diversity and Outreach:
+  - display_name: Freilla Mae Espinola
+    first_name: Freilla Mae
+    last_name: Espinola
+    image: landing/assets/img/people/freilla.png
+
+Logistics:
+  - display_name: Joshua Kyle Beltran
+    first_name: Joshua Kyle
+    last_name: Beltran
+  - display_name: Cyrus Mante
+    first_name: Cyrus
+    last_name: Mante
+    image: landing/assets/img/people/cyrus.jpg
+  - display_name: Danyssa Tamayo
+    first_name: Danyssa
+    last_name: Tamayo

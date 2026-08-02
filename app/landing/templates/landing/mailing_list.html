@@ -12,10 +12,7 @@
         Subscribe
       </h2>
       <div class="text-center md:mb-8 px-4">
-        <p>
-          Subscribe to our mailing list and get interesting stuff and updates
-          to your email inbox.
-        </p>
+        {{ mailing_list.content|safe }}
       </div>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 px-4">
         <label class="sr-only" for="mce-EMAIL">Email Address</label>

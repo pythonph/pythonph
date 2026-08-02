@@ -4,6 +4,8 @@ from tinymce.models import HTMLField
 
 
 class Section(SoftDeletableModel):
+    slug = models.SlugField(max_length=255, unique=True)
+    title = models.CharField(max_length=255, blank=True, default="")
     name = models.CharField(max_length=255)
     content = HTMLField()
     order = models.PositiveIntegerField(default=0)

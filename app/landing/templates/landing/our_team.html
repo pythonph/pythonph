@@ -34,11 +34,11 @@
             {% for member in board_of_trustees %}
             <div class="w-1/3 md:w-1/5 flex justify-center h-full">
               <div class="p-4 md:p-6 xl:p-4">
-                <div class="tooltip tooltip-bottom" data-tip="{{ member.name }} — {{ member.position }}">
+                <div class="tooltip tooltip-bottom" data-tip="{{ member.display_name }} — {{ member.title }}">
                   <img
                     class="w-full aspect-square object-cover rounded-[13px] md:rounded-[24px] cursor-pointer max-w-[144px]"
                     src="{% static member.image %}"
-                    alt="{{ member.name }}"
+                    alt="{{ member.display_name }}"
                     data-aos="py-slide"
                   />
                 </div>
@@ -54,11 +54,11 @@
             {% for member in directors %}
             <div class="w-1/3 md:w-1/5 flex justify-center h-full">
               <div class="p-4 md:p-6 xl:p-4">
-                <div class="tooltip tooltip-bottom" data-tip="{{ member.name }} — {{ member.position }}">
+                <div class="tooltip tooltip-bottom" data-tip="{{ member.display_name }} — {{ member.title }}">
                   <img
                     class="w-full aspect-square object-cover rounded-[13px] md:rounded-[24px] cursor-pointer max-w-[144px]"
                     src="{% static member.image %}"
-                    alt="{{ member.name }}"
+                    alt="{{ member.display_name }}"
                     data-aos="py-slide"
                   />
                 </div>
@@ -73,7 +73,7 @@
         </h3>
         <div id="team-tab-volunteers" class="flex flex-wrap justify-center w-full md:hidden">
           <div class="w-full md:flex justify-center flex-wrap">
-            {% for committee in committees %}
+            {% for committee in core_committees %}
             <div class="text-center md:w-1/3">
               <h3 class="text-yellow text-xl font-montserrat mb-2 md:mb-4" data-aos="py-slide" data-aos-delay="600">
                 {{ committee.name }}

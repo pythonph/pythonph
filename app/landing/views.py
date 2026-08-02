@@ -1,83 +1,42 @@
 from django.shortcuts import render
 
-from app.organisation.models import Commitee
+from app.landing.models import Section
+from app.organisation.models import Commitee, Volunteer
 
 
 def index(request):
-    committees = Commitee.available_objects.prefetch_related("volunteers")
+    board_of_trustees = Volunteer.available_objects.filter(
+        commitee__name="Board of Trustees",
+    ).order_by("order")
 
-    board_of_trustees = [
-        {
-            "name": "Zorex Salvo",
-            "position": "President",
-            "image": "landing/assets/img/people/zorex.jpg",
-        },
-        {
-            "name": "Freilla Mae Espinola",
-            "position": "Director of Operations",
-            "image": "landing/assets/img/people/freilla.png",
-        },
-        {
-            "name": "Sony Valdez",
-            "position": "Director of Community Relations",
-            "image": "landing/assets/img/people/shuny.jpg",
-        },
-        {
-            "name": "Ciara Bautista",
-            "position": "Treasurer",
-            "image": "landing/assets/img/people/ciara.jpg",
-        },
-        {
-            "name": "Rodney Lei Estrada",
-            "position": "Board of Trustee and Corporate Secretary",
-            "image": "landing/assets/img/people/rodney.jpg",
-        },
-        {
-            "name": "Cyrus Mante",
-            "position": "Board of Trustee",
-            "image": "landing/assets/img/people/cyrus.jpg",
-        },
-        {
-            "name": "Matt Lebrun",
-            "position": "Director of Volunteer Training & Engagement",
-            "image": "landing/assets/img/people/matt.jpg",
-        },
-        {
-            "name": "Micaela Reyes",
-            "position": "Board of Trustee",
-            "image": "landing/assets/img/people/micaela.jpg",
-        },
-    ]
+    directors = Volunteer.available_objects.filter(
+        commitee__name="Directors",
+    ).order_by("order")
 
-    directors = [
-        {
-            "name": "Lalaine Diok",
-            "position": "Director of Marketing",
-            "image": "landing/assets/img/people/lalaine.jpg",
-        },
-        {
-            "name": "Alex Reyes",
-            "position": "Director of Design",
-            "image": "landing/assets/img/people/alex.jpg",
-        },
-        {
-            "name": "Kyle Shaun Aquino",
-            "position": "Director of Engineering",
-            "image": "landing/assets/img/people/kyle.jpg",
-        },
-        {
-            "name": "Romar Mayer Micabalo",
-            "position": "Director of Outreach & Diversity",
-            "image": "landing/assets/img/people/romar.jpg",
-        },
-    ]
-
-    return render(
-        request,
-        "landing/index.html",
-        {
-            "committees": committees,
-            "board_of_trustees": board_of_trustees,
-            "directors": directors,
-        },
+    core_committees = Commitee.available_objects.exclude(name__in=["Board of Trustees", "Directors"]).prefetch_related(
+        "volunteers"
     )
+
+    context = {
+        "core_committees": core_committees,
+        "board_of_trustees": board_of_trustees,
+        "directors": directors,
+    }
+
+    # Add each landing-page section as a named context variable so
+    # templates can render {{ our_aim.content|safe }} etc.
+    section_slugs = [
+        "header_intro",
+        "our_aim",
+        "why_python",
+        "what_we_do_intro",
+        "code_of_conduct",
+        "mailing_list",
+    ]
+    for slug in section_slugs:
+        try:
+            context[slug] = Section.available_objects.get(slug=slug)
+        except Section.DoesNotExist:
+            pass
+
+    return render(request, "landing/index.html", context)
