@@ -62,9 +62,9 @@ clear-data:
 	$(PYTHON) $(MANAGE) flush --noinput
 
 db-reset:
+	$(PYTHON) $(MANAGE) reset_db
 	$(PYTHON) $(MANAGE) makemigrations
 	$(PYTHON) $(MANAGE) migrate
-	$(PYTHON) $(MANAGE) flush --noinput
 	$(PYTHON) $(MANAGE) populate_content
 	$(PYTHON) $(MANAGE) populate_jobs
 	DJANGO_SUPERUSER_USERNAME=admin \
