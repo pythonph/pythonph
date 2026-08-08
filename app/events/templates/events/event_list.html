@@ -28,7 +28,7 @@
        class="group relative block overflow-hidden rounded-2xl border border-yellow/20 hover:border-yellow/40 bg-gradient-to-br from-white/[0.05] to-white/[0.02] mb-8 transition-all duration-200 no-underline">
       {% if featured.cover_image %}
       <div class="relative h-52 md:h-64 overflow-hidden">
-        <img src="{{ featured.cover_image }}" alt="{{ featured.name }}"
+        <img src="{{ featured.cover_image.url }}" alt="{{ featured.name }}"
              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
         <div class="absolute inset-0 bg-gradient-to-t from-blue via-blue/30 to-transparent"></div>
       </div>
@@ -90,7 +90,7 @@
           <div class="shrink-0">
             {% if event.cover_image %}
             <div class="w-full sm:w-44 h-28 rounded-lg overflow-hidden bg-white/[0.04]">
-              <img src="{{ event.cover_image }}" alt="{{ event.name }}"
+              <img src="{{ event.cover_image.url }}" alt="{{ event.name }}"
                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
             </div>
             {% else %}

@@ -11,6 +11,7 @@ dependencies = [
     "django-import-export>=4.2",
     "django-markdownx>=4.0.11",
     "django-model-utils>=5.0",
+    "django-storages[s3]>=1.14.4",
     "django-taggit>=5.0",
     "django-tailwind-cli>=4.4.2",
     "django-unfold>=0.102.0",

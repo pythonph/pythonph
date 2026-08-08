@@ -218,7 +218,6 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 WHITENOISE_MAX_AGE = 86400  # 24 hours
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
@@ -226,6 +225,44 @@ STATIC_URL = "/static/"
 
 MEDIA_ROOT = BASE_DIR / "mediafiles"
 MEDIA_URL = "/media/"
+
+# ── Storage ────────────────────────────────────────────────────────
+# Uploaded media goes to Cloudflare R2 (S3-compatible) when credentials are
+# configured; otherwise it falls back to the local filesystem (MEDIA_ROOT).
+# Static files always stay on WhiteNoise.
+
+if settings.use_r2():
+    print("Using Cloudflare R2 for media storage")
+    STORAGES = {
+        "default": {
+            "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+        },
+        "staticfiles": {
+            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        },
+    }
+
+    AWS_ACCESS_KEY_ID = settings.R2_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY = settings.R2_SECRET_ACCESS_KEY
+    AWS_STORAGE_BUCKET_NAME = settings.R2_BUCKET_NAME
+    AWS_S3_ENDPOINT_URL = f"https://{settings.R2_ACCOUNT_ID}.r2.cloudflarestorage.com"
+    AWS_S3_REGION_NAME = "auto"
+    AWS_S3_SIGNATURE_VERSION = "s3v4"
+    AWS_QUERYSTRING_AUTH = False  # public bucket — no signed URLs
+    AWS_DEFAULT_ACL = None  # R2 does not support object ACLs
+    AWS_S3_OBJECT_PARAMETERS = {"CacheControl": "max-age=86400"}
+    if settings.R2_PUBLIC_URL:
+        AWS_S3_CUSTOM_DOMAIN = settings.R2_PUBLIC_URL
+else:
+    print("Using local filesystem for media storage")
+    STORAGES = {
+        "default": {
+            "BACKEND": "django.core.files.storage.FileSystemStorage",
+        },
+        "staticfiles": {
+            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        },
+    }
 
 # ── Tailwind CLI ───────────────────────────────────────────────────
 

@@ -13,6 +13,7 @@ npm-debug.log
 /venv/*
 /static/*
 /media/*
+/mediafiles/
 /bower_components/*
 /node_modules/*
 

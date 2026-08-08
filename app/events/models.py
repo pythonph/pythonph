@@ -9,7 +9,7 @@ class Event(SoftDeletableModel):
     schedule = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
     description = HTMLField(blank=True, default="")
-    cover_image = models.CharField(max_length=255)
+    cover_image = models.ImageField(upload_to="events/covers/", blank=True, default="")
     link = models.CharField(max_length=255, blank=True, default="")
     order = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)

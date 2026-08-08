@@ -16,6 +16,14 @@ class Settings(BaseSettings):
     TRUSTED_ORIGINS: list[str] = Field(default=[])
     SENTRY_DSN: str = Field(default="")
 
+    # Cloudflare R2 (S3-compatible) media storage. Leave empty to fall back
+    # to the local filesystem (MEDIA_ROOT).
+    R2_ACCOUNT_ID: str = Field(default="")
+    R2_ACCESS_KEY_ID: str = Field(default="")
+    R2_SECRET_ACCESS_KEY: str = Field(default="")
+    R2_BUCKET_NAME: str = Field(default="")
+    R2_PUBLIC_URL: str = Field(default="")
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
@@ -42,6 +50,17 @@ class Settings(BaseSettings):
         regex = r"postgresql://(.*?):(.*?)@(.*?)/(.*)"
         user, pwd, host, name = re.match(regex, self.DATABASE_URL).groups()
         return {"NAME": name, "HOST": host, "USER": user, "PASSWORD": pwd, "PORT": 5432}
+
+    def use_r2(self) -> bool:
+        """Return True when all required Cloudflare R2 credentials are set."""
+        return all(
+            [
+                self.R2_ACCOUNT_ID,
+                self.R2_ACCESS_KEY_ID,
+                self.R2_SECRET_ACCESS_KEY,
+                self.R2_BUCKET_NAME,
+            ]
+        )
 
 
 settings = Settings()

@@ -124,6 +124,37 @@ monitoring probes.
 
 Note: For the dockerized development setup, run `./bin/build-dev && ./bin/deploy-dev` for changes to reflect.
 
+## Media Storage (Cloudflare R2)
+
+Uploaded media (event cover images, volunteer/team photos) is stored in
+[Cloudflare R2](https://django-storages.readthedocs.io/en/latest/backends/s3_compatible/cloudflare-r2.html)
+via `django-storages` + `boto3`. Static files are unaffected and stay on
+WhiteNoise.
+
+When the R2 credentials below are set, Django's default storage becomes the
+S3-compatible `S3Boto3Storage` backend pointed at your bucket. When they are
+missing (e.g. local development), it falls back to the local filesystem
+(`MEDIA_ROOT` / `mediafiles/`).
+
+Add these to your `.env` (or Render env vars):
+
+```bash
+R2_ACCOUNT_ID=your-account-id
+R2_ACCESS_KEY_ID=your-access-key-id
+R2_SECRET_ACCESS_KEY=your-secret-access-key
+R2_BUCKET_NAME=pythonph-media
+R2_PUBLIC_URL=media.python.ph   # optional: custom domain
+```
+
+Setup steps:
+
+1. Create an R2 bucket in the Cloudflare dashboard.
+2. Create an API token with **Object Read & Write** permission scoped to that bucket.
+3. Make the bucket publicly accessible (public bucket or a custom domain) so
+   `AWS_QUERYSTRING_AUTH=False` serves files without signed URLs.
+4. Set `R2_PUBLIC_URL` to your custom domain to serve uploaded files from it;
+   leave it blank to use the bucket's r2.dev URL.
+
 ## Deployment
 
 Deployed on [Render](https://render.com/). See `render.yaml` for service
