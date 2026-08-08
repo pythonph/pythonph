@@ -271,8 +271,7 @@ TAILWIND_CLI_USE_DAISY_UI = True
 
 TINYMCE_DEFAULT_CONFIG = {
     "height": 500,
-    # Hide the "Build with TinyMCE" status bar branding and the
-    # "💝 Get all features" promotion link.
+    "license_key": "gpl",
     "branding": False,
     "promotion": False,
     "menubar": "file edit view insert format tools table help",
@@ -325,6 +324,12 @@ UNFOLD = {
     "SITE_SYMBOL": "rocket_launch",
     "ENVIRONMENT": unfold_environment_callback,
     "BORDER_RADIUS": "6px",
+    "STYLES": [
+        lambda request: static("css/tinymce-theme.css"),
+    ],
+    "SCRIPTS": [
+        lambda request: static("js/tinymce-theme.js"),
+    ],
     "COLORS": {
         "base": {
             "50": "#f2f4fb",
@@ -377,22 +382,15 @@ UNFOLD = {
                         "icon": "dashboard",
                         "link": reverse_lazy("admin:index"),
                     },
-                ],
-            },
-            {
-                "title": _("Users"),
-                "separator": True,
-                "collapsible": True,
-                "items": [
                     {
-                        "title": _("Users"),
-                        "icon": "group",
-                        "link": reverse_lazy("admin:auth_user_changelist"),
+                        "title": _("Sections"),
+                        "icon": "category",
+                        "link": reverse_lazy("admin:landing_section_changelist"),
                     },
                     {
-                        "title": _("Groups"),
-                        "icon": "groups",
-                        "link": reverse_lazy("admin:auth_group_changelist"),
+                        "title": _("Events"),
+                        "icon": "event",
+                        "link": reverse_lazy("admin:events_event_changelist"),
                     },
                 ],
             },
@@ -414,27 +412,20 @@ UNFOLD = {
                 ],
             },
             {
-                "title": _("Events"),
+                "title": _("Users"),
                 "separator": True,
                 "collapsible": True,
                 "items": [
                     {
-                        "title": _("Events"),
-                        "icon": "event",
-                        "link": reverse_lazy("admin:events_event_changelist"),
+                        "title": _("Users"),
+                        "icon": "group",
+                        "link": reverse_lazy("admin:auth_user_changelist"),
                     },
                     {
-                        "title": _("Sections"),
-                        "icon": "category",
-                        "link": reverse_lazy("admin:landing_section_changelist"),
+                        "title": _("Groups"),
+                        "icon": "groups",
+                        "link": reverse_lazy("admin:auth_group_changelist"),
                     },
-                ],
-            },
-            {
-                "title": _("People"),
-                "separator": True,
-                "collapsible": True,
-                "items": [
                     {
                         "title": _("Committees"),
                         "icon": "groups",

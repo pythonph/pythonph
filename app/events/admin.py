@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.utils.encoding import force_str
 from import_export.admin import ImportExportModelAdmin
+from tinymce.models import HTMLField
+from tinymce.widgets import AdminTinyMCE
 from unfold.admin import ModelAdmin as UnfoldModelAdmin
 from unfold.contrib.import_export.forms import ExportForm, ImportForm
 
@@ -39,6 +41,7 @@ class EventAdmin(UnfoldModelAdmin, ImportExportModelAdmin):
     resource_class = EventResource
     import_form_class = ImportForm
     export_form_class = ExportForm
+    formfield_overrides = {HTMLField: {"widget": AdminTinyMCE}}
     prepopulated_fields = {"slug": ("name",)}
     search_fields = (
         "name",

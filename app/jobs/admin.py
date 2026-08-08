@@ -1,5 +1,7 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
+from tinymce.models import HTMLField
+from tinymce.widgets import AdminTinyMCE
 from unfold.admin import ModelAdmin as UnfoldModelAdmin
 from unfold.contrib.import_export.forms import ExportForm, ImportForm
 
@@ -12,6 +14,7 @@ class UnfoldImportExportAdmin(UnfoldModelAdmin, ImportExportModelAdmin):
 
     import_form_class = ImportForm
     export_form_class = ExportForm
+    formfield_overrides = {HTMLField: {"widget": AdminTinyMCE}}
 
 
 class CompanyAdmin(UnfoldImportExportAdmin):
