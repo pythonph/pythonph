@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
-from markdownx.models import MarkdownxField
 from taggit.managers import TaggableManager
+from tinymce.models import HTMLField
 
 
 class Company(models.Model):
@@ -16,7 +16,7 @@ class Company(models.Model):
     )
 
     name = models.CharField(max_length=255)
-    profile = MarkdownxField()
+    profile = HTMLField()
     homepage = models.URLField()
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -44,7 +44,7 @@ class Job(models.Model):
     title = models.CharField(max_length=255)
     salary_range = models.CharField(max_length=100, blank=True, null=True)
     short_description = models.CharField(max_length=100, blank=True, null=True)
-    description = MarkdownxField()
+    description = HTMLField()
     location = models.CharField(max_length=255)
     is_remote = models.BooleanField(default=False)
     application_url = models.URLField(blank=True, null=True)

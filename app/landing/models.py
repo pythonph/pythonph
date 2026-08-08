@@ -6,7 +6,7 @@ from tinymce.models import HTMLField
 class SiteSettings(models.Model):
     """Singleton model for site-wide settings editable via the Django admin."""
 
-    show_navbar_logo = models.BooleanField(default=False)
+    show_navbar_logo = models.BooleanField(default=True)
     auth_enabled = models.BooleanField(default=False)
 
     class Meta:

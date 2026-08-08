@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
             name='SiteSettings',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('show_navbar_logo', models.BooleanField(default=False)),
+                ('show_navbar_logo', models.BooleanField(default=True)),
                 ('auth_enabled', models.BooleanField(default=False)),
             ],
             options={

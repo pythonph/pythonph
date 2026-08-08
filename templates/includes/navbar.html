@@ -1,6 +1,6 @@
 {% load static %}
 
-<nav class="bg-blue text-white pb-10">
+<nav class="bg-blue text-white">
   <div class="mx-auto flex max-w-6xl items-center px-4 py-4">
     {% if site_settings.show_navbar_logo and request.resolver_match.view_name != 'landing:landing' %}
       <a href="{% url 'landing:landing' %}" class="flex items-center gap-3 no-underline">

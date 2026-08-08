@@ -56,7 +56,6 @@ THIRD_PARTY_APPS = [
     "django_tailwind_cli",
     "taggit",
     "tinymce",
-    "markdownx",
     "import_export",
     "rest_framework",
 ]
@@ -232,7 +231,6 @@ MEDIA_URL = "/media/"
 # Static files always stay on WhiteNoise.
 
 if settings.use_r2():
-    print("Using Cloudflare R2 for media storage")
     STORAGES = {
         "default": {
             "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
@@ -254,7 +252,6 @@ if settings.use_r2():
     if settings.R2_PUBLIC_URL:
         AWS_S3_CUSTOM_DOMAIN = settings.R2_PUBLIC_URL
 else:
-    print("Using local filesystem for media storage")
     STORAGES = {
         "default": {
             "BACKEND": "django.core.files.storage.FileSystemStorage",

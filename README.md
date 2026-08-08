@@ -13,7 +13,7 @@ and DaisyUI.
 | Static Files     | WhiteNoise (with Brotli compression)                                                            |
 | ASGI/WSGI        | Gunicorn (WSGI) / Django ASGI                                                                   |
 | Error Tracking   | Sentry SDK                                                                                      |
-| Editor/Rich Text | TinyMCE (django-tinymce), django-markdownx                                                      |
+| Editor/Rich Text | TinyMCE (django-tinymce)                                                                        |
 | Task Runner      | GNU Make + uv                                                                                   |
 | Linting          | Ruff, pre-commit                                                                                |
 | Deploy           | Render (via `deploy/build.sh` + `deploy/start.sh`)                                              |

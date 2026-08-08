@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load jobs_extras %}
 
 {% block title %}{{ job.title }} at {{ job.company.name }} — Python.PH Jobs Board{% endblock %}
 {% block description %}{{ job.short_description|default:job.title }}{% endblock %}
@@ -61,7 +60,7 @@
         <div class="card-body p-6">
           <h2 class="m-0 mb-4 text-xl font-bold text-blue">Job Description</h2>
           <div class="markdown-content">
-            {{ job.description|render_markdown }}
+            {{ job.description|safe }}
           </div>
         </div>
       </div>

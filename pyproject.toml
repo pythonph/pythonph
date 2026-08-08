@@ -9,7 +9,6 @@ dependencies = [
     "django-cors-headers>=4.9.0",
     "django-filter>=24.0",
     "django-import-export>=4.2",
-    "django-markdownx>=4.0.11",
     "django-model-utils>=5.0",
     "django-storages[s3]>=1.14.4",
     "django-taggit>=5.0",

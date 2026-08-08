@@ -222,20 +222,6 @@ wheels = [
 ]
 
 [[package]]
-name = "django-markdownx"
-version = "4.0.11"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "django" },
-    { name = "markdown" },
-    { name = "pillow" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/fb/b0/0e453f0d2277b64746063204cad9c82bb79bde76364dc038aeb3b7b71faf/django_markdownx-4.0.11.tar.gz", hash = "sha256:0f2a4552174af98b621522eb36c8d1009a7f73d2bf591d973a34fc65cc740680", size = 36260, upload-time = "2026-05-23T14:19:24.599Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/06/84/c8b963d092132fae8e6436179a015d769b735b15b9400f10b02c0d525ebe/django_markdownx-4.0.11-py2.py3-none-any.whl", hash = "sha256:65d32d8892a3f9d678b149b7a0c3a073db6c6c10955df1c4f453b38eb96d163e", size = 46172, upload-time = "2026-05-23T14:19:23.194Z" },
-]
-
-[[package]]
 name = "django-model-utils"
 version = "5.0.0"
 source = { registry = "https://pypi.org/simple" }
@@ -398,15 +384,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/d3/59/322338183ecda247fb5d1763a6cbe46eff7222eaeebafd9fa65d4bf5cb11/jmespath-1.1.0.tar.gz", hash = "sha256:472c87d80f36026ae83c6ddd0f1d05d4e510134ed462851fd5f754c8c3cbb88d", size = 27377, upload-time = "2026-01-22T16:35:26.279Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/14/2f/967ba146e6d58cf6a652da73885f52fc68001525b4197effc174321d70b4/jmespath-1.1.0-py3-none-any.whl", hash = "sha256:a5663118de4908c91729bea0acadca56526eb2698e83de10cd116ae0f4e97c64", size = 20419, upload-time = "2026-01-22T16:35:24.919Z" },
-]
-
-[[package]]
-name = "markdown"
-version = "3.10.2"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/2b/f4/69fa6ed85ae003c2378ffa8f6d2e3234662abd02c10d216c0ba96081a238/markdown-3.10.2.tar.gz", hash = "sha256:994d51325d25ad8aa7ce4ebaec003febcce822c3f8c911e3b17c52f7f589f950", size = 368805, upload-time = "2026-02-09T14:57:26.942Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/de/1f/77fa3081e4f66ca3576c896ae5d31c3002ac6607f9747d2e3aa49227e464/markdown-3.10.2-py3-none-any.whl", hash = "sha256:e91464b71ae3ee7afd3017d9f358ef0baf158fd9a298db92f1d4761133824c36", size = 108180, upload-time = "2026-02-09T14:57:25.787Z" },
 ]
 
 [[package]]
@@ -716,7 +693,6 @@ dependencies = [
     { name = "django-debug-toolbar" },
     { name = "django-filter" },
     { name = "django-import-export" },
-    { name = "django-markdownx" },
     { name = "django-model-utils" },
     { name = "django-storages", extra = ["s3"] },
     { name = "django-taggit" },
@@ -749,7 +725,6 @@ requires-dist = [
     { name = "django-debug-toolbar", specifier = ">=4.0" },
     { name = "django-filter", specifier = ">=24.0" },
     { name = "django-import-export", specifier = ">=4.2" },
-    { name = "django-markdownx", specifier = ">=4.0.11" },
     { name = "django-model-utils", specifier = ">=5.0" },
     { name = "django-storages", extras = ["s3"], specifier = ">=1.14.4" },
     { name = "django-taggit", specifier = ">=5.0" },
