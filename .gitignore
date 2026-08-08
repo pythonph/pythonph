@@ -17,6 +17,10 @@ npm-debug.log
 /bower_components/*
 /node_modules/*
 
+# Keep committed static source assets under static/img/ (e.g. login-bg.svg).
+# static/css/ stays ignored: it is regenerated on deploy by `tailwind build`.
+!/static/img/
+
 # docker-compose
 *.env
 db.sqlite3
