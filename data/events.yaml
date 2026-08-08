@@ -1,0 +1,42 @@
+- name: PythonAsia Philippines 2026
+  schedule: March 21-23, 2026
+  location: De La Salle University (DLSU), Malate, Manila
+  link: https://2026.pythonasia.org/
+  description: |
+    <p>The goal of the conference is to provide a venue where the Python programming language and surrounding technologies can be explored, discussed and exercised.</p>
+    <p>We gather software engineers, programming enthusiasts, startup founders, corporate IT decision makers, students and IT educators in a 2-day event.</p>
+  order: 0
+
+- name: PythonPH Meetups
+  schedule: Monthly, Every 3rd Thursday
+  location: Various locations in Metro Manila
+  link: https://www.meetup.com/pythonph/
+  description: |
+    <p>Regular meetups where professionals and enthusiasts share and talk about Python. Topics range from beginner-friendly introductions to advanced Python concepts.</p>
+  order: 1
+
+- name: PythonPH WFH Pythonista
+  schedule: Monthly, Every 2nd Saturday
+  location: Online
+  link: https://www.meetup.com/pythonph/
+  description: |
+    <p>A monthly virtual webinar talk show series where we interview Pythonistas representing <b>various roles</b> and <b>industries</b>.
+       to give people in the community an insight of what a typical workday looks like.</p> </br> </br>
+    <p>We also showcase how <b>Pythonistas think outside the box</b> while being inside the comforts of their own homes.</p>
+  order: 2
+
+- name: Public Python Trainings
+  schedule: Quarterly
+  location: Online & In-Person
+  link: https://ti.to/pythonph/
+  description: |
+    <p>Low-cost Python Trainings covering various topics including web development, data science, and automation. Open to everyone from beginners to experienced developers.</p>
+  order: 3
+
+- name: Kaizend Leadership Program
+  schedule: By Invitation
+  location: Manila, Philippines
+  link: ""
+  description: |
+    <p>A mastermind group and exclusive training program for core volunteers. This program is aimed to develop technically competent leaders and systematize succession plans for PythonPH.</p>
+  order: 4

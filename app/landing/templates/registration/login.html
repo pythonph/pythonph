@@ -6,7 +6,7 @@
 <div class="mx-auto max-w-md px-4 py-16">
   <div class="rounded-box border border-base-300 bg-white p-8">
     <h1 class="mb-6 text-2xl font-bold text-blue">Login</h1>
-    <form action="{% url 'registration:login' %}" method="post">
+    <form action="{% url 'landing:login' %}" method="post">
       {% csrf_token %}
       <input type="hidden" name="next" value="{{ next }}" />
       {% for field in form %}
@@ -21,7 +21,7 @@
       {% endif %}
       <button type="submit" class="btn btn-primary w-full">Login</button>
       <p class="mt-4 text-center text-sm text-blue-2">
-        No account yet? <a href="{% url 'registration:register' %}" class="text-blue-1 hover:underline">Register</a>
+        No account yet? <a href="{% url 'landing:register' %}" class="text-blue-1 hover:underline">Register</a>
       </p>
     </form>
   </div>

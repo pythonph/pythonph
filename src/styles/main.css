@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Raleway:wght@300;400;700;800&family=Source+Sans+Pro:wght@300;400;600;700&display=swap");
 
 @plugin "daisyui";
+@plugin "@tailwindcss/typography";
 
 /* Brand tokens ported from the old Tailwind v2 build (styles.css blob). */
 @theme {

@@ -4,8 +4,8 @@ from import_export.admin import ImportExportModelAdmin
 from unfold.admin import ModelAdmin as UnfoldModelAdmin
 from unfold.contrib.import_export.forms import ExportForm, ImportForm
 
-from .models import Section, SiteSettings
-from .resources import SectionResource
+from .models import Event
+from .resources import EventResource
 
 
 class IsArchivedListFilter(admin.SimpleListFilter):
@@ -34,25 +34,26 @@ class IsArchivedListFilter(admin.SimpleListFilter):
         return queryset.filter(is_removed=False)
 
 
-@admin.register(Section)
-class SectionAdmin(UnfoldModelAdmin, ImportExportModelAdmin):
-    resource_class = SectionResource
+@admin.register(Event)
+class EventAdmin(UnfoldModelAdmin, ImportExportModelAdmin):
+    resource_class = EventResource
     import_form_class = ImportForm
     export_form_class = ExportForm
-    search_fields = ("name",)
+    prepopulated_fields = {"slug": ("name",)}
+    search_fields = (
+        "name",
+        "location",
+        "slug",
+    )
     list_filter = (IsArchivedListFilter,)
+    list_display = (
+        "name",
+        "location",
+        "schedule",
+        "order",
+        "created_at",
+    )
+    list_editable = ("order",)
 
     def get_queryset(self, request):
-        return Section.all_objects.all()
-
-
-@admin.register(SiteSettings)
-class SiteSettingsAdmin(UnfoldModelAdmin):
-    """Keep a single editable SiteSettings row."""
-
-    def has_add_permission(self, request):
-        # Only allow one singleton instance.
-        return not SiteSettings.objects.exists()
-
-    def has_delete_permission(self, request, obj=None):
-        return False
+        return Event.all_objects.all()

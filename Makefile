@@ -67,6 +67,7 @@ db-reset:
 	$(PYTHON) $(MANAGE) migrate
 	$(PYTHON) $(MANAGE) populate_content
 	$(PYTHON) $(MANAGE) populate_jobs
+	$(PYTHON) $(MANAGE) populate_events
 	DJANGO_SUPERUSER_USERNAME=admin \
 	DJANGO_SUPERUSER_EMAIL=admin@example.com \
 	DJANGO_SUPERUSER_PASSWORD=admin123 \

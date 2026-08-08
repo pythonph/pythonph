@@ -12,116 +12,80 @@
 
     <!-- OUR EVENTS SECTION -->
     <div class="mb-18 md:mb-25">
-      <div class="text-center mb-7">
+      <div class="text-center mb-10">
         <h2 class="capitalize font-montserrat text-4xl" data-aos="py-slide" data-aos-delay="350">
           Our Events
         </h2>
       </div>
 
-      <!-- Mobile accordion for events (DaisyUI collapse) -->
-      <div class="md:hidden">
-        <div class="collapse collapse-arrow bg-transparent rounded-[10px] border-2 border-yellow-1 px-[18px] mb-4" data-aos="py-slide">
-          <input type="checkbox" />
-          <div class="collapse-title font-montserrat text-xl px-0">
-            PyCon Philippines
-          </div>
-          <div class="collapse-content px-0">
-            <p>
-            The goal of the conference is to provide a venue where the Python programming language and surrounding technologies can be explored, discussed and exercised.
+      {% if latest_events %}
+      <div class="grid gap-5 md:grid-cols-2">
+        {% for event in latest_events %}
+        <a href="{% url 'events:event_detail' event.slug %}"
+           class="group relative flex flex-col overflow-hidden rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.14] hover:bg-white/[0.05] transition-all duration-200 no-underline hover:-translate-y-0.5"
+           data-aos="py-slide" data-aos-delay="{{ forloop.counter0 }}00">
+          <!-- Accent bar -->
+          <span class="absolute inset-x-0 top-0 h-1 {% cycle 'bg-yellow-1' 'bg-pink' 'bg-blue-1' 'bg-green' %}"></span>
+
+          <div class="flex flex-col flex-1 p-5 md:p-6 pt-6 md:pt-7">
+            <h3 class="font-montserrat text-lg md:text-xl text-white group-hover:text-yellow transition-colors leading-snug mb-3">
+              {{ event.name }}
+            </h3>
+
+            <!-- Meta row -->
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-white/70 text-sm mb-3">
+              {% if event.schedule %}
+              <span class="inline-flex items-center gap-1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                {{ event.schedule }}
+              </span>
+              {% endif %}
+              {% if event.location %}
+              <span class="inline-flex items-center gap-1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                {{ event.location }}
+              </span>
+              {% endif %}
+            </div>
+
+            {% if event.description %}
+            <p class="text-white/70 text-sm leading-relaxed line-clamp-3 mb-4">
+              {{ event.description|striptags|truncatewords:28 }}
             </p>
-            <p>
-            We gather software engineers, programming enthusiasts, startup founders, corporate IT decision makers, students and IT educators in a 2-day event where we can collaborate and learn from each other.
-            </p>
+            {% endif %}
+
+            <span class="inline-flex items-center gap-1 text-xs font-montserrat tracking-wide text-white/50 group-hover:text-yellow transition-colors mt-auto">
+              Learn more
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
           </div>
-        </div>
-        <div class="collapse collapse-arrow bg-transparent rounded-[10px] border-2 border-pink px-[18px] mb-4" data-aos="py-slide" data-aos-delay="100">
-          <input type="checkbox" />
-          <div class="collapse-title font-montserrat text-xl px-0">
-            Meetups
-          </div>
-          <div class="collapse-content px-0">
-            <p>
-            Regular meetups where professionals and enthusiasts share and talk about Python.
-            </p>
-          </div>
-        </div>
-        <div class="collapse collapse-arrow bg-transparent rounded-[10px] border-2 border-blue-1 px-[18px] mb-4" data-aos="py-slide" data-aos-delay="200">
-          <input type="checkbox" />
-          <div class="collapse-title font-montserrat text-xl px-0">
-            Public Python Trainings
-          </div>
-          <div class="collapse-content px-0">
-            <p>
-            Low-cost Python Trainings covering various topics.
-            </p>
-          </div>
-        </div>
-        <div class="collapse collapse-arrow bg-transparent rounded-[10px] border-2 border-green px-[18px] mb-4" data-aos="py-slide" data-aos-delay="300">
-          <input type="checkbox" />
-          <div class="collapse-title font-montserrat text-xl px-0">
-            Kaizend
-          </div>
-          <div class="collapse-content px-0">
-            <p>
-            A mastermind group and exclusive training program for core volunteers. This program is aimed to develop technically competent leaders and systematize succession plans for PythonPH.
-            </p>
-          </div>
-        </div>
+        </a>
+        {% endfor %}
       </div>
 
-      <!-- Desktop events display -->
-      <div class="hidden md:block">
-        <div class="bg-transparent rounded-[10px] border-2 border-yellow-1 px-[30px] mb-4 py-3" data-aos="py-slide" data-aos-delay="400">
-          <h3 class="font-montserrat text-xl m-0 text-left py-3">
-            <a href="https://pycon.python.ph/" class="text-white no-underline hover:text-yellow">PyCon Philippines</a>
-          </h3>
-          <div class="pb-3 pt-0 px-0">
-            <p>
-            The goal of the conference is to provide a venue where the Python programming language and surrounding technologies can be explored, discussed and exercised.
-            </p>
-            <p>
-            We gather software engineers, programming enthusiasts, startup founders, corporate IT decision makers, students and IT educators in a 2-day event where we can collaborate and learn from each other.
-            </p>
-          </div>
-        </div>
-        <div class="bg-transparent rounded-[10px] border-2 border-pink px-[30px] mb-4 py-3" data-aos="py-slide" data-aos-delay="100">
-          <h3 class="font-montserrat text-xl m-0 text-left py-3">
-            <a href="https://www.meetup.com/pythonph/" class="text-white no-underline hover:text-yellow">Meetups</a>
-          </h3>
-          <div class="pb-3 pt-0 px-0">
-            <p>
-            Regular meetups where professionals and enthusiasts share and talk about Python.
-            </p>
-          </div>
-        </div>
-        <div class="bg-transparent rounded-[10px] border-2 border-blue-1 px-[30px] mb-4 py-3" data-aos="py-slide" data-aos-delay="150">
-          <h3 class="font-montserrat text-xl m-0 text-left py-3">
-            <a href="https://ti.to/pythonph/" class="text-white no-underline hover:text-yellow">Public Python Trainings</a>
-          </h3>
-          <div class="pb-3 pt-0 px-0">
-            <p>
-            Low-cost Python Trainings covering various topics.
-            </p>
-          </div>
-        </div>
-        <div class="bg-transparent rounded-[10px] border-2 border-green px-[30px] mb-4 py-3" data-aos="py-slide" data-aos-delay="200">
-          <h3 class="font-montserrat text-xl m-0 text-left py-3">
-            <a href="https://drive.google.com/file/d/1KwVVqDj61mVgk3gxwh9isqu5GYDJMtrF/view" class="text-white no-underline hover:text-yellow">Kaizend</a>
-          </h3>
-          <div class="pb-3 pt-0 px-0">
-            <p>
-            A mastermind group and exclusive training program for core volunteers. This program is aimed to develop technically competent leaders and systematize succession plans for PythonPH.
-            </p>
-          </div>
-        </div>
+      <!-- View all CTA -->
+      <div class="text-center mt-10" data-aos="py-slide" data-aos-delay="200">
+        <a href="{% url 'events:events' %}"
+           class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-yellow/40 text-yellow font-montserrat text-sm tracking-wide no-underline
+                  hover:bg-yellow hover:text-blue transition-all duration-200">
+          View all events
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
       </div>
-    </div>
-
-    <!-- WFH PYTHONISTA SECTION -->
-    <div data-aos="fade-left">
-      <img src="{% static "landing/assets/img/WFH_Pythonista.png" %}" class="w-full rounded-[10px] object-cover" alt="WFH Pythonista" />
-      <br/>
-      <iframe class="youtube-embed rounded-[10px] w-full max-w-[560px] aspect-video" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLCBCxsuKTqkDXxXKWnWzldHUvdYbpCLij" title="WFH Pythonista" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      {% else %}
+      <div class="text-center py-8 text-white/50">
+        <p class="text-lg">No upcoming events at the moment. Check back soon!</p>
+      </div>
+      {% endif %}
     </div>
   </div>
 </div>

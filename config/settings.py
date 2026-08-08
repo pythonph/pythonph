@@ -66,8 +66,8 @@ if settings.DEBUG:
 
 LOCAL_APPS = [
     "app.landing",
-    "app.registration",
     "app.jobs",
+    "app.events",
     "app.organisation",
 ]
 
@@ -145,6 +145,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "app.landing.context_processors.site_settings",
             ],
         },
     },
@@ -195,12 +196,12 @@ USE_TZ = True
 
 # ── Authentication ─────────────────────────────────────────────────
 
-LOGIN_URL = "registration:login"
+LOGIN_URL = "landing:login"
 LOGIN_REDIRECT_URL = "landing:landing"
 LOGOUT_REDIRECT_URL = "landing:landing"
 
 AUTHENTICATION_BACKENDS = [
-    "app.registration.backends.EmailBackend",
+    "app.landing.backends.EmailBackend",
 ]
 
 # ── Static files ───────────────────────────────────────────────────
@@ -386,7 +387,7 @@ UNFOLD = {
                     {
                         "title": _("Events"),
                         "icon": "event",
-                        "link": reverse_lazy("admin:landing_event_changelist"),
+                        "link": reverse_lazy("admin:events_event_changelist"),
                     },
                     {
                         "title": _("Sections"),

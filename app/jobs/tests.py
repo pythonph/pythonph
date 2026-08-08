@@ -108,7 +108,7 @@ class JobsViewsTestCase(TestCase):
     def test_post_requires_login(self):
         response = self.client.get(reverse("jobs:post"))
         self.assertEqual(response.status_code, 302)
-        self.assertIn(reverse("registration:login"), response.url)
+        self.assertIn(reverse("landing:login"), response.url)
 
     def test_api_returns_approved_active_with_new_fields(self):
         response = self.client.get(reverse("jobs:job-list"))

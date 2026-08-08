@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Events — Python Philippines{% endblock %}
+
+{% block content %}
+<div class="bg-blue min-h-screen font-sourcesanspro">
+  <!-- Hero Header -->
+  <div class="relative overflow-hidden border-b border-white/[0.06]">
+    <div class="w-full px-4 lg:px-0 max-w-4xl mx-auto py-20 md:py-28 text-center">
+      <p class="font-montserrat text-xs tracking-[0.25em] uppercase text-yellow mb-4">Community</p>
+      <h1 class="font-montserrat text-4xl md:text-5xl text-white mb-4">Events</h1>
+      <p class="text-white/80 text-lg max-w-lg mx-auto leading-relaxed">
+        Discover meetups, conferences, and trainings happening in the Philippine Python community.
+      </p>
+    </div>
+    <!-- Subtle decorative circles -->
+    <div class="absolute -top-20 -right-20 w-64 h-64 rounded-full border border-white/[0.03]"></div>
+    <div class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full border border-white/[0.03]"></div>
+  </div>
+
+  <!-- Events List -->
+  <div class="w-full px-4 lg:px-0 max-w-4xl mx-auto py-12 md:py-16">
+    {% if events %}
+    <!-- Featured Event -->
+    {% with featured=events.0 %}
+    <a href="{% url 'events:event_detail' featured.slug %}"
+       class="group relative block overflow-hidden rounded-2xl border border-yellow/20 hover:border-yellow/40 bg-gradient-to-br from-white/[0.05] to-white/[0.02] mb-8 transition-all duration-200 no-underline">
+      {% if featured.cover_image %}
+      <div class="relative h-52 md:h-64 overflow-hidden">
+        <img src="{{ featured.cover_image }}" alt="{{ featured.name }}"
+             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-blue via-blue/30 to-transparent"></div>
+      </div>
+      {% endif %}
+      <div class="p-6 md:p-8">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-yellow/10 border border-yellow/30 text-yellow text-[11px] font-montserrat tracking-[0.15em] uppercase mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+          </svg>
+          Featured
+        </span>
+        <h2 class="font-montserrat text-2xl md:text-3xl text-white group-hover:text-yellow transition-colors leading-tight mb-3">
+          {{ featured.name }}
+        </h2>
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-white/70 text-sm mb-5">
+          {% if featured.schedule %}
+          <span class="inline-flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-yellow/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            {{ featured.schedule }}
+          </span>
+          {% endif %}
+          {% if featured.location %}
+          <span class="inline-flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-yellow/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            {{ featured.location }}
+          </span>
+          {% endif %}
+        </div>
+        {% if featured.description %}
+        <p class="text-white/70 leading-relaxed line-clamp-3 mb-5 max-w-2xl">
+          {{ featured.description|striptags|truncatewords:40 }}
+        </p>
+        {% endif %}
+        <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-yellow text-blue font-semibold text-sm group-hover:bg-yellow/90 transition-colors">
+          View event details
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </span>
+      </div>
+    </a>
+    {% endwith %}
+
+    {% if events|length > 1 %}
+    <h2 class="font-montserrat text-sm tracking-[0.2em] uppercase text-white/40 mb-4">More events</h2>
+    {% endif %}
+    <div class="space-y-4">
+      {% for event in events %}
+      {% if not forloop.first %}
+      <a href="{% url 'events:event_detail' event.slug %}"
+         class="group block bg-white/[0.03] hover:bg-white/[0.06] rounded-xl border border-white/[0.06] hover:border-white/[0.12] p-5 md:p-6 transition-all duration-200 no-underline">
+        <div class="flex flex-col sm:flex-row gap-5">
+          <!-- Thumbnail / Date Badge Column -->
+          <div class="shrink-0">
+            {% if event.cover_image %}
+            <div class="w-full sm:w-44 h-28 rounded-lg overflow-hidden bg-white/[0.04]">
+              <img src="{{ event.cover_image }}" alt="{{ event.name }}"
+                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+            {% else %}
+            <div class="w-full sm:w-44 h-28 rounded-lg bg-white/[0.04] flex flex-col items-center justify-center gap-2 border border-white/[0.06] group-hover:border-yellow/30 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white/25 group-hover:text-yellow/60 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span class="text-[10px] text-white/30 group-hover:text-yellow/60 transition-colors font-montserrat tracking-[0.2em]">EVENT</span>
+            </div>
+            {% endif %}
+          </div>
+
+          <!-- Content Column -->
+          <div class="flex-1 min-w-0 flex flex-col justify-center">
+            <div class="flex items-start justify-between gap-3 mb-2">
+              <h2 class="font-montserrat text-lg md:text-xl text-white group-hover:text-yellow transition-colors leading-snug">
+                {{ event.name }}
+              </h2>
+            </div>
+
+            <!-- Meta row -->
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-white/70 text-sm mb-3">
+              {% if event.schedule %}
+              <span class="inline-flex items-center gap-1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                {{ event.schedule }}
+              </span>
+              {% endif %}
+              {% if event.location %}
+              <span class="inline-flex items-center gap-1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                {{ event.location }}
+              </span>
+              {% endif %}
+            </div>
+
+            {% if event.description %}
+            <p class="text-white/70 text-sm leading-relaxed line-clamp-2">
+              {{ event.description|striptags|truncatewords:30 }}
+            </p>
+            {% endif %}
+
+            <!-- Subtle arrow on hover -->
+            <span class="inline-flex items-center gap-1 text-xs font-montserrat tracking-wide text-white/50 group-hover:text-yellow transition-colors mt-3">
+              View details
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% else %}
+    <!-- Empty State -->
+    <div class="text-center py-20">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/[0.04] border border-white/[0.06] mb-5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white/25" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+      </div>
+      <p class="text-white/60 text-lg mb-2">No events scheduled yet</p>
+      <p class="text-white/40 text-sm">Check back soon for upcoming community events.</p>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

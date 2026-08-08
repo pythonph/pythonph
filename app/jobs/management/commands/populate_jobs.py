@@ -52,8 +52,8 @@ class Command(BaseCommand):
         user = User.objects.filter(is_staff=True).first()
         if user is None:
             user, _ = User.objects.get_or_create(
-                username="demo",
-                defaults={"email": "demo@example.com", "is_staff": True},
+                username="jobs",
+                defaults={"email": "jobs@example.com", "is_staff": True},
             )
 
         companies = []

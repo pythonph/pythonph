@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ event.name }} — Python Philippines{% endblock %}
+
+{% block description %}{{ event.name }} — {{ event.schedule }}{% if event.location %} at {{ event.location }}{% endif %}{% endblock %}
+
+{% block content %}
+<div class="bg-blue min-h-screen font-sourcesanspro">
+  <!-- Back navigation -->
+  <div class="w-full px-4 lg:px-0 max-w-4xl mx-auto pt-8 md:pt-10">
+    <a href="{% url 'events:events' %}"
+       class="inline-flex items-center gap-1.5 text-white/50 hover:text-yellow text-sm no-underline transition-colors group">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      All Events
+    </a>
+  </div>
+
+  <!-- Hero Banner -->
+  <div class="w-full px-4 lg:px-0 max-w-4xl mx-auto pt-6 pb-10">
+    {% if event.cover_image %}
+    <div class="relative rounded-2xl overflow-hidden mb-8 aspect-video bg-white/[0.03]">
+      <img src="{{ event.cover_image }}" alt="{{ event.name }}"
+           class="absolute inset-0 w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-blue via-blue/40 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+        <h1 class="font-montserrat text-2xl md:text-4xl text-white leading-tight drop-shadow-lg">
+          {{ event.name }}
+        </h1>
+      </div>
+    </div>
+    {% else %}
+    <h1 class="font-montserrat text-3xl md:text-4xl text-white leading-tight mb-8">
+      {{ event.name }}
+    </h1>
+    {% endif %}
+
+    <!-- Meta Bar -->
+    <div class="flex flex-wrap items-center gap-3 md:gap-5 mb-10">
+      {% if event.schedule %}
+      <div class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white/[0.04] border border-white/[0.06]">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <span class="text-white/80 text-sm leading-none">{{ event.schedule }}</span>
+      </div>
+      {% endif %}
+      {% if event.location %}
+      <div class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white/[0.04] border border-white/[0.06]">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        <span class="text-white/80 text-sm leading-none">{{ event.location }}</span>
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Description -->
+    {% if event.description %}
+    <div class="prose prose-invert max-w-none
+                prose-p:text-white/85 prose-p:leading-relaxed prose-p:text-base
+                prose-strong:text-white prose-strong:font-semibold
+                prose-a:text-yellow prose-a:no-underline hover:prose-a:underline
+                prose-li:text-white/70">
+      {{ event.description|safe }}
+    </div>
+    {% endif %}
+
+    <!-- CTA Button -->
+    {% if event.link %}
+    <div class="mt-10 pt-8 border-t border-white/[0.06]">
+      <a href="{{ event.link }}" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-yellow text-blue font-semibold text-sm no-underline
+                hover:bg-yellow/90 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-yellow/10
+                transition-all duration-200">
+        Register / Learn More
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </a>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- More Events -->
+  {% if other_events %}
+  <div class="w-full px-4 lg:px-0 max-w-4xl mx-auto pb-10">
+    <div class="pt-8 border-t border-white/[0.06]">
+      <h2 class="font-montserrat text-sm tracking-[0.2em] uppercase text-white/40 mb-5">More events</h2>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {% for other in other_events %}
+        <a href="{% url 'events:event_detail' other.slug %}"
+           class="group flex flex-col rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.14] hover:bg-white/[0.05] p-5 transition-all duration-200 no-underline hover:-translate-y-0.5">
+          <h3 class="font-montserrat text-base text-white group-hover:text-yellow transition-colors leading-snug mb-2.5">
+            {{ other.name }}
+          </h3>
+          <div class="flex flex-col gap-1.5 text-white/60 text-xs mb-4">
+            {% if other.schedule %}
+            <span class="inline-flex items-center gap-1.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              {{ other.schedule }}
+            </span>
+            {% endif %}
+            {% if other.location %}
+            <span class="inline-flex items-center gap-1.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              {{ other.location }}
+            </span>
+            {% endif %}
+          </div>
+          <span class="inline-flex items-center gap-1 text-xs font-montserrat tracking-wide text-white/50 group-hover:text-yellow transition-colors mt-auto">
+            View details
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Footer nav -->
+  <div class="w-full px-4 lg:px-0 max-w-4xl mx-auto pb-16 md:pb-20">
+    <div class="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <a href="{% url 'events:events' %}"
+         class="inline-flex items-center gap-1.5 text-white/50 hover:text-yellow text-sm no-underline transition-colors group">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to all Events
+      </a>
+      <button onclick="navigator.clipboard.writeText(window.location.href)"
+              class="inline-flex items-center gap-1.5 text-white/40 hover:text-white/70 text-xs transition-colors bg-transparent border-0 cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+        </svg>
+        Copy link
+      </button>
+    </div>
+  </div>
+</div>
+{% endblock %}

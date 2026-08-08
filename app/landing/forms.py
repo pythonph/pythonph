@@ -7,7 +7,7 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 
 
-class UserCreationForm(UserCreationForm):
+class CustomUserCreationForm(UserCreationForm):
     """Registration form that uses email as the primary credential.
 
     A unique ``username`` is generated automatically from the email address

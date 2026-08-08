@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
-from app.landing.models import Section
+from app.events.models import Event
+from app.landing.models import Section, SiteSettings
 from app.organisation.models import Commitee, Volunteer
 
 
@@ -17,10 +18,13 @@ def index(request):
         "volunteers"
     )
 
+    latest_events = Event.available_objects.all()[:4]
+
     context = {
         "core_committees": core_committees,
         "board_of_trustees": board_of_trustees,
         "directors": directors,
+        "latest_events": latest_events,
     }
 
     # Add each landing-page section as a named context variable so
@@ -40,3 +44,38 @@ def index(request):
             pass
 
     return render(request, "landing/index.html", context)
+
+
+# ── Registration views ─────────────────────────────────────────────
+
+from django.contrib.auth.views import LoginView  # noqa: E402
+from django.shortcuts import redirect  # noqa: E402
+
+from .forms import CustomUserCreationForm, LoginForm  # noqa: E402
+
+
+def register(request):
+    if not SiteSettings.load().auth_enabled:
+        return redirect("landing:landing")
+
+    if request.method == "POST":
+        form = CustomUserCreationForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("landing:landing")
+    else:
+        form = CustomUserCreationForm()
+
+    context = {"form": form}
+
+    return render(request, "registration/register.html", context)
+
+
+class CustomLoginView(LoginView):
+    template_name = "registration/login.html"
+    form_class = LoginForm
+
+    def dispatch(self, request, *args, **kwargs):
+        if not SiteSettings.load().auth_enabled:
+            return redirect("landing:landing")
+        return super().dispatch(request, *args, **kwargs)
