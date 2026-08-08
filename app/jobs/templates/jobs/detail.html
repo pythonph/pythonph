@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ job.title }} at {{ job.company.name }} — Python.PH Jobs Board{% endblock %}
+{% block title %}{{ job.title }} at {{ job.company.name }} — PythonPH Jobs Board{% endblock %}
 {% block description %}{{ job.short_description|default:job.title }}{% endblock %}
 
 {% block extra_head %}

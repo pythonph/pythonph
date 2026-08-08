@@ -4,8 +4,8 @@
   <div class="mx-auto flex max-w-6xl items-center px-4 py-4">
     {% if request.resolver_match.view_name != 'landing:landing' %}
       <a href="{% url 'landing:landing' %}" class="flex items-center gap-3 no-underline">
-        <img src="{% static 'landing/assets/img/icon/icon-logo.svg' %}" alt="Python.PH" class="h-9 w-9">
-        <span class="text-lg font-bold text-yellow">Python.PH</span>
+        <img src="{% static 'landing/assets/img/icon/icon-logo.svg' %}" alt="PythonPH" class="h-9 w-9">
+        <span class="text-lg font-bold text-yellow">PythonPH</span>
       </a>
     {% endif %}
     <button id="nav-toggle" type="button" aria-label="Toggle navigation"

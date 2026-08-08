@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
-{% block title %}Python.PH Jobs Board{% endblock %}
-{% block description %}Python.PH Jobs Board — Python jobs in the Philippines and remote.{% endblock %}
+{% block title %}PythonPH Jobs Board{% endblock %}
+{% block description %}PythonPH Jobs Board — Python jobs in the Philippines and remote.{% endblock %}
 
 {% block content %}
 <div class="mx-auto max-w-4xl px-4 py-10">
@@ -10,11 +10,6 @@
       <h1 class="m-0 text-3xl font-bold text-blue">Jobs Board</h1>
       <p class="m-0 mt-1 text-sm text-blue-2">Python jobs from the community, for the community.</p>
     </div>
-    {% if user.is_authenticated %}
-      <a href="{% url 'jobs:post' %}" class="btn btn-primary">Post a Job</a>
-    {% else %}
-      <a href="{% url 'landing:login' %}?next={% url 'jobs:post' %}" class="btn btn-primary">Login to Post a Job</a>
-    {% endif %}
   </div>
 
   <div class="mb-8 rounded-box bg-blue p-6 text-white">
