@@ -1,48 +1,57 @@
-<div class="flex bg-blue-3 items-center text-sm text-white px-4 py-10">
-  <div class="w-full max-w-[855px] mx-auto text-center">
-    <form
-      action="https://python.us3.list-manage.com/subscribe/post?u=ff8bbdf3900c2c0f4dca97052&amp;id=f1bffc39a1"
-      method="post"
-      id="mc-embedded-subscribe-form"
-      name="mc-embedded-subscribe-form"
-      target="_blank"
-      novalidate
-    >
-      <h2 class="text-center mb-5 capitalize font-montserrat text-4xl" data-aos="py-slide">
-        Subscribe
+<section id="contact" class="bg-blue bg-hero-glow text-white">
+  <div class="mx-auto max-w-6xl px-4 py-20 lg:py-24">
+    <div class="mx-auto max-w-2xl rounded-3xl border border-white/10 bg-white/[0.05] p-8 text-center shadow-2xl backdrop-blur-sm sm:p-12"
+         data-aos="zoom-out-up">
+      <span class="font-montserrat text-xs font-semibold uppercase tracking-widest text-yellow">
+        Stay in the loop
+      </span>
+      <h2 class="mt-3 font-montserrat text-3xl font-semibold tracking-tight sm:text-4xl">
+        Join the Mailing List
       </h2>
-      <div class="text-center md:mb-8 px-4">
+      <div class="markdown-content-dark mt-4 leading-relaxed text-white/75">
         {{ mailing_list.content|safe }}
       </div>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 px-4">
-        <label class="sr-only" for="mce-EMAIL">Email Address</label>
-        <input
-          type="email"
-          name="EMAIL"
-          id="mce-EMAIL"
-          placeholder="Email Address"
-          required
-          class="input input-bordered w-full max-w-sm bg-white text-blue"
-        />
-        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-        <div style="position: absolute; left: -5000px" aria-hidden="true">
+      <form
+        action="https://python.us3.list-manage.com/subscribe/post?u=ff8bbdf3900c2c0f4dca97052&amp;id=f1bffc39a1"
+        method="post"
+        id="mc-embedded-subscribe-form"
+        name="mc-embedded-subscribe-form"
+        target="_blank"
+        novalidate
+        class="mt-8"
+      >
+        <div class="flex flex-col items-stretch justify-center gap-3 sm:flex-row">
+          <label class="sr-only" for="mce-EMAIL">Email Address</label>
           <input
-            type="text"
-            name="b_ff8bbdf3900c2c0f4dca97052_f1bffc39a1"
-            tabindex="-1"
-            value=""
+            type="email"
+            name="EMAIL"
+            id="mce-EMAIL"
+            placeholder="you@example.com"
+            required
+            class="input w-full max-w-sm rounded-full border-white/20 bg-white/10 px-5 text-white placeholder:text-white/40 focus:border-yellow focus:outline-none"
           />
+          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+          <div style="position: absolute; left: -5000px" aria-hidden="true">
+            <input
+              type="text"
+              name="b_ff8bbdf3900c2c0f4dca97052_f1bffc39a1"
+              tabindex="-1"
+              value=""
+            />
+          </div>
+          <button
+            type="submit"
+            name="subscribe"
+            class="btn btn-primary rounded-full border-none px-8 font-montserrat font-semibold"
+          >
+            Subscribe
+          </button>
         </div>
-        <button
-          type="submit"
-          name="subscribe"
-          class="btn btn-primary font-montserrat font-semibold px-11 border-none"
-          data-aos="py-slide"
-          data-aos-delay="200"
-        >
-          Subscribe
-        </button>
-      </div>
-    </form>
+      </form>
+      <p class="mt-6 text-sm text-white/50">
+        Prefer email? Reach us at
+        <a href="mailto:info@python.ph" class="text-yellow no-underline hover:underline">info@python.ph</a>
+      </p>
+    </div>
   </div>
-</div>
+</section>

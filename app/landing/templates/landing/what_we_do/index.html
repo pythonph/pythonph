@@ -1,91 +1,90 @@
 {% load static %}
-<div class="bg-blue md:bg-image-3 bg-top md:bg-left-top bg-no-repeat 2xl:bg-repeat xl:bg-contain overflow-hidden">
-  <div class="w-full px-4 lg:px-0 max-w-[855px] mx-auto text-white py-6 md:py-22">
-    <div class="text-center mb-20 md:mb-40">
-      <h2 class="capitalize font-montserrat text-4xl mb-8" data-aos="py-slide" data-aos-delay="150">
+<section id="events" class="bg-slate-50 text-blue">
+  <div class="mx-auto max-w-6xl px-4 py-20 lg:py-28">
+    <div class="mx-auto max-w-3xl text-center">
+      <span class="font-montserrat text-xs font-semibold uppercase tracking-widest text-blue-1" data-aos="py-slide">
         What We Do
+      </span>
+      <h2 class="mt-3 font-montserrat text-3xl font-semibold tracking-tight sm:text-4xl" data-aos="py-slide" data-aos-delay="100">
+        Featured Events
       </h2>
-      <div>
+      <div class="markdown-content mt-6 text-lg leading-relaxed text-blue/75" data-aos="py-slide" data-aos-delay="200">
         {{ what_we_do_intro.content|safe }}
       </div>
     </div>
 
-    <!-- OUR EVENTS SECTION -->
-    <div class="mb-18 md:mb-25">
-      <div class="text-center mb-10">
-        <h2 class="capitalize font-montserrat text-4xl" data-aos="py-slide" data-aos-delay="350">
-          Our Events
-        </h2>
-      </div>
+    {% if latest_events %}
+    <div class="mt-14 grid gap-6 md:grid-cols-2">
+      {% for event in latest_events %}
+      <a href="{% url 'events:event_detail' event.slug %}"
+         class="group relative flex flex-col overflow-hidden rounded-2xl border border-blue/10 bg-white no-underline shadow-[0_2px_16px_-6px_rgba(16,28,66,0.12)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_48px_-16px_rgba(16,28,66,0.3)]"
+         data-aos="py-slide" data-aos-delay="{{ forloop.counter0 }}00">
+        <!-- Accent bar -->
+        <span class="absolute inset-x-0 top-0 z-10 h-1 {% cycle 'bg-yellow-1' 'bg-pink' 'bg-blue-1' 'bg-green' %}"></span>
 
-      {% if latest_events %}
-      <div class="grid gap-5 md:grid-cols-2">
-        {% for event in latest_events %}
-        <a href="{% url 'events:event_detail' event.slug %}"
-           class="group relative flex flex-col overflow-hidden rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.14] hover:bg-white/[0.05] transition-all duration-200 no-underline hover:-translate-y-0.5"
-           data-aos="py-slide" data-aos-delay="{{ forloop.counter0 }}00">
-          <!-- Accent bar -->
-          <span class="absolute inset-x-0 top-0 h-1 {% cycle 'bg-yellow-1' 'bg-pink' 'bg-blue-1' 'bg-green' %}"></span>
-
-          <div class="flex flex-col flex-1 p-5 md:p-6 pt-6 md:pt-7">
-            <h3 class="font-montserrat text-lg md:text-xl text-white group-hover:text-yellow transition-colors leading-snug mb-3">
-              {{ event.name }}
-            </h3>
-
-            <!-- Meta row -->
-            <div class="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-white/70 text-sm mb-3">
-              {% if event.schedule %}
-              <span class="inline-flex items-center gap-1.5">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                {{ event.schedule }}
-              </span>
-              {% endif %}
-              {% if event.location %}
-              <span class="inline-flex items-center gap-1.5">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                {{ event.location }}
-              </span>
-              {% endif %}
-            </div>
-
-            {% if event.description %}
-            <p class="text-white/70 text-sm leading-relaxed line-clamp-3 mb-4">
-              {{ event.description|striptags|truncatewords:28 }}
-            </p>
-            {% endif %}
-
-            <span class="inline-flex items-center gap-1 text-xs font-montserrat tracking-wide text-white/50 group-hover:text-yellow transition-colors mt-auto">
-              Learn more
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </span>
+        <!-- Cover -->
+        <div class="relative h-44 overflow-hidden bg-blue">
+          {% if event.cover_image %}
+          <img src="{{ event.cover_image.url }}" alt="{{ event.name }}"
+               class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+          {% else %}
+          <div class="flex h-full w-full items-center justify-center bg-gradient-to-br from-blue-2 to-blue">
+            <img src="{% static 'landing/assets/img/icon/icon-logo.svg' %}" alt="" class="h-16 w-16 opacity-25">
           </div>
-        </a>
-        {% endfor %}
-      </div>
+          {% endif %}
+          {% if event.schedule %}
+          <span class="absolute left-4 top-4 rounded-full bg-yellow px-3 py-1 font-montserrat text-xs font-semibold text-blue shadow">
+            {{ event.schedule }}
+          </span>
+          {% endif %}
+        </div>
 
-      <!-- View all CTA -->
-      <div class="text-center mt-10" data-aos="py-slide" data-aos-delay="200">
-        <a href="{% url 'events:events' %}"
-           class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-yellow/40 text-yellow font-montserrat text-sm tracking-wide no-underline
-                  hover:bg-yellow hover:text-blue transition-all duration-200">
-          View all events
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </a>
-      </div>
-      {% else %}
-      <div class="text-center py-8 text-white/50">
-        <p class="text-lg">No upcoming events at the moment. Check back soon!</p>
-      </div>
-      {% endif %}
+        <div class="flex flex-1 flex-col p-6">
+          <h3 class="font-montserrat text-lg font-semibold leading-snug transition-colors group-hover:text-blue-1">
+            {{ event.name }}
+          </h3>
+
+          {% if event.location %}
+          <div class="mt-2 inline-flex items-center gap-1.5 text-sm text-blue/60">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-blue/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            {{ event.location }}
+          </div>
+          {% endif %}
+
+          {% if event.description %}
+          <p class="mt-3 text-sm leading-relaxed text-blue/70 line-clamp-3">
+            {{ event.description|striptags|truncatewords:24 }}
+          </p>
+          {% endif %}
+
+          <span class="mt-5 inline-flex items-center gap-1.5 font-montserrat text-xs font-semibold uppercase tracking-wide text-blue/50 transition-colors group-hover:text-blue-1">
+            Learn more
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </span>
+        </div>
+      </a>
+      {% endfor %}
     </div>
+
+    <!-- View all CTA -->
+    <div class="mt-12 text-center" data-aos="py-slide" data-aos-delay="200">
+      <a href="{% url 'events:events' %}"
+         class="btn btn-secondary rounded-full border-none px-8 font-montserrat font-semibold transition-transform hover:-translate-y-0.5">
+        View all events
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+    {% else %}
+    <div class="mt-14 rounded-2xl border border-dashed border-blue/20 py-14 text-center text-blue/50">
+      <p class="text-lg">No upcoming events at the moment. Check back soon!</p>
+    </div>
+    {% endif %}
   </div>
-</div>
+</section>

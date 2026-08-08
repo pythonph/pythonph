@@ -1,22 +1,77 @@
 {% load static %}
 
-<header class="bg-image-1 bg-top md:bg-left-top bg-no-repeat 2xl:bg-repeat xl:bg-contain md:pb-10 overflow-hidden mt-10">
-  <div class="w-full md:flex items-center lg:max-w-[920px] xl:max-w-[1110px] md:mx-auto">
-    <div class="text-center md:text-left mt-12 md:mt-0 md:mr-auto px-8 lg:px-0 max-w-[480px]">
-      <div class="flex flex-col md:flex-row items-center justify-center md:justify-start mb-8">
-        <div class="flex justify-center h-42 md:h-[150px] md:w-[126px] mb-5 md:mr-6 md:mb-0 relative">
-          <img src="{% static 'landing/assets/img/icon/icon-logo.svg' %}" class="md:absolute h-full" alt="Python Philippines logo" />
-        </div>
-        <h1 class="flex flex-col md:block font-raleway uppercase text-white leading-none mb-3">
-          <span class="text-5xl md:text-6xl font-black flex justify-center md:justify-start mb-1">Python</span>
-          <span class="text-3xl md:text-5xl font-light flex justify-center md:justify-start">Philippines</span>
-        </h1>
+<header class="relative overflow-hidden bg-blue bg-hero-glow">
+  <!-- Decorative grid + floating orbs (palette-only) -->
+  <div class="absolute inset-0 bg-hero-grid" aria-hidden="true"></div>
+  <div class="absolute -left-24 top-1/4 h-64 w-64 rounded-full bg-blue-1/15 blur-3xl animate-pulse-glow" aria-hidden="true"></div>
+  <div class="absolute -right-16 bottom-1/4 h-72 w-72 rounded-full bg-yellow/10 blur-3xl animate-pulse-glow" aria-hidden="true"></div>
+  <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-blue" aria-hidden="true"></div>
+
+  <div class="relative mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl flex-col items-center gap-14 px-4 pb-24 pt-16 lg:flex-row lg:gap-8 lg:pb-28 lg:pt-20">
+    <!-- Copy -->
+    <div class="max-w-xl text-center lg:text-left">
+      <span class="inline-flex items-center gap-2 rounded-full border border-yellow/30 bg-yellow/10 px-4 py-1.5 font-montserrat text-xs font-semibold uppercase tracking-widest text-yellow"
+            data-aos="fade-left">
+        <span class="h-1.5 w-1.5 rounded-full bg-yellow"></span>
+        The home of Pythonistas in the Philippines
+      </span>
+      <h1 class="mt-6 font-montserrat text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl"
+          data-aos="py-slide" data-aos-delay="100">
+        Welcome to<br>
+        <span class="text-white">Python</span>
+        <span class="bg-gradient-to-r from-yellow to-yellow-1 bg-clip-text text-transparent">Philippines</span>
+      </h1>
+      <div class="markdown-content-dark mt-6 text-lg leading-relaxed text-white/75"
+           data-aos="py-slide" data-aos-delay="200">
+        {{ header_intro.content|safe }}
       </div>
-      <div class="text-white text-lg text-center px-6 md:text-left md:px-0 mb-6 md:mb-9">
-      {{ header_intro.content|safe }}
+      <div class="mt-9 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start"
+           data-aos="py-slide" data-aos-delay="300">
+        <a href="{% url 'events:events' %}"
+           class="btn btn-primary btn-lg rounded-full border-none px-8 font-montserrat font-semibold shadow-[0_8px_30px_-6px_rgba(253,214,73,0.45)] transition-transform hover:-translate-y-0.5">
+          Explore Events
+        </a>
+        <a href="#resources"
+           class="btn btn-lg rounded-full border-white/25 bg-transparent px-8 font-montserrat font-semibold text-white transition-all hover:-translate-y-0.5 hover:border-yellow hover:text-yellow">
+          Learn Python
+        </a>
       </div>
     </div>
 
-    {% include "landing/header/gallery1.html" %}
+    <!-- Illustration: Philippine sun + code, strictly in brand palette -->
+    <div class="relative w-full max-w-md flex-shrink-0 lg:max-w-lg" aria-hidden="true">
+      <svg viewBox="0 0 520 520" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full drop-shadow-2xl">
+        <defs>
+          <radialGradient id="heroGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#3a9dff" stop-opacity="0.30" />
+            <stop offset="70%" stop-color="#3a9dff" stop-opacity="0.08" />
+            <stop offset="100%" stop-color="#3a9dff" stop-opacity="0" />
+          </radialGradient>
+        </defs>
+
+        <!-- Soft glow + backdrop ring -->
+        <circle cx="260" cy="260" r="250" fill="url(#heroGlow)" />
+
+        <!-- Orbiting accent dots -->
+        <g class="animate-float-delayed">
+          <circle cx="42" cy="150" r="6" fill="#3a9dff" opacity="0.9" />
+          <circle cx="480" cy="120" r="5" fill="#fdd649" opacity="0.9" />
+          <circle cx="486" cy="360" r="6" fill="#32bf8c" opacity="0.85" />
+          <circle cx="36" cy="372" r="5" fill="#f84c66" opacity="0.85" />
+        </g>
+
+        <!-- PythonPH logo (actual file), large and centered -->
+        <image href="{% static 'landing/assets/img/icon/icon-logo.svg' %}"
+               x="30" y="30" width="460" height="460"
+               class="animate-float-slow" />
+      </svg>
+    </div>
   </div>
+
+  <!-- Scroll hint -->
+  <a href="#about" class="absolute bottom-6 left-1/2 hidden -translate-x-1/2 text-white/40 transition-colors hover:text-yellow lg:block" aria-label="Scroll to content">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </a>
 </header>

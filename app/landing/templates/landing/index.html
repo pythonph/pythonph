@@ -4,26 +4,29 @@
 {% block title %}Python Philippines{% endblock %}
 
 {% block content %}
-<div class="bg-blue font-sourcesanspro">
-  <!-- HEADER SECTION -->
+<div class="bg-blue">
+  <!-- HERO SECTION -->
   {% include "landing/header/index.html" %}
 
-  <!-- OUR AIM SECTION -->
+  <!-- ABOUT SECTION -->
   {% include "landing/our_aim.html" %}
 
   <!-- WHY PYTHON SECTION -->
   {% include "landing/why_python.html" %}
 
-  <!-- WHAT WE DO SECTION -->
+  <!-- FEATURED EVENTS SECTION -->
   {% include "landing/what_we_do/index.html" %}
 
-  <!-- OUR TEAM SECTION -->
+  <!-- COMMUNITY SHOWCASE SECTION -->
   {% include "landing/our_team.html" %}
+
+  <!-- RESOURCES SECTION -->
+  {% include "landing/resources.html" %}
 
   <!-- CODE OF CONDUCT SECTION -->
   {% include "landing/code_of_conduct.html" %}
 
-  <!-- MAILING LIST SECTION -->
+  <!-- CONTACT / MAILING LIST SECTION -->
   {% include "landing/mailing_list.html" %}
 </div>
 {% endblock %}

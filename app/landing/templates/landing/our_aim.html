@@ -1,43 +1,69 @@
 {% load static %}
 
-<div class="bg-blue md:bg-image-2 bg-top md:bg-left-top bg-no-repeat 2xl:bg-repeat xl:bg-contain overflow-hidden">
-  <div class="w-full h-full flex px-4 py-9 lg:px-0 xl:pt-11 lg:max-w-[920px] xl:max-w-[1204px] md:mx-auto">
-    <div class="hidden md:flex md:flex-col list-none w-1/2 md:pr-8 lg:pr-4 lg:pt-2 lg:pl-12">
-      <div class="flex w-full md:mb-5 xl:mb-9">
-        <div class="w-full max-w-[160px] mr-8 lg:mr-10 xl:mr-[51px]" data-aos="py-slide" data-aos-delay="450">
-          <img src="{% static 'landing/assets/img/people/image-19.png' %}" class="w-full rounded-[20px] object-cover max-h-[160px]" alt="" />
-        </div>
-        <div class="w-full max-w-[130px] mr-8 lg:mr-10 xl:mr-[51px] pt-[70px] lg:pt-[100px]" data-aos="py-slide" data-aos-delay="400">
-          <img src="{% static 'landing/assets/img/people/image-20.png' %}" class="w-full rounded-[20px] object-cover max-h-[130px]" alt="" />
-        </div>
-        <div class="w-full mt-6 lg:mt-11 max-w-[150px]" data-aos="py-slide" data-aos-delay="500">
-          <img src="{% static 'landing/assets/img/people/image-21.png' %}" class="w-full rounded-[20px] object-cover max-h-[150px]" alt="" />
-        </div>
+<section id="about" class="bg-white text-blue">
+  <div class="mx-auto grid max-w-6xl items-center gap-14 px-4 py-20 lg:grid-cols-2 lg:py-28">
+    <div>
+      <span class="font-montserrat text-xs font-semibold uppercase tracking-widest text-blue-1" data-aos="py-slide">
+        About PythonPH
+      </span>
+      <h2 class="mt-3 font-montserrat text-3xl font-semibold tracking-tight sm:text-4xl" data-aos="py-slide" data-aos-delay="100">
+        Our Aim
+      </h2>
+      <div class="markdown-content mt-6 text-lg leading-relaxed text-blue/75" data-aos="py-slide" data-aos-delay="200">
+        {{ our_aim.content|safe }}
       </div>
-      <div class="flex w-full md:px-8 xl:pl-[94px] xl:pr-[85px]">
-        <div class="max-w-[87px] mt-1 mr-8 lg:mr-10 xl:mr-[51px]" data-aos="py-slide" data-aos-delay="550">
-          <img src="{% static 'landing/assets/img/people/image-22.png' %}" class="w-full max-h-[87px] rounded-[20px] object-cover" alt="" />
-        </div>
-        <div class="max-w-[90px] md:mr-6 md:mt-8 xl:mt-[47px] xl:mr-[62px]" data-aos="py-slide" data-aos-delay="600">
-          <img src="{% static 'landing/assets/img/people/image-23.png' %}" class="w-full max-h-[90px] rounded-[20px] object-cover" alt="" />
-        </div>
-        <div class="max-w-[75px]" data-aos="py-slide" data-aos-delay="650">
-          <img src="{% static 'landing/assets/img/people/image-24.png' %}" class="w-full max-h-[75px] rounded-[20px] object-cover" alt="" />
-        </div>
-      </div>
+      <a href="mailto:info@python.ph"
+         class="btn btn-secondary mt-8 rounded-full border-none px-8 font-montserrat font-semibold"
+         data-aos="py-slide" data-aos-delay="300">
+        Get to know us
+      </a>
     </div>
-    <div class="md:w-1/2 md:ml-auto lg:pl-[79px]">
-      <div class="mb-4 text-center md:text-left">
-        <div>
-          <h2 class="capitalize text-white mb-8 text-2xl font-montserrat" data-aos="py-slide" data-aos-delay="150">
-            Our Aim
-          </h2>
-          {{ our_aim.content|safe }}
+
+    <div class="grid gap-5">
+      <div class="group flex gap-5 rounded-2xl border border-blue/10 bg-white p-6 shadow-[0_2px_16px_-6px_rgba(16,28,66,0.12)] transition-all duration-300 hover:-translate-y-1 hover:border-yellow-1/60 hover:shadow-[0_18px_40px_-14px_rgba(16,28,66,0.28)]"
+           data-aos="py-slide" data-aos-delay="150">
+        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue text-yellow">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>
         </div>
-        <a class="btn btn-primary text-lg font-montserrat font-semibold px-11 border-none" data-aos="py-slide" data-aos-delay="200" href="mailto:info@python.ph">
-          Get to know us
-        </a>
+        <div>
+          <h3 class="font-montserrat font-semibold">An inclusive community</h3>
+          <p class="mt-1 text-sm leading-relaxed text-blue/70">
+            Everyone is welcome — from first-time learners writing their first line of code to seasoned engineers.
+          </p>
+        </div>
+      </div>
+
+      <div class="group flex gap-5 rounded-2xl border border-blue/10 bg-white p-6 shadow-[0_2px_16px_-6px_rgba(16,28,66,0.12)] transition-all duration-300 hover:-translate-y-1 hover:border-yellow-1/60 hover:shadow-[0_18px_40px_-14px_rgba(16,28,66,0.28)]"
+           data-aos="py-slide" data-aos-delay="250">
+        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue text-yellow">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-montserrat font-semibold">Learn &amp; grow</h3>
+          <p class="mt-1 text-sm leading-relaxed text-blue/70">
+            Meetups, study groups, and conferences across the country to level up your Python journey.
+          </p>
+        </div>
+      </div>
+
+      <div class="group flex gap-5 rounded-2xl border border-blue/10 bg-white p-6 shadow-[0_2px_16px_-6px_rgba(16,28,66,0.12)] transition-all duration-300 hover:-translate-y-1 hover:border-yellow-1/60 hover:shadow-[0_18px_40px_-14px_rgba(16,28,66,0.28)]"
+           data-aos="py-slide" data-aos-delay="350">
+        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue text-yellow">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-montserrat font-semibold">Build together</h3>
+          <p class="mt-1 text-sm leading-relaxed text-blue/70">
+            Collaborate on projects, share knowledge, and give back to the local tech ecosystem.
+          </p>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>

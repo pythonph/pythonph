@@ -1,12 +1,14 @@
-<div class="bg-blue-3 md:bg-image-6 bg-cover bg-no-repeat overflow-hidden lg:min-h-[448px]">
-  <div class="w-full h-full text-white pt-13 pb-13 md:px-0 md:py-[70px] max-w-[855px] mx-auto" data-aos="py-slide">
-    <h2 class="text-center mb-7 capitalize font-montserrat text-4xl">
+<section id="conduct" class="bg-blue-3 text-white">
+  <div class="mx-auto max-w-3xl px-4 py-20 text-center lg:py-24">
+    <span class="font-montserrat text-xs font-semibold uppercase tracking-widest text-yellow" data-aos="py-slide">
+      Everyone is welcome
+    </span>
+    <h2 class="mt-3 font-montserrat text-3xl font-semibold tracking-tight sm:text-4xl" data-aos="py-slide" data-aos-delay="100">
       Code of Conduct
     </h2>
-    <div>
-      <div class="text-center md:mb-8 px-4">
-        {{ code_of_conduct.content|safe }}
-      </div>
+    <div class="mx-auto mt-6 h-1 w-16 rounded-full bg-yellow" data-aos="py-slide" data-aos-delay="150"></div>
+    <div class="markdown-content-dark mt-8 leading-relaxed text-white/75" data-aos="py-slide" data-aos-delay="200">
+      {{ code_of_conduct.content|safe }}
     </div>
   </div>
-</div>
+</section>

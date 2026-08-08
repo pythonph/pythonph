@@ -31,6 +31,87 @@
 	--font-raleway: "Raleway", ui-sans-serif, system-ui, sans-serif;
 	--font-montserrat: "Montserrat", ui-sans-serif, system-ui, sans-serif;
 	--font-sourcesanspro: "Source Sans Pro", ui-sans-serif, system-ui, sans-serif;
+
+	/* === Motion === */
+	--animate-float: float 6s ease-in-out infinite;
+	--animate-float-slow: float 9s ease-in-out infinite;
+	--animate-float-delayed: float 7s ease-in-out 1.2s infinite;
+	--animate-pulse-glow: pulse-glow 5s ease-in-out infinite;
+}
+
+@keyframes float {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-14px);
+	}
+}
+
+@keyframes pulse-glow {
+	0%,
+	100% {
+		opacity: 0.35;
+	}
+	50% {
+		opacity: 0.7;
+	}
+}
+
+/* Anchor targets clear the sticky navbar when smooth-scrolling. */
+[id] {
+	scroll-margin-top: 5.5rem;
+}
+
+/* Sticky navbar state after scroll (toggled from base.html JS). */
+.nav-scrolled {
+	background-color: rgb(13 23 54 / 0.92);
+	border-color: rgb(255 255 255 / 0.12);
+	box-shadow: 0 12px 32px -12px rgb(0 0 0 / 0.55);
+}
+
+/* Hero decoration helpers (palette-only). */
+@utility bg-hero-grid {
+	background-image:
+		linear-gradient(to right, rgb(255 255 255 / 0.045) 1px, transparent 1px),
+		linear-gradient(to bottom, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+	background-size: 44px 44px;
+}
+
+@utility bg-hero-glow {
+	background-image:
+		radial-gradient(ellipse 60% 50% at 75% 20%, rgb(58 157 255 / 0.22), transparent 70%),
+		radial-gradient(ellipse 45% 40% at 15% 80%, rgb(253 214 73 / 0.12), transparent 70%);
+}
+
+/* Nav link underline hover effect. */
+@utility nav-link {
+	position: relative;
+}
+.nav-link::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -4px;
+	height: 2px;
+	width: 100%;
+	background-color: var(--color-yellow);
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.25s ease;
+}
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+	transform: scaleX(1);
+}
+
+/* Showcase carousel: hide scrollbars on the snap track. */
+@utility no-scrollbar {
+	scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
 }
 
 /* Section background artwork (relative so WhiteNoise can hash-rewrite). */
