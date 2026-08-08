@@ -60,7 +60,7 @@ THIRD_PARTY_APPS = [
     "rest_framework",
 ]
 
-if settings.DEBUG:
+if settings.APP_ENV == "development" and settings.DEBUG:
     THIRD_PARTY_APPS.append("django_browser_reload")
 
 LOCAL_APPS = [
