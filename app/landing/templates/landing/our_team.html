@@ -45,21 +45,7 @@
       <div class="pointer-events-none absolute inset-y-0 left-0 hidden w-16 bg-gradient-to-r from-blue to-transparent sm:block" aria-hidden="true"></div>
       <div class="pointer-events-none absolute inset-y-0 right-0 hidden w-16 bg-gradient-to-l from-blue to-transparent sm:block" aria-hidden="true"></div>
 
-      <!-- Arrows -->
-      <div class="mt-8 flex items-center justify-center gap-3">
-        <button id="showcase-prev" type="button" aria-label="Scroll left"
-                class="btn btn-circle btn-sm border-white/20 bg-transparent text-white transition-colors hover:border-yellow hover:bg-transparent hover:text-yellow">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-        <button id="showcase-next" type="button" aria-label="Scroll right"
-                class="btn btn-circle btn-sm border-white/20 bg-transparent text-white transition-colors hover:border-yellow hover:bg-transparent hover:text-yellow">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-      </div>
+
     </div>
 
     <!-- Core volunteers -->
@@ -87,8 +73,6 @@
 <script>
   (function () {
     var track = document.getElementById("showcase-track");
-    var prev = document.getElementById("showcase-prev");
-    var next = document.getElementById("showcase-next");
     if (!track) return;
 
     // Clone figures for seamless infinite looping
@@ -123,19 +107,6 @@
     track.addEventListener("touchstart", function () { paused = true; });
     track.addEventListener("touchend", function () { paused = false; });
 
-    // Arrow buttons
-    var step = function () {
-      return Math.max(track.clientWidth * 0.75, 240);
-    };
-    if (prev) {
-      prev.addEventListener("click", function () {
-        track.scrollBy({ left: -step(), behavior: "smooth" });
-      });
-    }
-    if (next) {
-      next.addEventListener("click", function () {
-        track.scrollBy({ left: step(), behavior: "smooth" });
-      });
-    }
+
   })();
 </script>
