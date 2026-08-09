@@ -8,37 +8,37 @@ Board of Trustees:
   - display_name: Freilla Mae Espinola
     first_name: Freilla Mae
     last_name: Espinola
-    title: Director of Operations
+    title: Board of Trustee
     image: landing/assets/img/people/freilla.png
     order: 2
-  - display_name: Sony Valdez
-    first_name: Sony
-    last_name: Valdez
-    title: Director of Community Relations
-    image: landing/assets/img/people/shuny.jpg
-    order: 3
   - display_name: Ciara Bautista
     first_name: Ciara
     last_name: Bautista
     title: Treasurer
     image: landing/assets/img/people/ciara.jpg
-    order: 4
+    order: 3
   - display_name: Rodney Lei Estrada
     first_name: Rodney Lei
     last_name: Estrada
-    title: Corporate Secretary, Lead of Meetups
+    title: Corporate Secretary
     image: landing/assets/img/people/rodney.jpg
-    order: 5
+    order: 4
   - display_name: Cyrus Mante
     first_name: Cyrus
     last_name: Mante
     title: Board of Trustee
     image: landing/assets/img/people/cyrus.jpg
+    order: 5
+  - display_name: Sony Valdez
+    first_name: Sony
+    last_name: Valdez
+    title: Board of Trustee
+    image: landing/assets/img/people/shuny.jpg
     order: 6
   - display_name: Matt Lebrun
     first_name: Matt
     last_name: Lebrun
-    title: Director of Volunteer Training & Engagement
+    title: Board of Trustee
     image: landing/assets/img/people/matt.jpg
     order: 7
   - display_name: Micaela Reyes
@@ -49,18 +49,42 @@ Board of Trustees:
     order: 8
 
 Directors:
+  - display_name: Freilla Mae Espinola
+    first_name: Freilla Mae
+    last_name: Espinola
+    title: Director of Operations
+    image: landing/assets/img/people/freilla.png
+    order: 1
+  - display_name: Matt Lebrun
+    first_name: Matt
+    last_name: Lebrun
+    title: Director of Volunteer Training & Engagement
+    image: landing/assets/img/people/matt.jpg
+    order: 2
+  - display_name: Sony Valdez
+    first_name: Sony
+    last_name: Valdez
+    title: Director of Community Relations
+    image: landing/assets/img/people/shuny.jpg
+    order: 3
   - display_name: Lalaine Lery Diok
     first_name: Lalaine Lery
     last_name: Diok
     title: Director of Marketing
     image: landing/assets/img/people/lalaine.jpg
-    order: 1
+    order: 4
   - display_name: Kyle Shaun Aquino
     first_name: Kyle Shaun
     last_name: Aquino
     title: Director of Engineering
     image: landing/assets/img/people/kyle.jpg
-    order: 2
+    order: 5
+  - display_name: Romar Mayer Micabalo
+    first_name: Romar Mayer
+    last_name: Micabalo
+    title: Director of Outreach & Diversity
+    image: landing/assets/img/people/romar.jpg
+    order: 6
 
 Engineering:
   - display_name: Kyle Shaun Aquino
