@@ -26,7 +26,7 @@ Board of Trustees:
   - display_name: Rodney Lei Estrada
     first_name: Rodney Lei
     last_name: Estrada
-    title: Board of Trustee and Corporate Secretary
+    title: Corporate Secretary, Lead of Meetups
     image: landing/assets/img/people/rodney.jpg
     order: 5
   - display_name: Cyrus Mante
@@ -49,35 +49,24 @@ Board of Trustees:
     order: 8
 
 Directors:
-  - display_name: Lalaine Diok
-    first_name: Lalaine
+  - display_name: Lalaine Lery Diok
+    first_name: Lalaine Lery
     last_name: Diok
     title: Director of Marketing
     image: landing/assets/img/people/lalaine.jpg
     order: 1
-  - display_name: Alex Reyes
-    first_name: Alex
-    last_name: Reyes
-    title: Director of Design
-    image: landing/assets/img/people/alex.jpg
-    order: 2
   - display_name: Kyle Shaun Aquino
     first_name: Kyle Shaun
     last_name: Aquino
     title: Director of Engineering
     image: landing/assets/img/people/kyle.jpg
-    order: 3
-  - display_name: Romar Mayer Micabalo
-    first_name: Romar Mayer
-    last_name: Micabalo
-    title: Director of Outreach & Diversity
-    image: landing/assets/img/people/romar.jpg
-    order: 4
+    order: 2
 
 Engineering:
   - display_name: Kyle Shaun Aquino
-    first_name: Kyle
+    first_name: Kyle Shaun
     last_name: Aquino
+    image: landing/assets/img/people/kyle.jpg
   - display_name: Renan Matthew Fajardo
     first_name: Renan Matthew
     last_name: Fajardo
@@ -94,9 +83,10 @@ Finance:
     first_name: Ciara
     last_name: Bautista
     image: landing/assets/img/people/ciara.jpg
-  - display_name: Angelo Joe Delos Santos
-    first_name: Angelo Joe
+  - display_name: Angelo Joe Opusa Delos Santos
+    first_name: Angelo Joe Opusa
     last_name: Delos Santos
+    title: Co-Lead of Finance
 
 Volunteer Engagement (Kaizend):
   - display_name: Matt Lebrun
@@ -108,41 +98,122 @@ Volunteer Engagement (Kaizend):
     last_name: Reyes
     image: landing/assets/img/people/micaela.jpg
 
-Meetup Programs:
-  - display_name: Jim Aerol Barcos
-    first_name: Jim Aerol
-    last_name: Barcos
-  - display_name: Christian Joseph Zamora
-    first_name: Christian Joseph
-    last_name: Zamora
+Community Relations (FB Moderator):
+  - display_name: Sony Valdez
+    first_name: Sony
+    last_name: Valdez
+    title: Director of Community Relations
+    image: landing/assets/img/people/shuny.jpg
+
+Marketing:
+  - display_name: Lalaine Lery Diok
+    first_name: Lalaine Lery
+    last_name: Diok
+    title: Director of Marketing
+    image: landing/assets/img/people/lalaine.jpg
+  - display_name: Angeline Jores
+    first_name: Angeline
+    last_name: Jores
+  - display_name: Luke Mark Leona
+    first_name: Luke Mark
+    last_name: Leona
+
+Program:
+  - display_name: Ben Iglesia
+    first_name: Ben
+    last_name: Iglesia
+    title: Lead of Programs
+  - display_name: Michelle Jane Francesca L. Nava
+    first_name: Michelle Jane Francesca L.
+    last_name: Nava
+  - display_name: Wesly Kate Talan
+    first_name: Wesly Kate
+    last_name: Talan
+    title: Lead for PyLadies Manila
+  - display_name: Stephanie Palero
+    first_name: Stephanie
+    last_name: Palero
+  - display_name: Rafael Paderna
+    first_name: Rafael
+    last_name: Paderna
+    title: Co-Lead of Program
+
+Meetup:
   - display_name: Rodney Lei Estrada
     first_name: Rodney Lei
     last_name: Estrada
     image: landing/assets/img/people/rodney.jpg
+  - display_name: Jim Aerol Barcos
+    first_name: Jim Aerol
+    last_name: Barcos
+  - display_name: Cyrus Mante
+    first_name: Cyrus
+    last_name: Mante
+    image: landing/assets/img/people/cyrus.jpg
   - display_name: Novelle Lyn Estrella
     first_name: Novelle Lyn
     last_name: Estrella
+    title: Lead of Meetup
   - display_name: Janine Bagares
     first_name: Janine
     last_name: Bagares
   - display_name: Muriell Emmanuel July Maza
     first_name: Muriell Emmanuel July
     last_name: Maza
-
-Diversity and Outreach:
-  - display_name: Freilla Mae Espinola
-    first_name: Freilla Mae
-    last_name: Espinola
-    image: landing/assets/img/people/freilla.png
+  - display_name: Ellaine G. Dela Cruz
+    first_name: Ellaine G.
+    last_name: Dela Cruz
 
 Logistics:
   - display_name: Joshua Kyle Beltran
     first_name: Joshua Kyle
     last_name: Beltran
-  - display_name: Cyrus Mante
-    first_name: Cyrus
-    last_name: Mante
-    image: landing/assets/img/people/cyrus.jpg
   - display_name: Danyssa Tamayo
     first_name: Danyssa
     last_name: Tamayo
+    title: Lead of Logistics
+
+Swags:
+  - display_name: Christian Joseph Zamora
+    first_name: Christian Joseph
+    last_name: Zamora
+  - display_name: Danyssa Tamayo
+    first_name: Danyssa
+    last_name: Tamayo
+    title: Lead of Logistics
+
+Emcee:
+  - display_name: Alysson Alvaran
+    first_name: Alysson
+    last_name: Alvaran
+  - display_name: Angelica Lapastora
+    first_name: Angelica
+    last_name: Lapastora
+  - display_name: Will Vincent Parrone
+    first_name: Will Vincent
+    last_name: Parrone
+  - display_name: Sonya Lee
+    first_name: Sonya
+    last_name: Lee
+
+Design:
+  - display_name: Jericho Del Rosario
+    first_name: Jericho
+    last_name: Del Rosario
+  - display_name: Vince Gabrielle D.L. Lita
+    first_name: Vince Gabrielle D.L.
+    last_name: Lita
+
+Sponsorship:
+  - display_name: Jericho Peñaflor
+    first_name: Jericho
+    last_name: Peñaflor
+  - display_name: Jashlein Leanne Marquez
+    first_name: Jashlein Leanne
+    last_name: Marquez
+  - display_name: Renz Carlo Caritativo
+    first_name: Renz Carlo
+    last_name: Caritativo
+  - display_name: Sofia Cunanan
+    first_name: Sofia
+    last_name: Cunanan
