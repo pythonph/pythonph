@@ -87,6 +87,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Required by FORM_RENDERER = TemplatesSetting so built-in widget
+    # templates (django/forms/widgets/*) resolve from this app's dir.
+    "django.forms",
     *THIRD_PARTY_APPS,
     *LOCAL_APPS,
 ]
@@ -131,6 +134,11 @@ WSGI_APPLICATION = "config.wsgi.application"
 ASGI_APPLICATION = "config.asgi.application"
 
 # ── Templates ──────────────────────────────────────────────────────
+
+# Render form widgets through the main TEMPLATES engine so project-level
+# overrides (e.g. templates/auth/widgets/) are picked up; the default
+# ``DjangoTemplates`` form renderer only searches app template dirs.
+FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
 
 TEMPLATES = [
     {

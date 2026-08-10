@@ -4,6 +4,7 @@ from django.urls import reverse
 
 from .backends import EmailBackend
 from .forms import CustomUserCreationForm, LoginForm
+from .models import SiteSettings
 
 User = get_user_model()
 
@@ -85,6 +86,9 @@ class UserCreationFormTests(TestCase):
 
 class RegistrationViewTests(TestCase):
     def setUp(self):
+        settings = SiteSettings.load()
+        settings.auth_enabled = True
+        settings.save()
         self.user = User.objects.create_user(
             username="juan",
             email="juan@example.com",
@@ -169,8 +173,6 @@ class AdminLoginFormTests(TestCase):
 
 class SiteSettingsAuthTests(TestCase):
     def setUp(self):
-        from .models import SiteSettings
-
         self.settings = SiteSettings.load()
         self.settings.auth_enabled = False
         self.settings.save()
