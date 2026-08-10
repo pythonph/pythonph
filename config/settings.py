@@ -64,6 +64,7 @@ if settings.APP_ENV == "development" and settings.DEBUG:
     THIRD_PARTY_APPS.append("django_browser_reload")
 
 LOCAL_APPS = [
+    "app.accounts",
     "app.landing",
     "app.jobs",
     "app.events",
