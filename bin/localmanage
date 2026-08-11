@@ -1,3 +1,0 @@
-#!/bin/bash
-export $(cat dev.env | xargs)
-venv/bin/python manage.py $@

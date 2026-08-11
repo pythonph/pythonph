@@ -1,0 +1,37 @@
+databases:
+  - name: pythonph-db
+    region: singapore
+    plan: free
+    ipAllowList: []
+
+services:
+  - type: web
+    plan: free
+    runtime: python
+    name: pythonph-server
+    region: singapore
+    buildCommand: "./deploy/build.sh"
+    startCommand: "./deploy/start.sh"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: "config.settings"
+      - key: PYTHON_VERSION
+        value: 3.13.4
+      - key: DATABASE_URL
+        fromDatabase:
+          name: pythonph-db
+          property: connectionString
+      - key: DEBUG
+        value: "False"
+      - key: APP_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: R2_ACCOUNT_ID
+        sync: false
+      - key: R2_ACCESS_KEY_ID
+        sync: false
+      - key: R2_SECRET_ACCESS_KEY
+        sync: false
+      - key: R2_BUCKET_NAME
+        sync: false

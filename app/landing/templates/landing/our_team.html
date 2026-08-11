@@ -1,0 +1,237 @@
+{% load static %}
+
+<section id="community" class="bg-blue text-white">
+  <div class="mx-auto max-w-6xl px-4 py-20 lg:py-28">
+    <div class="mx-auto max-w-3xl text-center">
+      <span class="font-montserrat text-xs font-semibold uppercase tracking-widest text-yellow" data-aos="py-slide">
+        Community Showcase
+      </span>
+      <h2 class="mt-3 font-montserrat text-3xl font-semibold tracking-tight sm:text-4xl" data-aos="py-slide" data-aos-delay="100">
+        The People Behind PythonPH
+      </h2>
+      <p class="mt-6 text-lg leading-relaxed text-white/70" data-aos="py-slide" data-aos-delay="200">
+        A volunteer-run community — powered by trustees, directors, and core volunteers
+        who keep the Philippine Python ecosystem thriving.
+      </p>
+    </div>
+
+    <!-- Board of Trustees -->
+    {% if board_of_trustees %}
+    <div class="mt-14">
+      <h3 class="text-center font-montserrat text-xl font-semibold text-white" data-aos="py-slide">
+        Board of Trustees
+      </h3>
+      <div class="relative mt-8" data-aos="py-slide" data-aos-delay="150">
+        <div class="showcase-track no-scrollbar flex gap-6 overflow-x-auto px-1 pb-2">
+          {% for member in board_of_trustees %}
+          <figure class="w-40 shrink-0 text-center sm:w-44">
+            <img class="aspect-square w-full rounded-2xl object-cover ring-1 ring-white/10 transition duration-300 hover:-translate-y-1 hover:ring-2 hover:ring-yellow"
+                 src="{% static member.image %}" alt="{{ member.display_name }}" loading="lazy">
+            <figcaption class="mt-3">
+              <p class="font-montserrat text-sm font-semibold text-white">{{ member.display_name }}</p>
+              <p class="mt-0.5 text-xs text-yellow/80">{{ member.title }}</p>
+            </figcaption>
+          </figure>
+          {% endfor %}
+        </div>
+
+        <!-- Edge fades -->
+        <div class="pointer-events-none absolute inset-y-0 left-0 hidden w-16 bg-gradient-to-r from-blue to-transparent sm:block" aria-hidden="true"></div>
+        <div class="pointer-events-none absolute inset-y-0 right-0 hidden w-16 bg-gradient-to-l from-blue to-transparent sm:block" aria-hidden="true"></div>
+
+        <!-- Speed controls -->
+        <button type="button"
+                class="showcase-prev absolute left-2 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white/70 opacity-0 transition-opacity duration-300 hover:border-yellow/40 hover:bg-white/20 hover:text-yellow"
+                aria-label="Scroll left">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+        <button type="button"
+                class="showcase-next absolute right-2 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white/70 opacity-0 transition-opacity duration-300 hover:border-yellow/40 hover:bg-white/20 hover:text-yellow"
+                aria-label="Scroll right">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Directors -->
+    {% if directors %}
+    <div class="mt-12">
+      <h3 class="text-center font-montserrat text-xl font-semibold text-white" data-aos="py-slide">
+        Directors
+      </h3>
+      <div class="relative mt-8" data-aos="py-slide" data-aos-delay="150">
+        <div class="showcase-track no-scrollbar flex gap-6 overflow-x-auto px-1 pb-2">
+          {% for member in directors %}
+          <figure class="w-36 shrink-0 text-center sm:w-40">
+            <img class="aspect-square w-full rounded-2xl object-cover ring-1 ring-white/10 transition duration-300 hover:-translate-y-1 hover:ring-2 hover:ring-yellow"
+                 src="{% static member.image %}" alt="{{ member.display_name }}" loading="lazy">
+            <figcaption class="mt-3">
+              <p class="font-montserrat text-sm font-semibold text-white">{{ member.display_name }}</p>
+              <p class="mt-0.5 text-xs text-yellow/80">{{ member.title }}</p>
+            </figcaption>
+          </figure>
+          {% endfor %}
+        </div>
+
+        <!-- Edge fades -->
+        <div class="pointer-events-none absolute inset-y-0 left-0 hidden w-16 bg-gradient-to-r from-blue to-transparent sm:block" aria-hidden="true"></div>
+        <div class="pointer-events-none absolute inset-y-0 right-0 hidden w-16 bg-gradient-to-l from-blue to-transparent sm:block" aria-hidden="true"></div>
+
+        <!-- Speed controls -->
+        <button type="button"
+                class="showcase-prev absolute left-2 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white/70 opacity-0 transition-opacity duration-300 hover:border-yellow/40 hover:bg-white/20 hover:text-yellow"
+                aria-label="Scroll left">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+        <button type="button"
+                class="showcase-next absolute right-2 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white/70 opacity-0 transition-opacity duration-300 hover:border-yellow/40 hover:bg-white/20 hover:text-yellow"
+                aria-label="Scroll right">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Core volunteers -->
+    <div class="mt-16">
+      <h3 class="text-center font-montserrat text-xl font-semibold text-white" data-aos="py-slide">
+        Core Volunteers
+      </h3>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {% for committee in core_committees %}
+        <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition-colors duration-300 hover:border-yellow/40"
+             data-aos="py-slide" data-aos-delay="{{ forloop.counter0 }}00">
+          <h4 class="font-montserrat font-semibold text-yellow">{{ committee.name }}</h4>
+          <ul class="mt-3 space-y-1.5 text-sm text-white/70">
+            {% for volunteer in committee.volunteers.all %}
+            <li>{{ volunteer }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var tracks = document.querySelectorAll(".showcase-track");
+    if (!tracks.length) return;
+
+    // Respect users who prefer reduced motion: keep tracks manually
+    // scrollable, but skip the auto-play animation and controls.
+    var reducedMotion = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    var baseSpeed = 0.5; // pixels per interval tick
+    var boostSpeed = 4; // extra pixels per tick while a button is held
+    var intervalMs = 16; // ~60fps
+
+    tracks.forEach(function (track) {
+      var originals = track.querySelectorAll("figure");
+      if (!originals.length) return;
+
+      var wrapper = track.parentElement;
+      var prevBtn = wrapper.querySelector(".showcase-prev");
+      var nextBtn = wrapper.querySelector(".showcase-next");
+
+      if (reducedMotion) {
+        [prevBtn, nextBtn].forEach(function (btn) {
+          if (btn) btn.classList.add("hidden");
+        });
+        return;
+      }
+
+      // Width of the original set, captured before cloning — this is what
+      // decides whether the viewport hides part of a card.
+      var originalWidth = track.scrollWidth;
+
+      // Clone figures for seamless infinite looping
+      originals.forEach(function (fig) {
+        var clone = fig.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        track.appendChild(clone);
+      });
+
+      // Distance from the first figure to its clone = one full pass.
+      // Measured on the same offset parent, so it accounts for the flex
+      // gap and padding — looping back at this offset is seamless.
+      var figures = track.querySelectorAll("figure");
+      var loopPoint = figures[originals.length].offsetLeft - figures[0].offsetLeft;
+      if (loopPoint <= 0) return;
+
+      var overflowing = false;
+      var paused = false;
+      var boost = 0; // +boostSpeed while "next" is held, -boostSpeed for "prev"
+
+      // Auto-scroll only while the viewport actually hides part of a card
+      // (i.e. the track overflows). Re-evaluated on resize so rotation or
+      // window resizing starts/stops the animation accordingly.
+      function updateOverflow() {
+        overflowing = originalWidth > track.clientWidth;
+        [prevBtn, nextBtn].forEach(function (btn) {
+          if (!btn) return;
+          btn.disabled = !overflowing;
+          btn.style.opacity = overflowing ? "1" : "0";
+        });
+      }
+      updateOverflow();
+      window.addEventListener("resize", updateOverflow);
+
+      // Hold-to-boost: speed the auto-scroll up in the held direction.
+      function bindBoost(btn) {
+        if (!btn) return;
+        var dir = btn === nextBtn ? 1 : -1;
+        function press(e) { e.preventDefault(); boost = dir * boostSpeed; }
+        function release() { boost = 0; }
+        btn.addEventListener("pointerdown", press);
+        btn.addEventListener("pointerup", release);
+        btn.addEventListener("pointercancel", release);
+        btn.addEventListener("pointerleave", release);
+        btn.addEventListener("keydown", function (e) {
+          if (e.key === " " || e.key === "Enter") { e.preventDefault(); boost = dir * boostSpeed; }
+        });
+        btn.addEventListener("keyup", function (e) {
+          if (e.key === " " || e.key === "Enter") boost = 0;
+        });
+      }
+      bindBoost(prevBtn);
+      bindBoost(nextBtn);
+
+      setInterval(function () {
+        if (!overflowing || paused) return;
+
+        track.scrollLeft += baseSpeed + boost;
+
+        // Loop: wrap around at the one-pass boundary in either direction.
+        // Note: the browser clamps scrollLeft at 0, so a reverse hold can
+        // only be detected once it has bottomed out.
+        if (track.scrollLeft >= loopPoint) {
+          track.scrollLeft -= loopPoint;
+        } else if (track.scrollLeft <= 0 && boost < 0) {
+          track.scrollLeft += loopPoint;
+        }
+      }, intervalMs);
+
+      // Pause on hover / focus
+      track.addEventListener("mouseenter", function () { paused = true; });
+      track.addEventListener("mouseleave", function () { paused = false; });
+      track.addEventListener("focusin", function () { paused = true; });
+      track.addEventListener("focusout", function () { paused = false; });
+
+      // Touch: pause while user swipes, resume after
+      track.addEventListener("touchstart", function () { paused = true; });
+      track.addEventListener("touchend", function () { paused = false; });
+    });
+  })();
+</script>

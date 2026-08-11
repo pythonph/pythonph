@@ -1,11 +1,31 @@
+fail_fast: true
 repos:
-  - repo: git@github.com:astral-sh/ruff-pre-commit
-    rev: v0.4.4
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-json
+      - id: check-toml
+      - id: check-yaml
+      - id: debug-statements
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
+      - id: trailing-whitespace
+        args: ["--markdown-linebreak-ext=md"]
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.7.0
     hooks:
       - id: ruff
-
-  - repo: git@github.com:pre-commit/pre-commit-hooks
-    rev: v4.5.0
-    hooks:
-      - id: end-of-file-fixer
-      - id: trailing-whitespace
+        types_or: [python, pyi]
+        args: ["--fix", "--exit-non-zero-on-fix"]
+        exclude: |
+          ^(
+            scripts/|
+            migrations/|
+            __init__.py|
+            .venv/|
+          )
+      - id: ruff-format
+        types_or: [python, pyi]

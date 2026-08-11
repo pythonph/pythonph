@@ -1,0 +1,88 @@
+{% load static %}
+
+<nav id="site-nav" class="sticky top-0 z-50 border-b border-white/10 bg-blue/85 text-white backdrop-blur-md transition-all duration-300">
+  <div class="mx-auto flex h-16 max-w-6xl items-center gap-4 px-4">
+    <a href="{% url 'landing:landing' %}" class="group flex items-center gap-2.5 no-underline">
+      <img src="{% static 'landing/assets/img/icon/icon-logo.svg' %}" alt="PythonPH" class="h-9 w-9 transition-transform duration-300 group-hover:scale-105">
+      <span class="font-montserrat text-lg font-semibold tracking-tight">
+        <span class="text-white">Python</span><span class="text-yellow">PH</span>
+      </span>
+    </a>
+    <button id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"
+            class="btn btn-ghost btn-sm ml-auto text-white lg:hidden">
+      <svg id="nav-icon-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg id="nav-icon-close" xmlns="http://www.w3.org/2000/svg" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <ul class="hidden items-center gap-7 lg:ml-auto lg:flex">
+      <li><a href="{% url 'landing:landing' %}#about" class="nav-link text-sm font-medium text-white/85 no-underline transition-colors hover:text-yellow">About</a></li>
+      <li><a href="{% url 'events:events' %}" class="nav-link text-sm font-medium text-white/85 no-underline transition-colors hover:text-yellow">Events</a></li>
+      <li><a href="{% url 'landing:landing' %}#community" class="nav-link text-sm font-medium text-white/85 no-underline transition-colors hover:text-yellow">Community</a></li>
+      <li><a href="{% url 'landing:landing' %}#resources" class="nav-link text-sm font-medium text-white/85 no-underline transition-colors hover:text-yellow">Resources</a></li>
+      <li>
+        <a href="https://pycon.python.ph/" class="nav-link inline-flex items-center gap-1 text-sm font-medium text-white/85 no-underline transition-colors hover:text-yellow">
+          PyCon PH
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </li>
+      <li><a href="{% url 'landing:landing' %}#contact" class="nav-link text-sm font-medium text-white/85 no-underline transition-colors hover:text-yellow">Contact</a></li>
+      {% if user.is_authenticated %}
+        <li><a href="{% url 'jobs:post' %}" class="text-sm font-medium text-white/85 no-underline transition-colors hover:text-yellow">Post a Job</a></li>
+        <li>
+          <form action="{% url 'landing:logout' %}" method="post" class="inline">
+            {% csrf_token %}
+            <button type="submit" class="text-sm font-medium text-white/85 transition-colors hover:text-yellow">Logout</button>
+          </form>
+        </li>
+      {% elif site_settings.auth_enabled %}
+        <li><a href="{% url 'landing:login' %}" class="text-sm font-medium text-white/85 no-underline transition-colors hover:text-yellow">Login</a></li>
+      {% endif %}
+      <li>
+        {% if user.is_authenticated or not site_settings.auth_enabled %}
+          <a href="{% url 'landing:landing' %}#contact"
+             class="btn btn-primary btn-sm rounded-full border-none px-5 font-montserrat font-semibold shadow-[0_0_0_0_rgba(253,214,73,0.4)] transition-shadow hover:shadow-[0_0_24px_2px_rgba(253,214,73,0.35)]">
+            Join Us
+          </a>
+        {% else %}
+          <a href="{% url 'landing:register' %}"
+             class="btn btn-primary btn-sm rounded-full border-none px-5 font-montserrat font-semibold shadow-[0_0_0_0_rgba(253,214,73,0.4)] transition-shadow hover:shadow-[0_0_24px_2px_rgba(253,214,73,0.35)]">
+            Join Us
+          </a>
+        {% endif %}
+      </li>
+    </ul>
+  </div>
+  <div id="nav-menu" class="hidden border-t border-white/10 bg-blue-3/95 lg:hidden">
+    <ul class="flex flex-col gap-1 px-4 py-4">
+      <li><a href="{% url 'landing:landing' %}#about" class="block rounded-lg px-3 py-2.5 text-sm font-medium text-white/85 no-underline transition-colors hover:bg-white/5 hover:text-yellow">About</a></li>
+      <li><a href="{% url 'events:events' %}" class="block rounded-lg px-3 py-2.5 text-sm font-medium text-white/85 no-underline transition-colors hover:bg-white/5 hover:text-yellow">Events</a></li>
+      <li><a href="{% url 'landing:landing' %}#community" class="block rounded-lg px-3 py-2.5 text-sm font-medium text-white/85 no-underline transition-colors hover:bg-white/5 hover:text-yellow">Community</a></li>
+      <li><a href="{% url 'landing:landing' %}#resources" class="block rounded-lg px-3 py-2.5 text-sm font-medium text-white/85 no-underline transition-colors hover:bg-white/5 hover:text-yellow">Resources</a></li>
+      <li><a href="https://pycon.python.ph/" class="block rounded-lg px-3 py-2.5 text-sm font-medium text-white/85 no-underline transition-colors hover:bg-white/5 hover:text-yellow">PyCon PH</a></li>
+      <li><a href="{% url 'landing:landing' %}#contact" class="block rounded-lg px-3 py-2.5 text-sm font-medium text-white/85 no-underline transition-colors hover:bg-white/5 hover:text-yellow">Contact</a></li>
+      {% if user.is_authenticated %}
+        <li><a href="{% url 'jobs:post' %}" class="block rounded-lg px-3 py-2.5 text-sm font-medium text-white/85 no-underline transition-colors hover:bg-white/5 hover:text-yellow">Post a Job</a></li>
+        <li>
+          <form action="{% url 'landing:logout' %}" method="post" class="block">
+            {% csrf_token %}
+            <button type="submit" class="w-full rounded-lg px-3 py-2.5 text-left text-sm font-medium text-white/85 transition-colors hover:bg-white/5 hover:text-yellow">Logout</button>
+          </form>
+        </li>
+      {% elif site_settings.auth_enabled %}
+        <li><a href="{% url 'landing:login' %}" class="block rounded-lg px-3 py-2.5 text-sm font-medium text-white/85 no-underline transition-colors hover:bg-white/5 hover:text-yellow">Login</a></li>
+      {% endif %}
+      <li class="pt-2">
+        {% if user.is_authenticated or not site_settings.auth_enabled %}
+          <a href="{% url 'landing:landing' %}#contact" class="btn btn-primary btn-block rounded-full border-none font-montserrat font-semibold">Join Us</a>
+        {% else %}
+          <a href="{% url 'landing:register' %}" class="btn btn-primary btn-block rounded-full border-none font-montserrat font-semibold">Join Us</a>
+        {% endif %}
+      </li>
+    </ul>
+  </div>
+</nav>

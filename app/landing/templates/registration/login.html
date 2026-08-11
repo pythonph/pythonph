@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Login — PythonPH{% endblock %}
+
+{% block content %}
+<div class="mx-auto max-w-md px-4 py-16">
+  <div class="rounded-box border border-base-300 bg-white p-8">
+    <h1 class="mb-6 text-2xl font-bold text-blue">Login</h1>
+    <form action="{% url 'landing:login' %}" method="post">
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{ next }}" />
+      {% for field in form %}
+        <div class="mb-4">
+          <label for="{{ field.id_for_label }}" class="mb-1 block text-sm font-semibold text-blue">{{ field.label }}</label>
+          {{ field }}
+          {% for error in field.errors %}<p class="mt-1 text-xs text-pink">{{ error }}</p>{% endfor %}
+        </div>
+      {% endfor %}
+      {% if form.non_field_errors %}
+        <div class="alert alert-error mb-4 text-sm">{{ form.non_field_errors }}</div>
+      {% endif %}
+      <button type="submit" class="btn btn-primary w-full">Login</button>
+      <p class="mt-4 text-center text-sm text-blue-2">
+        No account yet? <a href="{% url 'landing:register' %}" class="text-blue-1 hover:underline">Register</a>
+      </p>
+    </form>
+  </div>
+</div>
+{% include "includes/form_styles.html" %}
+{% endblock %}

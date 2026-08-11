@@ -3,6 +3,9 @@ __pycache__/
 *.pyc
 *.egg-info
 
+# SQLite
+*.sqlite3
+
 # npm
 npm-debug.log
 
@@ -10,8 +13,20 @@ npm-debug.log
 /venv/*
 /static/*
 /media/*
+/mediafiles/
 /bower_components/*
 /node_modules/*
 
+# Keep committed static source assets under static/img/ (e.g. login-bg.svg).
+# static/css/ stays ignored: it is regenerated on deploy by `tailwind build`.
+!/static/img/
+
 # docker-compose
 *.env
+db.sqlite3
+
+# tailwind cli binary (downloaded by django-tailwind-cli)
+.django_tailwind_cli/
+
+# Static files
+/staticfiles/

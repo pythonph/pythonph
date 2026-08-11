@@ -1,0 +1,43 @@
+- slug: header_intro
+  title: ""
+  name: Header Intro
+  content: |
+    <p>PythonPH is a non-stock, non-profit, <strong>volunteer-run</strong> organization dedicated to support and facilitate the growth of the community of Python programmers in the Philippines.</p>
+  order: 1
+
+- slug: our_aim
+  title: Our Aim
+  name: Our Aim
+  content: |
+    <ul><li>To show that <strong>Python has something for everyone</strong>: from hobbyists, to educators, to students, to professionals.</li><li>To <strong>inspire Filipinos to excel in their craft</strong> through Python and Open Source.</li><li>To <strong>provide a safe space</strong> where the Python programming language and surrounding technologies can be explored, discussed and exercised.</li></ul><p>We believe that we <strong>create small dents of improvement</strong> in the <strong>PH Tech industry</strong> when we foster environments that <strong>inspire</strong> and <strong>motivate</strong> individuals to be <strong>technically competent</strong> and <strong>passionate</strong> about their <strong>craft</strong>.</p>
+  order: 2
+
+- slug: why_python
+  title: Why Python?
+  name: Why Python
+  content: |
+    <p data-aos="py-slide"><strong>We believe Python changes lives.</strong></p><p data-aos="py-slide">It gives <strong>everyday people the tools</strong> to <strong>create, solve problems, and share</strong> ideas with the world—<strong>while also powering industries</strong> from <strong>AI</strong> and <strong>data science</strong> to <strong>cloud computing</strong> and <strong>automation</strong>.</p> <br/>
+    <p data-aos="py-slide">From students building their first websites, to small teams streamlining workflows, to researchers and companies tackling big challenges—Python is there.</p> <br/>
+    <p data-aos="py-slide"><strong>Simple enough to start with, powerful enough to shape the future.</strong> And at PythonPH, we see it every day in our community: <strong>people learning, teaching, and creating together. That's the heart of why we do what we do.</strong></p>
+  order: 3
+
+- slug: what_we_do_intro
+  title: What We Do
+  name: What We Do Intro
+  content: |
+    <p data-aos="py-slide"><u>In June 31-July 1 2012</u>, we held the first ever PyCon Philippines.</p><p data-aos="py-slide"><u>Today</u>, we organize the yearly PyCon and also hold regular meet-ups, public python trainings and kaizend throughout the year.</p><p data-aos="py-slide">Whether you're new to programming, an experienced practitioner, or just plain curious what this Python programming language is about, you're much welcome to join this community!</p>
+  order: 4
+
+- slug: code_of_conduct
+  title: Code of Conduct
+  name: Code of Conduct
+  content: |
+    <p data-aos="py-slide">We value the participation of each member of the Python community and want all members to have an enjoyable and fulfilling experience. Accordingly, all members are expected to show respect and courtesy to other members at all PythonPH events, whether officially sponsored by PythonPH or not.</p><p data-aos="py-slide">To make clear what is expected, all delegates/attendees, speakers, exhibitors, organizers, and volunteers at any PythonPH event are required to conform to the following <a class="text-yellow no-underline hover:opacity-70" href="https://www.python.org/psf/conduct/">Code of Conduct</a>.</p><p data-aos="py-slide"><strong>Contact Information</strong></p><p data-aos="py-slide">If you believe that someone is violating the code of conduct, or have any other concerns, please contact a member of the PythonPH Code of Conduct workgroup immediately. They can be reached by emailing <a class="text-yellow no-underline hover:opacity-70" href="mailto:board@python.ph">board@python.ph</a></p>
+  order: 5
+
+- slug: mailing_list
+  title: Subscribe
+  name: Mailing List Subscribe
+  content: |
+    <p data-aos="py-slide">Subscribe to our mailing list and get interesting stuff and updates to your email inbox.</p>
+  order: 6

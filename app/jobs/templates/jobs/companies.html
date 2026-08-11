@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Companies — PythonPH Jobs Board{% endblock %}
+{% block description %}Companies hiring Python developers in the Philippines.{% endblock %}
+
+{% block content %}
+<div class="mx-auto max-w-5xl px-4 py-10">
+  <div class="mb-8">
+    <h1 class="m-0 text-3xl font-bold text-blue">Companies</h1>
+    <p class="mt-1 text-sm text-blue-2">Companies posting Python jobs on the board.</p>
+  </div>
+
+  {% if companies %}
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {% for item in companies %}
+        <div class="card border border-base-300 bg-white transition hover:shadow-lg">
+          <div class="card-body p-6">
+            <div class="flex items-center gap-3">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-box bg-blue text-lg font-bold text-yellow">{{ item.company.name|slice:":1" }}</span>
+              <div>
+                <h2 class="m-0 text-xl font-bold text-blue">
+                  {% if item.company.homepage %}
+                    <a href="{{ item.company.homepage }}" target="_blank" rel="noopener" class="no-underline hover:text-blue-1">{{ item.company.name }}</a>
+                  {% else %}
+                    {{ item.company.name }}
+                  {% endif %}
+                </h2>
+                <p class="mt-1 text-sm text-blue-2">
+                  {{ item.job_count }} {% if item.job_count == 1 %}job{% else %}jobs{% endif %} posted
+                </p>
+              </div>
+            </div>
+
+            <div class="divider my-4"></div>
+
+            <h3 class="m-0 mb-3 text-sm font-semibold text-blue-2">Latest Jobs</h3>
+            <div class="space-y-3">
+              {% for job in item.latest_jobs %}
+                <a href="{% url 'jobs:job_detail' job.pk %}" class="block rounded-box border border-base-300 p-3 transition hover:border-blue-1">
+                  <h4 class="m-0 font-medium text-blue">{{ job.title }}</h4>
+                  <p class="mt-1 text-xs text-blue-2">
+                    {% if job.is_remote %}Remote{% else %}{{ job.location }}{% endif %}{% if job.salary_range %} · {{ job.salary_range }}{% endif %}
+                  </p>
+                </a>
+              {% empty %}
+                <p class="text-sm opacity-70">No jobs currently listed.</p>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="rounded-box border border-base-300 bg-white p-10 text-center">
+      <p class="m-0 text-blue-2">No companies posting jobs yet.</p>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

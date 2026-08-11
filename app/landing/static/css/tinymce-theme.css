@@ -1,0 +1,10 @@
+/* Blend django-tinymce editors into the Unfold admin theme. */
+.tox-tinymce {
+  border-radius: 6px;
+  border-color: var(--color-base-200, #c9d0ee);
+  overflow: hidden;
+}
+
+.dark .tox-tinymce {
+  border-color: var(--color-base-800, #1b254a);
+}

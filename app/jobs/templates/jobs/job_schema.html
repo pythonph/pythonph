@@ -1,0 +1,39 @@
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org/",
+    "@type": "JobPosting",
+    "title": "{{ job.title|escapejs }}",
+    "description": "{{ job.description|escapejs }}",
+    "datePosted": "{{ job.created_at|date:"c" }}",
+    {% if job.is_remote %}
+    "jobLocationType": "TELECOMMUTE",
+    "applicantLocationRequirements": {
+        "@type": "Country",
+        "name": "Philippines"
+    },
+    {% endif %}
+    "hiringOrganization": {
+        "@type": "Organization",
+        "name": "{{ job.company.name|escapejs }}"
+    },
+    "jobLocation": {
+        "@type": "Place",
+        "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "{{ job.location|escapejs }}",
+            "addressCountry": "PH"
+        }
+    }
+    {% if job.salary_range %},
+    "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "PHP",
+        "value": {
+            "@type": "QuantitativeValue",
+            "value": "{{ job.salary_range|escapejs }}",
+            "unitText": "MONTH"
+        }
+    }
+    {% endif %}
+}
+</script>

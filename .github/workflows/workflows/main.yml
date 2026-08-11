@@ -1,0 +1,21 @@
+name: Check Django CI/CD project
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  check:
+    name: python
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'chore:') && !contains(github.event.head_commit.message, 'build(deps):')"
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+      - name: Install Python environment
+        uses: ./.github/actions/install-env
+      - name: Run pre-commit checks
+        run: uv run pre-commit run --all-files
+      - name: Minimize uv cache
+        run: uv cache prune --ci
