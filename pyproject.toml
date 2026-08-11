@@ -21,7 +21,7 @@ dependencies = [
     "psycopg2-binary>=2.9.10",
     "pydantic-settings>=2.11.0",
     "sentry-sdk[django]>=2.39.0",
-    "setuptools<81",
+    "setuptools<84",
     "whitenoise[brotli]>=6.11.0",
     "django-debug-toolbar>=4.0",
     "django-browser-reload>=1.21.0",
