@@ -42,6 +42,10 @@ DEBUG = settings.DEBUG
 SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
 SECURE_CROSS_ORIGIN_OPENER_POLICY = "same-origin-allow-popups"
 
+if settings.APP_ENV == "production":
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+
 ALLOWED_HOSTS = settings.get_allowed_hosts()
 CSRF_TRUSTED_ORIGINS = settings.get_trusted_origins()
 CORS_ALLOWED_ORIGINS = settings.get_trusted_origins()
