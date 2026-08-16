@@ -10,6 +10,12 @@ class Commitee(SoftDeletableModel):
 
 
 class Volunteer(SoftDeletableModel):
+    COMMITTEE_TYPE_CHOICES = [
+        ("lead", "Lead"),
+        ("co_lead", "Co-Lead"),
+        ("member", "Member"),
+    ]
+
     display_name = models.CharField(max_length=255)
     first_name = models.CharField(max_length=128)
     last_name = models.CharField(max_length=128)
@@ -23,6 +29,11 @@ class Volunteer(SoftDeletableModel):
         null=True,
         on_delete=models.SET_NULL,
         related_name="volunteers",
+    )
+    commitee_type = models.CharField(
+        max_length=20,
+        choices=COMMITTEE_TYPE_CHOICES,
+        default="member",
     )
 
     def __str__(self):
