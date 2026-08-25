@@ -57,6 +57,24 @@
         window.addEventListener("scroll", onScroll, { passive: true });
         onScroll();
       }
+
+      // Hero images entrance animations
+      var initHeroAnimations = function () {
+        var heroContainer = document.querySelector('.hero-images-container');
+        if (!heroContainer) return;
+
+        // Trigger entrance animations on page load
+        setTimeout(function () {
+          heroContainer.classList.add('hero-container-animated');
+        }, 100);
+      };
+
+      // Initialize when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHeroAnimations);
+      } else {
+        initHeroAnimations();
+      }
     })();
   </script>
 </body>

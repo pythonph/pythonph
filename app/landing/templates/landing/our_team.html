@@ -115,21 +115,18 @@
           {% for volunteer in committee.volunteers.all %}
           {% if volunteer.commitee_type == "lead" %}
           <div class="mt-3 flex items-center gap-2">
-            <span class="inline-flex items-center rounded-full border border-blue-300 bg-blue-500 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white shadow-[0_0_18px_rgba(59,130,246,0.4)]">
-              Lead
-            </span>
-            <span class="text-sm font-semibold text-white">{{ volunteer.display_name }}</span>
+            <span class="text-sm text-white/70">{{ volunteer.display_name }}</span>
+            <span class="text-sm text-white/70">•</span>
+            <span class="inline-flex items-center text-sm text-white/70">Lead</span>
           </div>
           {% elif volunteer.commitee_type == "co_lead" %}
           <div class="mt-3 flex items-center gap-2">
-            <span class="inline-flex items-center rounded-full border border-purple-400/60 bg-purple-500/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-purple-200">
-              Co-Lead
-            </span>
-            <span class="text-sm font-semibold text-white">{{ volunteer.display_name }}</span>
+            <span class="text-sm text-white/70">{{ volunteer.display_name }}</span>
+            <span class="text-sm text-white/70">•</span>
+            <span class="inline-flex items-center text-sm text-white/70">Co-Lead</span>
           </div>
           {% endif %}
           {% endfor %}
-
           <ul class="mt-3 space-y-1.5 text-sm text-white/70">
             {% for volunteer in committee.volunteers.all %}
             {% if volunteer.commitee_type == "member" %}
