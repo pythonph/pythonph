@@ -20,10 +20,11 @@ class VolunteerAdmin(UnfoldModelAdmin, ImportExportModelAdmin):
     list_display = (
         "display_name",
         "commitee",
+        "commitee_type",
         "first_name",
         "last_name",
     )
-    list_filter = ("commitee",)
+    list_filter = ("commitee", "commitee_type")
 
 
 admin.site.register(Commitee, CommiteeAdmin)

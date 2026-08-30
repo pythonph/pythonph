@@ -1,4 +1,14 @@
 {% load static %}
+<style>
+.max-w-125 {
+  max-width: calc(125px - 8px);
+}
+
+.max-w-78 {
+  max-width: calc(78px - 8px);
+}
+
+</style>
 
 <header class="relative overflow-hidden bg-blue bg-hero-glow">
   <!-- Decorative grid + floating orbs (palette-only) -->
@@ -7,7 +17,7 @@
   <div class="absolute -right-16 bottom-1/4 h-72 w-72 rounded-full bg-yellow/10 blur-3xl animate-pulse-glow" aria-hidden="true"></div>
   <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-blue" aria-hidden="true"></div>
 
-  <div class="relative mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl flex-col items-center gap-14 px-4 pb-24 pt-16 lg:flex-row lg:gap-8 lg:pb-28 lg:pt-20">
+  <div class="relative mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl flex-col justify-between items-center gap-14 px-4 pb-24 pt-16 lg:flex-row lg:gap-8 lg:pb-28 lg:pt-20">
     <!-- Copy -->
     <div class="max-w-xl text-center lg:text-left">
       <span class="inline-flex items-center gap-2 rounded-full border border-yellow/30 bg-yellow/10 px-4 py-1.5 font-montserrat text-xs font-semibold uppercase tracking-widest text-yellow"
@@ -38,34 +48,37 @@
       </div>
     </div>
 
-    <!-- Illustration: Philippine sun + code, strictly in brand palette -->
-    <div class="relative w-full max-w-md flex-shrink-0 lg:max-w-lg" aria-hidden="true">
-      <svg viewBox="0 0 520 520" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full drop-shadow-2xl">
-        <defs>
-          <radialGradient id="heroGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#3a9dff" stop-opacity="0.30" />
-            <stop offset="70%" stop-color="#3a9dff" stop-opacity="0.08" />
-            <stop offset="100%" stop-color="#3a9dff" stop-opacity="0" />
-          </radialGradient>
-        </defs>
-
-        <!-- Soft glow + backdrop ring -->
-        <circle cx="260" cy="260" r="250" fill="url(#heroGlow)" />
-
-        <!-- Orbiting accent dots -->
-        <g class="animate-float-delayed">
-          <circle cx="42" cy="150" r="6" fill="#3a9dff" opacity="0.9" />
-          <circle cx="480" cy="120" r="5" fill="#fdd649" opacity="0.9" />
-          <circle cx="486" cy="360" r="6" fill="#32bf8c" opacity="0.85" />
-          <circle cx="36" cy="372" r="5" fill="#f84c66" opacity="0.85" />
-        </g>
-
-        <!-- PythonPH logo (actual file), large and centered -->
-        <image href="{% static 'landing/assets/img/icon/icon-logo.svg' %}"
-               x="30" y="30" width="460" height="460"
-               class="animate-float-slow" />
-      </svg>
+<!-- Illustration: Images -->
+  <div class="relative flex flex-col items-center w-full max-w-md flex-shrink-0 lg:max-w-lg gap-2 images-wrapper hero-images-container" aria-hidden="true">
+    <div class="hidden lg:flex lg:flex-row gap-2 img-container-one w-full justify-center lg:justify-end">
+      <img src="{% static 'img/hero_col-1_img-1.jpg' %}" alt="PythonPH Hero Image" class="w-full max-w-125 rounded-lg" />
+      <img src="{% static 'img/hero_col-1_img-2.jpg' %}" alt="PythonPH Hero Image" class="w-full max-w-125 rounded-lg" />
+      <img src="{% static 'img/hero_col-1_img-3.jpg' %}" alt="PythonPH Hero Image" class="w-full max-w-125 rounded-lg" />
     </div>
+    <div class="flex flex-row gap-2 img-container-two w-full justify-center md:justify-center lg:justify-end">
+      <img src="{% static 'img/hero_col-2_img-1.jpg' %}" alt="PythonPH Hero Image" class="w-full max-w-125  rounded-lg" />
+      <img src="{% static 'img/hero_col-2_img-2.jpg' %}" alt="PythonPH Hero Image" class="w-full max-w-125 rounded-lg" />
+      <img src="{% static 'img/hero_col-2_img-3.jpg' %}" alt="PythonPH Hero Image" class="w-full max-w-125 rounded-lg" />
+      <img src="{% static 'img/hero_col-2_img-4.jpg' %}" alt="PythonPH Hero Image" class="w-full max-w-125 rounded-lg" />
+    </div>
+    <div class="flex flex-row items-end img-container-three w-full justify-center md:justify-center lg:justify-end">
+      <img src="{% static 'img/hero_main-img.jpg' %}" alt="PythonPH Hero Image" class="w-full rounded-lg" />
+    </div>
+    <div class="flex flex-row gap-2 img-container-four w-full justify-center md:justify-center lg:justify-end">
+      <img src="{% static 'img/hero_col-3_img-1.jpg' %}" alt="PythonPH Hero Image" class="w-full max-w-125 rounded-lg" />
+      <img src="{% static 'img/hero_col-3_img-2.jpg' %}" alt="PythonPH Hero Image" class="w-full max-w-125 rounded-lg" />
+      <img src="{% static 'img/hero_col-3_img-3.jpg' %}" alt="PythonPH Hero Image" class="w-full max-w-125 rounded-lg" />
+      <img src="{% static 'img/hero_col-3_img-4.jpg' %}" alt="PythonPH Hero Image" class="w-full max-w-125 rounded-lg" />
+    </div>
+    <div class="hidden lg:flex lg:flex-row gap-2 img-container-five w-full justify-center lg:justify-end">
+      <img src="{% static 'img/hero_col-4_img-1.jpg' %}" alt="PythonPH Hero Image" class="w-full max-w-78 rounded-lg" />
+      <img src="{% static 'img/hero_col-4_img-2.jpg' %}" alt="PythonPH Hero Image" class="w-full max-w-78 rounded-lg" />
+      <img src="{% static 'img/hero_col-4_img-3.jpg' %}" alt="PythonPH Hero Image" class="w-full max-w-78 rounded-lg" />
+      <img src="{% static 'img/hero_col-4_img-4.jpg' %}" alt="PythonPH Hero Image" class="w-full max-w-78 rounded-lg" />
+      <img src="{% static 'img/hero_col-4_img-5.jpg' %}" alt="PythonPH Hero Image" class="w-full max-w-78 rounded-lg" />
+      <img src="{% static 'img/hero_col-4_img-6.jpg' %}" alt="PythonPH Hero Image" class="w-full max-w-78 rounded-lg" />
+    </div>
+  </div>
   </div>
 
   <!-- Scroll hint -->

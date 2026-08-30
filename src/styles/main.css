@@ -71,6 +71,138 @@
 	box-shadow: 0 12px 32px -12px rgb(0 0 0 / 0.55);
 }
 
+/* Hero images entrance animations */
+@keyframes hero-float-up {
+	0% {
+		transform: translateY(40px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes hero-float-down {
+	0% {
+		transform: translateY(-40px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes hero-zoom-in {
+	0% {
+		transform: scale(0.8);
+		opacity: 0;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes hero-wiggle-1 {
+	0%, 100% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(-3px);
+	}
+}
+
+@keyframes hero-wiggle-2 {
+	0%, 100% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(4px);
+	}
+}
+
+@keyframes hero-wiggle-3 {
+	0%, 100% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(-4px);
+	}
+}
+
+@keyframes hero-wiggle-4 {
+	0%, 100% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(3px);
+	}
+}
+
+@keyframes hero-wiggle-5 {
+	0%, 100% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(-3px);
+	}
+}
+
+/* Base state - all images start hidden */
+.img-container-one img,
+.img-container-two img,
+.img-container-four img,
+.img-container-five img,
+.img-container-three img {
+	opacity: 0;
+	animation-fill-mode: both;
+	will-change: transform, opacity;
+}
+
+/* Specific entrance animations for each image - slide/zoom effects */
+.img-container-one img {
+	animation: hero-float-up 0.8s ease-out forwards;
+}
+
+.img-container-two img {
+	animation: hero-float-down 0.8s ease-out forwards;
+}
+
+.img-container-three img {
+	animation: hero-zoom-in 0.8s ease-out forwards;
+}
+
+.img-container-four img {
+	animation: hero-float-up 0.8s ease-out forwards;
+}
+
+.img-container-five img {
+	animation: hero-float-down 0.8s ease-out forwards;
+}
+
+/* Wiggle animation chain - starts immediately after entrance, slow & smooth infinite */
+.hero-container-animated .img-container-one img {
+	animation: hero-float-up 0.8s ease-out forwards, hero-wiggle-1 14s ease-in-out infinite 0.8s;
+}
+
+.hero-container-animated .img-container-two img {
+	animation: hero-float-down 0.8s ease-out forwards, hero-wiggle-2 16s ease-in-out infinite 0.8s;
+}
+
+.hero-container-animated .img-container-three img {
+	animation: hero-zoom-in 0.8s ease-out forwards, hero-wiggle-3 18s ease-in-out infinite 0.8s;
+}
+
+.hero-container-animated .img-container-four img {
+	animation: hero-float-up 0.8s ease-out forwards, hero-wiggle-4 15s ease-in-out infinite 0.8s;
+}
+
+.hero-container-animated .img-container-five img {
+	animation: hero-float-down 0.8s ease-out forwards, hero-wiggle-5 17s ease-in-out infinite 0.8s;
+}
+
 /* Hero decoration helpers (palette-only). */
 @utility bg-hero-grid {
 	background-image:

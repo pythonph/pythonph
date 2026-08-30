@@ -111,9 +111,27 @@
         <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition-colors duration-300 hover:border-yellow/40"
              data-aos="py-slide" data-aos-delay="{{ forloop.counter0 }}00">
           <h4 class="font-montserrat font-semibold text-yellow">{{ committee.name }}</h4>
+
+          {% for volunteer in committee.volunteers.all %}
+          {% if volunteer.commitee_type == "lead" %}
+          <div class="mt-3 flex items-center gap-2">
+            <span class="text-sm text-white/70">{{ volunteer.display_name }}</span>
+            <span class="text-sm text-white/70">•</span>
+            <span class="inline-flex items-center text-sm text-white/70">Lead</span>
+          </div>
+          {% elif volunteer.commitee_type == "co_lead" %}
+          <div class="mt-3 flex items-center gap-2">
+            <span class="text-sm text-white/70">{{ volunteer.display_name }}</span>
+            <span class="text-sm text-white/70">•</span>
+            <span class="inline-flex items-center text-sm text-white/70">Co-Lead</span>
+          </div>
+          {% endif %}
+          {% endfor %}
           <ul class="mt-3 space-y-1.5 text-sm text-white/70">
             {% for volunteer in committee.volunteers.all %}
-            <li>{{ volunteer }}</li>
+            {% if volunteer.commitee_type == "member" %}
+            <li>{{ volunteer.display_name }}</li>
+            {% endif %}
             {% endfor %}
           </ul>
         </div>
