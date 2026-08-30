@@ -72,8 +72,10 @@
               {% endif %}
             </div>
 
-            {% if job.short_description %}
-              <p class="m-0 mt-3 text-sm leading-relaxed opacity-80 line-clamp-2">{{ job.short_description }}</p>
+            {% if job.short_description or job.description %}
+              <p class="m-0 mt-3 text-sm leading-relaxed opacity-80 line-clamp-2">
+                {% if job.short_description %}{{ job.short_description }}{% else %}{{ job.description|striptags|truncatechars:180 }}{% endif %}
+              </p>
             {% endif %}
 
             {% if job.tags.all %}
@@ -85,7 +87,7 @@
             {% endif %}
 
             <div class="mt-5 flex flex-wrap items-center gap-3 border-t pt-4 {% if job.is_sponsored %}border-white/20{% else %}border-base-300{% endif %}">
-              <a href="{% url 'jobs:job_detail' job.pk %}" class="btn btn-ghost btn-sm">View Details</a>
+              <a href="{% url 'jobs:job_detail' job.pk %}" class="btn btn-ghost btn-sm {% if job.is_sponsored %}text-white hover:bg-white/10{% endif %}">View Details</a>
               {% if job.application_url %}
                 <a href="{{ job.application_url }}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Apply</a>
               {% endif %}
