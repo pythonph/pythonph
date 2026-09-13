@@ -18,7 +18,7 @@ def index(request):
         "volunteers"
     )
 
-    latest_events = Event.available_objects.all()[:4]
+    latest_events = Event.available_objects.filter(parent__isnull=True)[:4]
 
     context = {
         "core_committees": core_committees,
