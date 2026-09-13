@@ -85,6 +85,99 @@
     {% endif %}
   </div>
 
+  <!-- Program Sessions -->
+  {% if event_groups %}
+  <div class="w-full px-4 lg:px-0 max-w-4xl mx-auto pb-12">
+    <h2 class="font-montserrat text-sm tracking-[0.2em] uppercase text-white/40 mb-6">Upcoming events</h2>
+    {% for month, sessions in event_groups %}
+    <div class="mb-8">
+      <h3 class="font-montserrat text-base md:text-lg text-yellow mb-3">{{ month }}</h3>
+      <div class="space-y-4">
+        {% for session in sessions %}
+        <div class="group flex flex-col sm:flex-row sm:items-center gap-4 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] hover:border-white/[0.12] p-4 md:p-5 transition-all duration-200">
+          <a href="{% url 'events:event_detail' session.slug %}"
+             class="flex flex-col sm:flex-row sm:items-center gap-5 flex-1 min-w-0 no-underline">
+            <!-- Thumbnail / Date Badge Column -->
+            <div class="shrink-0">
+              {% if session.cover_image %}
+              <div class="w-full sm:w-44 h-28 rounded-lg overflow-hidden bg-white/[0.04]">
+                <img src="{{ session.cover_image.url }}" alt="{{ session.name }}"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+              </div>
+              {% else %}
+              <div class="w-full sm:w-44 h-28 rounded-lg bg-white/[0.04] flex flex-col items-center justify-center gap-2 border border-white/[0.06] group-hover:border-yellow/30 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white/25 group-hover:text-yellow/60 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span class="text-[10px] text-white/30 group-hover:text-yellow/60 transition-colors font-montserrat tracking-[0.2em]">EVENT</span>
+              </div>
+              {% endif %}
+            </div>
+
+            <!-- Content Column -->
+            <div class="flex-1 min-w-0 flex flex-col justify-center">
+              <h4 class="font-montserrat text-base md:text-lg text-white group-hover:text-yellow transition-colors leading-snug mb-2">
+                {{ session.name }}
+              </h4>
+
+              <!-- Meta row -->
+              <div class="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-white/70 text-sm">
+                {% if session.date %}
+                <span class="inline-flex items-center gap-1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-yellow/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  {{ session.date|date:"F j, Y" }}
+                </span>
+                {% endif %}
+                {% if session.schedule %}
+                <span>{{ session.schedule }}</span>
+                {% endif %}
+                {% if session.location %}
+                <span class="inline-flex items-center gap-1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-yellow/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  {{ session.location }}
+                </span>
+                {% endif %}
+              </div>
+
+              {% if session.description %}
+              <p class="text-white/70 text-sm leading-relaxed line-clamp-2 mt-2">
+                {{ session.description|striptags|truncatewords:30 }}
+              </p>
+              {% endif %}
+
+              <span class="inline-flex items-center gap-1 text-xs font-montserrat tracking-wide text-white/50 group-hover:text-yellow transition-colors mt-3">
+                View details
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          {% if session.link %}
+          <div class="shrink-0">
+            <a href="{{ session.link }}" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-yellow/10 border border-yellow/30 text-yellow text-sm font-semibold hover:bg-yellow hover:text-blue transition-colors no-underline">
+              RSVP / Details
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
   <!-- More Events -->
   {% if other_events %}
   <div class="w-full px-4 lg:px-0 max-w-4xl mx-auto pb-10">

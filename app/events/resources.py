@@ -1,9 +1,15 @@
-from import_export import resources
+from import_export import fields, resources, widgets
 
 from .models import Event
 
 
 class EventResource(resources.ModelResource):
+    parent = fields.Field(
+        column_name="parent",
+        attribute="parent",
+        widget=widgets.ForeignKeyWidget(Event, field="slug"),
+    )
+
     class Meta:
         model = Event
         import_id_fields = ("id",)
@@ -16,6 +22,8 @@ class EventResource(resources.ModelResource):
             "description",
             "cover_image",
             "link",
+            "date",
+            "parent",
             "created_at",
             "is_removed",
         )

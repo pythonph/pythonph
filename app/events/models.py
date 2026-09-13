@@ -12,6 +12,14 @@ class Event(SoftDeletableModel):
     cover_image = models.ImageField(upload_to="events/covers/", blank=True, default="")
     link = models.CharField(max_length=255, blank=True, default="")
     order = models.PositiveIntegerField(default=0)
+    parent = models.ForeignKey(
+        "self",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="children",
+    )
+    date = models.DateField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
