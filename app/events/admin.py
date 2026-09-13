@@ -7,10 +7,13 @@ from tinymce.models import HTMLField
 from tinymce.widgets import AdminTinyMCE
 from unfold.admin import ModelAdmin as UnfoldModelAdmin
 from unfold.admin import TabularInline as UnfoldTabularInline
+from unfold.contrib.filters.admin import DropdownFilter as UnfoldDropdownFilter
 from unfold.contrib.import_export.forms import ExportForm, ImportForm
 
 from .models import Event
 from .resources import EventResource
+
+TOP_LEVEL_VALUE = "top-level"
 
 
 class IsArchivedListFilter(admin.SimpleListFilter):
@@ -37,6 +40,33 @@ class IsArchivedListFilter(admin.SimpleListFilter):
         if self.value():
             return queryset.filter(is_removed=True)
         return queryset.filter(is_removed=False)
+
+
+class ParentEventFilter(UnfoldDropdownFilter):
+    """Filter the changelist by parent event.
+
+    Only events that actually have children are listed, plus a top-level option
+    for the common case of events without a parent. Archived events are left out
+    on both sides so the choices match the "Archived? = No" default.
+    """
+
+    title = "Parent event"
+    parameter_name = "parent"
+
+    def lookups(self, request, model_admin):
+        parents = Event.all_objects.filter(is_removed=False, children__is_removed=False).order_by("name").distinct()
+        return [
+            (TOP_LEVEL_VALUE, "Top-level events (no parent)"),
+            *[(str(parent.pk), parent.name) for parent in parents],
+        ]
+
+    def queryset(self, request, queryset):
+        value = self.value()
+        if value == TOP_LEVEL_VALUE:
+            return queryset.filter(parent__isnull=True)
+        if value:
+            return queryset.filter(parent_id=value)
+        return queryset
 
 
 class ChildEventInline(UnfoldTabularInline):
@@ -75,7 +105,10 @@ class EventAdmin(UnfoldModelAdmin, ImportExportModelAdmin):
         "location",
         "slug",
     )
-    list_filter = (IsArchivedListFilter,)
+    list_filter = (IsArchivedListFilter, ParentEventFilter)
+    # Unfold only wraps the filter panel in a GET form when this is set, and the
+    # dropdown filters (e.g. Parent event) need it to submit.
+    list_filter_submit = True
     list_display = (
         "name",
         "location",
